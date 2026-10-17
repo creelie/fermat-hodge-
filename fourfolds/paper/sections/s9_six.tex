@@ -4,7 +4,12 @@ In this section $6\mid M$, $110\nmid M$, and $A$ is a sextuple at level $M$
 that contains no pair, is not split and generates $\ZZ/M$. In
 \Cref{sec:odd,sec:even,sec:four} the elements of largest order carry the
 argument. Here an order has a $2$-part and a $3$-part, both of which can be
-large, and we separate them from the rest of the order.
+large, and we separate them from the rest of the order. This reduces the
+Hodge conjecture for $X^{4}_{M}$ to a statement about configurations of at
+most six residues, \Cref{hyp:local} (\Cref{thm:six}). We prove the part of
+that statement that concerns large $2$- and $3$-parts
+(\Cref{cor:seventytwo}); the rest is open, and \Cref{thm:main} does not
+cover these degrees.
 
 \subsection{Cores}
 The \emph{core} $f(y)$ of a nonzero $y\in\ZZ/M$ is the largest divisor of
@@ -86,7 +91,7 @@ and of the final multiset differ exactly as those of $B$ and $B^{\flat}$, and
 the chain is lowering, or direct if further pairs cancel.
 \end{proof}
 
-\begin{theorem}[Local step]\label{thm:local}
+\begin{hypothesis}[Local step]\label{hyp:local}
 Let $e'>1$ be prime to $6$, $D=2^{v}3^{w}$, and let $B$ be a local
 configuration at level $De'$ that has no local chain. Let $D_{B}$ be the
 $2,3$-part of the least common multiple of the orders of the elements of $B$.
@@ -102,7 +107,7 @@ balanced multiset of four elements. When $B_{0}$ has two elements, the added
 elements are $\tau$ and $N/2$, and their orders are smaller than the largest
 order of an element of $B_{0}$.
 \end{enumerate}
-\end{theorem}
+\end{hypothesis}
 
 \begin{table}[ht]
 \centering
@@ -123,9 +128,12 @@ $55$ & $5,6$ & $2$\\
 \end{tabular}
 \end{table}
 
-The proof of \Cref{thm:local} occupies
-\Cref{ssec:twothree,ssec:primecore,ssec:compositecore}. First we derive
-\Cref{thm:six} from it.
+We first derive the Hodge conjecture for the degrees divisible by $6$ from
+\Cref{hyp:local}, and then, in \Cref{ssec:twothree}, prove the part of it
+that bounds the $2$- and $3$-parts of the orders: in a local configuration
+without a local chain every order divides $72e'$. What remains of
+\Cref{hyp:local} are the configurations at the levels $De'$ with $D\mid72$,
+for every $e'$ prime to $6$.
 
 \subsection{The low part}
 
@@ -151,14 +159,15 @@ $n\mid\lcm(N,2)$, and so does $M$.
 \subsection{One maximal core}
 
 \begin{proposition}\label{prop:onecore}
-Suppose that $A$ has no chain of moves that succeeds and that $E=\{e'\}$.
-Then $M$ is one of the levels of \Cref{cor:degrees}.
+Suppose that \Cref{hyp:local} holds, that $A$ has no chain of moves that
+succeeds and that $E=\{e'\}$. Then $M$ is one of the levels of
+\Cref{cor:degrees}.
 \end{proposition}
 
 \begin{proof}
 Every core divides $e'$, so $M=2^{a}3^{b}e'$. If $e'\in\{1,5,7,11,13\}$,
 \Cref{cor:degrees}(i),(ii) applies. Otherwise, by \Cref{lem:local} and
-\Cref{thm:local}, $e'$ is $17$, $19$, $35$ or $55$ and $A_{e'}$ is listed in
+\Cref{hyp:local}, $e'$ is $17$, $19$, $35$ or $55$ and $A_{e'}$ is listed in
 \Cref{tab:residuals}. For $e'=17,19$ it has six elements and $D_{e'}=6$, so
 $A=A_{e'}$ lies in the subgroup of order $6e'$ and $M=6e'$, which is in
 \Cref{cor:degrees}(iii). For $e'=55$, $D_{e'}=2$ and $110\mid M$, which is
@@ -233,7 +242,8 @@ $5$ & $30$ & $\{1,7,27\}$ & $25$ & $11$ & $66$ & $\{1,25,62\}$ & $44$\\
 \end{table}
 
 \begin{proposition}\label{prop:twocores}
-If $A$ has no chain of moves that succeeds, then $E$ has one element.
+Suppose that \Cref{hyp:local} holds. If $A$ has no chain of moves that
+succeeds, then $E$ has one element.
 \end{proposition}
 
 \begin{proof}
@@ -241,9 +251,9 @@ If $1\in E$, every core is $1$ and $E=\{1\}$. Suppose that $E$ has two
 elements $e_{1}\ne e_{2}$, both larger than $1$. By \Cref{lem:local}, applied
 with $D=D_{e_{i}}$, $A_{e_{i}}=\iota_{g_{i}}B_{i}$ for a local configuration
 $B_{i}$ without a local chain at level $N_{i}=D_{e_{i}}e_{i}$, and by
-\Cref{thm:local}(a) each $B_{i}$ has at least two elements. The parts $A_{e_{1}}$
+\Cref{hyp:local}(a) each $B_{i}$ has at least two elements. The parts $A_{e_{1}}$
 and $A_{e_{2}}$ are disjoint, so one of them, say $A_{e_{1}}$, has at most
-three elements. By \Cref{thm:local}, $e_{1}\in\{5,7,11,13\}$ and $B_{1}=uB$ for a
+three elements. By \Cref{hyp:local}, $e_{1}\in\{5,7,11,13\}$ and $B_{1}=uB$ for a
 unit $u$ and a row $B$ of \Cref{tab:small} at level $N=N_{1}$; let $T$ be the
 added elements of that row and $g=g_{1}$.
 
@@ -254,17 +264,18 @@ level $M$ by \Cref{lem:algtools}(c),(d), algebraic by
 gives $A''=(A-S)+(-\iota_{g}uT)$. If $|S|=3$, then $|A''|=4$ and the move is
 direct. If $|S|=2$, then $e_{1}=5$ and $T=\{\tau,N/2\}$, so
 $-\iota_{g}uT=\{-gu\tau,M/2\}$. The orders of these two elements are those of
-$\tau$ and $N/2$, and by \Cref{thm:local}(b) they are smaller than the largest
+$\tau$ and $N/2$, and by \Cref{hyp:local}(b) they are smaller than the largest
 order $n$ of an element of $S$. So $A''$ has the same elements as $A$ of
 order larger than $n$ and fewer of order $n$, and the move is lowering, or
 direct if $A''$ contains a pair. In both cases $A$ has a chain of
 one move that succeeds, a contradiction.
 \end{proof}
 
-\subsection{Proof for degrees divisible by six}
+\subsection{The reduction}
 
 \begin{theorem}\label{thm:six}
-The Hodge conjecture holds for $X^{4}_{M}$ when $6\mid M$ and $110\nmid M$.
+If \Cref{hyp:local} holds, then the Hodge conjecture holds for $X^{4}_{M}$
+whenever $6\mid M$ and $110\nmid M$.
 \end{theorem}
 
 \begin{proof}
@@ -279,10 +290,3 @@ algebraic. \Cref{prop:induction} gives the claim.
 
 \input{sections/s9a_twothree}
 
-\subsection{Prime cores}\label{ssec:primecore}
-
-[To be written.]
-
-\subsection{Composite cores}\label{ssec:compositecore}
-
-[To be written.]

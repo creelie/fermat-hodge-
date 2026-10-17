@@ -1,5 +1,5 @@
-# Classify the degrees M <= LIMIT for fig_degrees: earlier results, new (3 does not
-# divide M, or 6 divides M), or 110 | M.  Writes degrees_data.tex.
+# Classify the degrees M <= LIMIT for fig_degrees: earlier results, new (6 does not
+# divide M), open (6 divides M), or 110 | M.  Writes degrees_data.tex.
 import sys
 LIMIT=int(sys.argv[1]) if len(sys.argv)>1 else 480
 def fac(n):
@@ -23,7 +23,7 @@ cls={}
 for M in range(1,LIMIT+1):
     if M%110==0: cls[M]='x'
     elif known(M): cls[M]='k'
-    elif M%3: cls[M]='a'
+    elif M%6: cls[M]='a'
     else: cls[M]='b'
 from collections import Counter
 print(Counter(cls.values()))

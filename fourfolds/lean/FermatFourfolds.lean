@@ -2,7 +2,7 @@
 FermatFourfolds.lean
 
 Kernel-checked finite arithmetic behind the paper
-"The Hodge conjecture for Fermat fourfolds of degree not divisible by 110".
+"The Hodge conjecture for Fermat fourfolds of degree not divisible by 6 or 110".
 
 Nothing here formalises algebraic geometry. A multiset of residues modulo M
 is a list of natural numbers; it is balanced when its sum is 0 modulo M, no
@@ -447,7 +447,7 @@ theorem shape_three_levels :
     [7, 119, 84, 5, 45, 125].sum = 385 ∧ [7, 119, 84, 55, 75, 115].sum = 455 := by
   decide +kernel
 
-/-! ## Section 9: the small local configurations of Table 2 and their completions -/
+/-! ## Section 10: the small local configurations of Table 2 and their completions -/
 
 /-- Each row of the table of small local configurations, together with its
 added elements, is a balanced multiset of four elements. -/
@@ -467,7 +467,7 @@ theorem small_completions_lower :
     (ord 30 20 < 30 ∧ ord 30 15 < 30 ∧ ord 30 1 = 30) ∧
     (ord 60 40 < 60 ∧ ord 60 30 < 60 ∧ ord 60 1 = 60) := by decide
 
-/-! ## Section 10: the level 110 -/
+/-! ## Section 9: the level 110 -/
 
 def A110 : List Nat := [19, 29, 39, 55, 79, 109]
 

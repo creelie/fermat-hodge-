@@ -359,7 +359,7 @@ int main(void)
 		      7 + 119 + 84 + 55 + 75 + 115 == 455);
 	}
 
-	/* Section 9 */
+	/* Section 10 (small local configurations) */
 	{
 		static const int rows[13][5] = {
 			{30, 1, 19, 25, 15}, {30, 1, 24, 20, 15}, {60, 1, 49, 40, 30}, {15, 1, 6, 13, 10},
@@ -369,7 +369,7 @@ int main(void)
 		for (int i = 0; i < 13; i++) check("small completion", balanced(rows[i][0], rows[i] + 1, 4));
 	}
 
-	/* Section 10 */
+	/* Section 9 (level 110) */
 	{
 		int A[] = {19, 29, 39, 55, 79, 109}, c5 = 0, c11 = 0;
 		for (int i = 0; i < 6; i++) { c5 += ord(110, A[i]) == 5; c11 += ord(110, A[i]) == 11; }

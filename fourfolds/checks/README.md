@@ -32,6 +32,6 @@ What is checked, by section of the paper:
   every unit, the printed tables, the joined multiset, no pair, the parity),
   and the eight block patterns (P1), (P2), (P3) with their weights.
 - Section 8: the small levels 20, 28, 44, 140 of Shape III.
-- Section 9: the rows of the table of small local configurations.
-- Section 10: the sextuple A110, its parity, and the vanishing of that
+- Section 9: the sextuple A110, its parity, and the vanishing of that
   parity on S_110.
+- Section 10: the rows of the table of small local configurations.
