@@ -1,0 +1,291 @@
+\section{Degrees divisible by six}\label{sec:six}
+
+In this section $6\mid M$, $110\nmid M$, and $A$ is a sextuple at level $M$
+that contains no pair, is not split and generates $\ZZ/M$. In
+\Cref{sec:odd,sec:even,sec:four} the elements of largest order carry the
+argument. Here an order has a $2$-part and a $3$-part, both of which can be
+large, and we separate them from the rest of the order.
+
+\subsection{Cores}
+The \emph{core} $f(y)$ of a nonzero $y\in\ZZ/M$ is the largest divisor of
+its order that is prime to $6$. Let $E$ be the set of the cores of the
+elements of $A$ that are maximal for divisibility among these cores. For
+$e'\in E$ the elements of $A$ of core $e'$ form the \emph{$e'$-part} $A_{e'}$,
+and the elements whose core lies outside $E$ form the \emph{low part}. Let
+$D_{e'}$ be the $2,3$-part of the least common multiple of the orders of the
+elements of $A_{e'}$, so that $A_{e'}$ lies in the subgroup of order
+$D_{e'}e'$.
+
+\begin{lemma}\label{lem:corerel}
+Let $e'\in E$ and let $\chi$ be an odd primitive character of conductor
+$c\mid M$ whose largest divisor prime to $6$ is $e'$. The elements of $A$
+that enter \eqref{eq:charrel} at $\chi$ lie in $A_{e'}$.
+\end{lemma}
+
+\begin{proof}
+An element $a$ enters only if $c\mid f_{a}$; then $e'\mid f(a)$, and
+$f(a)=e'$ by maximality.
+\end{proof}
+
+The relations at these conductors thus concern $A_{e'}$ alone, and so do the
+moves that act on $A_{e'}$. We formalise this.
+
+\begin{definition}\label{def:localconf}
+Let $e'>1$ be prime to $6$, $D=2^{v}3^{w}$ and $N=De'$. A \emph{local
+configuration} at level $N$ is a multiset $B$ of at most six elements of
+$\ZZ/N$ of core $e'$ such that
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item \eqref{eq:charrel} holds for $B$ at every odd primitive character
+whose conductor divides $N$ and has largest divisor prime to $6$ equal to
+$e'$;
+\item $B$ contains no pair, and, if $N$ is even, no two elements $x$ and
+$x+N/2$;
+\item for $\ell=3$ and for every prime $\ell\mid e'$, $B$ does not contain
+$(\ell+1)/2$ distinct elements of one order $n\ne\ell$, with $\ell\mid n$,
+that lie in one coset $\Phi_{\ell}(x)$.
+\end{enumerate}
+A \emph{local chain} for $B$ is a chain of moves $(\sigma,S)$ at level $N$,
+each with $\sigma=T(x)$ or $\sigma=\sigma_{\ell,x}$, $\ell\in\{3\}\cup
+\{\ell\mid e'\}$, and $S$ the largest multiset contained both in $\sigma$ and in
+the current multiset, with every pair removed after each move, that ends in a multiset
+$B^{\flat}$ such that either $|B^{\flat}|\le|B|-2$, or $|B^{\flat}|=|B|$ and,
+at the largest integer at which $B$ and $B^{\flat}$ have different numbers of
+elements of that order, $B$ has more.
+\end{definition}
+
+Every move changes the number of elements by an even number, so $|B^{\flat}|$
+and $|B|$ have the same parity. For $g\mid M$ the map $\iota_{g}\colon
+\ZZ/(M/g)\to\ZZ/M$, $y\mapsto gy$, preserves orders and cores, and
+$\iota_{g}\Phi_{\ell}(x)=\Phi_{\ell}(\iota_{g}x)$, $\iota_{g}\sigma_{\ell,x}=
+\sigma_{\ell,\iota_{g}x}$ and $\iota_{g}T(x)=T(\iota_{g}x)$.
+
+\begin{lemma}\label{lem:local}
+Suppose that $A$ has no chain of moves that succeeds, let $e'\in E$ with
+$e'>1$, and let $D$ be a multiple of $D_{e'}$ with $De'\mid M$. Then
+$A_{e'}=\iota_{g}B$, $g=M/(De')$, for a local configuration $B$ at level
+$De'$ that has no local chain.
+\end{lemma}
+
+\begin{proof}
+As $A_{e'}$ lies in the subgroup of order $De'$, $A_{e'}=\iota_{g}B$ for a
+multiset $B$ of elements of core $e'$. The terms of \eqref{eq:charrel}
+depend only on the order $f_{a}$ and on $z_{a}$, which $\iota_{g}$
+preserves, so (i) follows from \Cref{lem:corerel}. $A$ contains no pair. If
+$B$ contained $x$ and $x+N/2$, the move $(T(\iota_{g}x),\{\iota_{g}x,
+\iota_{g}x+M/2\})$ would replace them by $2\iota_{g}x$ and $M/2$; if $n$ is
+the order of $x$, the orders removed and added are $\{n,n\}$ and $\{n/2,2\}$
+when $4\mid n$, $\{n,n/2\}$ and $\{n/2,2\}$ when $2\parallel n$, and
+$\{n,2n\}$ and $\{n,2\}$ when $n$ is odd, so this chain of one move is
+lowering, or direct if a pair cancels. If (iii) failed, \Cref{lem:movecrit}
+would give a move for $A$, a chain of one move that succeeds. So $B$ is a
+local configuration. A local chain for $B$, carried by $\iota_{g}$ to level
+$M$, is a chain of moves for $A$ that leaves the other elements of $A$
+untouched, apart from pairs that cancel against them. If it ends in at most
+$|B|-2$ elements, the chain for $A$ is direct. Otherwise the orders of $A$
+and of the final multiset differ exactly as those of $B$ and $B^{\flat}$, and
+the chain is lowering, or direct if further pairs cancel.
+\end{proof}
+
+\begin{theorem}[Local step]\label{thm:local}
+Let $e'>1$ be prime to $6$, $D=2^{v}3^{w}$, and let $B$ be a local
+configuration at level $De'$ that has no local chain. Let $D_{B}$ be the
+$2,3$-part of the least common multiple of the orders of the elements of $B$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item The core $e'$, the number of elements of $B$ and $D_{B}$ are as in
+\Cref{tab:residuals}. At $e'=35$ the configurations with four elements are,
+up to units, the image of $\{1,24,61,62\}\subseteq\ZZ/70$, and those with
+five elements have $D_{B}=2$.
+\item If $B$ has at most three elements, then $B$ is a unit multiple of
+$\iota_{h}B_{0}$, $h=De'/N$, for a row $B_{0}$ of \Cref{tab:small} at level
+$N=D_{B}e'$, and $B_{0}$ together with the added elements of its row is a
+balanced multiset of four elements. When $B_{0}$ has two elements, the added
+elements are $\tau$ and $N/2$, and their orders are smaller than the largest
+order of an element of $B_{0}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{table}[ht]
+\centering
+\caption{Local configurations without a local chain}\label{tab:residuals}
+\begin{tabular}{@{}lll@{}}
+\hline
+$e'$ & number of elements & $D_{B}$\\
+\hline
+$5$ & $2,3,4,5,6$ & $3,4,6,8,12,18,24$\\
+$7$ & $3,4,5,6$ & $3,4,6,8,12,24$\\
+$11$ & $3,4,5,6$ & $4,6$\\
+$13$ & $3,4,6$ & $6$\\
+$17$, $19$ & $6$ & $6$\\
+$35$ & $4,5$ & $2$\\
+$35$ & $6$ & $1,2,3,6$\\
+$55$ & $5,6$ & $2$\\
+\hline
+\end{tabular}
+\end{table}
+
+The proof of \Cref{thm:local} occupies
+\Cref{ssec:twothree,ssec:primecore,ssec:compositecore}. First we derive
+\Cref{thm:six} from it.
+
+\subsection{The low part}
+
+\begin{lemma}\label{lem:lowinvariance}
+Let $A'\subseteq A$, let $N$ be the least common multiple of the orders of
+the elements of $A-A'$, and let $W$ be the group of units $w$ with $w\equiv1
+\pmod N$. Then $s(t)=\sum_{a\in A'}\langle ta\rangle$ satisfies $s(tw)=s(t)$
+for every unit $t$ and every $w\in W$. If $A'=\{a\}$, then $M\mid\lcm(N,2)$.
+\end{lemma}
+
+\begin{proof}
+Every $w\in W$ fixes the elements of $A-A'$, and $h_{A}(tw)=h_{A}(t)=3$;
+this is the first assertion. Let $A'=\{a\}$, $n=\ord(a)$ and
+$g=\gcd(n,N)$. As $A$ generates $\ZZ/M$, $M=\lcm(N,n)$, and by the Chinese
+remainder theorem the residues modulo $n$ of the elements of $W$ are all the
+units $u$ with $u\equiv1\pmod g$. If such a $u$ moves $a$, then
+$\langle wa\rangle\ne\langle a\rangle$ for a lift $w\in W$, against $s(w)=
+s(1)$. So the kernel of $(\ZZ/n)^{\times}\to(\ZZ/g)^{\times}$ is trivial,
+which happens only for $n=g$ and for $n=2g$ with $g$ odd. In both cases
+$n\mid\lcm(N,2)$, and so does $M$.
+\end{proof}
+
+\subsection{One maximal core}
+
+\begin{proposition}\label{prop:onecore}
+Suppose that $A$ has no chain of moves that succeeds and that $E=\{e'\}$.
+Then $M$ is one of the levels of \Cref{cor:degrees}.
+\end{proposition}
+
+\begin{proof}
+Every core divides $e'$, so $M=2^{a}3^{b}e'$. If $e'\in\{1,5,7,11,13\}$,
+\Cref{cor:degrees}(i),(ii) applies. Otherwise, by \Cref{lem:local} and
+\Cref{thm:local}, $e'$ is $17$, $19$, $35$ or $55$ and $A_{e'}$ is listed in
+\Cref{tab:residuals}. For $e'=17,19$ it has six elements and $D_{e'}=6$, so
+$A=A_{e'}$ lies in the subgroup of order $6e'$ and $M=6e'$, which is in
+\Cref{cor:degrees}(iii). For $e'=55$, $D_{e'}=2$ and $110\mid M$, which is
+excluded. Let $e'=35$. If $420\nmid M$, \Cref{cor:degrees}(i) applies; we
+show that $420\mid M$ is impossible. If $|A_{35}|=6$, then $A$ lies in the
+subgroup of order $35D_{35}$ with $D_{35}\mid6$, so $M\mid210$. If
+$|A_{35}|=5$, then $D_{35}=2$ and \Cref{lem:lowinvariance} with $A'$ the
+low element gives $M\mid70$.
+
+Let $|A_{35}|=4$. Then $A_{35}=u\,\iota_{g}\{1,24,61,62\}$ for a unit $u$,
+$g=M/70$, and the low part is $\{a_{1},a_{2}\}$, of cores in $\{1,5,7\}$.
+Write $M=35C$ with $C$ the $2,3$-part of $M$, so $12\mid C$, and
+\[
+  a_{i}/M\equiv\alpha_{i}/C+\gamma_{i}\pmod 1,\qquad \alpha_{i}\in\ZZ/C,\
+  \gamma_{i}\in\tfrac{1}{35}\ZZ/\ZZ,
+\]
+where the denominator $f_{i}$ of $\gamma_{i}$ is the core of $a_{i}$.
+\Cref{lem:lowinvariance} with $A'=\{a_{1},a_{2}\}$ and $N=70$ applies; the
+group $W$ fixes the $\gamma_{i}$ and acts on the $\alpha_{i}$ through all of
+$(\ZZ/C)^{\times}$, as every unit modulo $C$ is odd.
+
+If both $\alpha_{i}$ had order at most $2$, the orders of all elements of $A$
+would have $2,3$-part at most $2$, against $12\mid C$. If exactly one, say
+$\alpha_{1}$, had order larger than $2$, a $w\in W$ acting on $\alpha_{1}$ by
+$-1$ would change $\langle a_{1}\rangle$ and fix $a_{2}$, against
+$s(w)=s(1)$. So both orders exceed $2$. Modulo $1$,
+$s(tw)-s(t)\equiv t(w-1)(\alpha_{1}+\alpha_{2})/C$, and $w\equiv-1$ modulo $C$
+gives $2(\alpha_{1}+\alpha_{2})=0$, so $\alpha_{2}=-\alpha_{1}+\delta C$ with
+$\delta\in\{0,1/2\}$.
+
+The $3$-part of $C$ is the $3$-part of the order of $a_{1}$ or of $a_{2}$, as
+the elements of $A_{35}$ have orders dividing $70$, and adding $\delta C$ does
+not change the $3$-part of an order; so both orders are divisible by $3$.
+At the odd character $\chi$ of conductor $3$ only $a_{1}$ and $a_{2}$ enter
+\eqref{eq:charrel}, and the factor $\prod_{\ell}(1-\chi(\ell))$ of $a_{i}$
+contains $1-\chi(5)=2$ if $f_{i}=5$ and $1-\chi(7)=0$ if $f_{i}=7$, the other
+factors being nonzero. So $\{f_{1},f_{2}\}\ne\{5,7\}$, and the least common
+multiple of $f_{1}$ and $f_{2}$ is $1$, $5$ or $7$.
+
+Since $t$ is odd, $s(t)\equiv t(\alpha_{1}+\alpha_{2})/C+t(\gamma_{1}+
+\gamma_{2})\equiv\delta+t(\gamma_{1}+\gamma_{2})\pmod1$, a fraction whose
+denominator divides $10$ or $14$. At $t=u^{-1}$, however, the elements of
+$tA_{35}$ contribute $(1+24+61+62)/70=148/70$ to $h_{A}(t)=3$, so
+$s(t)=3-148/70=31/35$, whose denominator is $35$. This contradiction
+excludes $|A_{35}|=4$.
+\end{proof}
+
+\subsection{Two maximal cores}
+A balanced multiset of four elements is algebraic, so it can serve as
+$\sigma$ in a move. If $B\subseteq A$ and a multiset $T$ with $|B|+|T|=4$
+makes $B+T$ balanced, the move $(B+T,B)$ replaces $B$ by $-T$. This is how
+the small configurations are removed.
+
+\begin{table}[ht]
+\centering
+\caption{The local configurations of at most three elements, up to units,
+and the elements that complete them to balanced multisets of four
+elements}\label{tab:small}
+\begin{tabular}{@{}llll@{\qquad}llll@{}}
+\hline
+$e'$ & $N$ & $B$ & added & $e'$ & $N$ & $B$ & added\\
+\hline
+$5$ & $30$ & $\{1,19\}$ & $25,15$ & $5$ & $60$ & $\{2,21,57\}$ & $40$\\
+$5$ & $30$ & $\{1,24\}$ & $20,15$ & $7$ & $28$ & $\{1,9,25\}$ & $21$\\
+$5$ & $60$ & $\{1,49\}$ & $40,30$ & $7$ & $42$ & $\{1,24,38\}$ & $21$\\
+$5$ & $15$ & $\{1,6,13\}$ & $10$ & $7$ & $42$ & $\{1,25,37\}$ & $21$\\
+$5$ & $20$ & $\{1,12,17\}$ & $10$ & $7$ & $42$ & $\{1,30,32\}$ & $21$\\
+$5$ & $30$ & $\{1,7,27\}$ & $25$ & $11$ & $66$ & $\{1,25,62\}$ & $44$\\
+& & & & $13$ & $78$ & $\{1,55,61\}$ & $39$\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{proposition}\label{prop:twocores}
+If $A$ has no chain of moves that succeeds, then $E$ has one element.
+\end{proposition}
+
+\begin{proof}
+If $1\in E$, every core is $1$ and $E=\{1\}$. Suppose that $E$ has two
+elements $e_{1}\ne e_{2}$, both larger than $1$. By \Cref{lem:local}, applied
+with $D=D_{e_{i}}$, $A_{e_{i}}=\iota_{g_{i}}B_{i}$ for a local configuration
+$B_{i}$ without a local chain at level $N_{i}=D_{e_{i}}e_{i}$, and by
+\Cref{thm:local}(a) each $B_{i}$ has at least two elements. The parts $A_{e_{1}}$
+and $A_{e_{2}}$ are disjoint, so one of them, say $A_{e_{1}}$, has at most
+three elements. By \Cref{thm:local}, $e_{1}\in\{5,7,11,13\}$ and $B_{1}=uB$ for a
+unit $u$ and a row $B$ of \Cref{tab:small} at level $N=N_{1}$; let $T$ be the
+added elements of that row and $g=g_{1}$.
+
+The multiset $B+T$ is balanced, and so is $u(B+T)$. Its image
+$\sigma=\iota_{g}u(B+T)$ is a balanced multiset of four nonzero elements at
+level $M$ by \Cref{lem:algtools}(c),(d), algebraic by
+\Cref{lem:algtools}(a), and it contains $S=A_{e_{1}}$. The move $(\sigma,S)$
+gives $A''=(A-S)+(-\iota_{g}uT)$. If $|S|=3$, then $|A''|=4$ and the move is
+direct. If $|S|=2$, then $e_{1}=5$ and $T=\{\tau,N/2\}$, so
+$-\iota_{g}uT=\{-gu\tau,M/2\}$. The orders of these two elements are those of
+$\tau$ and $N/2$, and by \Cref{thm:local}(b) they are smaller than the largest
+order $n$ of an element of $S$. So $A''$ has the same elements as $A$ of
+order larger than $n$ and fewer of order $n$, and the move is lowering, or
+direct if $A''$ contains a pair. In both cases $A$ has a chain of
+one move that succeeds, a contradiction.
+\end{proof}
+
+\subsection{Proof for degrees divisible by six}
+
+\begin{theorem}\label{thm:six}
+The Hodge conjecture holds for $X^{4}_{M}$ when $6\mid M$ and $110\nmid M$.
+\end{theorem}
+
+\begin{proof}
+By induction on $M$. The proper divisors of $M$ are not divisible by $110$,
+and the Hodge conjecture holds for them by \Cref{thm:primetothree},
+\Cref{cor:odd} and induction. Let $A$ be a sextuple at level $M$ that contains
+no pair, is not split and generates $\ZZ/M$, and suppose that it has no chain
+of moves that succeeds. Then $E$ has one element by \Cref{prop:twocores},
+and $M$ is a level of \Cref{cor:degrees} by \Cref{prop:onecore}, so $A$ is
+algebraic. \Cref{prop:induction} gives the claim.
+\end{proof}
+
+\subsection{The \texorpdfstring{$2$}{2}- and \texorpdfstring{$3$}{3}-parts of
+a local configuration}\label{ssec:twothree}
+
+[To be written.]
+
+\subsection{Prime cores}\label{ssec:primecore}
+
+[To be written.]
+
+\subsection{Composite cores}\label{ssec:compositecore}
+
+[To be written.]
