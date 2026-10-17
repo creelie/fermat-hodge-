@@ -8,24 +8,24 @@ Let $A$ be a very general member of the polarised family $\cD_{n,n}$ of abelian 
 \[
 \gamma=N\omega+\sum_{k=0}^{2n}c_{k}\theta^{k},\qquad N\ne0,\ 0\ne\omega\in W(A),\ c_{k}\in\QQ .
 \]
-Its Hankel rank $\rho\in\{0,1,2,3\}$ is the rank of the Hankel matrix of the sequence $(k!\,c_{k})_{k}$ capped at three; it is the number of distinct exponentials $e^{a\theta}$ needed to write the polynomial part when that number is at most two, and $3$ otherwise.
+Its Hankel rank $\rho\in\{0,1,2,3\}$ is the rank of the Hankel matrix of the sequence $(k!\,c_{k})_{k}$ capped at three; it is the number of distinct exponentials $e^{a\theta}$ needed to write the polynomial part when that number is at most two, and $3$ otherwise.\footnote{The Hankel matrix of a sequence $(a_{k})_{k\ge0}$ has entries $a_{i+j}$. If $a_{k}$ is a sum $\sum_{j}\lambda_{j}b_{j}^{k}$ of $m$ terms with distinct $b_{j}$ and nonzero $\lambda_{j}$, the matrix factors as $V^{\mathsf{T}}\operatorname{diag}(\lambda_{j})V$ with $V$ the Vandermonde matrix of the $b_{j}$, so its rank is $m$; conversely a sequence whose Hankel matrix has finite rank $m$ satisfies a linear recurrence of order $m$ and is a sum of $m$ exponentials with polynomial coefficients. For the polynomial part $\sum_{k}c_{k}\theta^{k}$ of a Chern character, writing it as $\sum_{j}\lambda_{j}e^{b_{j}\theta}$ means $k!\,c_{k}=\sum_{j}\lambda_{j}b_{j}^{k}$, so the number of exponentials needed is the Hankel rank of $(k!\,c_{k})$, provided the degree $2n$ allows the recurrence to be read off, which it does for $m\le2$; the cap at three records that the criterion of Theorem~\ref{thm:criterion} does not distinguish further.}
 
 \begin{theorem}[The polarised criterion \protect{\cite{BMB26}}]\label{thm:criterion}
 Let $\mathcal{E}$ be a perfect complex on $A$ with $\ch(\mathcal{E})=\gamma$ of polarised shape and Hankel rank $\rho$. Then
 \[
 \dim\Ext^{2}(\mathcal{E},\mathcal{E})\ \ge\ r(\gamma):=(4+\rho)\,n^{2}-2n,
 \]
-and if equality holds the semiregularity map of $\mathcal{E}$ is injective, $\mathcal{E}$ deforms with $A$ along the whole of $\cD_{n,n}$, and the Weil classes are algebraic on every member of the family with full Hodge group. If some $c_{k}\ne0$ with $1\le k\le 2n-1$, the first-order Hodge locus of $\gamma$ in $H^{1}(A,T_{A})$ is the tangent space of $\cD_{n,n}$, of dimension $n^{2}$. A perfect complex whose Chern character is exactly a multiple of a Weil class does not exist on a very general member, so the polynomial part is forced.
+and if equality holds the semiregularity map\footnote{For a perfect complex $\mathcal{E}$ on a smooth projective variety the semiregularity map of Buchweitz and Flenner \cite{BF03} is the linear map $\sigma_{\mathcal{E}}\colon\Ext^{2}(\mathcal{E},\mathcal{E})\to\prod_{q}H^{q+1}(X,\Omega^{q-1}_{X})$ sending $\xi$ to the trace of $\xi\circ\exp\bigl(-\mathrm{At}(\mathcal{E})\bigr)$, where $\mathrm{At}(\mathcal{E})\in\Ext^{1}(\mathcal{E},\mathcal{E}\otimes\Omega^{1}_{X})$ is the Atiyah class; it generalises Bloch's map for a subvariety \cite{Blo72}, which is the case of the structure sheaf of the subvariety. Its value is that the obstruction to deforming $\mathcal{E}$ along a first-order deformation of $X$ lies in $\Ext^{2}(\mathcal{E},\mathcal{E})$ and is sent by $\sigma_{\mathcal{E}}$ to the obstruction to keeping $\ch(\mathcal{E})$ of Hodge type; so when $\sigma_{\mathcal{E}}$ is injective, $\mathcal{E}$ deforms wherever its Chern character stays a Hodge class, and the Chern character of the deformed complex is algebraic there. The dimension count of the theorem is the arithmetic of this statement: the rank of $\sigma_{\mathcal{E}}$ is at least the rank of the contraction into $\ch(\mathcal{E})$, so $\dim\Ext^{2}$ is at least $r(\gamma)$, and equality forces injectivity.} of $\mathcal{E}$ is injective, $\mathcal{E}$ deforms with $A$ along the whole of $\cD_{n,n}$, and the Weil classes are algebraic on every member of the family with full Hodge group. If some $c_{k}\ne0$ with $1\le k\le 2n-1$, the first-order Hodge locus of $\gamma$ in $H^{1}(A,T_{A})$ is the tangent space of $\cD_{n,n}$, of dimension $n^{2}$. A perfect complex whose Chern character is exactly a multiple of a Weil class does not exist on a very general member, so the polynomial part is forced.
 \end{theorem}
 
 The number $r(\gamma)$ is the rank of the contraction $HT^{2}(A)\to H^{*}(A)$, $\xi\mapsto\xi\lrcorner\gamma$, on the Hochschild cohomology $HT^{2}=\bigoplus_{p+q=2}H^{q}(A,\bigwedge^{p}T_{A})$, of dimension $\binom{4n}{2}$; its kernel is the annihilator $\mathrm{Ann}(\gamma)$, which meets $H^{1}(A,T_{A})$ in the first-order Hodge locus. The semiregularity map $\sigma_{\mathcal{E}}$ of a perfect complex composes with the characteristic map $\mathrm{ev}_{\mathcal{E}}:HT^{2}\to\Ext^{2}(\mathcal{E},\mathcal{E})$, $\xi\mapsto\xi\lrcorner\mathrm{At}(\mathcal{E})$, to the contraction into $\ch(\mathcal{E})$; this is how the lower bound arises, and it is the form in which the criterion is used below. Figure~\ref{fig:hankel} shows $r(\gamma)$; the two values that matter below are $r=57$ at $n=3$, $\rho=3$ and $r=104$ at $n=4$, $\rho=3$. On the product $E_{0}^{6}$ of six copies of the elliptic curve $\CC/\ZZ[i]$ every twisted complex of line bundles has $\dim\Ext^{2}\ge69>57$ \cite[Thm.~18.35]{BMB26}; the criterion is not met there by any such object.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.95\columnwidth]{figures/fig_hankel}
+\includegraphics[width=0.92\textwidth]{figures/fig_hankel}
 \caption{The lower bound $r(\gamma)=(4+\rho)n^{2}-2n$ of Theorem~\ref{thm:criterion} for $2\le n\le6$ and Hankel rank $\rho=1,2,3$. The two labelled bars are the product cases of Theorem~\ref{thm:product}.}
 \label{fig:hankel}
-\end{figure}
+\end{figure*}
 
 \subsection{The Weil plane of a product}
 
@@ -57,19 +57,21 @@ The hypotheses hold in the two open cases nearest to the known ones: $A$, $A'$ v
 Since $\Hdg^{*}(A)=\QQ[\theta_{A}]\oplus W(A)$, algebraic classes on $A$ are rational combinations of Chern characters of coherent sheaves, and the Chern character of a coherent sheaf is a Hodge class, the algebraicity of $W(A)$ gives coherent sheaves $F_{1}$, $F_{2}$ with $\ch(F_{i})=N_{i}\omega_{i}+p_{i}(\theta_{A})$, $N_{i}\ne0$, for a basis $(\omega_{1},\omega_{2})$ of $W(A)$; likewise $G'_{1}$, $G'_{2}$ on $A'$ with $\ch(G'_{j})=N'_{j}\omega'_{j}+p'_{j}(\theta_{A'})$. Fix $0\ne w\in W(A\times A')$ rational, $w=\sum a_{ij}\omega_{i}\otimes\omega'_{j}$ by Lemma~\ref{lem:weilproduct}, and a common denominator $M$ of the numbers $Ma_{ij}/(N_{i}N'_{j})$, so that these are integers. Negative multiplicities are realised by the shift $[1]$, which changes the sign of $\ch$.
 
 Step 1. $\mathcal{E}_{0}=\bigoplus_{i,j}(F_{i}\boxtimes G'_{j})^{\oplus Ma_{ij}/(N_{i}N'_{j})}$ has, by multiplicativity,
-\[
+\begin{widetext}
+\begin{equation}\label{eq:chE0}
 \ch(\mathcal{E}_{0})=Mw+\sum_{i}\omega_{i}\otimes q'_{i}(\theta_{A'})+\sum_{j}q_{j}(\theta_{A})\otimes\omega'_{j}+s,
-\]
+\end{equation}
+\end{widetext}
 with $q'_{i}$, $q_{j}$ polynomials and $s\in\QQ[\theta_{A}]\otimes\QQ[\theta_{A'}]$.
 
 Step 2. The classes $e^{k\theta_{A'}}=\ch(L'^{\,k})$, $k=0,\dots,2m'$, form a basis of $\QQ[\theta_{A'}]/(\theta_{A'}^{2m'+1})$: the matrix $(k^{j}/j!)_{j,k}$ has determinant $\prod_{j}(1/j!)$ times the Vandermonde determinant of $0,1,\dots,2m'$, which is nonzero. Write $q'_{i}=\sum_{k}b_{ik}e^{k\theta_{A'}}$ and add $(F_{i}\boxtimes L'^{\,k})^{\oplus-Mb_{ik}/N_{i}}$, after enlarging $M$ to clear denominators; this removes $\omega_{i}\otimes q'_{i}$ and adds only terms $p_{i}(\theta_{A})\otimes e^{k\theta_{A'}}$, which lie in $\QQ[\theta_{A}]\otimes\QQ[\theta_{A'}]$. Symmetrically remove $q_{j}\otimes\omega'_{j}$ with summands $L^{l}\boxtimes G'_{j}$.
 
-\begin{figure}[!htb]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.82\columnwidth]{figures/fig_product}
+\includegraphics[width=0.92\textwidth]{figures/fig_product}
 \caption{The domain $\cD_{n,n}$ near a product point $A\times A'$. The curve is the product locus, whose tangent space has dimension $m^{2}+m'^{2}$; the $2mm'$ mixed directions obstruct every exterior product $F\boxtimes G'$, and only the combined object of Theorem~\ref{thm:product} has the full tangent space as first-order Hodge locus.}
 \label{fig:product}
-\end{figure}
+\end{figure*}
 
 Step 3. The classes $e^{l\theta_{A}+k\theta_{A'}}=\ch(L^{l}\boxtimes L'^{\,k})$ form a basis of $\QQ[\theta_{A}]/(\theta_{A}^{2m+1})\otimes\QQ[\theta_{A'}]/(\theta_{A'}^{2m'+1})$ by the same determinant, so the remaining part in $\QQ[\theta_{A}]\otimes\QQ[\theta_{A'}]$ is cancelled by line bundles with integer multiplicities and shifts. Finally add $(L\boxtimes L')^{\otimes k}$, $k=0,1,2$, with generic nonzero multiplicities $\mu_{k}$. The result is
 \[
@@ -87,7 +89,7 @@ The tangent space of $\cD_{n,n}$ at a product point contains the tangent space o
 \begin{proposition}[Direct sums are never semiregular]\label{prop:directsum}
 \leavevmode
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.4em,itemsep=2pt]
-\item Let $\mathcal{E}=\bigoplus_{k}\mathcal{E}_{k}$ with at least two nonzero summands. Then the semiregularity map $\sigma_{\mathcal{E}}$ vanishes on $\bigoplus_{k\ne l}\Ext^{2}(\mathcal{E}_{k},\mathcal{E}_{l})$. So $\sigma_{\mathcal{E}}$ is injective only if $\Ext^{2}(\mathcal{E}_{k},\mathcal{E}_{l})=0$ for all $k\ne l$.
+\item Let $\mathcal{E}=\bigoplus_{k}\mathcal{E}_{k}$ be a direct sum of at least two nonzero complexes. Then the semiregularity map $\sigma_{\mathcal{E}}$ vanishes on $\bigoplus_{k\ne l}\Ext^{2}(\mathcal{E}_{k},\mathcal{E}_{l})$. So $\sigma_{\mathcal{E}}$ is injective only if $\Ext^{2}(\mathcal{E}_{k},\mathcal{E}_{l})=0$ for all $k\ne l$.
 \item For every direct-sum realisation $\mathcal{E}$ of Theorem~\ref{thm:product}, $\sigma_{\mathcal{E}}$ is not injective and $\dim\Ext^{2}(\mathcal{E},\mathcal{E})>r(\ch\mathcal{E})$.
 \end{enumerate}
 \end{proposition}
@@ -96,14 +98,16 @@ The tangent space of $\cD_{n,n}$ at a product point contains the tangent space o
 (i) The semiregularity map of Buchweitz and Flenner is built from the traces $\xi\mapsto\mathrm{tr}\bigl(\xi\circ\mathrm{At}(\mathcal{E})^{p}\bigr)$ of compositions with powers of the Atiyah class \cite[Sect.~4]{BF03}. The Atiyah class of a direct sum is block diagonal, so for $\xi$ in an off-diagonal block $\Ext^{2}(\mathcal{E}_{k},\mathcal{E}_{l})$ the composition $\xi\circ\mathrm{At}(\mathcal{E})^{p}$ is off-diagonal, and the trace of an off-diagonal block is zero.
 
 (ii) The summands of $\mathcal{E}$ include $F_{1}\boxtimes L'^{\,k}$ and $F_{1}\boxtimes L'^{\,l}$ for two exponents $k<l$, because Step 2 of the proof uses every power $L'^{\,k}$ with $0\le k\le2m'$ (the exponentials form a basis and $q'_{1}$ is a nonzero polynomial of positive degree for a sheaf of polarised shape, which has $p_{1}$ of positive degree by Theorem~\ref{thm:criterion}). By the K\"unneth formula
-\[
+\begin{widetext}
+\begin{equation}\label{eq:kunneth}
 \Ext^{2}(F_{1}\boxtimes L'^{\,k},F_{1}\boxtimes L'^{\,l})\supseteq\Ext^{2}(F_{1},F_{1})\otimes H^{0}(A',L'^{\,l-k}),
-\]
+\end{equation}
+\end{widetext}
 and $\dim\Ext^{2}(F_{1},F_{1})\ge r(\ch F_{1})\ge12$ by Theorem~\ref{thm:criterion} on the fourfold $A$ ($n=2$, $\rho\ge0$), while $H^{0}$ of an ample bundle is nonzero. So an off-diagonal block is nonzero, $\sigma_{\mathcal{E}}$ has a kernel by (i), and $\dim\Ext^{2}(\mathcal{E},\mathcal{E})>r$ because equality would force injectivity.
 \end{proof}
 
 \begin{proposition}[Convolutions]\label{prop:convolution}
-Let $\mathcal{E}_{\delta}$ be a one-sided twisted complex on pieces $P_{1},\dots,P_{N}$ with shifts $s_{a}$, ordered so that the differential $\delta=(\delta_{ab})_{a<b}$, $\delta_{ab}\in\Ext^{1+s_{a}-s_{b}}(P_{a},P_{b})$, is strictly upper triangular, and let $\gamma=\ch(\mathcal{E}_{\delta})=\sum_{a}(-1)^{s_{a}}\ch(P_{a})$.
+Let $\mathcal{E}_{\delta}$ be a one-sided twisted complex on pieces $P_{1},\dots,P_{N}$ with shifts $s_{a}$, ordered so that the differential $\delta=(\delta_{ab})_{a<b}$, $\delta_{ab}\in\Ext^{1+s_{a}-s_{b}}(P_{a},P_{b})$, is strictly upper triangular; let $\gamma=\ch(\mathcal{E}_{\delta})=\sum_{a}(-1)^{s_{a}}\ch(P_{a})$.
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.4em,itemsep=2pt]
 \item The semiregularity map $\sigma_{\mathcal{E}_{\delta}}$ vanishes on every class of $\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})$ represented by a strictly upper triangular cocycle. So the criterion holds for $\mathcal{E}_{\delta}$ only if every strictly upper triangular cocycle of degree two is a coboundary.
 \item Suppose no term of the twisted differential carries a class of degree one into a diagonal block $\Ext^{*}(P_{c},P_{c})$. Let $v\in T\cD_{n,n}$ have a nonzero mixed component. If some piece $P=X\boxtimes Y$ has $\operatorname{rk}Y\,c_{1}(X)/\theta_{A}\ne\operatorname{rk}X\,c_{1}(Y)/\theta_{A'}$, then $\mathrm{ev}_{\mathcal{E}_{\delta}}(v)\ne0$ and $\sigma_{\mathcal{E}_{\delta}}(\mathrm{ev}_{\mathcal{E}_{\delta}}(v))=0$: the criterion fails.
@@ -116,14 +120,59 @@ Let $\mathcal{E}_{\delta}$ be a one-sided twisted complex on pieces $P_{1},\dots
 
 (ii) The Atiyah class of $X\boxtimes Y$ is $\mathrm{At}(X)\otimes1+1\otimes\mathrm{At}(Y)$, so the diagonal component of $\mathrm{ev}_{\mathcal{E}_{\delta}}(v)$ at $P$ is $v\lrcorner\mathrm{At}(P)$, with trace $v\lrcorner\ch_{1}(P)$. Write $v=v_{A}+v_{A'}+z\otimes d'+z'\otimes d$ with $v_{A}\in T\cD_{m,m}$, $v_{A'}\in T\cD_{m',m'}$, $z\in H^{0,1}(A)$, $d'\in H^{0}(T_{A'})$, $z'\in H^{0,1}(A')$, $d\in H^{0}(T_{A})$. Since $v$ kills $\theta=\theta_{A}+\theta_{A'}$ and $v_{A}\lrcorner\theta_{A}=v_{A'}\lrcorner\theta_{A'}=0$, we have $v\lrcorner\theta_{A'}=-v\lrcorner\theta_{A}=-z'\wedge(d\lrcorner\theta_{A})$, nonzero when $d\ne0$ because $\theta_{A}$ is nondegenerate and $z'\wedge$ is injective on $H^{0,1}(A)$; the case $d=0$, $d'\ne0$ is symmetric. On a very general member $c_{1}(X)$ and $c_{1}(Y)$ are multiples of the polarisations, so $v\lrcorner\ch_{1}(P)=\bigl(\operatorname{rk}Y\,c_{1}(X)/\theta_{A}-\operatorname{rk}X\,c_{1}(Y)/\theta_{A'}\bigr)\,v\lrcorner\theta_{A}\ne0$ under the hypothesis on $P$. Under the assumption on the differential, the diagonal components of a class in $\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})$ are well defined, so $\mathrm{ev}_{\mathcal{E}_{\delta}}(v)\ne0$, while $\sigma_{\mathcal{E}_{\delta}}(\mathrm{ev}_{\mathcal{E}_{\delta}}(v))=v\lrcorner\gamma=0$ because $v$ is tangent to the Hodge locus of $\gamma$.
 
-(iii) With no Ext groups between the groups there are no components of $\delta$ between them, so the twisted complex is block diagonal and $\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})=\Ext^{2}(\mathcal{E}',\mathcal{E}')\oplus\Ext^{2}(\mathcal{E}'',\mathcal{E}'')$ with $\sigma_{\mathcal{E}_{\delta}}=\sigma_{\mathcal{E}'}\oplus\sigma_{\mathcal{E}''}$. For each summand the contraction into its Chern character factors through $\mathrm{ev}$ and $\sigma$, so that $\dim\Ext^{2}(\mathcal{E}',\mathcal{E}')\ge\operatorname{rank}(\xi\mapsto\xi\lrcorner\ch\mathcal{E}')$, and therefore $\dim\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})\ge\dim HT^{2}-\dim\bigl(\mathrm{Ann}(\ch\mathcal{E}')\cap\mathrm{Ann}(\ch\mathcal{E}'')\bigr)$, and $r(\gamma)=\dim HT^{2}-\dim\mathrm{Ann}(\gamma)$ with $\mathrm{Ann}(\gamma)=T\cD_{n,n}$. Equality $\dim\Ext^{2}=r(\gamma)$ forces the common annihilator to be all of $T\cD_{n,n}$.
+(iii) With no Ext groups between the groups there are no components of $\delta$ between them, so the twisted complex is block diagonal,
+\begin{widetext}
+\begin{equation}\label{eq:blockdiag}
+\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})=\Ext^{2}(\mathcal{E}',\mathcal{E}')\oplus\Ext^{2}(\mathcal{E}'',\mathcal{E}''),\qquad
+\dim\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})\ge\dim HT^{2}-\dim\bigl(\mathrm{Ann}(\ch\mathcal{E}')\cap\mathrm{Ann}(\ch\mathcal{E}'')\bigr),
+\end{equation}
+\end{widetext}
+with $\sigma_{\mathcal{E}_{\delta}}=\sigma_{\mathcal{E}'}\oplus\sigma_{\mathcal{E}''}$; the inequality holds because for each summand the contraction into its Chern character factors through $\mathrm{ev}$ and $\sigma$, so that $\dim\Ext^{2}(\mathcal{E}',\mathcal{E}')$ is at least the rank of $\xi\mapsto\xi\lrcorner\ch\mathcal{E}'$, and likewise for $\mathcal{E}''$. Here $r(\gamma)=\dim HT^{2}-\dim\mathrm{Ann}(\gamma)$ with $\mathrm{Ann}(\gamma)=T\cD_{n,n}$. Equality $\dim\Ext^{2}=r(\gamma)$ forces the common annihilator to be all of $T\cD_{n,n}$.
 \end{proof}
 
-For the pieces of Theorem~\ref{thm:product} the relevant splitting in (iii) is between the pieces $F_{i}\boxtimes Y$ carrying a secant sheaf on $A$ and the pieces $L^{l}\boxtimes Y'$, which is the case when $\Ext^{*}(F_{i},L^{l})=\Ext^{*}(L^{l},F_{i})=0$ for the powers used; then $\ch(\mathcal{E}')=MN'w+\sum_{j}q_{j}\otimes\omega'_{j}$ and $\ch(\mathcal{E}'')=\gamma-\ch(\mathcal{E}')$, and the criterion needs every mixed direction of $T\cD_{n,n}$ to annihilate $\sum_{j}q_{j}\otimes\omega'_{j}$. In the exterior-algebra model the common annihilator is the tangent space of the product locus, of dimension $m^{2}+m'^{2}$, so that $\dim\Ext^{2}\ge r+2mm'$ and the convolution fails; we have not written a hand proof of that rank, and nothing below uses it. Part (ii) applies in particular to every piece $L^{l}\boxtimes L'^{\,k}$ with $l\ne k$, which Step~3 of Theorem~\ref{thm:product} uses.
+For the pieces of Theorem~\ref{thm:product} the splitting in (iii) that one would like to use separates the pieces $F_{i}\boxtimes Y$ carrying a secant sheaf on $A$ from the pieces $L^{l}\boxtimes Y'$. Two statements settle what that splitting gives. The first computes the annihilator of the secant pieces by hand; the second shows that the splitting is never available.
+
+\begin{theorem}[The annihilator of the secant pieces]\label{thm:annihilator}
+Let $\mathcal{E}'$ be the sum, with the multiplicities and shifts of Theorem~\ref{thm:product}, of the pieces $F_{i}\boxtimes G'_{j}$ and $F_{i}\boxtimes L'^{\,k}$. Then
+\begin{equation}\label{eq:chEprime}
+\ch(\mathcal{E}')=Mw+\sum_{i}\frac{M}{N_{i}}\,p_{i}(\theta_{A})\otimes R_{i},\qquad R_{i}=\sum_{j}a_{ij}\omega'_{j},
+\end{equation}
+where $(a_{ij})$ is the matrix of $w$ in the bases $(\omega_{i})$, $(\omega'_{j})$ and is invertible, and the annihilator of $\ch(\mathcal{E}')$ in $T\cD_{n,n}$ is the tangent space $T\cD_{m,m}\oplus T\cD_{m',m'}$ of the product locus, of dimension $m^{2}+m'^{2}$. If $\Ext^{*}(F_{i},L^{l})=0$ for every power $L^{l}$ among the pieces, every convolution $\mathcal{E}_{\delta}$ of the pieces has $\dim\Ext^{2}(\mathcal{E}_{\delta},\mathcal{E}_{\delta})\ge r(\gamma)+2mm'$, which is $61$ at $n=3$ and $120$ at $n=4$.
+\end{theorem}
+
+\begin{proof}
+Steps 1 and 2 of Theorem~\ref{thm:product} add and subtract, for each $i$, the classes
+\[
+\sum_{j}\frac{Ma_{ij}}{N_{i}N'_{j}}\,\ch(F_{i})\ch(G'_{j})\quad\text{and}\quad\frac{M}{N_{i}}\,\ch(F_{i})\otimes q'_{i},
+\]
+where $q'_{i}=\sum_{j}(a_{ij}/N'_{j})p'_{j}$; the difference is $\ch(F_{i})\otimes R_{i}$, and summing over $i$ with $\ch(F_{i})=N_{i}\omega_{i}+p_{i}(\theta_{A})$ gives \eqref{eq:chEprime}, the terms $\omega_{i}\otimes R_{i}$ adding up to $Mw$ by the definition of $a$. By Lemma~\ref{lem:weilproduct} $w=x\,\omega_{+}\otimes\omega'_{+}+\bar x\,\omega_{-}\otimes\omega'_{-}$ with $x\ne0$, a tensor of rank two, so $a$ is invertible and $R_{1}$, $R_{2}$ form a basis of the Weil plane of $A'$.
+
+Write $V=H^{1}(A,\CC)=V_{+}\oplus V_{-}$ for the eigenspaces of $K$, $\omega_{\pm}=\det V_{\pm}$, and $V'_{\pm}$, $\omega'_{\pm}$ for their analogues on $A'$. A tangent vector $v\in H^{1}(T_{A\times A'})$ acts on cohomology as a derivation and decomposes as $v=v_{A}+v_{A'}+\mu+\mu'$ with $v_{A}\in H^{0,1}(A)\otimes H^{0}(T_{A})$, $v_{A'}$ its analogue on $A'$, and the mixed parts $\mu\in H^{0,1}(A)\otimes H^{0}(T_{A'})$, $\mu'\in H^{0,1}(A')\otimes H^{0}(T_{A})$. Let $v\in T\cD_{n,n}$. The three K\"unneth components of $v\lrcorner\theta$ vanish separately: $v_{A}\lrcorner\theta_{A}=0$, $v_{A'}\lrcorner\theta'=0$ and $\mu\lrcorner\theta'+\mu'\lrcorner\theta_{A}=0$. Contraction into a nondegenerate form is an isomorphism from $H^{0}(T)$ onto $H^{0,1}$, so $\mu\mapsto\mu\lrcorner\theta'$ and $\mu'\mapsto\mu'\lrcorner\theta_{A}$ are injective into $H^{0,1}(A)\otimes H^{0,1}(A')$, and $\mu=0$ exactly when $\mu'=0$. Next, $v\lrcorner(\omega_{+}\otimes\omega'_{+})=0$. The term $(v_{A}\lrcorner\omega_{+})\otimes\omega'_{+}$ has no component in $\Lambda^{2m}V_{+}\otimes\Lambda^{2m'}V'_{+}$, because that component is the trace of $v_{A}$ on $V_{+}$ and $v_{A}$ sends $V_{+}^{1,0}$ into $V_{+}^{0,1}$ and kills $V_{+}^{0,1}$; it lies in $\Lambda^{2m-1}V_{+}\otimes V_{-}\otimes\Lambda^{2m'}V'_{+}$, while the other three terms lie in $\Lambda^{2m}V_{+}\otimes\Lambda^{2m'-1}V'_{+}\otimes V'_{-}$, in $\Lambda^{2m-1}V_{+}\otimes\Lambda^{2m'}V'_{+}\otimes V'_{-}$ and in $\Lambda^{2m}V_{+}\otimes V_{-}\otimes\Lambda^{2m'-1}V'_{+}$, four distinct weight spaces for $GL(V_{+})\times GL(V_{-})\times GL(V'_{+})\times GL(V'_{-})$. Hence $v_{A}\lrcorner\omega_{+}=0$, and in the same way $v_{A}\lrcorner\omega_{-}=0$ and $v_{A'}\lrcorner\omega'_{\pm}=0$. A vector of $T\cD_{n,n}$ with vanishing mixed part therefore lies in $T\cD_{m,m}\oplus T\cD_{m',m'}$, and conversely every such sum kills $\theta$ and the Weil plane; the dimension $m^{2}+m'^{2}$ is that of the two Weil families \cite{Weil77}.
+
+Now let $v\in T\cD_{n,n}$ have $\mu\ne0$. It kills $Mw$; $v_{A}$ kills $p_{i}(\theta_{A})$ and $v_{A'}$ kills $R_{i}$; so $v\lrcorner\ch(\mathcal{E}')=(\mu+\mu')\lrcorner\sum_{k}\theta_{A}^{k}\otimes R^{(k)}$, where $p_{i}=\sum_{k}c_{ik}\theta_{A}^{k}$ and $R^{(k)}=\sum_{i}(Mc_{ik}/N_{i})R_{i}$. Write $\mu=\sum_{s}z_{s}\otimes d'_{s}$ and $\mu'=\sum_{s}z'_{s}\otimes d_{s}$. The contraction of $\theta_{A}^{k}\otimes R^{(k)}$ against $\mu'$ is $k\sum_{s}\theta_{A}^{k-1}(d_{s}\lrcorner\theta_{A})\otimes(z'_{s}\wedge R^{(k)})$, of K\"unneth bidegree $(2k-1,2m'+1)$, and against $\mu$ it is $\sum_{s}(z_{s}\wedge\theta_{A}^{k})\otimes(d'_{s}\lrcorner R^{(k)})$, of bidegree $(2k+1,2m'-1)$. These bidegrees are pairwise distinct over all $k$ and both types, so every term vanishes on its own. Some $R^{(k)}$ is nonzero, since $p_{1}$, $p_{2}$ are not both zero and $R_{1}$, $R_{2}$ are a basis. For $R=\sigma\omega'_{+}+\bar\sigma\omega'_{-}$ with $\sigma\ne0$ the map $z'\mapsto z'\wedge R$ is injective on $H^{0,1}(A')$, because $z'\wedge\omega'_{+}=z'_{-}\wedge\omega'_{+}$ and $z'\wedge\omega'_{-}=z'_{+}\wedge\omega'_{-}$ lie in independent weight spaces and vanish only with $z'_{\mp}$; dually $d'\mapsto d'\lrcorner R$ is injective on $H^{0}(T_{A'})$. If the nonzero $R^{(k)}$ has $k\ge1$, hard Lefschetz makes $\theta_{A}^{k-1}$ injective on $H^{1}(A)$, since $k-1\le2m-1$, so the $\mu'$-term vanishes only if $\sum_{s}(d_{s}\lrcorner\theta_{A})\otimes z'_{s}=0$, that is $\mu'=0$, and then $\mu=0$. If $k=0$ the $\mu$-term is $(\mathrm{id}\otimes(\,\cdot\,\lrcorner R^{(0)}))(\mu)$, which vanishes only if $\mu=0$. Either way the mixed part is zero, against the assumption.
+
+The bound is Proposition~\ref{prop:convolution}(iii): the common annihilator of $\ch\mathcal{E}'$ and $\ch\mathcal{E}''$ in $T\cD_{n,n}$ lies in that of $\ch\mathcal{E}'$, so $\dim\Ext^{2}\ge\dim HT^{2}-m^{2}-m'^{2}=r(\gamma)+n^{2}-m^{2}-m'^{2}$, and $n=m+m'$.
+\end{proof}
+
+\begin{proposition}[Secant and line-bundle pieces are never orthogonal]\label{prop:noorth}
+For every realisation of Theorem~\ref{thm:product} there are an index $i$ and a power $L^{l}$ among the pieces with $\chi(F_{i},L^{l})\ne0$. Hence $\Ext^{*}(F_{i},L^{l})\ne0$ and $\Ext^{*}(L^{l},F_{i})\ne0$, and the hypothesis of the last sentence of Theorem~\ref{thm:annihilator} fails.
+\end{proposition}
+
+\begin{proof}
+The Todd class of $A$ is $1$, $\omega_{i}\theta_{A}=0$ and $\int\theta_{A}^{4}=24$, so Riemann--Roch gives $\chi(F_{i},L^{l})=\int p_{i}(-\theta_{A})e^{l\theta_{A}}=P_{i}(l)$ with
+\begin{equation}\label{eq:rrpoly}
+P_{i}(l)=c_{i0}l^{4}-4c_{i1}l^{3}+12c_{i2}l^{2}-24c_{i3}l+24c_{i4},
+\end{equation}
+a nonzero polynomial because $p_{i}\ne0$. Expand $p_{i}=\sum_{l}b_{il}e^{l\theta_{A}}$, $0\le l\le4$, modulo $\theta_{A}^{5}$, which is possible since the five exponentials span $\QQ[\theta_{A}]/(\theta_{A}^{5})$, and call the set $S_{i}$ of $l$ with $b_{il}\ne0$ the support of $p_{i}$. Then $P_{i}(s)=\sum_{l\in S_{i}}b_{il}(s-l)^{4}$. If $P_{i}$ vanished on all of $S_{i}$ with $|S_{i}|\ge2$, the vector $(b_{il})_{l\in S_{i}}$ would lie in the kernel of the symmetric matrix $\bigl((s-l)^{4}\bigr)_{s,l\in S_{i}}$. That matrix is nonsingular: for two elements its determinant is $-(s-l)^{8}$, for three it is $2\prod(s-l)^{4}$, for the five four-element subsets of $\{0,\dots,4\}$ it is $29952$, $1032192$, $6054912$, $1032192$, $29952$, and for the whole set it is $7962624$. So a support with at least two elements contains some $l$ with $P_{i}(l)\ne0$.
+
+Step~2 of Theorem~\ref{thm:product} uses the pieces $L^{l}\boxtimes G'_{j}$ for every $l$ in the support of $q_{j}=\sum_{i}(Ma_{ij}/N_{i})p_{i}$, and the last step uses $L^{k}\boxtimes L'^{\,k}$ for three values of $k$ whose net multiplicities are nonzero. If $p_{1}$ and $p_{2}$ are independent, $q_{1}$ and $q_{2}$ span the same plane because $a$ is invertible, so the union of their supports is $S_{1}\cup S_{2}$; if $p_{2}$ is a multiple of $p_{1}$, both $q_{j}$ are multiples of $p_{1}$, not both zero, with the same support. In either case every $l\in S_{1}\cup S_{2}$ gives a piece $L^{l}\boxtimes G'_{j}$. If $|S_{1}|\ge2$ or $|S_{2}|\ge2$ we are done. Otherwise $p_{i}=b_{i}e^{l_{i}\theta_{A}}$ with $b_{i}\ne0$. If $l_{1}\ne l_{2}$ then $L^{l_{2}}\boxtimes G'_{j}$ is a piece and $P_{1}(l_{2})=b_{1}(l_{2}-l_{1})^{4}\ne0$. If $l_{1}=l_{2}=l$ the residue of Steps 1 to 3 lies in $e^{l\theta_{A}}\otimes\QQ[\theta']$, so at least two of the three final exponents $k$ differ from $l$, and $P_{i}(k)=b_{i}(k-l)^{4}\ne0$. The vanishing of $\Ext^{*}(F_{i},L^{l})$ would force $\chi(F_{i},L^{l})=0$; Serre duality gives $\Ext^{*}(L^{l},F_{i})\ne0$ as well.
+\end{proof}
+
+Theorem~\ref{thm:annihilator} is therefore a conditional statement whose condition never holds: Proposition~\ref{prop:convolution}(iii) cannot be applied to the splitting between secant pieces and line-bundle pieces, and no bound on $\dim\Ext^{2}$ of a convolution follows from the Chern characters alone. The hypothesis of part (ii) can fail with line bundles only. The cone of a section of $L^{l}\boxtimes L'^{\,k'-k}$, viewed as a map $L^{l}\boxtimes L'^{\,k}\to L^{l}\boxtimes L'^{\,k'}$ with $k'>k$, is a twisted complex of two pieces in which the Serre dual of the section, a class of degree one, enters the diagonal block of the piece $L^{l}\boxtimes L'^{\,k}$; the only terms that can enter a diagonal block of a line-bundle piece are of this form, with the same power on $A$. Part (ii) applies to every piece $L^{l}\boxtimes L'^{\,k}$ with $l\ne k$ whose block receives no such term, which is how Step~3 of Theorem~\ref{thm:product} uses it.
 
 \subsection{Where the product object stops}\label{ssec:f2stop1}
 
-Every test that depends on $\ch(\mathcal{E})$ alone is passed: polarised shape, $N\ne0$, Hankel rank $3$, first-order Hodge locus equal to $T\cD_{n,n}$, lower bound $57$ or $104$. The criterion then asks for $\dim\Ext^{2}(\mathcal{E},\mathcal{E})=r$, Proposition~\ref{prop:directsum} shows that no direct sum achieves it, and Proposition~\ref{prop:convolution} says what a convolution of the same pieces must do: kill every strictly upper triangular class of degree two, carry classes of degree one from the lower triangle into the diagonal blocks of every piece with mismatched slopes, and, if the secant pieces and the line-bundle pieces on a factor are orthogonal, make the mixed directions annihilate $\sum_{j}q_{j}\otimes\omega'_{j}$. All three demands are statements about the groups $\Ext^{*}(F_{1},F_{2})$, $\Ext^{*}(F_{i},L^{l})$, $\Ext^{*}(L^{l},F_{i})$ and their analogues on $A'$. Those groups are not computed in \cite{Mar25a,Mar25b,Mar25c}, where the only object with known Ext groups on a very general Weil fourfold of trivial discriminant is the twisted transform $\Phi(F\boxtimes F^{\vee})$ with $\dim\Ext^{k}=1,8,18,8,1$, whose Brauer class is half the Poincar\'e class and which therefore cannot be mixed with untwisted line bundles; and we have not computed them. This is the exact stopping point: the polarised criterion at a product point is a finite question about the Ext algebra of the secant sheaves, and Proposition~\ref{prop:convolution} lists what the answer must contain for the route to stay open. The analogous question on $E_{0}^{6}$, for line bundles, closed negatively with $\dim\Ext^{2}\ge69$ \cite[Thm.~18.35]{BMB26}; that is an analogy and not a proof of the answer here.
+Every test that depends on $\ch(\mathcal{E})$ alone is passed: polarised shape, $N\ne0$, Hankel rank $3$, first-order Hodge locus equal to $T\cD_{n,n}$, lower bound $57$ or $104$. The criterion then asks for $\dim\Ext^{2}(\mathcal{E},\mathcal{E})=r$, Proposition~\ref{prop:directsum} shows that no direct sum achieves it, and Proposition~\ref{prop:convolution} says what a convolution of the same pieces must do: kill every strictly upper triangular class of degree two, carry classes of degree one from the lower triangle into the diagonal blocks of every piece with mismatched slopes, and, since by Proposition~\ref{prop:noorth} the secant pieces and the line-bundle pieces are never orthogonal, carry classes between the two groups in a way that cancels the mixed directions, which by Theorem~\ref{thm:annihilator} the secant pieces alone leave uncancelled. All three demands are statements about the groups $\Ext^{*}(F_{1},F_{2})$, $\Ext^{*}(F_{i},L^{l})$, $\Ext^{*}(L^{l},F_{i})$ and their analogues on $A'$. Those groups are not computed in \cite{Mar25a,Mar25b,Mar25c}, where the only object with known Ext groups on a very general Weil fourfold of trivial discriminant is the twisted transform $\Phi(F\boxtimes F^{\vee})$ with $\dim\Ext^{k}=1,8,18,8,1$, whose Brauer class is half the Poincar\'e class and which therefore cannot be mixed with untwisted line bundles; and we have not computed them. Riemann--Roch fixes $\chi(F_{i},L^{l})=P_{i}(l)$ and the K\"unneth formula fixes everything on the line-bundle side, so the unknown is exactly the thirteen graded groups $\Ext^{*}(F_{i},F_{j})$ and $\Ext^{*}(F_{i},L^{l})$. This is the exact stopping point: the polarised criterion at a product point is a finite question about the Ext algebra of the secant sheaves, and Proposition~\ref{prop:convolution} lists what the answer must contain for the route to stay open. The analogous question on $E_{0}^{6}$, for line bundles, closed negatively with $\dim\Ext^{2}\ge69$ \cite[Thm.~18.35]{BMB26}; that is an analogy and not a proof of the answer here.
 
 \subsection{The exceptional classes of a Mumford fourfold}\label{ssec:mumford}
 
@@ -144,7 +193,7 @@ The reduced trace is invariant under conjugation and cyclic, so $\psi_{c}(y,x)=\
 \begin{lemma}[Where $T$ sits in $Z_{K}$]\label{lem:tz}
 \leavevmode
 \begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.4em,itemsep=2pt]
-\item The $K^{1}$-invariants of $\bigwedge^{2}D_{i}$ are four-dimensional: $S^{2}V_{i}\otimes\bigwedge^{2}W_{i}$, the adjoint representation of $\mathfrak{sl}(V_{i})$, and $\bigwedge^{2}V_{i}\otimes\mathbf{1}$. The sum $T_{Z}$ of the three adjoint pieces is defined over $\QQ$, is a sub-Hodge structure of $H^{2}(Z_{K})$, and is isomorphic, as a Hodge structure with $G$-action, to $T_{X}(-1)$.
+\item The $K^{1}$-invariants of $\bigwedge^{2}D_{i}$ form a four-dimensional space: $S^{2}V_{i}\otimes\bigwedge^{2}W_{i}$, the adjoint representation of $\mathfrak{sl}(V_{i})$, and $\bigwedge^{2}V_{i}\otimes\mathbf{1}$. The sum $T_{Z}$ of the three adjoint pieces is defined over $\QQ$, is a sub-Hodge structure of $H^{2}(Z_{K})$, and is isomorphic, as a Hodge structure with $G$-action, to $T_{X}(-1)$.
 \item The form induced on $\bigwedge^{2}D$ by $\psi_{c}$ restricts on $T_{Z}$ to $q_{c^{2}}$, up to a rational scalar independent of the place; here $c^{2}=-N_{K/F}(c)=-f^{2}\delta\in F$ for $c=f\sqrt{-\delta}$.
 \end{enumerate}
 \end{lemma}
@@ -155,12 +204,12 @@ The reduced trace is invariant under conjugation and cyclic, so $\psi_{c}(y,x)=\
 (ii) By Schur's lemma the induced form is, on each irreducible $T_{i}$, a multiple of $\trd(xy)$. In the split model at the place $i$ the element $c$ acts on $D_{i}$ by $\sigma_{i}(c)\,\mathrm{diag}(1,-1)$, whose square is $\sigma_{i}(c^{2})$; the multiple is $\sigma_{i}(c)^{2}$ times a rational constant that is the same at every place, since the computation in the weight basis is identical at the three places. The sum over the places is $q_{c^{2}}$ up to that constant.
 \end{proof}
 
-\begin{figure}[!htb]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.82\columnwidth]{figures/fig_link}
+\includegraphics[width=0.92\textwidth]{figures/fig_link}
 \caption{The sixfold link. Two copies of the Mumford fourfold $X_{t}$ and the sixfold $Z_{K,t}$ sit over the same point $t$ of the Shimura curve $C$; the class $\xi_{t}$ in the mixed K\"unneth component identifies the two copies of $T$ and is flat along $C$.}
 \label{fig:link}
-\end{figure}
+\end{figure*}
 
 \begin{theorem}[The sixfold link]\label{thm:link}
 Let $\xi$ be a nonzero element of $\Hom_{\Hdg}(T_{X}(-1),T_{Z})\subseteq H^{4}(X\times X\times Z_{K})$.

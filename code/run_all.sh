@@ -19,6 +19,9 @@ run convolution_checks.py python3 -I convolution_checks.py
 run sixfold_link.py    python3 -I sixfold_link.py
 run link_weights.py    python3 -I link_weights.py
 run bypass_checks.py   python3 -I bypass_checks.py
+run zeta9_invariants.py python3 -I zeta9_invariants.py
+run annihilator_exact.py python3 -I annihilator_exact.py
+run riemann_roch_pieces.py python3 -I riemann_roch_pieces.py
 run closure_graph.jl   "$JULIA" closure_graph.jl
 run eigencharacter.jl  "$JULIA" eigencharacter.jl
 tmp=$(mktemp -d)
