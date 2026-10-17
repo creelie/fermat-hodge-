@@ -3,17 +3,18 @@
 The proofs of the paper are by hand. The finite arithmetic they use (lists
 of residues, sums, character values, block patterns, parities) is certified
 by the kernel in `../lean/FermatFourfolds.lean` and re-checked here, from
-scratch, in four further languages.
+scratch, in five further languages.
 
 | file | language | what it re-checks |
 |---|---|---|
 | `finite.py` | Python 3 | every statement of the Lean file |
 | `finite.c` | C99 | every statement of the Lean file |
 | `finite.cpp` | C++17 | the same, with the standard containers |
+| `finite.jl` | Julia 1.10 | every statement of the Lean file |
 | `finite.sh` | bash | the balanced multisets, the angle tables, the block patterns, the parity at 110 and the first open degrees |
 
-`bash run_all.sh` builds and runs all four, then the Lean file (when `lean`
-is on the path). Each program ends with `N checks passed, 0 failed` and
+`bash run_all.sh` builds and runs all five (Julia when `julia` is on the
+path), then the Lean file (when `lean` is on the path). Each program ends with `N checks passed, 0 failed` and
 exits with a nonzero status on a failure.
 
 What is checked, by section of the paper:
