@@ -1,0 +1,24 @@
+/dev/shm/tmpb/m6/L_3_2_11.txt p=11 configs 58 nochain 11
+   D_B=3 size=5 chain 1
+   D_B=4 size=6 nochain 1
+   D_B=6 size=3 nochain 1
+   D_B=6 size=4 nochain 1
+   D_B=6 size=5 chain 7
+   D_B=6 size=5 nochain 1
+   D_B=6 size=6 chain 29
+   D_B=6 size=6 nochain 7
+   D_B=12 size=5 chain 1
+   D_B=12 size=6 chain 5
+   D_B=24 size=5 chain 1
+   D_B=24 size=6 chain 3
+   residual D_B=6 level 66 : 1/66 8/33 50/33 62/33
+   residual D_B=6 level 66 : 1/66 25/66 62/33
+   residual D_B=6 level 66 : 1/66 1/66 25/66 25/66 62/33 62/33
+   residual D_B=6 level 66 : 1/66 1/66 25/66 37/66 50/33 62/33
+   residual D_B=6 level 66 : 1/66 2/33 25/66 37/66 49/66 62/33
+   residual D_B=6 level 66 : 1/66 5/66 25/66 46/33 59/66 62/33
+   residual D_B=6 level 66 : 1/66 7/66 20/33 25/66 61/66 62/33
+   residual D_B=6 level 66 : 1/66 7/66 20/33 37/66 50/33 61/66
+   residual D_B=6 level 66 : 1/66 7/66 37/66 38/33 43/66 50/33
+   residual D_B=6 level 66 : 1/66 25/66 31/66 37/66 49/66
+   residual D_B=4 level 44 : 1/44 5/44 13/44 24/11 37/44 41/44
