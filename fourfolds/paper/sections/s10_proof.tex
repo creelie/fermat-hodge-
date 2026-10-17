@@ -1,0 +1,46 @@
+\section{Proof of the main theorem}\label{sec:proof}
+
+\begin{proof}[Proof of \Cref{thm:main}]
+Let $M\ge1$ with $110\nmid M$. If $3\nmid M$, the Hodge conjecture for
+$X^{4}_{M}$ is \Cref{thm:primetothree}. If $3\mid M$ and $M$ is odd, it is
+\Cref{cor:odd}. If $6\mid M$, it is \Cref{thm:six}.
+\end{proof}
+
+For the degrees of \Cref{cor:degrees} the conjecture holds for $X^{n}_{M}$ in
+every dimension. For the other degrees the proof gives only the fourfold: it
+shows that every Hodge sextuple is algebraic, and says nothing about the
+classes that Aoki's reduction attaches to the divisors of $M$ in higher
+dimension.
+
+\begin{remark}\label{rem:110}
+The elements of $\mathsf P$ that divide $110$ are $5$ and $11$, so
+$\mathcal Q(110)=\{55\}$. Let
+\[
+  A_{110}=\{19,29,39,55,79,109\},
+\]
+a sextuple at level $110$; without the element $55$ it is the representative
+of Aoki's class $\xi_{55}$ listed in \cite[Table~4]{MMRV26}, and that it is
+balanced is a direct check over the units. Let $\nu\colon R_{110}\to\ZZ/2$ be the
+homomorphism with $\nu((y))=1$ exactly when $\bar y\equiv4$, $5$ or $6$
+modulo $10$. Then $\nu$ vanishes on $S_{110}$. It depends only on $y$ modulo
+$10$, and $\nu((y))=\nu((-y))$, which settles the pairs. The coset
+$\Phi_{11}(x)$ consists of eleven elements congruent to $x$ modulo $10$, and
+$-11x\equiv-x$, so $\sigma_{11,x}$ has $12\nu((x))$ elements counted by $\nu$.
+The coset $\Phi_{5}(x)=\{x+22j\}$ runs through the five residues modulo $10$
+of the parity of $x$; for $x$ even it contains two elements congruent to $4$
+or $6$ and $-5x\equiv0$, and for $x$ odd it contains one element congruent to
+$5$ and $-5x\equiv5$. Finally, if $x\equiv r$ modulo $10$, then
+$T(x)=\{x,x+55,-2x,55\}$ has residues $r$, $r+5$, $-2r$, $5$, and among
+$r$, $r+5$, $-2r$ exactly one lies in $\{4,5,6\}$ for every $r$. In each case
+the count is even.
+
+Since $\nu([A_{110}])=1$, the argument of \Cref{cor:Bone} gives
+$B_{110}=S_{110}+\ZZ[A_{110}]$. Hence the Hodge conjecture for $X^{4}_{110}$
+is equivalent to the algebraicity of the single line of $A_{110}$, and if
+that line is algebraic, then $110$ is a complete level and the conjecture
+holds for $X^{n}_{110}$ in every dimension $n$.\footnote{The homomorphism
+$\nu$ is not one of those of \Cref{lem:nu,lem:nusqrt}: the parities $\nu_{5}$
+and $\nu_{11}$ of the numbers of elements of order $5$ and $11$ vanish on
+$[A_{110}]$, and the parity of the number of elements with square $1$ does
+not vanish on $S_{110}$, because $T(1)$ contains exactly one such element.}
+\end{remark}

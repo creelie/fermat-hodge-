@@ -1,0 +1,8 @@
+modp/P_3_2_31.txt p=31 configs 17 nochain 0
+   D_B=2 size=5 chain 1
+   D_B=6 size=5 chain 2
+   D_B=6 size=6 chain 6
+   D_B=12 size=5 chain 1
+   D_B=12 size=6 chain 3
+   D_B=24 size=5 chain 1
+   D_B=24 size=6 chain 3
