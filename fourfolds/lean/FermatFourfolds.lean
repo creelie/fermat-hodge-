@@ -447,7 +447,7 @@ theorem shape_three_levels :
     [7, 119, 84, 5, 45, 125].sum = 385 ∧ [7, 119, 84, 55, 75, 115].sum = 455 := by
   decide +kernel
 
-/-! ## Section 10: the small local configurations of Table 2 and their completions -/
+/-! ## Section 10: the small local configurations of Table 3 and their completions -/
 
 /-- Each row of the table of small local configurations, together with its
 added elements, is a balanced multiset of four elements. -/
