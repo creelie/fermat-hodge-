@@ -1,4 +1,4 @@
-# Algebraic Loci of Hodge Classes on Abelian Varieties and K3 Surfaces
+# Dense Algebraic Loci of Hodge Classes
 
 Deep Bhattacharjee and Ushashi Bhattacharya
 
@@ -24,7 +24,11 @@ programs that recompute every finite quantity used in the proofs.
   holds for X x X when X lies in a dihedral family.
 * A complex on a product of two Weil fourfolds has the Chern character the
   polarised semiregularity criterion asks for; direct sums are never
-  semiregular, and convolutions with mismatched slopes are obstructed.
+  semiregular, and convolutions with mismatched slopes are obstructed. At the
+  point of complex multiplication E_0^6 every Ext group between the pieces
+  is computed, no diagonal class cancels in two steps, and every convolution
+  built from at most three line bundles and threefolds meeting in finite sets
+  fails the criterion; the remaining configurations are open.
 * A single class on an abelian fourteenfold carries the exceptional classes
   of a Mumford fourfold.
 * Specialisation, degeneration and blow-ups relocate the two open statements
@@ -40,7 +44,7 @@ Section VII records where the earlier preprint
 ```
 paper/                      REVTeX source, figures and the compiled main.pdf
 preprintHodgeConjecture/    the compiled paper only
-lean/HodgeClosure.lean      36 theorems (Lean 4.24.0, no Mathlib)
+lean/HodgeClosure.lean      47 theorems (Lean 4.24.0, no Mathlib)
 code/                       Python, Julia, C, C++ and shell checks; run_all.sh
 ```
 
@@ -55,7 +59,7 @@ compiler; lean (through elan; `lean/lean-toolchain` pins the version). Set
 `JULIA`, `CC`, `CXX` or `LEAN` to override the commands. The run takes about
 ten minutes and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
 program, what it checks and its expected output. The Lean file prints
-`#print axioms` for every theorem: thirty-four use no axiom and two use
+`#print axioms` for every theorem: forty-five use no axiom and two use
 `propext` and `Quot.sound`.
 
 No statement of the paper rests on these checks; they guard the hand
