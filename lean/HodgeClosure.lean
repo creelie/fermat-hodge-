@@ -19,7 +19,13 @@ Nothing here formalises algebraic geometry.  What is checked is
              eigenspace that the Weil classes occupy for k = n;
   Section 3  the dimension counts of the loci on which the Weil classes are
              known to be algebraic against the dimension n^2 of the period
-             domain.
+             domain;
+  Section 4  the polynomial identities of the Fricke families;
+  Section 5  the Dickson identities of the cyclic cubic fields;
+  Section 6  the point of complex multiplication E_0^6: the intersection
+             numbers of the curves C_zeta, the signed sum of thirty-two
+             threefolds equal to 32 (alpha + alphabar), and the degrees of
+             the closed chains of two and three pieces.
 
 No Mathlib.  Every theorem is checked by `decide` or by the core lemmas on
 natural numbers; the block at the end prints the axioms of each one.
@@ -305,6 +311,181 @@ theorem fricke_multiplier : 1 * 7 = 7 ∧ 1 * 5 = 5 ∧ 2 * 2 = 4 ∧ 2 * 3 = 6 
 def heckeDim (n : Nat) : Nat := (n + 1) / 2
 theorem hecke_dims : heckeDim 5 = 3 ∧ heckeDim 7 = 4 ∧ heckeDim 9 = 5 ∧ heckeDim 11 = 6 := by decide
 
+/-! ## Section 5: the Dickson families of the cyclic cubic fields (Section V of the paper) -/
+
+/-- Dickson polynomials (Theorem V.12 for n = 7 and n = 9, and Proposition V.13).
+v^7 p_{7,a}(v + a/v) = v^14 + a^7 with p_{7,a} = t^7 - 7 a t^5 + 14 a^2 t^3 - 7 a^3 t, checked at
+a = 1 and a = 2 as identities of polynomials in v; the same for
+p_{9,a} = t^9 - 9 a t^7 + 27 a^2 t^5 - 30 a^3 t^3 + 9 a^4 t at a = 1. -/
+def dickson7 (a : Int) : List Int :=
+  padd (psub (ppow [a, 0, 1] 7) (pscale (7 * a) (pmul [0, 0, 1] (ppow [a, 0, 1] 5))))
+       (psub (pscale (14 * a * a) (pmul [0, 0, 0, 0, 1] (ppow [a, 0, 1] 3)))
+             (pscale (7 * a * a * a) (pmul [0, 0, 0, 0, 0, 0, 1] [a, 0, 1])))
+def dickson9 (a : Int) : List Int :=
+  padd (padd (psub (ppow [a, 0, 1] 9) (pscale (9 * a) (pmul [0, 0, 1] (ppow [a, 0, 1] 7))))
+             (pscale (27 * a * a) (pmul [0, 0, 0, 0, 1] (ppow [a, 0, 1] 5))))
+       (padd (pscale (-30 * a * a * a) (pmul [0, 0, 0, 0, 0, 0, 1] (ppow [a, 0, 1] 3)))
+             (pscale (9 * a * a * a * a) (pmul [0, 0, 0, 0, 0, 0, 0, 0, 1] [a, 0, 1])))
+theorem dickson7_identity :
+    ptrim (dickson7 1) = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] ∧
+    ptrim (dickson7 2) = [128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] := by decide
+theorem dickson9_identity :
+    ptrim (dickson9 1) = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] := by decide
+
+/-- The prime 2 has order three in (Z/7)^x/{+-1} and in (Z/9)^x/{+-1}, so it is inert in
+Q(zeta_7)^+ and Q(zeta_9)^+ (Theorem V.12, the place above 2). The cubic polynomials
+t^3 + t^2 - 2 t - 1 and t^3 - 3 t + 1 of theta change sign on [-2,-1], [-1,0], [0,2] and on
+[-2,-1], [0,1], [1,2], so each has three real roots, exactly one of them positive for n = 7
+and two for n = 9: the unit epsilon of the proof is positive at exactly one real place. -/
+theorem two_inert_7_9 :
+    (2 % 7 ≠ 1 ∧ 2 % 7 ≠ 6 ∧ 4 % 7 ≠ 1 ∧ 4 % 7 ≠ 6 ∧ 8 % 7 = 1) ∧
+    (2 % 9 ≠ 1 ∧ 2 % 9 ≠ 8 ∧ 4 % 9 ≠ 1 ∧ 4 % 9 ≠ 8 ∧ 8 % 9 = 8) := by decide
+def f7 (t : Int) : Int := t * t * t + t * t - 2 * t - 1
+def f9 (t : Int) : Int := t * t * t - 3 * t + 1
+theorem theta_sign_pattern :
+    (f7 (-2) < 0 ∧ f7 (-1) > 0 ∧ f7 0 < 0 ∧ f7 2 > 0) ∧
+    (f9 (-2) < 0 ∧ f9 0 > 0 ∧ f9 1 < 0 ∧ f9 2 > 0) := by decide
+
+/-! ## Section 6: the point of complex multiplication E_0^6 (Lemma VI.8, Proposition VI.9, Appendix A) -/
+
+/-- Binomial coefficients, by Pascal's rule. -/
+def choose : Nat → Nat → Nat
+  | _, 0 => 1
+  | 0, _ + 1 => 0
+  | n + 1, k + 1 => choose n k + choose n (k + 1)
+
+/-- dim Ext^k(O_Z, O_Z) = sum_{p+q=k} C(3,q) C(3,p) = C(6,k) for an abelian threefold Z with trivial
+normal bundle in an abelian sixfold (Lemma VI.8(iii) at a = b). -/
+theorem binomial_six :
+    (List.range 7).all (fun k =>
+      (List.range (k + 1)).foldl (fun s q => s + choose 3 q * choose 3 (k - q)) 0 == choose 6 k) = true := by
+  decide
+
+/-- Gaussian integers (re, im). -/
+structure GI where
+  re : Int
+  im : Int
+  deriving DecidableEq, Repr
+
+def gadd (x y : GI) : GI := ⟨x.re + y.re, x.im + y.im⟩
+def gsub (x y : GI) : GI := ⟨x.re - y.re, x.im - y.im⟩
+def gmul (x y : GI) : GI := ⟨x.re * y.re - x.im * y.im, x.re * y.im + x.im * y.re⟩
+def gconj (x : GI) : GI := ⟨x.re, -x.im⟩
+def gscale (n : Int) (x : GI) : GI := ⟨n * x.re, n * x.im⟩
+def gnorm (x : GI) : Int := x.re * x.re + x.im * x.im
+def gzero : GI := ⟨0, 0⟩
+def gpow (x : GI) : Nat → GI
+  | 0 => ⟨1, 0⟩
+  | n + 1 => gmul x (gpow x n)
+
+/-- The fourth roots of unity 1, i, -1, -i. -/
+def mu4 : List GI := [⟨1, 0⟩, ⟨0, 1⟩, ⟨-1, 0⟩, ⟨0, -1⟩]
+
+/-- The class of the elliptic curve C_zeta = ker(u + zeta v) in the Weil surface B_j, in the basis
+(a_j, b_j, c_j, cbar_j) of (1,1)-forms: a_j + b_j + zetabar c_j + zeta cbar_j (Lemma A.1(i)). -/
+def curveClass (z : GI) : List GI := [⟨1, 0⟩, ⟨1, 0⟩, gconj z, z]
+
+/-- The intersection pairing of two (1,1)-classes on B_j: a_j b_j = 1, c_j cbar_j = cbar_j c_j = -1
+and every other product of two basis forms repeats a differential. -/
+def pairB (x y : List GI) : GI :=
+  match x, y with
+  | [xa, xb, xc, xd], [ya, yb, yc, yd] =>
+      gsub (gadd (gmul xa yb) (gmul xb ya)) (gadd (gmul xc yd) (gmul xd yc))
+  | _, _ => gzero
+
+/-- (C_zeta . C_zeta') = |zeta - zeta'|^2 in {0, 2, 4}, and theta . C_zeta = 2 (Lemma A.1(ii), (iii)). -/
+theorem curve_intersections :
+    mu4.all (fun z => mu4.all (fun w =>
+      pairB (curveClass z) (curveClass w) == ⟨gnorm (gsub z w), 0⟩ &&
+      [0, 2, 4].contains (gnorm (gsub z w)))) = true ∧
+    mu4.all (fun z => pairB [⟨1, 0⟩, ⟨1, 0⟩, gzero, gzero] (curveClass z) == ⟨2, 0⟩) = true := by
+  decide
+
+/-- The sums T_{m,j} = sum_zeta zeta^m [C_zeta] are 4(a_j + b_j), 4 c_j, 0, 4 cbar_j for
+m = 0, 1, 2, 3 (Lemma A.1(iv)). -/
+def twistSum (m : Nat) : List GI :=
+  mu4.foldl (fun acc z => List.zipWith gadd acc ((curveClass z).map (gmul (gpow z m))))
+    [gzero, gzero, gzero, gzero]
+theorem twist_sums :
+    twistSum 0 = [⟨4, 0⟩, ⟨4, 0⟩, gzero, gzero] ∧ twistSum 1 = [gzero, gzero, ⟨4, 0⟩, gzero] ∧
+    twistSum 2 = [gzero, gzero, gzero, gzero] ∧ twistSum 3 = [gzero, gzero, gzero, ⟨4, 0⟩] := by
+  decide
+
+/-- The class of Z_zeta = C_{zeta_1} x C_{zeta_2} x C_{zeta_3} as the 64 coefficients of the
+products of one basis form from each surface, in the order (i_1, i_2, i_3) with i_3 fastest. -/
+def threefoldClass (z1 z2 z3 : GI) : List GI :=
+  (curveClass z1).foldr (fun x acc =>
+    ((curveClass z2).foldr (fun y acc' =>
+      ((curveClass z3).map (fun w => gmul (gmul x y) w)) ++ acc') []) ++ acc) []
+
+/-- The signed sum S(1) - S(-1) over the 32 threefolds with zeta_1 zeta_2 zeta_3 = +-1. -/
+def signedSum : List GI :=
+  mu4.foldl (fun acc z1 => mu4.foldl (fun acc z2 => mu4.foldl (fun acc z3 =>
+    let w := gmul (gmul z1 z2) z3
+    if w == ⟨1, 0⟩ then List.zipWith gadd acc (threefoldClass z1 z2 z3)
+    else if w == ⟨-1, 0⟩ then List.zipWith gsub acc (threefoldClass z1 z2 z3)
+    else acc) acc) acc) (List.replicate 64 gzero)
+
+/-- S(1) - S(-1) = 32 (alpha + alphabar): the coefficient of c_1 c_2 c_3 (index 2*16+2*4+2 = 42) and
+of cbar_1 cbar_2 cbar_3 (index 63) is 32 and every other coefficient vanishes; and exactly 32
+triples have zeta_1 zeta_2 zeta_3 = +-1 (Lemma A.1(iv), equation (A.8)). -/
+theorem weil_sum_32 :
+    signedSum = (List.range 64).map (fun i => if i == 42 || i == 63 then (⟨32, 0⟩ : GI) else gzero) ∧
+    (mu4.foldl (fun n z1 => mu4.foldl (fun n z2 => mu4.foldl (fun n z3 =>
+      let w := gmul (gmul z1 z2) z3
+      if w == ⟨1, 0⟩ || w == ⟨-1, 0⟩ then n + 1 else n) n) n) 0) = 32 := by
+  decide
+
+/-- (theta|_Z)^3 = 3! 2^3 = 48 and chi_Z = 48/6 = 8; the Ext groups between two twists of one
+threefold have total dimension sum_k C(3,k) 8 m^3 = 8 m^3 chi_Z and vanishing Euler characteristic
+(Lemma VI.8(iii), Lemma A.1(iii)); and the count 5 * 15 = 75, 75 - 57 = 18 at the stopping point. -/
+theorem cm_counts :
+    3 * 2 * 1 * (2 * 2 * 2) = 48 ∧ 48 / 6 = 8 ∧ 5 * 15 = 75 ∧ 75 - 57 = 18 ∧
+    [1, 2, 3].all (fun m =>
+      (List.range 4).foldl (fun s k => s + choose 3 k * 8 * m * m * m) 0 == 8 * m * m * m * 8 &&
+      (List.range 4).foldl (fun s k => s + (if k % 2 == 0 then 1 else -1) * (choose 3 k : Int)) 0 == 0) = true := by
+  decide
+
+/-- The pieces at E_0^6: O_Z L^k and O_Z' L^k for two threefolds Z, Z' meeting in finitely many
+points, and the line bundles L^k, with twists k = 0, 1, 2, 3. -/
+inductive PieceT | Z | W | L
+  deriving DecidableEq, Repr
+structure Piece where
+  t : PieceT
+  tw : Nat
+  deriving DecidableEq, Repr
+def pieces : List Piece :=
+  [PieceT.Z, PieceT.W, PieceT.L].foldr (fun t acc => (List.range 4).map (fun k => ⟨t, k⟩) ++ acc) []
+
+/-- The degrees k with Ext^k(F_P, F_Q) != 0 for distinct pieces, from Lemma VI.8. -/
+def degs (P Q : Piece) : List Nat :=
+  match P.t, Q.t with
+  | PieceT.L, PieceT.L => if Q.tw > P.tw then [0] else [6]
+  | PieceT.L, _ => if Q.tw > P.tw then [0] else if Q.tw < P.tw then [3] else [0, 1, 2, 3]
+  | _, PieceT.L => if Q.tw > P.tw then [3] else if Q.tw < P.tw then [6] else [3, 4, 5, 6]
+  | _, _ => if P.t != Q.t then [3] else if Q.tw > P.tw then [0, 1, 2, 3] else [3, 4, 5, 6]
+
+/-- Every closed chain of two distinct pieces has total Ext degree at least 3 (Proposition VI.9). -/
+theorem two_step_degree :
+    pieces.all (fun P => pieces.all (fun Q =>
+      P == Q || (degs P Q).all (fun k1 => (degs Q P).all (fun k2 => k1 + k2 ≥ 3)))) = true := by
+  decide
+
+/-- A closed chain of three pieces with degrees k1, k2, k3 and total degree 3 exists exactly for three
+twists of one threefold in cyclic ascending order, with degree 3 on the descending edge and degree 0
+on the two ascending ones (Proposition VI.9). -/
+def isChain (P Q R : Piece) (k1 k2 k3 : Nat) : Bool :=
+  P.t != PieceT.L && P.t == Q.t && Q.t == R.t &&
+  ((P.tw < Q.tw && Q.tw < R.tw && k1 == 0 && k2 == 0 && k3 == 3) ||
+   (R.tw < P.tw && P.tw < Q.tw && k1 == 0 && k2 == 3 && k3 == 0) ||
+   (Q.tw < R.tw && R.tw < P.tw && k1 == 3 && k2 == 0 && k3 == 0))
+theorem three_step_chains :
+    pieces.all (fun P => pieces.all (fun Q => pieces.all (fun R =>
+      P == Q || Q == R || P == R ||
+      (degs P Q).all (fun k1 => (degs Q R).all (fun k2 => (degs R P).all (fun k3 =>
+        (k1 + k2 + k3 == 3) == isChain P Q R k1 k2 k3)))))) = true := by
+  decide
+
 end HodgeClosure
 
 #print axioms HodgeClosure.hc_from_f2_f3p
@@ -343,3 +524,14 @@ end HodgeClosure
 #print axioms HodgeClosure.fricke_transcendental
 #print axioms HodgeClosure.fricke_multiplier
 #print axioms HodgeClosure.hecke_dims
+#print axioms HodgeClosure.dickson7_identity
+#print axioms HodgeClosure.dickson9_identity
+#print axioms HodgeClosure.two_inert_7_9
+#print axioms HodgeClosure.theta_sign_pattern
+#print axioms HodgeClosure.binomial_six
+#print axioms HodgeClosure.curve_intersections
+#print axioms HodgeClosure.twist_sums
+#print axioms HodgeClosure.weil_sum_32
+#print axioms HodgeClosure.cm_counts
+#print axioms HodgeClosure.two_step_degree
+#print axioms HodgeClosure.three_step_chains
