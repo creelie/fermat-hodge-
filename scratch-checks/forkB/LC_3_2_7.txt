@@ -1,0 +1,54 @@
+/dev/shm/tmpb/m6/L_3_2_7.txt p=7 configs 133 nochain 27
+   D_B=2 size=3 chain 1
+   D_B=2 size=6 chain 1
+   D_B=3 size=4 nochain 1
+   D_B=3 size=6 chain 1
+   D_B=4 size=3 nochain 1
+   D_B=4 size=4 chain 1
+   D_B=4 size=5 chain 2
+   D_B=4 size=6 chain 3
+   D_B=4 size=6 nochain 1
+   D_B=6 size=3 nochain 3
+   D_B=6 size=4 chain 6
+   D_B=6 size=4 nochain 1
+   D_B=6 size=5 chain 16
+   D_B=6 size=5 nochain 1
+   D_B=6 size=6 chain 39
+   D_B=6 size=6 nochain 3
+   D_B=8 size=6 nochain 1
+   D_B=12 size=4 chain 1
+   D_B=12 size=5 chain 3
+   D_B=12 size=5 nochain 3
+   D_B=12 size=6 chain 26
+   D_B=12 size=6 nochain 11
+   D_B=18 size=6 chain 1
+   D_B=24 size=5 chain 1
+   D_B=24 size=6 chain 4
+   D_B=24 size=6 nochain 1
+   residual D_B=6 level 42 : 1/42 15/14 31/42 37/42
+   residual D_B=6 level 42 : 1/42 24/7 38/21
+   residual D_B=6 level 42 : 1/42 25/42 37/42
+   residual D_B=6 level 42 : 1/42 30/7 32/21
+   residual D_B=6 level 42 : 1/42 1/42 24/7 24/7 38/21 38/21
+   residual D_B=6 level 42 : 1/42 1/42 30/7 30/7 32/21 32/21
+   residual D_B=6 level 42 : 1/42 2/21 25/42 38/21 39/14
+   residual D_B=6 level 42 : 1/42 2/21 30/7 30/7 31/42 32/21
+   residual D_B=3 level 21 : 1/21 4/21 18/7 19/21
+   residual D_B=12 level 84 : 1/84 13/84 24/7 75/28 76/21
+   residual D_B=12 level 84 : 1/84 13/84 36/7 64/21 75/28
+   residual D_B=12 level 84 : 1/84 13/84 38/42 62/42 75/28
+   residual D_B=12 level 84 : 2/42 3/28 15/28 62/42 74/42 75/28
+   residual D_B=12 level 84 : 2/42 3/28 15/28 64/21 72/7 75/28
+   residual D_B=12 level 84 : 2/42 3/28 27/28 48/7 75/28 76/21
+   residual D_B=12 level 84 : 2/42 3/28 27/28 50/42 74/42 75/28
+   residual D_B=12 level 84 : 2/42 3/28 27/28 60/7 64/21 75/28
+   residual D_B=12 level 84 : 2/42 9/28 48/7 57/28 76/21 81/28
+   residual D_B=12 level 84 : 2/42 9/28 50/42 57/28 74/42 81/28
+   residual D_B=12 level 84 : 2/42 9/28 57/28 60/7 64/21 81/28
+   residual D_B=12 level 84 : 2/42 12/7 27/28 39/28 75/28 76/21
+   residual D_B=12 level 84 : 2/42 15/28 24/7 39/28 75/28 76/21
+   residual D_B=12 level 84 : 2/42 15/28 36/7 39/28 64/21 75/28
+   residual D_B=4 level 28 : 1/28 9/28 25/28
+   residual D_B=4 level 28 : 1/28 1/28 9/28 9/28 25/28 25/28
+   residual D_B=24 level 168 : 1/168 25/168 79/168 121/168 127/168 151/168
+   residual D_B=8 level 56 : 1/56 9/56 11/56 25/56 43/56 51/56
