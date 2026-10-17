@@ -70,36 +70,48 @@ Let E = {e'}. Every f(a) divides e', so M = 2^a 3^b e'.
 
 ## G3. The part 35 (proved, given the list)
 
-Aoki's reduction (e84hc thm:aoki) with the classes ξ_q for q = 12, 15, 20, 21,
-28 [Aok00] and 35 [Peterson] gives the Hodge conjecture for 2^a 3^b 35 unless
-12 | M (then 420 ∈ Q(M), and ξ_420 is not known). So assume 12 | M.
+Let E = {35} and 6 | M. Write M = 35C, C the 2,3-part (6 | C).
 
-* |B| = 6: A = B lies in the subgroup of order 35D' with D' | 6, so
-  M | 210 and 12 ∤ M.
-* |B| = 5: D' = 2, so N = 70 in G1 and M | 70.
+* |B| = 6: A = B lies in the subgroup of order 35D' with D' | 6, so M = 210.
+* |B| = 5: D' = 2, so N = 70 in G1 and M | 70, against 3 | M.
 * |B| = 4: B = u{1, 24, 61, 62} at level 70 for a unit u, and
-  L = {a_1, a_2}. Write M = 35C with C the 2,3-part (12 | C) and
-  a_i/M ≡ α_i/C + γ_i (mod 1), α_i ∈ Z/C, γ_i ∈ (1/35)Z/Z of denominator f_i.
-  By G1 with A' = L and N = 70, W ≅ (Z/C)^x acts on the α_i alone and
-  s(t) = ⟨ta_1/M⟩ + ⟨ta_2/M⟩ is W-invariant.
+  L = {a_1, a_2}. Write a_i/M ≡ α_i/C + γ_i (mod 1), α_i ∈ Z/C,
+  γ_i ∈ (1/35)Z/Z of denominator f_i ∈ {1, 5, 7}. By G1 with A' = L and
+  N = 70, W ≅ (Z/C)^x acts on the α_i alone and s(t) = ⟨ta_1/M⟩ + ⟨ta_2/M⟩
+  is W-invariant.
   - If exactly one α_i has order > 2, s is not W-invariant (as in the
-    corollary). If both have order ≤ 2, then C | 2, against 12 | C. So both
+    corollary). If both have order ≤ 2, then C | 2, against 3 | C. So both
     have order > 2.
   - Modulo 1, s(tw) - s(t) ≡ t(w - 1)(α_1 + α_2)/C; with w = -1,
-    2(α_1 + α_2) ≡ 0 mod C, so α_2 = -α_1 + δC with δ ∈ {0, 1/2}. Then
-    both orders equal C: if α_1 were not a unit mod C, α_1 and α_2 would
-    share a factor 2 or 3 and lcm(2, ord α_1, ord α_2) < C.
-  - f_1 = f_2: at conductor 4 only a_1, a_2 enter eq:charrel (the elements of
-    B have orders dividing 70), with weights (1 - χ_4(3)) Π_{l | f_i}
-    (1 - χ_4(l)) / φ(f_i), i.e. 2, 0, 2/3 for f_i = 1, 5, 7, and signs ±1;
-    the relation forces f_1 = f_2 = f.
+    2(α_1 + α_2) ≡ 0 mod C, so α_2 = -α_1 + δC with δ ∈ {0, 1/2}.
+  - {f_1, f_2} ≠ {5, 7}: if 3 divided α_1, it would divide α_2 = -α_1 + δC,
+    and lcm(2, ord α_1, ord α_2) would miss the 3-part of C; so 3 divides
+    both orders. At conductor 3 only a_1, a_2 enter eq:charrel (the elements
+    of B have orders dividing 70), with weights
+    ±(1 - χ_3(2))^{[2 | ord α_i]} w(f_i) / φ(ord a_i), w(1) = 1,
+    w(5) = 1 - χ_3(5) = 2, w(7) = 1 - χ_3(7) = 0. For {f_1, f_2} = {5, 7}
+    exactly one weight vanishes, and the relation fails.
   - For every t, {u + x} + {κ - u - x} ∈ {κ, κ + 1}, so
-    s(t) ≡ δ + t(γ_1 + γ_2) (mod 1), a fraction of denominator dividing 2f.
-    At t = u^{-1}: h(tB) = (1 + 24 + 61 + 62)/70 = 148/70, so
-    s(t) = 3 - 148/70 ≡ 31/35, whose denominator 35 does not divide 2f for
-    f ∈ {1, 5, 7}. Contradiction.
+    s(t) ≡ δ + t(γ_1 + γ_2) (mod 1), a fraction whose denominator divides
+    2 lcm(f_1, f_2), hence 10 or 14. At t = u^{-1}: h(tB) =
+    (1 + 24 + 61 + 62)/70 = 148/70, so s(t) = 3 - 148/70 ≡ 31/35, of
+    denominator 35. Contradiction.
 
-So the part 35 occurs only at degrees covered by Aoki and Peterson.
+So for 6 | M the part 35 occurs only at M = 210 with A = B (four sextuples
+up to units, none with a splitting or a 4-tuple move; `glob/extra.py`). The
+Hodge conjecture for X^4_210 follows from Aoki's reduction (Q(210) = {15, 21,
+35}) and the class ξ_35.
+
+**ξ_35 without Peterson's coniveau computation (checked by hand).** The
+character α = (1, 2, 16, 21, 30) of μ_35^5, the one Peterson uses, admits a
+block pattern in the sense of e84hc def:blockpattern: columns
+(0,0,0,5,0), (1,1,2,0,0), (1,2,0,0,1), (3,1,0,0,1), (0,0,0,0,35) with
+δ = 10, 25, 10, 5, 1. The weights are 105, 35, 35, 35, 1050 (all divisible by
+35), every coordinate sum is D = 50, and Σδ = 51 > D. So by e84hc
+thm:uniruled the quotient of X^3_35 by ker α is uniruled and M_α ⊆
+N^1 H^3(X^3_35), which is Peterson's coniveau statement; the rest of his
+deduction (the join to X^6_35) is the e84hc join step. Found with
+`bp/bp.py` (LP value 1.02).
 
 ## G4. Two maximal parts (proved, given the list; the final count checked)
 
@@ -141,7 +153,8 @@ Examples: at 390, {5, 13, 260, 275, 305, 312} = {5, 275, 305, 195} +
 level M either has a chain of moves to at most four elements, to six elements
 of lower profile or lower level, or to a split sextuple; or it is a sum of two
 balanced 4-tuples minus a pair; or M is a degree at which the Hodge
-conjecture is known (Aoki, Peterson, e84hc Theorem A). With Section 13 and
+conjecture follows from Aoki's reduction and the classes ξ_q, q in {12, 15,
+20, 21, 28} (Aoki), {33, 39, 44, 51, 52, 57} (e84hc Theorem A) and 35 (G3). With Section 13 and
 e84hc Theorem B, by induction on (M, profile), the Hodge conjecture holds for
 X^4_M whenever 110 ∤ M.
 
