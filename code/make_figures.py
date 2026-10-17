@@ -7,6 +7,7 @@ import os
 import numpy as np
 import matplotlib
 import matplotlib.colors
+import matplotlib.patches
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
@@ -312,7 +313,7 @@ def _lab(ax, x, y, z, text, dx=0, dy=0, **kw):
 
 def fig_zeta9():
     """Theorem thm:zeta9: the two-dimensional period domain of the twelve-
-    dimensional space with real multiplication by Q(zeta_9)^+, the image of
+    dimensional space with real multiplication by Q(zeta_7)^+ or Q(zeta_9)^+, the image of
     the dihedral family as a shaded patch, the curves where an F-line becomes
     algebraic, the point of Mumford type, and the rational isometry that
     moves it into the patch."""
@@ -352,7 +353,7 @@ def fig_zeta9():
     _lab(ax, 1.0, -0.7, f(1.0, -0.7), r"$U$, image of the dihedral family", dx=36, dy=-24, color="#7a4a10")
     _lab(ax, -1.75, 1.1, f(-1.75, 1.1), r"$\mathcal{D}_{T_{12}}$", dx=-10, dy=12)
     _lab(ax, -1.2, -1.2, f(-1.2, -1.2), r"loci where an $F$-line $N$ is algebraic", dx=-30, dy=-44, color="#7a1f1f")
-    ax.set_title(r"Real multiplication by $\mathbb{Q}(\zeta_9)^{+}$: moving the surface of Mumford type into the dihedral family",
+    ax.set_title(r"Real multiplication by $\mathbb{Q}(\zeta_7)^{+}$ or $\mathbb{Q}(\zeta_9)^{+}$: moving the surface of Mumford type into the dihedral family",
                  fontsize=10)
     save(fig, "fig_zeta9")
 
@@ -391,8 +392,265 @@ def fig_surgery():
                  fontsize=10)
     save(fig, "fig_surgery")
 
+
+def fig_cubicstop():
+    """Proposition prop:cubicstop: the three places where the dihedral mechanism
+    stops. Left: the Mumford algebras over F = Q(zeta_7)^+ or Q(zeta_9)^+ as a
+    row of discs; a rank-twelve family carries only D_infinity. Middle: the
+    four-dimensional period domain of the rank-eighteen family drawn as a box,
+    the image of the family as a threefold (a surface in the picture) and the
+    Shimura curves of the surfaces of Mumford type for the other algebras, which
+    the threefold is not known to meet. Right: the finite groups acting on the
+    base P^1 and the fields they produce."""
+    from matplotlib.patches import Circle, FancyArrowPatch, Rectangle, FancyBboxPatch
+    fig = plt.figure(figsize=(7.2, 3.9))
+    gs = fig.add_gridspec(1, 3, width_ratios=[0.95, 1.5, 0.95], wspace=0.02)
+    # left panel: algebras over F
+    ax = fig.add_subplot(gs[0, 0]); ax.set_axis_off()
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+    ax.text(5, 9.3, r"Mumford algebras $D$ over $F$", ha="center", fontsize=9)
+    labels = [r"$D_{\infty}$", r"$D_{13}$", r"$D_{29}$", r"$D_{41}$", r"$\cdots$"]
+    from matplotlib.patches import Ellipse
+    for k, lab in enumerate(labels):
+        cx = 1.3 + 2.15 * k
+        if k < 4:
+            col = "#f0c78a" if k == 0 else "#dde5f0"
+            ax.add_patch(Ellipse((cx, 6.3), 2.0, 1.25, facecolor=col, edgecolor="#333333", lw=0.8))
+        ax.text(cx, 6.3, lab, ha="center", va="center", fontsize=8.5)
+    ax.text(5, 4.6, r"ramified at two real places, and at", ha="center", fontsize=8)
+    ax.text(5, 3.9, r"two places above a split prime $p$", ha="center", fontsize=8)
+    ax.add_patch(FancyArrowPatch((1.2, 2.9), (1.2, 2.1), arrowstyle="-|>", mutation_scale=9, lw=1.0, color="#7a4a10"))
+    ax.text(5, 1.75, r"rank-twelve family, disc$\,\Phi$ a square,", ha="center", va="center", fontsize=8, color="#7a4a10")
+    ax.text(5, 1.15, r"only $D_{\infty}$ is reached", ha="center", va="center", fontsize=8, color="#7a4a10")
+    ax.text(5, 0.3, "(i)", ha="center", fontsize=9)
+    # middle panel: the four-dimensional domain of the rank-eighteen family
+    ax = fig.add_subplot(gs[0, 1], projection="3d"); ax.computed_zorder = False; ax.patch.set_alpha(0)
+    u = np.linspace(-1, 1, 40); v = np.linspace(-1, 1, 40); U, V = np.meshgrid(u, v)
+    Z = 0.25 * U - 0.35 * V**2 + 0.1
+    ax.plot_surface(U, V, Z, color="#f0c78a", alpha=0.95, linewidth=0, shade=True, zorder=1)
+    # box edges
+    for sgn in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
+        ax.plot([sgn[0]] * 2, [sgn[1]] * 2, [-1, 1], color="#999999", lw=0.6, zorder=0)
+    for z in (-1, 1):
+        ax.plot([-1, 1, 1, -1, -1], [-1, -1, 1, 1, -1], [z] * 5, color="#999999", lw=0.6, zorder=0)
+    t = np.linspace(-0.95, 0.95, 60)
+    curves = [(0.55 * t, -0.6 + 0.2 * t, 0.65 - 0.4 * t**2), (-0.7 + 0.1 * t, 0.5 * t, -0.55 + 0.3 * t),
+              (0.6 + 0.2 * t, 0.7 * t, 0.85 - 0.5 * t)]
+    for cx, cy, cz in curves:
+        ax.plot(cx, cy, cz, color="#7a1f1f", lw=1.1, zorder=3)
+    ax.scatter([0.35], [-0.6], [0.65 - 0.4 * 0.35**2 / 0.55**2 * 0.55**2], s=36, color="black", marker="*", depthshade=False, zorder=5)
+    ax.set_xlim(-1.1, 1.1); ax.set_ylim(-1.1, 1.1); ax.set_zlim(-1.1, 1.1)
+    ax.set_axis_off(); ax.set_box_aspect((1, 1, 1), zoom=0.85); ax.view_init(elev=22, azim=-55)
+    fig.canvas.draw()
+    _lab(ax, 0, 0, 1.0, r"$\mathcal{D}_{T_{18}}$, dimension four", dy=22)
+    _lab(ax, 0, 0, -1.0, "$U$, image of the family,\ndimension three", dy=-24, fontsize=8, color="#7a4a10")
+    _lab(ax, 0, 0, -1.0, "Shimura curves of $(F,D)$,\nnot known to meet $U$", dy=-48, fontsize=8, color="#7a1f1f")
+    _lab(ax, 0, 0, -1.0, "(ii)", dy=-66)
+    # right panel: finite groups on P^1 and their fields
+    ax = fig.add_subplot(gs[0, 2]); ax.set_axis_off()
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+    ax.text(5, 9.3, r"finite groups acting on $\mathbb{P}^{1}$", ha="center", fontsize=9)
+    rows = [(r"$C_{m}$", r"$\mathbb{Q}(\zeta_{m})$"), (r"$D_{m}$", r"$\mathbb{Q}(\zeta_{m})^{+}$"),
+            (r"$A_{4}$", r"$\mathbb{Q},\ \mathbb{Q}(\sqrt{-3})$"), (r"$S_{4}$", r"$\mathbb{Q}$"), (r"$A_{5}$", r"$\mathbb{Q},\ \mathbb{Q}(\sqrt{5})$")]
+    for k, (g, f) in enumerate(rows):
+        y = 7.6 - 1.25 * k
+        col = "#f0c78a" if k == 1 else "#dde5f0"
+        ax.add_patch(FancyBboxPatch((0.6, y - 0.42), 2.2, 0.84, boxstyle="round,pad=0.05", facecolor=col, edgecolor="#333333", lw=0.7))
+        ax.text(1.7, y, g, ha="center", va="center", fontsize=8.5)
+        ax.add_patch(FancyArrowPatch((3.0, y), (4.1, y), arrowstyle="-|>", mutation_scale=8, lw=0.8, color="black"))
+        ax.text(4.4, y, f, ha="left", va="center", fontsize=8.5)
+    ax.text(5, 1.3, r"cubic only for $D_{7},D_{9},D_{14},D_{18}$", ha="center", fontsize=8, color="#7a4a10")
+    ax.text(5, 0.4, "(iii)", ha="center", fontsize=9)
+    fig.suptitle(r"Where the dihedral mechanism stops: finitely ramified algebras, the threefold in $\mathcal{D}_{T_{18}}$, and the fields of finite groups on $\mathbb{P}^{1}$", fontsize=9.5, y=0.99)
+    save(fig, "fig_cubicstop")
+
+
+def fig_cmpoint():
+    """Appendix A: the three Weil surfaces B_j with the four curves C_zeta, the dimensions of the
+    Ext groups between two twists of one threefold, and the closed chains of Proposition VI.9."""
+    fig = plt.figure(figsize=(7.6, 3.5))
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.2, 1.0, 1.1], wspace=0.12)
+    # (a) three surfaces, each a square torus fundamental domain, with the four curves u + zeta v = 0
+    ax = fig.add_subplot(gs[0, 0], projection="3d")
+    ax.computed_zorder = False
+    cols = {"1": "#7a1f1f", "i": "#1f3f7a", "-1": "#2f6f2f", "-i": "#7a4a10"}
+    for j, y0 in enumerate([0.0, 1.6, 3.2]):
+        sq = [(0, y0, 0), (1, y0, 0), (1, y0, 1), (0, y0, 1)]
+        ax.add_collection3d(Poly3DCollection([sq], facecolor="#dde5f0", edgecolor="#555555",
+                                             linewidth=0.7, alpha=0.95, zorder=1))
+        t = np.linspace(0, 1, 60)
+        # the curves u = -zeta v drawn on the real slice: zeta = +-1 give the two diagonals,
+        # zeta = +-i the curves closing after a half turn (drawn as the mid-lines)
+        ax.plot(t, y0 + 0 * t, 1 - t, color=cols["1"], lw=1.3, zorder=3)
+        ax.plot(t, y0 + 0 * t, t, color=cols["-1"], lw=1.3, zorder=3)
+        ax.plot(t, y0 + 0 * t, 0.5 + 0 * t, color=cols["i"], lw=1.3, zorder=3)
+        ax.plot(0.5 + 0 * t, y0 + 0 * t, t, color=cols["-i"], lw=1.3, zorder=3)
+        ax.scatter([0.5], [y0], [0.5], s=14, color="black", zorder=4, depthshade=False)
+    ax.set_xlim(0, 1); ax.set_ylim(-0.2, 4.4); ax.set_zlim(0, 1)
+    ax.set_axis_off(); ax.set_box_aspect((1.0, 2.6, 1.0), zoom=1.25); ax.view_init(elev=22, azim=-62)
+    fig.canvas.draw()
+    for j, y0 in enumerate([0.0, 1.6, 3.2]):
+        _lab(ax, 0.5, y0, 1.02, r"$B_{%d}=E_{0}^{2}$" % (j + 1), dy=9)
+    _lab(ax, 1.0, 0.0, 0.0, r"$C_{1}$", dx=10, dy=-6, color=cols["1"])
+    _lab(ax, 0.0, 0.0, 0.0, r"$C_{-1}$", dx=-14, dy=-8, color=cols["-1"])
+    _lab(ax, 1.0, 0.0, 0.5, r"$C_{i}$", dx=10, dy=0, color=cols["i"])
+    _lab(ax, 0.5, 0.0, 0.0, r"$C_{-i}$", dx=-14, dy=-6, color=cols["-i"])
+    ax.text2D(0.5, -0.01, r"$\sum_{\zeta_1\zeta_2\zeta_3=\pm1}\pm[Z_{\zeta}]=32(\alpha+\bar\alpha)$",
+              transform=ax.transAxes, ha="center", va="top", fontsize=8)
+    ax.set_title(r"(a) the curves $C_{\zeta}=\ker(u+\zeta v)$ in $B_{j}$", fontsize=9, pad=0)
+    # (b) dimensions of Ext^k(O_Z L^a, O_Z L^b)
+    ax = fig.add_subplot(gs[0, 1])
+    k = np.arange(7)
+    d0 = [1, 6, 15, 20, 15, 6, 1]
+    d1 = [8, 24, 24, 8, 0, 0, 0]
+    dm = [0, 0, 0, 8, 24, 24, 8]
+    w = 0.27
+    ax.bar(k - w, d0, w, color="#9aa9c2", label=r"$b-a=0$")
+    ax.bar(k, d1, w, color="#7a1f1f", label=r"$b-a=1$")
+    ax.bar(k + w, dm, w, color="#1f3f7a", label=r"$b-a=-1$")
+    for i, v in enumerate(d0):
+        ax.text(i - w, v + 0.4, str(v), ha="center", va="bottom", fontsize=6.5, color="#333333")
+    ax.set_xticks(k); ax.set_xlabel(r"$k$", labelpad=1)
+    ax.set_ylabel(r"$\dim\,\mathrm{Ext}^{k}(\mathcal{O}_Z L^{a},\mathcal{O}_Z L^{b})$", fontsize=8)
+    ax.set_ylim(0, 31); ax.legend(fontsize=7, frameon=False, loc="upper left", ncol=3, columnspacing=0.8, handlelength=1.0, bbox_to_anchor=(-0.02, 1.02))
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.tick_params(labelsize=8)
+    ax.set_title(r"(b) two twists of one $Z$", fontsize=9)
+    # (c) the closed chains
+    ax = fig.add_subplot(gs[0, 2]); ax.set_axis_off()
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+    P = {"k": (2.0, 2.2), "k'": (5.0, 7.6), "k''": (8.0, 2.2)}
+    names = {"k": r"$\mathcal{O}_Z L^{k}$", "k'": r"$\mathcal{O}_Z L^{k'}$", "k''": r"$\mathcal{O}_Z L^{k''}$"}
+    for key, (x, y) in P.items():
+        ax.add_patch(plt.Circle((x, y), 0.95, facecolor="#dde5f0", edgecolor="#333333", lw=0.8))
+        ax.text(x, y, names[key], ha="center", va="center", fontsize=8)
+    def arrow(a, b, text, col, rad, dx, dy):
+        (x1, y1), (x2, y2) = P[a], P[b]
+        ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle="-|>", color=col, lw=1.2, shrinkA=20, shrinkB=20,
+                                    connectionstyle="arc3,rad=%s" % rad))
+        ax.text((x1 + x2) / 2 + dx, (y1 + y2) / 2 + dy, text, ha="center", va="center", fontsize=8, color=col)
+    arrow("k", "k'", r"$\mathrm{Ext}^{0}$", "#7a1f1f", -0.15, -1.3, 0.3)
+    arrow("k'", "k''", r"$\mathrm{Ext}^{0}$", "#7a1f1f", -0.15, 1.3, 0.3)
+    arrow("k''", "k", r"$\mathrm{Ext}^{3}=H^{3}(Z,L^{k-k''}|_Z)$", "#1f3f7a", -0.25, 0, -1.3)
+    ax.text(5.0, 5.3, r"$0+0+3=3$", ha="center", fontsize=8)
+    ax.text(5.0, 4.4, r"a product into $\mathrm{Ext}^{2}$", ha="center", fontsize=8)
+    ax.text(5.0, -0.6, r"two pieces: $k_{1}+k_{2}\geq 3$, nothing in $\mathrm{Ext}^{2}$",
+            ha="center", fontsize=7.5, color="#333333")
+    ax.set_title(r"(c) closed chains, $k<k'<k''$", fontsize=9)
+    save(fig, "fig_cmpoint")
+
+
+def fig_roadmap():
+    """Section I: the plan of the paper as a flow chart. The reduction HC <=> (F2) and (F3'), the
+    shape of the two loci, and for each statement the constructions of the paper with the step at
+    which each one stops."""
+    fig, ax = plt.subplots(figsize=(7.4, 3.9))
+    ax.set_xlim(0, 100); ax.set_ylim(0, 52); ax.set_axis_off()
+    def box(x, y, w, h, text, fc="#dde5f0", ec="#333333", fs=8, lw=0.8, style="round,pad=0.4"):
+        ax.add_patch(matplotlib.patches.FancyBboxPatch((x - w / 2, y - h / 2), w, h, boxstyle=style,
+                                                       facecolor=fc, edgecolor=ec, linewidth=lw))
+        ax.text(x, y, text, ha="center", va="center", fontsize=fs)
+    def arr(x1, y1, x2, y2, col="#333333", lw=1.0, rad=0.0):
+        ax.annotate("", xy=(x2, y2), xytext=(x1, y1),
+                    arrowprops=dict(arrowstyle="-|>", color=col, lw=lw, shrinkA=2, shrinkB=2,
+                                    connectionstyle="arc3,rad=%s" % rad))
+    red, blue, gold, grey = "#7a1f1f", "#1f3f7a", "#7a4a10", "#555555"
+    box(50, 48, 46, 6, r"the Hodge conjecture $\Leftrightarrow$ (F2) $\wedge$ (F3$'$)", fc="#f0e3c0", fs=8.5)
+    box(50, 40.5, 56, 5.2, r"the locus of either statement: dense, every CM point, all or meagre", fc="#e8e8e8", fs=8)
+    arr(50, 45, 50, 43.1)
+    # the two columns
+    box(24, 33, 46, 5, r"(F3$'$): every Hodge class comes from abelian varieties" "\n" r"first case: real multiplication of K3 surfaces", fc="#e5ecf6", ec=blue, fs=7.2)
+    box(76, 33, 46, 5, r"(F2): the Hodge conjecture for abelian varieties" "\n" r"first case: Weil classes of a product of two fourfolds", fc="#f6e5e5", ec=red, fs=7.2)
+    arr(38, 38, 28, 35.6, col=blue); arr(62, 38, 72, 35.6, col=red)
+    # F3' constructions
+    ys = [25.5, 18.5, 11.5]
+    left = [(r"$\sqrt{6}$: chain of two quotients, $3\cdot2$", r"stops: $\sqrt{N}$ needs a map of degree $N$"),
+            (r"$\sqrt{5},\sqrt{7}$: Fricke isogenies in families", r"stops: only multiquadratic fields"),
+            (r"$\mathbb{Q}(\zeta_7)^{+},\mathbb{Q}(\zeta_9)^{+}$ on Mumford type", r"stops: other cubic fields, other algebras")]
+    right = [(r"product object on $A\times A'$, Hankel rank 3", r"stops: Ext of the secant sheaves"),
+             (r"CM point $E_0^6$: all Ext groups explicit", r"stops: ranks of Massey products"),
+             (r"sixfold link $\xi$ on $X\times X\times Z_K$", r"stops: algebraicity of $\xi$")]
+    for (t1, t2), y in zip(left, ys):
+        box(24, y, 42, 4.6, t1 + "\n" + t2, fc="white", ec=blue, fs=7.2)
+    for (t1, t2), y in zip(right, ys):
+        box(76, y, 42, 4.6, t1 + "\n" + t2, fc="white", ec=red, fs=7.2)
+    arr(24, 30.5, 24, 27.9, col=blue); arr(24, 23.2, 24, 20.9, col=blue); arr(24, 16.2, 24, 13.9, col=blue)
+    arr(76, 30.5, 76, 27.9, col=red); arr(76, 23.2, 76, 20.9, col=red); arr(76, 16.2, 76, 13.9, col=red)
+    box(24, 4.5, 46, 4.4, r"proved: HC for $S\times S$ in the dihedral families," "\n" r"and for $S_\lambda\times S_\lambda$ and $S_\lambda^{[2]}$ of Mumford type", fc="#e5ecf6", ec=blue, fs=7.0)
+    box(76, 4.5, 46, 4.4, r"proved: what each object does and where it stops;" "\n" r"the defect survives maps, blow-ups, derived equivalences", fc="#f6e5e5", ec=red, fs=7.0)
+    arr(24, 9.2, 24, 6.9, col=blue); arr(76, 9.2, 76, 6.9, col=red)
+    ax.text(50, 18.5, "both open", ha="center", va="center", fontsize=9, color=grey, rotation=90)
+    save(fig, "fig_roadmap")
+
+
+def fig_extgrid():
+    """Appendix A: the least degree k with Ext^k(F_P, F_Q) != 0 for the twelve pieces O_Z L^k,
+    O_Z' L^k, L^k (k = 0..3), as a matrix; the two-step and three-step statements of
+    Proposition VI.9 are read off from it."""
+    import itertools
+    TW = range(4)
+    pieces = [('Z', k) for k in TW] + [('W', k) for k in TW] + [('L', k) for k in TW]
+    def degrees(P, Q):
+        (t, a), (u, b) = P, Q
+        if P == Q: return set(range(7))
+        if t == 'L' and u == 'L': return {0} if b > a else {6}
+        if t == 'L' and u != 'L': return {0} if b > a else ({3} if b < a else {0, 1, 2, 3})
+        if t != 'L' and u == 'L': return {3} if b > a else ({6} if b < a else {3, 4, 5, 6})
+        if t != u: return {3}
+        if b > a: return {0, 1, 2, 3}
+        return {3, 4, 5, 6}
+    n = len(pieces)
+    M = np.array([[min(degrees(P, Q)) for Q in pieces] for P in pieces], dtype=float)
+    fig, axes = plt.subplots(1, 2, figsize=(7.4, 3.6), gridspec_kw=dict(width_ratios=[1.35, 1.0], wspace=0.5))
+    ax = axes[0]
+    cmap = matplotlib.colors.ListedColormap(["#7a1f1f", "#c7a0a0", "#e3cfcf", "#dde5f0", "#9aa9c2", "#5f719a", "#1f3f7a"])
+    im = ax.imshow(M, cmap=cmap, vmin=-0.5, vmax=6.5)
+    labels = [r"$\mathcal{O}_Z L^{%d}$" % k for k in TW] + [r"$\mathcal{O}_{Z'} L^{%d}$" % k for k in TW] + [r"$L^{%d}$" % k for k in TW]
+    ax.set_xticks(range(n)); ax.set_yticks(range(n))
+    ax.set_xticklabels(labels, fontsize=6.5, rotation=90); ax.set_yticklabels(labels, fontsize=6.5)
+    for i in range(n):
+        for j in range(n):
+            d = sorted(degrees(pieces[i], pieces[j]))
+            txt = "%d" % d[0] if len(d) == 1 else ("%d..%d" % (d[0], d[-1]) if i != j else "0..6")
+            ax.text(j, i, txt, ha="center", va="center", fontsize=5.5,
+                    color="white" if M[i, j] in (0, 6) else "black")
+    for p in (3.5, 7.5):
+        ax.axhline(p, color="black", lw=0.6); ax.axvline(p, color="black", lw=0.6)
+    ax.set_xlabel("to", fontsize=8); ax.set_ylabel("from", fontsize=8)
+    ax.set_title(r"(a) degrees $k$ with $\mathrm{Ext}^{k}(\mathcal{F}_P,\mathcal{F}_Q)\neq0$", fontsize=9)
+    cb = fig.colorbar(im, ax=ax, ticks=range(7), fraction=0.046, pad=0.03); cb.ax.tick_params(labelsize=7)
+    cb.set_label("least degree", fontsize=7)
+    # (b) histogram of the total degree of all closed chains of two and of three distinct pieces
+    ax = axes[1]
+    two = []
+    for P, Q in itertools.permutations(pieces, 2):
+        two += [k1 + k2 for k1 in degrees(P, Q) for k2 in degrees(Q, P)]
+    three = []
+    for P, Q, R in itertools.permutations(pieces, 3):
+        three += [k1 + k2 + k3 for k1 in degrees(P, Q) for k2 in degrees(Q, R) for k3 in degrees(R, P)]
+    bins = np.arange(-0.5, 19.5, 1)
+    h2, _ = np.histogram(two, bins); h3, _ = np.histogram(three, bins)
+    xs = np.arange(0, 19)
+    ax.bar(xs - 0.2, h2, 0.4, color="#1f3f7a", label="two pieces")
+    ax.bar(xs + 0.2, h3, 0.4, color="#7a1f1f", label="three pieces")
+    ax.axvline(2.5, color="black", lw=0.8, ls="--")
+    ax.text(2.3, 0.8, "degree 2 needs\n" r"$\sum k_i=m$", ha="right", va="bottom", fontsize=7)
+    ax.annotate("%d at degree 3:\nthree twists of one $Z$" % h3[3], xy=(3.2, h3[3] * 1.3), xytext=(0.2, max(h3) * 3.5),
+                fontsize=7, color="#7a1f1f", ha="left", va="top",
+                arrowprops=dict(arrowstyle="-|>", color="#7a1f1f", lw=0.8, shrinkB=2))
+    ax.set_yscale("log"); ax.set_ylim(0.7, max(h3) * 5)
+    ax.set_xticks(range(0, 19, 2)); ax.tick_params(labelsize=7.5)
+    ax.set_xlabel(r"total Ext degree $k_1+\dots+k_m$ of a closed chain", fontsize=8)
+    ax.set_ylabel("number of chains", fontsize=8)
+    ax.legend(fontsize=7, frameon=False, loc="upper right")
+    ax.spines["top"].set_visible(False); ax.spines["right"].set_visible(False)
+    ax.set_title("(b) closed chains over the twelve pieces", fontsize=9)
+    save(fig, "fig_extgrid")
+
+
 if __name__ == "__main__":
     fig_locus(); fig_eigen(); fig_graph(); fig_chain()
     fig_hankel(); fig_product(); fig_link(); fig_fricke()
-    fig_zeta9(); fig_surgery()
+    fig_zeta9(); fig_surgery(); fig_cubicstop(); fig_cmpoint(); fig_roadmap(); fig_extgrid()
     print("figures written to", os.path.abspath(OUT))
