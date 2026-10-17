@@ -32,7 +32,7 @@ run closure_graph.cpp  sh -c "$CXX -std=c++17 -O2 -o $tmp/cgpp closure_graph.cpp
 run hilbert.c          sh -c "$CC -O2 -o $tmp/hilbert hilbert.c && $tmp/hilbert"
 rm -rf "$tmp"
 # the Lean certificate: 40 theorems, every one axiom-free or on propext and Quot.sound
-run lean               sh -c "cd ../lean && $LEAN HodgeClosure.lean > /tmp/run_all_lean.out && test \$(grep -c 'does not depend on any axioms' /tmp/run_all_lean.out) -eq 38 && test \$(grep -c 'depends on axioms: \[propext, Quot.sound\]' /tmp/run_all_lean.out) -eq 2"
+run lean               sh -c "cd ../lean && $LEAN HodgeClosure.lean > /tmp/run_all_lean.out && test \$(grep -c 'does not depend on any axioms' /tmp/run_all_lean.out) -eq 45 && test \$(grep -c 'depends on axioms: \[propext, Quot.sound\]' /tmp/run_all_lean.out) -eq 2"
 # the sqrt6 and Fricke scripts report their own counts; they must read 25 and 41
 grep -q "25 checks passed, 0 failed" /tmp/run_all_sqrt6_chain.py.log || { echo "FAIL  sqrt6_chain.py count"; fail=1; }
 grep -q "41 checks passed, 0 failed" /tmp/run_all_fricke_families.py.log || { echo "FAIL  fricke_families.py count"; fail=1; }

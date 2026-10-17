@@ -20,14 +20,15 @@ follows.
   and Picard numbers, the dimension counts 57, 104 and 26, the Hecke algebra
   dimensions) is recomputed by programs in `code/` in at least two languages
   and the combinatorial and arithmetic ones are proved in
-  `lean/HodgeClosure.lean` (forty theorems, thirty-eight of them free of
+  `lean/HodgeClosure.lean` (forty-seven theorems, forty-five of them free of
   every axiom and two depending on propext and Quot.sound only).
 * Two numerical ranks (`product_object.py`, `convolution_checks.py`) are
   computed in floating point; no statement of the paper rests on them. The
   rank behind Theorem VI.6 is also computed exactly (`annihilator_exact.py`),
   the Riemann-Roch polynomial and the thirty-one supports of Proposition VI.7
   (`riemann_roch_pieces.py`), and the invariants of the trace form behind
-  Theorem V.12 (`zeta9_invariants.py`).
+  Theorem V.12 (`zeta9_invariants.py`), with the Ext groups and chains at the
+  CM point of Appendix A (`cm_point_ext.py`, Lean Section 6).
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal
