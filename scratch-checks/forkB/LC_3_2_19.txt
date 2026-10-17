@@ -1,0 +1,11 @@
+/dev/shm/tmpb/m6/L_3_2_19.txt p=19 configs 19 nochain 3
+   D_B=6 size=5 chain 2
+   D_B=6 size=6 chain 6
+   D_B=6 size=6 nochain 3
+   D_B=12 size=5 chain 1
+   D_B=12 size=6 chain 3
+   D_B=24 size=5 chain 1
+   D_B=24 size=6 chain 3
+   residual D_B=6 level 114 : 1/114 7/114 78/19 79/114 86/57 91/114
+   residual D_B=6 level 114 : 1/114 13/114 43/114 72/19 103/114 110/57
+   residual D_B=6 level 114 : 1/114 13/114 43/114 80/57 102/19 103/114

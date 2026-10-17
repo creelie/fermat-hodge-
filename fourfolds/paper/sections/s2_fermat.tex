@@ -1,0 +1,341 @@
+\section{Fermat varieties and their Hodge characters}\label{sec:fermat}
+
+\subsection{Correspondences}
+All varieties are smooth and projective over $\CC$, possibly disconnected,
+and cohomology has rational coefficients unless we say otherwise. Let $B$
+and $X$ be varieties, with $B$ of pure dimension $b$. An algebraic cycle
+$\Gamma$ of codimension $c$ on $B\times X$ gives the map
+\[
+  \Gamma_{*}\colon H^{k}(B)\to H^{k+2c-2b}(X),\qquad
+  y\mapsto\pr_{X*}\bigl(\cl(\Gamma)\cup\pr_{B}^{*}y\bigr),
+\]
+a morphism of Hodge structures $H^{k}(B)(b-c)\to H^{k+2c-2b}(X)$. It carries
+algebraic classes to algebraic classes, the composite of two such maps is the
+map of the composite correspondence, and for a morphism $f\colon B\to X$ the
+graph of $f$ and its transpose give $f_{*}$ and $f^{*}$
+\cite[Chapter~16]{Ful98}.
+
+A pure rational Hodge structure $V$ of weight $w$ is \emph{polarizable} if
+it carries a bilinear form $Q$ with $Q(Cx,\bar x)>0$ for $x\ne0$, where $C$
+acts on $V^{a,b}$ by $i^{a-b}$. The cohomology of a variety and its Tate
+twists are polarizable \cite[Chapter~6]{Voi02b}, and polarizable Hodge
+structures are semisimple.\footnote{If $W\subseteq V$ is a sub-Hodge
+structure, the restriction of $Q$ to $W$ is again a polarization, so it is
+nondegenerate and $V=W\oplus W^{\perp}$. The orthogonal $W^{\perp}$ is a
+sub-Hodge structure, because $V_{\CC}=\bigoplus V^{a,b}$ is an orthogonal
+decomposition for the hermitian form $Q(Cx,\bar y)$, and $W_{\CC}$ is the sum
+of its intersections with the $V^{a,b}$.}
+
+\begin{lemma}\label{lem:lift}
+Let $\varphi\colon V\to W$ be a surjective morphism of polarizable Hodge
+structures of weight $2p$. Then $\varphi$ maps the Hodge classes of $V$, the
+rational classes of type $(p,p)$, onto those of $W$.
+\end{lemma}
+
+\begin{proof}
+By semisimplicity the kernel of $\varphi$ has a complement $V'$ that is a
+sub-Hodge structure, and $\varphi$ restricts to an isomorphism $V'\to W$ of
+Hodge structures. Its inverse carries a Hodge class of $W$ to a Hodge class
+of $V'\subseteq V$.
+\end{proof}
+
+\begin{theorem}[Lefschetz \cite{Lef24}, Kodaira--Spencer
+\cite{KS53}]\label{thm:lef11}
+Every Hodge class of degree two is algebraic.
+\end{theorem}
+
+\begin{proof}
+In the exact sequence $H^{1}(X,\cO_{X}^{\times})\to H^{2}(X,\ZZ)\to
+H^{2}(X,\cO_{X})$ of the exponential sequence, the second map is the
+composite of $H^{2}(X,\ZZ)\to H^{2}(X,\CC)$ with the projection to
+$H^{0,2}(X)$. So an integral class of type $(1,1)$ is the first Chern class
+of a holomorphic line bundle, which is algebraic by GAGA, and its Chern class
+is the class of a divisor. A rational Hodge class has an integral multiple.
+\end{proof}
+
+\subsection{The Fermat varieties}
+For $m\ge1$ and $n\ge0$ let $X^{n}_{m}\subseteq\PP^{n+1}$ be the Fermat
+variety $x_{0}^{m}+\dots+x_{n+1}^{m}=0$; thus $X^{0}_{m}$ is a set of $m$
+points and $X^{1}_{m}$ the Fermat curve. The group
+$G_{n}=\mu_{m}^{n+2}/\mu_{m}$ acts by multiplying the coordinates, and its
+characters are the vectors $a=(a_{0},\dots,a_{n+1})\in(\ZZ/m)^{n+2}$ with
+$\sum_{i}a_{i}=0$. Let $\mathfrak A^{n}_{m}$ be the set of characters with
+every $a_{i}\ne0$. For $y\in\ZZ/m$ let $\bar y\in\{0,\dots,m-1\}$ be its
+representative and $\langle y\rangle=\bar y/m$, and for
+$a\in\mathfrak A^{n}_{m}$ put $\langle a\rangle=\sum_{i}\langle a_{i}\rangle$,
+an integer between $1$ and $n+1$.
+
+\begin{proposition}\label{prop:fermatchars}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item The primitive cohomology $H^{n}_{\mathrm{prim}}(X^{n}_{m},\CC)$ is the
+direct sum of lines $V(a)$, $a\in\mathfrak A^{n}_{m}$, on which $G_{n}$ acts
+by pull-back through the character $a$, and $V(a)\subseteq H^{n-q,q}$ with
+$q=\langle a\rangle-1$.
+\item Let $n$ be even. The space of primitive Hodge classes, tensored with
+$\CC$, is the sum of the lines $V(a)$ with $\langle ta\rangle=n/2+1$ for
+every $t\in(\ZZ/m)^{\times}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) By Griffiths' description of the cohomology of a hypersurface by
+residues \cite[\S8]{Gri69}, $H^{n-q,q}_{\mathrm{prim}}(X^{n}_{m})$ is
+isomorphic to the graded piece of degree $(q+1)m-(n+2)$ of the Jacobian ring
+$\CC[x_{0},\dots,x_{n+1}]/(x_{0}^{m-1},\dots,x_{n+1}^{m-1})$; the monomial
+$x^{b}$ corresponds to the residue of $x^{b}\Omega/F^{q+1}$, where
+$F=\sum x_{i}^{m}$ and $\Omega=\sum_{i}(-1)^{i}x_{i}\,dx_{0}\wedge\dots
+\widehat{dx_{i}}\dots\wedge dx_{n+1}$. That residue is an eigenvector of
+$G_{n}$ with character $a=b+(1,\dots,1)$, as $\Omega$ has character
+$(1,\dots,1)$ and $F$ is invariant. As $b$ runs over the exponents with
+$0\le b_{i}\le m-2$, $a$ runs once over the characters with all entries
+nonzero, and the degree condition reads $\langle a\rangle=q+1$.
+
+(ii) The decomposition is defined over $\QQ(\mu_{m})$, and the automorphism
+$\zeta\mapsto\zeta^{t}$ of $\QQ(\mu_{m})$ carries $V(a)$ to $V(ta)$. So for
+each orbit $O$ of $(\ZZ/m)^{\times}$ on $\mathfrak A^{n}_{m}$ the sum
+$\bigoplus_{a\in O}V(a)$ is defined over $\QQ$, and these rational subspaces
+decompose $H^{n}_{\mathrm{prim}}(X^{n}_{m},\QQ)$. A rational class with a
+nonzero component on some $V(a)$ has nonzero components on the whole orbit of
+$a$; so it is of type $(n/2,n/2)$ only if every $V(ta)$ is, that is, only if
+$\langle ta\rangle=n/2+1$ for every unit $t$.
+\end{proof}
+
+\subsection{The inductive structure}
+Fix $\varepsilon$ with $\varepsilon^{m}=-1$. For $r,s\ge1$, let
+$Y\subseteq X^{r}_{m}\times X^{s}_{m}$ be the subvariety $x_{r+1}=y_{s+1}=0$,
+which is isomorphic to $X^{r-1}_{m}\times X^{s-1}_{m}$, and let $Z$ be the
+blow-up of $X^{r}_{m}\times X^{s}_{m}$ along $Y$. Shioda and Katsura show
+that the rational map
+\[
+  (x,y)\mapsto\bigl[x_{0}y_{s+1}:\dots:x_{r}y_{s+1}:\varepsilon
+  x_{r+1}y_{0}:\dots:\varepsilon x_{r+1}y_{s}\bigr]
+\]
+extends to a surjective morphism $\psi\colon Z\to X^{r+s}_{m}$
+\cite[Lemma~1.2]{SK79}.\footnote{The image lies in $X^{r+s}_{m}$, because
+$y_{s+1}^{m}\sum_{i\le r}x_{i}^{m}+\varepsilon^{m}x_{r+1}^{m}\sum_{j\le s}
+y_{j}^{m}=-y_{s+1}^{m}x_{r+1}^{m}+x_{r+1}^{m}y_{s+1}^{m}=0$. All coordinates
+vanish exactly on $Y$, and on the chart of the blow-up where
+$y_{s+1}=t\,x_{r+1}$ the map is $[tx_{0}:\dots:tx_{r}:\varepsilon y_{0}:\dots:
+\varepsilon y_{s}]$, where $y_{0},\dots,y_{s}$ do not all vanish.} Let
+$E\subseteq Z$ be the exceptional divisor, $j\colon E\to Z$ the inclusion and
+$\varpi\colon E\to Y$ the projection. The map
+\[
+  f=\psi_{*}j_{*}\varpi^{*}\colon H^{r+s-2}(Y)\to H^{r+s}(X^{r+s}_{m})
+\]
+carries $V(a')\otimes V(b')$ onto $V(a'*b')$ for $a'\in\mathfrak
+A^{r-1}_{m}$ and $b'\in\mathfrak A^{s-1}_{m}$, where $a'*b'$ is the
+juxtaposed character \cite[Theorem~II]{Shi79}, \cite[\S1]{Aok87}. As a
+composite of pull-backs and push-forwards along morphisms, it carries
+algebraic classes to algebraic classes.
+
+\subsection{Balanced multisets}
+In the rest of the paper $M\ge2$ is an integer, and we work with multisets
+of elements of $\ZZ/M$; $A+B$ is the sum of multisets, $A-B$ the difference
+when $B$ is contained in $A$, $tA$ and $-A$ the images under multiplication.
+
+\begin{definition}\label{def:balanced}
+Let $A$ be a multiset of nonzero elements of $\ZZ/M$ with sum $0$. It is
+\emph{balanced} if $h_{A}(t)=\sum_{a\in A}\langle ta\rangle$ is the same
+integer for every $t\in(\ZZ/M)^{\times}$. A \emph{pair} is a submultiset
+$\{a,-a\}$; when $M$ is even, $\{M/2,M/2\}$ is a pair. A multiset is
+\emph{split} if it is the sum of two multisets of three elements, each with
+sum $0$.
+\end{definition}
+
+Comparing $t$ with $-t$ shows that a balanced multiset of $n$ elements has
+$h_{A}=n/2$, so $n$ is even. Ordering the elements of a balanced multiset of
+$n\ge2$ elements gives a character $\alpha\in\mathfrak A^{n-2}_{M}$, and by
+\Cref{prop:fermatchars}(ii) the line $V(\alpha)$ consists of Hodge classes
+(for $n=2$, $X^{0}_{M}$ is a set of $M$ points). Permuting the coordinates
+permutes these lines, so the following notion does not depend on the order:
+$A$ is \emph{algebraic} if $V(\alpha)\subseteq\Alg^{(n-2)/2}(X^{n-2}_{M})
+\otimes\CC$. Conversely every Hodge class of $X^{4}_{M}$ is, over $\CC$, a
+sum of a multiple of the square of the hyperplane class and of vectors of
+lines $V(\alpha)$ with $\alpha$ balanced. Since $\Alg^{2}\subseteq\Hdg^{2}$
+are rational subspaces, this gives:
+
+\begin{lemma}\label{lem:reducetosextuples}
+The Hodge conjecture holds for $X^{4}_{M}$ if and only if every balanced
+multiset of six nonzero elements of $\ZZ/M$ is algebraic.
+\end{lemma}
+
+A balanced multiset of six nonzero elements is a \emph{sextuple at level
+$M$}.
+
+For an odd prime $\ell\mid M$ and $x\in\ZZ/M$ put
+$\Phi_{\ell}(x)=\{x+jM/\ell:\ 0\le j<\ell\}$, the solutions $y$ of
+$\ell y=\ell x$, and
+\[
+  \sigma_{\ell,x}=\Phi_{\ell}(x)+\{-\ell x\}.
+\]
+For even $M$ and $x\in\ZZ/M$ with $2x\ne0$ put
+\[
+  T(x)=\{x,\ x+M/2,\ -2x,\ M/2\}.
+\]
+These are the \emph{standard multisets} of Aoki \cite[\S1]{Aok87}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/fig_standard}
+\caption{Standard multisets, with the residues modulo $M$ drawn on a circle
+and $0$ at the back. (a) $T(3)=\{3,17,22,14\}$ at level $28$. (b) At level
+$20$, the coset $\Phi_{5}(1)=\{1,5,9,13,17\}$ is a regular pentagon, and
+$\sigma_{5,1}$ adds the element $-5=15$.}\label{fig:standard}
+\end{figure}
+
+\begin{lemma}\label{lem:algtools}
+Let $A$ and $B$ be balanced multisets of nonzero elements of $\ZZ/M$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item If $|A|\le4$, then $A$ is algebraic.
+\item If $A$ and $B$ are algebraic, so is $A+B$. If $P$ is a sum of pairs and
+$A+P$ is algebraic, then $A$ is algebraic.
+\item For a unit $t$, $tA$ is balanced, and it is algebraic if and only if
+$A$ is.
+\item Let $g\mid M$, $M'=M/g$, let $A'$ be a multiset of nonzero elements of
+$\ZZ/M'$ with sum $0$, and let $gA'\subseteq\ZZ/M$ be its image under
+$y\mapsto gy$. Then $gA'$ is balanced if and only if $A'$ is, and in that
+case $gA'$ is algebraic if and only if $A'$ is.
+\item If $\ell x\ne0$, then $\sigma_{\ell,x}$ is balanced and algebraic. If
+$M$ is even and $2x\ne0$, then $T(x)$ is balanced and algebraic.
+\item A split sextuple is algebraic.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) For $|A|=2$, $A=\{a,-a\}$ and $H^{0}(X^{0}_{M})$ is spanned by classes of
+points. For $|A|=4$, $V(\alpha)$ consists of Hodge classes of degree two on
+the surface $X^{2}_{M}$, which are algebraic by \Cref{thm:lef11}.
+
+(b) The line of $A+B$ is the image of $V(\alpha)\otimes V(\beta)$ under the
+map $f$ of the inductive structure, which preserves algebraic classes; this
+is \cite[Theorem~1-4]{Aok87}, which also gives the converse for a pair
+$\{a,-a\}$, whose line on $X^{0}_{M}$ is spanned by a class of points.
+
+(c) The automorphism $\zeta\mapsto\zeta^{t}$ of $\QQ(\mu_{M})$, acting on
+$H^{*}(X^{n-2}_{M},\QQ)\otimes\QQ(\mu_{M})$ through the second factor,
+carries $V(\alpha)$, which is defined over $\QQ(\mu_{M})$, onto $V(t\alpha)$,
+and preserves $\Alg\otimes\QQ(\mu_{M})$.
+
+(d) Every unit modulo $M'$ lifts to a unit modulo $M$, and
+$\langle tgy\rangle=\langle t'y\rangle$ for $y\in\ZZ/M'$ and a unit $t$ with
+image $t'$, the first bracket taken modulo $M$ and the second modulo $M'$;
+this gives the first assertion. Let $\pi\colon X^{n-2}_{M}\to X^{n-2}_{M'}$
+be the finite morphism $[x_{i}]\mapsto[x_{i}^{g}]$, of degree
+$g^{n-1}$. It is equivariant for the homomorphism $G\to G'$,
+$\zeta\mapsto\zeta^{g}$, so for $\xi\in V(\alpha')$ and $\zeta\in G$,
+$\zeta^{*}\pi^{*}\xi=\pi^{*}(\zeta^{g})^{*}\xi=\alpha'(\zeta^{g})\pi^{*}\xi$,
+and $\pi^{*}V(\alpha')\subseteq V(g\alpha')$. Since $\pi_{*}\pi^{*}$ is
+multiplication by $\deg\pi$, $\pi^{*}$ is injective, and as both are lines,
+$\pi^{*}V(\alpha')=V(g\alpha')$ and $V(\alpha')=\pi_{*}V(g\alpha')$. Both
+$\pi^{*}$ and $\pi_{*}$ preserve algebraic classes.
+
+(e) The elements of $\Phi_{\ell}(x)$ are nonzero since $\ell x\ne0$, and the
+sum of $\sigma_{\ell,x}$ is $\ell x+\binom{\ell}{2}M/\ell-\ell x=0$, as $\ell$
+is odd. For a unit $t$, $t\Phi_{\ell}(x)=\Phi_{\ell}(tx)$, and writing
+$\overline{tx}=qM/\ell+r$ with $0\le r<M/\ell$,
+\[
+  \sum_{y\in\Phi_{\ell}(tx)}\bar y=\sum_{j=0}^{\ell-1}\Bigl(\bigl((q+j)\bmod
+  \ell\bigr)\frac{M}{\ell}+r\Bigr)=\frac{(\ell-1)M}{2}+\overline{\ell tx};
+\]
+adding $\overline{-\ell tx}=M-\overline{\ell tx}$ gives $(\ell+1)M/2$, so
+$\sigma_{\ell,x}$ is balanced. For $\ell=3$ it is algebraic by (a). Let
+$\ell\ge5$, $d=M/\ell$, and let $i$ be the representative of $x$ in
+$\{1,\dots,d-1\}$ modulo $d$ (it is not $0$, as $\ell x\ne0$); then
+$\Phi_{\ell}(x)=\Phi_{\ell}(i)$ and $\ell x=\ell i$. Put $g=\gcd(i,d)$,
+$M'=M/g$, $d'=d/g$, $i'=i/g$. Then $\sigma_{\ell,x}=g\,\sigma_{\ell,i'}$ with
+$\sigma_{\ell,i'}$ formed at level $M'$, and $\gcd(i',d')=1$, $d'\ge2$. If
+$d'\ge3$, Aoki constructs a subvariety of $X^{\ell-1}_{M'}$ of codimension
+$(\ell-1)/2$ that represents $\sigma_{\ell,i'}$ \cite[Theorem~2-1]{Aok87}, so
+$\sigma_{\ell,i'}$ is algebraic. If $d'=2$, then $i'=1$, $M'=2\ell$, and
+$\sigma_{\ell,1}=\{1,3,\dots,2\ell-1\}+\{\ell\}$ is the sum of the pairs
+$\{y,2\ell-y\}$, $y<\ell$ odd, and $\{\ell,\ell\}$, algebraic by (a) and (b).
+In both cases (d) gives the claim.
+
+For $T(x)$: let $t$ be a unit, which is odd, and $y=\overline{tx}$; then
+$y\ne M/2$ and $tM/2=M/2$. The representatives of the elements of $tT(x)$
+are $y,\ y+M/2,\ M-2y,\ M/2$ if $y<M/2$, and $y,\ y-M/2,\ 2M-2y,\ M/2$ if
+$y>M/2$; both add up to $2M$. So $T(x)$ is balanced, and it is algebraic by
+(a).
+
+(f) Let $A=A_{1}+A_{2}$ with $|A_{i}|=3$ and sums $0$. Their elements are
+nonzero, and the entries of $A_{1}$ and $A_{2}$ are characters $a'$ and $b'$
+of the Fermat curve $X^{1}_{M}$, with $\langle ta'\rangle,\langle
+tb'\rangle\in\{1,2\}$ and $\langle ta'\rangle+\langle tb'\rangle=3$ for every
+unit $t$. So $V(ta')\otimes V(tb')$ has type $(1,1)$ in
+$H^{2}(X^{1}_{M}\times X^{1}_{M})$, and the sum $L$ of these lines over the
+units is stable under $\operatorname{Gal}(\QQ(\mu_{M})/\QQ)$, so
+$L=L_{\QQ}\otimes\CC$ for a space $L_{\QQ}$ of Hodge classes of degree two on
+the surface $X^{1}_{M}\times X^{1}_{M}$. They are algebraic by
+\Cref{thm:lef11}, and $f$ with $r=s=2$ carries $V(a')\otimes V(b')$ onto the
+line of $A$.
+\end{proof}
+
+\subsection{Moves}
+The proofs below replace a sextuple by another multiset in a way that keeps
+track of algebraicity.
+
+\begin{definition}\label{def:move}
+Let $A$ be a balanced multiset of nonzero elements, $\sigma$ an algebraic
+balanced multiset, and $S\subseteq A$ a submultiset that is also contained in
+$\sigma$. The multiset
+\[
+  A''=(A-S)+\bigl(-(\sigma-S)\bigr)
+\]
+is the result of the \emph{move} $(\sigma,S)$. We usually take $\sigma$
+standard, $S$ consisting of the elements of $A$ that lie in $\sigma$, and
+we remove from $A''$ every pair it contains.
+\end{definition}
+
+\begin{lemma}\label{lem:move}
+In \Cref{def:move}, $A''$ is a balanced multiset of nonzero elements and
+$A''+\sigma=A+P$ for a sum of pairs $P$. If $A''$ is algebraic, so is $A$.
+The same holds for a chain of moves.
+\end{lemma}
+
+\begin{proof}
+With $P=(\sigma-S)+(-(\sigma-S))$ we have $A''+\sigma=(A-S)+S+(\sigma-S)+
+(-(\sigma-S))=A+P$. The sum and the function $h$ are additive, and $A$, $P$,
+$\sigma$ are balanced; so $A''$ is balanced. If $A''$ is algebraic, then
+$A+P=A''+\sigma$ is algebraic by \Cref{lem:algtools}(b), and so is $A$.
+\end{proof}
+
+The \emph{profile} $o(A)$ of a sextuple is the sequence of the additive
+orders of its elements in nonincreasing order, and profiles are compared
+lexicographically. For two sextuples $A$ and $A''$, $o(A'')<o(A)$ exactly when,
+at the largest integer $f$ at which $A$ and $A''$ have different numbers of
+elements of order $f$, $A$ has more. A chain of moves that turns a sextuple
+$A$ into a multiset $A^{\flat}$ with at most four elements is \emph{direct};
+it is \emph{lowering} if $A^{\flat}$ is a sextuple with $o(A^{\flat})<o(A)$;
+it \emph{succeeds} if it is direct or lowering, or $A^{\flat}$ is a split
+sextuple, or a sextuple that lies in a proper subgroup of $\ZZ/M$.
+
+\begin{proposition}[Induction]\label{prop:induction}
+Let $M\ge2$, and suppose that the Hodge conjecture holds for $X^{4}_{M'}$
+for every proper divisor $M'$ of $M$. Suppose that every sextuple at level
+$M$ that contains no pair, is not split and generates $\ZZ/M$ has a chain of
+moves that succeeds, or is algebraic for another reason. Then the Hodge
+conjecture holds for $X^{4}_{M}$.
+\end{proposition}
+
+\begin{proof}
+By \Cref{lem:reducetosextuples} we show that every sextuple $A$ at level $M$
+is algebraic, by induction on the profile, which takes finitely many values.
+If $A$ contains a pair, then removing it leaves a balanced multiset of four
+elements, and $A$ is algebraic by \Cref{lem:algtools}(a),(b). If $A$ is split,
+\Cref{lem:algtools}(f) applies. If $A$ lies in the subgroup $g\ZZ/M$, $g>1$,
+then $A=gA'$ for a sextuple $A'$ at level $M/g$, which is algebraic by
+\Cref{lem:reducetosextuples} and the hypothesis, and so is $A$ by
+\Cref{lem:algtools}(d). Otherwise $A$ has a chain of moves that succeeds, or
+is algebraic by assumption. In the first case the last multiset $A^{\flat}$
+is algebraic by \Cref{lem:algtools}(a), by induction on the profile, or by
+the cases already treated, and $A$ is algebraic by \Cref{lem:move}.
+\end{proof}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/fig_move}
+\caption{A lowering move at level $28$. The sextuple
+$A=\{3,5,13,17,19,27\}$ meets $T(3)$ in $S=\{3,17\}$; the move replaces $S$ by
+$-\{22,14\}=\{6,14\}$, and two elements of order $28$ give way to elements of
+orders $14$ and $2$.}\label{fig:move}
+\end{figure}

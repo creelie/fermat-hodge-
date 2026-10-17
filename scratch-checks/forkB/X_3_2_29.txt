@@ -1,0 +1,2 @@
+prop 16 locD 16 prop-locD 0
+locD-prop 0 not decomposed 0

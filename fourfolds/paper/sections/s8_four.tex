@@ -1,0 +1,423 @@
+\section{Top orders divisible by four}\label{sec:four}
+
+We keep the setting of \Cref{sec:even}: $M$ is even and prime to $3$, $A$ is
+a sextuple at level $M$ that contains no pair, is not split and generates
+$\ZZ/M$, $e^{*}$ is a maximal odd part of $A$ and $2^{J}e^{*}$ is its largest
+order. Here $J\ge2$, so $4\mid M$. Replacing $A$ by $-A$ does not change the
+problem (\Cref{lem:algtools}(c) with $t=-1$).
+
+\subsection{The case \texorpdfstring{$J=2$}{J=2}: two relations}
+For $v\in U^{*}=(\ZZ/e^{*})^{\times}$ let
+\begin{gather*}
+  x^{+}_{v},\ x^{-}_{v}=\tfrac{M}{4e^{*}}\,u\quad(u\equiv1,\ \text{resp.}\
+  u\equiv3\bmod4,\ u\equiv v\bmod e^{*}),\\
+  y_{v}=\tfrac{M}{2e^{*}}\,u\quad(u\ \text{odd},\ u\equiv v\bmod e^{*}),
+\end{gather*}
+and $z_{v}=(M/e^{*})v$, of orders $4e^{*}$, $2e^{*}$ and $e^{*}$. Then
+\[
+  -x^{+}_{v}=x^{-}_{-v},\quad x^{-}_{v}=x^{+}_{v}+\tfrac M2,\quad
+  \pm2x^{\pm}_{v}=y_{\pm v},\quad y_{v}+\tfrac M2=z_{v/2},\quad
+  z_{v}+\tfrac M2=y_{2v},\quad -2y_{v}=z_{-v},
+\]
+where $\pm2x^{\pm}_{v}=y_{\pm v}$ means $2x^{+}_{v}=2x^{-}_{v}=y_{v}$ and
+$-2x^{\pm}_{v}=y_{-v}$. By the maximality of $e^{*}$ and of $J$, these are
+the elements of odd part $e^{*}$; the other elements are \emph{low}. Let
+$N_{x}$, $N_{y}$, $N_{z}$ be the numbers of elements of $A$ of orders $4e^{*}$,
+$2e^{*}$, $e^{*}$, and put
+\begin{gather*}
+  P(v)=\mult_{A}(x^{+}_{v})-\mult_{A}(x^{-}_{-v}),\\
+  Y(v)=\mult_{A}(y_{v})-\mult_{A}(y_{-v}),\qquad
+  Z(v)=\mult_{A}(z_{v})-\mult_{A}(z_{-v}).
+\end{gather*}
+$Y$ and $Z$ are odd, and as $A$ contains no pair, $\sum_{v}|P(v)|=N_{x}$,
+$\|Y\|=2N_{y}$ and $\|Z\|=2N_{z}$. With $\hat f(\chi)=\sum_{v}f(v)\bar
+\chi(v)$ we have $\widehat{f(2\,\cdot)}=\chi(2)\hat f$.
+
+\begin{lemma}\label{lem:R12}
+\begin{enumerate}[label=\textup{(R\arabic*)}]
+\item $\hat Z(\chi)+(1-\chi(2))\bigl(\hat Y(\chi)+\hat P(\chi)\bigr)=0$ for
+every odd primitive character $\chi$ modulo $e^{*}$;
+\item $\hat P(\psi)=0$ for every even primitive character $\psi$ modulo
+$e^{*}$.
+\end{enumerate}
+Consequently $D(v)=P(v)+P(-v)$ and $G=Z+Y-Y(2\,\cdot)+P-P(2\,\cdot)$ are split
+along $(K_{p})_{p\mid e^{*}}$ on every coset of $H^{*}$, and $e^{*}>1$.
+\end{lemma}
+
+\begin{proof}
+(R1) In \eqref{eq:charrel} with $c=e^{*}$, the elements whose order is
+divisible by $e^{*}$ are the $x^{\pm}_{v}$, $y_{v}$, $z_{v}$. The element
+$z_{v}$ contributes $\bar\chi(v)/\varphi(e^{*})$, the element $y_{v}$
+contributes $\bar\chi(v)(1-\chi(2))/\varphi(e^{*})$, and $x^{\pm}_{v}$
+contributes $\bar\chi(v)(1-\chi(2))/(2\varphi(e^{*}))$. Since $\chi$ is odd,
+$\sum_{v}\mult_{A}(z_{v})\bar\chi(v)=\hat Z(\chi)/2$, likewise for $Y$, and
+$\sum_{v}(\mult_{A}(x^{+}_{v})+\mult_{A}(x^{-}_{v}))\bar\chi(v)=\hat
+P(\chi)$.
+
+(R2) A primitive character of conductor $4e^{*}$ is $\chi_{4}\psi$ with
+$\psi$ primitive modulo $e^{*}$, and it is odd exactly when $\psi$ is even.
+Only the elements of order $4e^{*}$ enter \eqref{eq:charrel}, and
+$\overline{\chi_{4}\psi}(u)=\pm\bar\psi(v)$ for $x^{\pm}_{v}$; so
+$\sum_{v}(\mult_{A}(x^{+}_{v})-\mult_{A}(x^{-}_{v}))\bar\psi(v)=0$, which is
+$\hat P(\psi)=0$ as $\psi$ is even.
+
+For a primitive $\chi$: if $\chi$ is odd, $\hat D(\chi)=0$ as $D$ is even, and
+$\hat G(\chi)=\hat Z+(1-\chi(2))(\hat Y+\hat P)=0$ by (R1); if $\chi$ is even,
+$\hat D(\chi)=2\hat P(\chi)=0$, and $\hat Z=\hat Y=0$, so $\hat
+G(\chi)=(1-\chi(2))\hat P(\chi)=0$ by (R2). The proof of \Cref{lem:splitF}
+gives the splitting. If $e^{*}=1$, all odd parts are $1$, $M=4$, and (R2) at
+the conductor $4$ reads $\mult_{A}(M/4)=\mult_{A}(3M/4)$, so $N_{x}=0$ as $A$
+contains no pair; but $J=2$.
+\end{proof}
+
+So $e^{*}\ge5$ is prime to $6$, and the subgroups $K_{p}$ satisfy the
+hypotheses of \Cref{lem:S} and \Cref{lem:grid}.
+
+\begin{lemma}\label{lem:fourmoves}
+Each of the following is a move that leaves the elements of order larger
+than $4e^{*}$ in place and either lowers the number of elements of order
+$4e^{*}$, or keeps it and lowers the number of elements of order $2e^{*}$;
+so it lowers the profile, unless at most four elements remain.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $x^{+}_{v},x^{-}_{v}\in A$: with $x=x^{+}_{v}$ and
+$S=\{x,x+M/2\}\subseteq T(x)$, $A''=A-x^{+}_{v}-x^{-}_{v}+\{y_{v},M/2\}$.
+And $y_{2v},z_{v}\in A$: with $S=\{z_{v},z_{v}+M/2\}\subseteq T(z_{v})$,
+$A''=A-y_{2v}-z_{v}+\{z_{2v},M/2\}$.
+\item $x=x^{\pm}_{v}$ and $y_{-v}=-2x$ in $A$: with $S=\{x,-2x\}$,
+$A''=A-x-y_{-v}+\{-x+M/2,\,M/2\}$. And $y_{v},z_{-v}\in A$: with
+$S=\{y_{v},-2y_{v}\}\subseteq T(y_{v})$, $A''=A-y_{v}-z_{-v}+\{z_{-v/2},M/2\}$.
+\item $y_{v},y_{2v}\in A$: with $\sigma=T(y_{2v})+T(y_{v})$ and
+$S=\{y_{2v},y_{v}\}$, $A''=A-y_{v}-y_{2v}+\{z_{2v},z_{-v/2}\}$.
+\item For a prime $q\mid e^{*}$ and a line $vK_{q}$: if $A$ contains
+$(q+1)/2$ distinct elements of one of the four kinds $x^{+}_{w}$, $x^{-}_{w}$,
+$y_{w}$, or $z_{w}$ with $e^{*}\ne q$, for $w\in vK_{q}$, then $A$ has a move.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a)--(c) are instances of \Cref{def:move}; in (c),
+$-(\sigma-S)=\{z_{-v},z_{2v},M/2,z_{-v/2},z_{v},M/2\}$, from which the pairs
+$\{z_{v},z_{-v}\}$ and $\{M/2,M/2\}$ are removed. In (b) the added element
+$-x+M/2$ has order $4e^{*}$, and the element $y_{-v}$ of order $2e^{*}$ is
+removed. For (d), as in \Cref{lem:topfibres}, the elements of one kind with
+$w\in vK_{q}$ differ by elements of $(M/q)\ZZ$, so they lie in one fibre of
+$\Phi_{q}$, and \Cref{lem:movecrit} applies, since $q$ differs from their
+order.
+\end{proof}
+
+From now on $A$ has none of these moves.
+
+\begin{lemma}\label{lem:foursigns}
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $P(v)$ and $P(-v)$ never have opposite signs. So
+$|D(v)|=|P(v)|+|P(-v)|$, $\|D\|=2N_{x}\le12$, $D\ne0$, and where $P(v)\ne0$
+it has the sign of $D(v)$.
+\item $Z(w)$, $Y(w)$ and $-Y(2w)$ never have opposite signs. So
+$|Z+Y-Y(2\,\cdot)|=|Z|+|Y|+|Y(2\,\cdot)|$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) $P(v)\ge1$ and $P(-v)\le-1$ mean $x^{+}_{v},x^{-}_{v}\in A$, and
+$P(v)\le-1$ and $P(-v)\ge1$ mean $x^{-}_{-v},x^{+}_{-v}\in A$; both are
+\Cref{lem:fourmoves}(a). And $N_{x}\ge1$ as $J=2$. (ii) Opposite signs of
+$Z(w)$ and $Y(w)$ give $z_{\mp w}$ and $y_{\pm w}$ in $A$, which is (b); of
+$Z(w)$ and $-Y(2w)$ give $z_{\pm w}$ and $y_{\pm2w}$, which is (a); of $Y(w)$
+and $-Y(2w)$ give $y_{\pm w}$ and $y_{\pm2w}$, which is (c).
+\end{proof}
+
+\begin{lemma}\label{lem:evencore}
+Up to replacing $A$ by $-A$, $D$ has one of three shapes:
+\begin{enumerate}[label=\textup{(\Roman*)}]
+\item $D=\mathbf 1_{L}+\mathbf 1_{-L}$ with $L\ne-L$ a line along $K_{q}$,
+$|K_{q}|\le6$;
+\item $e^{*}=p$ is prime and $D$ is a positive constant;
+\item $e^{*}=35$ and $N_{x}=6$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Nonzero split functions of mass at most $8$ have mass at least $4$
+(\Cref{lem:S}). Let $C$ be a coset of $H^{*}$ on which $D\ne0$.
+
+\emph{Case (a): $-1\notin H^{*}$.} The cosets $C$ and $-C$ are distinct with
+the same mass, so $D$ has mass at most $6$ on $C$, and by \Cref{lem:grid}
+$D=\sigma\mathbf 1_{L}$ on $C$, with $L$ a line along some $K_{q}$ with
+$|K_{q}|\le6$, and $D=\sigma\mathbf 1_{-L}$ on $-C$. These use mass
+$2|L|\ge8$, and the other cosets, which come in pairs, carry nothing: shape I.
+
+\emph{Case (b1): $-1\in H^{*}$ and $e^{*}=p$ is prime.} Then
+$H^{*}=K_{p}=U^{*}$, and $D$ is constant by (S4); its value is nonzero, and
+we make it positive: shape II. (If $e^{*}=p^{k}$ with $k\ge2$, then
+$H^{*}=K_{p}$ consists of units congruent to $1$ modulo $p^{k-1}$, and
+$-1\notin H^{*}$.)
+
+\emph{Case (b2): $-1\in H^{*}$ and $e^{*}$ has at least two prime factors.}
+Let $K=K_{p}$ have the largest order, $H'$ the product of the other $K_{q}$,
+and write $-1=\varepsilon\varepsilon'$ with $\varepsilon\in K$,
+$\varepsilon'\in H'$; by \Cref{lem:Kp}(b), $\varepsilon\ne1\ne\varepsilon'$.
+For the slices $S_{c}$ of $C$, $c\in K$, multiplication by
+$\varepsilon\varepsilon'=-1$ maps $S_{c}$ onto $S_{c\varepsilon}$, and as
+$D$ is even, $\mu(c\varepsilon)=\mu(c)$. A coset $C'\ne C$ carrying a nonzero
+part of $D$ satisfies $C'=-C'$, and an even nonzero split function of mass $4$
+on it would be $\pm\mathbf 1_{L''}$ with $L''=-L''$, that is, $-1\in K_{q}$,
+which \Cref{lem:Kp}(b) excludes; so other cosets carry mass at least $6$, or
+nothing.
+
+(i) If some slice vanishes, $D$ is split along $(K_{q})_{q\ne p}$ on every
+slice by (S2). A nonzero slice has $\mu(c)=\mu(c\varepsilon)\le6$, and by
+\Cref{lem:grid} $D=\sigma$ on a line $L$ along some $K_{q}$, $q\ne p$, with
+$|K_{q}|\le6$, inside $S_{c}$ and $0$ elsewhere on $S_{c}$; on
+$S_{c\varepsilon}$, $D=\sigma$ on $-L$. This uses mass $2|L|\ge8$, so nothing
+else carries mass: shape I.
+
+(ii) If all slices are nonzero and $\mu(c_{s})=1$, then $\mu(c_{s}
+\varepsilon)=1$, and $z\mapsto D(z)-D(z\varepsilon)$ on $S_{c_{s}}$ is split
+along $(K_{q})_{q\ne p}$ by (S1), of mass at most $2$, hence zero. For the
+support point $z_{0}$ of $S_{c_{s}}$, the points $z_{0}\varepsilon$ and
+$z_{0}\varepsilon\varepsilon'=-z_{0}$ of $S_{c_{s}\varepsilon}$ both carry
+$D(z_{0})\ne0$; so they coincide and $\varepsilon'=1$, a contradiction.
+
+(iii) If all $\mu(c)\ge2$, then $2|K|\le12$, so every $|K_{q}|\le6$ and the
+primes of $e^{*}$ are $5$ and $7$, with $7\parallel e^{*}$. If $25\mid e^{*}$,
+then $|K_{5}|=5$, $K=K_{7}$, and $\varepsilon'\in K_{5}$ satisfies
+$\varepsilon'^{2}=1$ (the product being direct), so $\varepsilon'=1$, a
+contradiction. So $e^{*}=35$, $|K|=6$, every $\mu(c)=2$, and the mass is
+$12=2N_{x}$: shape III.
+\end{proof}
+
+\subsection{Shape I}
+
+\begin{lemma}\label{lem:shapeI}
+In shape \textup{I}, $A$ has a chain of moves that is direct or lowering.
+\end{lemma}
+
+\begin{proof}
+By \Cref{lem:foursigns}(i), $P=\mathbf 1_{S}$ with $S\subseteq L\cup(-L)$
+containing exactly one of $v,-v$ for each $v\in L$; so the elements of order
+$4e^{*}$ are the $x^{+}_{w}$, $w\in S$, each once, and $N_{x}=|L|$. By
+\Cref{lem:fourmoves}(d), $S\cap L$ and $S\cap(-L)$ have at most $(q-1)/2$
+points each. If $25\mid e^{*}$ and $q=5$, then $|L|=5>4$; so $q\parallel e^{*}$,
+$|L|=q-1$, and both sets have exactly $(q-1)/2$ points.
+
+Let $x=x^{+}_{v_{0}}$ with $v_{0}\in S\cap L$. The fibre $\Phi_{q}(x)$
+consists of the $x^{+}_{w}$, $w\in L$, and of one element $x_{0}$ of order
+$4e^{*}/q$. The move $(\sigma_{q,x},S')$ with $S'=\{x^{+}_{w}:w\in S\cap L\}$
+gives
+\[
+  A''=A-S'+\{-x^{+}_{w}:\ w\in L\setminus S\}+\{-x_{0},\,qx\}.
+\]
+For $w\in L\setminus S$ we have $-w\in S$ and $-x^{+}_{w}=x^{-}_{-w}=
+x^{+}_{-w}+M/2$. So $A''$ contains the $(q-1)/2$ pairs $\{x^{+}_{u},x^{-}_{u}\}$,
+$u\in S\cap(-L)$, and the moves of \Cref{lem:fourmoves}(a) replace each of them
+by $\{y_{u},M/2\}$. The result,
+\[
+  A-\{x^{+}_{w}:\ w\in S\}+\{y_{u}:\ u\in S\cap(-L)\}+\tfrac{q-1}{2}\{M/2\}
+  +\{-x_{0},\,qx\},
+\]
+has eight elements, among them at least two copies of $M/2$; after removing a
+pair at most six remain, with no element of order $4e^{*}$ and none of larger
+order that $A$ did not have.
+\end{proof}
+
+\subsection{Shape II}
+
+\begin{lemma}\label{lem:shapeII}
+In shape \textup{II}, either $A$ has a chain of moves that is direct or
+lowering, or, up to multiplication by a unit congruent to $1$ modulo $4$, the
+elements of $A$ of odd part $p$ are one of
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $\{x^{+}_{1},x^{+}_{2},z_{3}\}$, $p=5$;
+\item $\{x^{+}_{1},x^{+}_{2},x^{+}_{4}\}$, $p=7$;
+\item $\{x^{+}_{1},x^{+}_{2},x^{+}_{3},z_{4},z_{5}\}$, $p=7$;
+\item $\{x^{+}_{1},x^{+}_{2},x^{+}_{4},x^{+}_{8},x^{+}_{5},z_{6}\}$, $p=11$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $D=c>0$. By \Cref{lem:foursigns}(i), $0\le P(v)\le c$ and
+$P(v)+P(-v)=c$. The $w$ with $P(w)\ge1$ index distinct elements $x^{+}_{w}$ of
+the line $U^{*}=K_{p}$, so there are at most $(p-1)/2$ of them by
+\Cref{lem:fourmoves}(d), and at least one in each pair $\pm v$. Hence
+$P=c\,\mathbf 1_{S}$ for a set $S$ of representatives of $U^{*}/\{\pm1\}$, and
+$N_{x}=c(p-1)/2\le6$.
+
+\emph{$c\ge2$.} Let $x=x^{+}_{v_{0}}$, $v_{0}\in S$. Now $\Phi_{p}(x)$ consists of
+all the $x^{+}_{w}$ and one element $x_{0}$ of order $4$, and as in
+\Cref{lem:shapeI} the move $\sigma_{p,x}$ followed by the moves
+\Cref{lem:fourmoves}(a) on the pairs $\{x^{+}_{u},x^{-}_{u}\}$, $u\in S$, gives
+\[
+  A-2\{x^{+}_{u}:u\in S\}+\{y_{u}:u\in S\}+\tfrac{p-1}{2}\{M/2\}
+  +\{-x_{0},\,px\},
+\]
+with eight elements, at least two copies of $M/2$ and fewer elements of order
+$4p$ than $A$.
+
+\emph{$c=1$.} $G$ is constant on $U^{*}$ by (S4), and $\sum_{v}G(v)=0$, as
+$Z$, $Y$ are odd and $\sum P=\sum P(2\,\cdot)$; so $G=0$. With
+$\psi=\mathbf 1_{S}-\mathbf 1_{-S}$ we have $P=(1+\psi)/2$, so
+\[
+  Z+Y-Y(2\,\cdot)=P(2\,\cdot)-P=\tfrac12\bigl(\psi(2\,\cdot)-\psi\bigr),
+\]
+which is $1$ on $\Phi=\{w\notin S:\ 2w\in S\}$, $-1$ on $-\Phi$ and $0$
+elsewhere. If $y_{v}\in A$, then by \Cref{lem:foursigns}(ii) the left side is
+at least $1$ at $v$, so $v\notin S$, $-v\in S$, and $y_{v}=-2x^{+}_{-v}$ with
+$x^{+}_{-v}\in A$, which is \Cref{lem:fourmoves}(b). So $N_{y}=0$,
+$Z=\mathbf 1_{\Phi}-\mathbf 1_{-\Phi}$, and the elements of order $p$ are the
+$z_{w}$, $w\in\Phi$, each once. Along the cycles of $w\mapsto2w$ on
+$(\ZZ/p)^{\times}$, $\psi$ changes sign $2|\Phi|$ times, and $(p-1)/2+|\Phi|
+\le6$, so $p\le13$. The units of $\ZZ/M$ congruent to $1$ modulo $4$ act on
+$U^{*}$ through all of $(\ZZ/p)^{\times}$ and preserve the kinds $x^{+}$,
+$z$.
+\begin{itemize}
+\item $p=5$: one cycle of length $4$ with $-1=2^{2}$, so $\psi$ takes the
+values $a,b,-a,-b$ along it and changes sign twice; $|\Phi|=1$, and up to
+units $S=\{1,2\}$, $\Phi=\{3\}$. This is (a).
+\item $p=7$: two cycles $\{1,2,4\}$ and $-\{1,2,4\}$, on which $\psi$ takes
+opposite values; $|\Phi|$ is the number of sign changes on one cycle, $0$ or
+$2$. Up to units, $S=\{1,2,4\}$, $\Phi=\emptyset$, which is (b), or
+$S=\{1,2,3\}$, $\Phi=\{4,5\}$, which is (c).
+\item $p=11$ and $p=13$: one cycle of length $p-1$ with $-1=2^{(p-1)/2}$, so
+$\psi(2^{(p-1)/2}w)=-\psi(w)$ and the number of sign changes along a half of
+the cycle is odd; $|\Phi|$ is odd. For $p=13$, $6+|\Phi|>6$. For $p=11$,
+$|\Phi|=1$, $\psi=1$ on five consecutive powers of $2$, and up to units
+$S=\{1,2,4,8,5\}$, $\Phi=\{6\}$. This is (d).\qedhere
+\end{itemize}
+\end{proof}
+
+\subsection{Shape III}
+
+\begin{lemma}\label{lem:shapeIII}
+Shape \textup{III} does not occur.
+\end{lemma}
+
+\begin{proof}
+Here $N_{x}=6$, so $Y=Z=0$, $G=P-P(2\,\cdot)$, and $\hat G(\chi)=(1-\chi(2))
+\hat P(\chi)$ vanishes at every primitive character $\chi$ modulo $35$. Such a
+character is $\chi_{5}\chi_{7}$ with both factors nontrivial; $\chi_{5}(2)$
+has order $2$ or $4$, as $2$ generates $(\ZZ/5)^{\times}$, and $\chi_{7}(2)$
+has order $1$ or $3$, as $2$ has order $3$ modulo $7$; so $\chi(2)\ne1$. Hence
+$\hat P$ vanishes at every primitive character, $P$ is split on
+$U^{*}=H^{*}$, nonzero, of mass $6$, and by \Cref{lem:grid} $P=\sigma\mathbf
+1_{L}$ for a line $L$ along $K_{7}$. Then $A$ contains six distinct elements
+$x^{+}_{w}$, $w\in L$, or six distinct elements $x^{-}_{-w}$, $w\in L$, on one
+line along $K_{7}$, which \Cref{lem:fourmoves}(d) excludes.
+\end{proof}
+
+\subsection{The case \texorpdfstring{$J\ge3$}{J>=3}}
+
+\begin{lemma}\label{lem:Jthree}
+If $J\ge3$, then $A$ has a chain of moves that is direct or lowering.
+\end{lemma}
+
+\begin{proof}
+The elements of order $e=2^{J}e^{*}$ are
+$x_{t,v}=(M/e)u$ with $u\equiv t$ modulo $2^{J}$ and $u\equiv v$ modulo
+$e^{*}$, for $(t,v)\in(\ZZ/2^{J})^{\times}\times U^{*}$. Put
+$\tilde F(t,v)=\mult_{A}(x_{t,v})-\mult_{A}(x_{-t,-v})$. Since $e$ is a
+maximal order, \eqref{eq:charrel} with $c=e$ involves only these elements, as
+in \Cref{sec:odd}, so $\hat{\tilde F}$ vanishes at every primitive character
+modulo $e$ (at the even ones because $\tilde F$ is odd). A character modulo
+$e$ that is not primitive is trivial on the units congruent to $1$ modulo
+$e/l$ for some prime $l\mid e$; for $l=2$ these form $\tilde K_{2}=\{1,\eta\}
+\times\{1\}$ with $\eta=1+2^{J-1}$, and for $l=p\mid e^{*}$ they form
+$\{1\}\times K_{p}$. So $\tilde F$ is split along $\tilde K_{2}$ and the
+$K_{p}$. As $x_{t,v}+M/2=x_{t\eta,v}$, the pairs $\{x_{t,v},x_{t\eta,v}\}$ are
+the pairs $\{x,x+M/2\}$.
+
+Suppose $A$ contains no such pair, as otherwise the move $(T(x),\{x,x+M/2\})$
+lowers the profile. By (S1), $g_{t}(v)=\tilde F(t,v)-\tilde F(t\eta,v)$ is
+split along $(K_{p})_{p\mid e^{*}}$ on every coset of $H^{*}$. As $J\ge3$, the
+orbit $O=\{t,t\eta,-t,-t\eta\}$ has four elements. Of the four elements
+$x_{t,v}$, $x_{t\eta,v}$, $x_{-t,-v}$, $x_{-t\eta,-v}$, two opposite ones
+form a pair and two adjacent ones a pair $\{x,x+M/2\}$, so $A$ contains copies
+of at most one of them or of the diagonal $\{x_{t,v},x_{-t\eta,-v}\}$ or
+$\{x_{t\eta,v},x_{-t,-v}\}$, and $|g_{t}(v)|$ is the number of elements of
+$A$ among the four. Summing over $v$, the mass of $g_{t}$ is the number of
+elements of $A$ of order $e$ whose first coordinate lies in $O$. A nonzero
+split function has mass at least $4$, and the number of elements of order $e$
+is at most $6$; so exactly one orbit $O$ is occupied, and for $t_{0}\in O$,
+$g_{t_{0}}=\sigma\mathbf 1_{L}$ on one coset with $L$ a line along some
+$K_{q}$, $|L|\le6$ (\Cref{lem:grid}). If $e^{*}=1$, the family $(K_{p})$ is
+empty, $g_{t_{0}}=0$, and $A$ has no element of order $e$, a contradiction.
+
+Replacing $t_{0}$ by $t_{0}\eta$ we may take $\sigma=1$. Then for $v\in L$
+exactly one of $x_{t_{0},v}$ and $x_{-t_{0}\eta,-v}$ lies in $A$, once, and
+$A$ has no other element of order $e$. The $x_{t_{0},v}$, $v\in L$, lie in one
+fibre of $\Phi_{q}$, and so do the $x_{-t_{0}\eta,-v}$; so by
+\Cref{lem:movecrit} each kind occurs at most $(q-1)/2$ times, $q\parallel
+e^{*}$, $|L|=q-1$, and both occur $(q-1)/2$ times. The move $\sigma_{q,x}$ with
+$x=x_{t_{0},v_{0}}\in A$ adds $-x_{t_{0},w}=x_{-t_{0},-w}$ for the $w\in L$
+with $x_{t_{0},w}\notin A$, and these form pairs
+$\{x_{-t_{0},-w},x_{-t_{0}\eta,-w}\}$ with elements of $A$. As in
+\Cref{lem:shapeI}, the moves $T$ on these pairs leave at most six elements
+after the removal of a pair of copies of $M/2$, none of order $e$, and no
+element of larger order that $A$ did not have.
+\end{proof}
+
+\subsection{The global step}
+
+\begin{proposition}\label{prop:globalfour}
+Let $M$ be even and prime to $3$, with $M\notin\{70,110\}$. Every sextuple
+$A$ at level $M$ that contains no pair, is not split and generates $\ZZ/M$ has
+a chain of moves that succeeds.
+\end{proposition}
+
+\begin{proof}
+Suppose not. By \Cref{lem:maxeven}, every maximal odd part $e^{*}$ of $A$ has
+$J\ge1$; $J=1$ is excluded by \Cref{thm:twoparallel} and $J\ge3$ by
+\Cref{lem:Jthree}. So every maximal odd part has $J=2$, and $4\mid M$. By
+\Cref{lem:evencore,lem:shapeI,lem:shapeII,lem:shapeIII}, applied to $A$ or to
+$-A$, the elements of odd part $e^{*}$ form, up to units and sign, one of the
+configurations (a)--(d) of \Cref{lem:shapeII}, of sizes $3$, $3$, $5$, $6$.
+
+If $A$ has two maximal odd parts, their configurations have three elements
+each, with different primes: (a) for $5$ and (b) for $7$. Then $A$ lies in
+the subgroup of order $140$, so $M=140$.
+
+If $A$ has one maximal odd part $e^{*}=p\in\{5,7,11\}$, the low elements have
+odd part $1$. Let $2^{K}$ be the largest order among them, and suppose
+$K\ge3$. In \eqref{eq:charrel} at the conductor $2^{K}$ only the low elements
+of order $2^{K}$ enter, as the elements of odd part $p$ have $2$-part at most
+$4$; so the odd counting function of these elements on
+$(\ZZ/2^{K})^{\times}$ has a vanishing transform at every primitive
+character, and the other characters are trivial on $\{1,1+2^{K-1}\}$. Hence it
+is invariant under multiplication by $1+2^{K-1}$, and an element $a\in A$ of
+order $2^{K}$ comes with $(1+2^{K-1})a=a+M/2$; the move
+$(T(a),\{a,a+M/2\})$ lowers the profile. So the low elements lie in
+$\{M/4,M/2,3M/4\}$, $A$ lies in the subgroup of order $4p$, and
+$M\in\{20,28,44\}$.
+
+It remains to examine these levels. At $t=1$, balance says that the
+representatives in $[1,M-1]$ of the elements of $A$ add up to $3M$, and we
+may normalise $A$ by a unit and a sign.
+\begin{itemize}
+\item $M=20$, (a) $=\{1,17,12\}$: the three low elements lie in
+$\{5,10,15\}$ and add up to $30$, so they are $\{5,10,15\}$ or
+$\{10,10,10\}$, and $A$ contains a pair.
+\item $M=28$, (b) $=\{1,9,25\}$: the low elements lie in $\{7,14,21\}$ and add
+up to $49$, so they are $\{7,21,21\}$ or $\{14,14,21\}$, with a pair.
+\item $M=28$, (c) $=\{1,9,17,16,20\}$: the low element is $21$. The moves
+$(T(1),\{1\})$ and $(T(6),\{20,16,14\})$ turn
+$A=\{1,9,16,17,20,21\}$ into $\{2,9,13,14,16,17,20,21\}$ and then into
+$\{2,9,17\}+\{13,21,22\}$, a split sextuple; this chain succeeds.
+\item $M=44$, (d) $=\{1,13,37,41,5,24\}$: the sum is $121\ne132$.
+\item $M=140$, (a) for $5$ and (b) for $7$: up to units and sign, $A$ is
+$\{7,119,84\}$ together with $\{5,45,125\}$ or with $\{55,75,115\}$, of sums
+$385$ and $455$, not $420$.
+\end{itemize}
+So in every case $A$ contains a pair, is not balanced, or has a chain that
+succeeds.
+\end{proof}
+
+\begin{theorem}\label{thm:primetothree}
+The Hodge conjecture holds for $X^{4}_{M}$ when $3\nmid M$ and $110\nmid M$.
+\end{theorem}
+
+\begin{proof}
+By induction on $M$. For $M$ odd this is \Cref{cor:odd}, and for $M=70$ it is
+\Cref{cor:degrees}. Let $M$ be even, prime to $3$, not divisible by $110$
+and different from $70$. The proper divisors of $M$ satisfy the same
+conditions, so the Hodge conjecture holds for them, and
+\Cref{prop:globalfour} with \Cref{prop:induction} gives it for $M$.
+\end{proof}
