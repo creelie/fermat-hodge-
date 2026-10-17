@@ -1,4 +1,4 @@
-# Algebraic Loci of Hodge Classes and the Two Statements Left on Abelian Varieties
+# Algebraic Loci of Hodge Classes on Abelian Varieties and K3 Surfaces
 
 Deep Bhattacharjee and Ushashi Bhattacharya
 

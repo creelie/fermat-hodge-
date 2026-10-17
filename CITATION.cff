@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this archive, cite the paper and the archive."
-title: "Source and verification code for the paper Algebraic Loci of Hodge Classes and the Two Statements Left on Abelian Varieties"
+title: "Source and verification code for the paper Algebraic Loci of Hodge Classes on Abelian Varieties and K3 Surfaces"
 type: software
 authors:
   - family-names: Bhattacharjee
