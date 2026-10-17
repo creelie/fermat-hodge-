@@ -22,7 +22,7 @@ The number $r(\gamma)$ is the rank of the contraction $HT^{2}(A)\to H^{*}(A)$, $
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/fig_hankel}
+\includegraphics[width=0.78\textwidth]{figures/fig_hankel}
 \caption{The lower bound $r(\gamma)=(4+\rho)n^{2}-2n$ of Theorem~\ref{thm:criterion} for $2\le n\le6$ and Hankel rank $\rho=1,2,3$. The two labelled bars are the product cases of Theorem~\ref{thm:product}.}
 \label{fig:hankel}
 \end{figure*}
@@ -68,7 +68,7 @@ Step 2. The classes $e^{k\theta_{A'}}=\ch(L'^{\,k})$, $k=0,\dots,2m'$, form a ba
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/fig_product}
+\includegraphics[width=0.78\textwidth]{figures/fig_product}
 \caption{The domain $\cD_{n,n}$ near a product point $A\times A'$. The curve is the product locus, whose tangent space has dimension $m^{2}+m'^{2}$; the $2mm'$ mixed directions obstruct every exterior product $F\boxtimes G'$, and only the combined object of Theorem~\ref{thm:product} has the full tangent space as first-order Hodge locus.}
 \label{fig:product}
 \end{figure*}
@@ -174,6 +174,55 @@ Theorem~\ref{thm:annihilator} is therefore a conditional statement whose conditi
 
 Every test that depends on $\ch(\mathcal{E})$ alone is passed: polarised shape, $N\ne0$, Hankel rank $3$, first-order Hodge locus equal to $T\cD_{n,n}$, lower bound $57$ or $104$. The criterion then asks for $\dim\Ext^{2}(\mathcal{E},\mathcal{E})=r$, Proposition~\ref{prop:directsum} shows that no direct sum achieves it, and Proposition~\ref{prop:convolution} says what a convolution of the same pieces must do: kill every strictly upper triangular class of degree two, carry classes of degree one from the lower triangle into the diagonal blocks of every piece with mismatched slopes, and, since by Proposition~\ref{prop:noorth} the secant pieces and the line-bundle pieces are never orthogonal, carry classes between the two groups in a way that cancels the mixed directions, which by Theorem~\ref{thm:annihilator} the secant pieces alone leave uncancelled. All three demands are statements about the groups $\Ext^{*}(F_{1},F_{2})$, $\Ext^{*}(F_{i},L^{l})$, $\Ext^{*}(L^{l},F_{i})$ and their analogues on $A'$. Those groups are not computed in \cite{Mar25a,Mar25b,Mar25c}, where the only object with known Ext groups on a very general Weil fourfold of trivial discriminant is the twisted transform $\Phi(F\boxtimes F^{\vee})$ with $\dim\Ext^{k}=1,8,18,8,1$, whose Brauer class is half the Poincar\'e class and which therefore cannot be mixed with untwisted line bundles; and we have not computed them. Riemann--Roch fixes $\chi(F_{i},L^{l})=P_{i}(l)$ and the K\"unneth formula fixes everything on the line-bundle side, so the unknown is exactly the thirteen graded groups $\Ext^{*}(F_{i},F_{j})$ and $\Ext^{*}(F_{i},L^{l})$. This is the exact stopping point: the polarised criterion at a product point is a finite question about the Ext algebra of the secant sheaves, and Proposition~\ref{prop:convolution} lists what the answer must contain for the route to stay open. The analogous question on $E_{0}^{6}$, for line bundles, closed negatively with $\dim\Ext^{2}\ge69$ \cite[Thm.~18.35]{BMB26}; that is an analogy and not a proof of the answer here.
 
+At a point of complex multiplication the thirteen groups are known. We record them, since they turn the stopping point into a statement about one explicit variety.
+
+\begin{lemma}[The Ext groups at a point of complex multiplication]\label{lem:cmext}
+Let $K=\QQ(i)$, $E_{0}=\CC/\ZZ[i]$, and let $A_{0}=E_{0}^{6}$ carry the $K$-action by $i$ on three factors and by $-i$ on the other three; it is a member of $\cD_{3,3}$ for every discriminant, since the $K$-hermitian forms $\sum_{j\le3}a_{j}z_{j}\bar w_{j}-\sum_{j>3}a_{j}z_{j}\bar w_{j}$ with $a_{j}>0$ are polarisations of every discriminant class. Let $L$ be ample on $A_{0}$ with class $\theta$, let $Z,Z'\subseteq A_{0}$ be abelian subvarieties of dimension three with $Z\cap Z'$ finite, and put $\chi_{Z}=(\theta|_{Z})^{3}/6$, a positive integer.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.4em,itemsep=2pt]
+\item Every Hodge class on $A_{0}$ is a polynomial in divisor classes, and every product of three divisor classes is a rational combination of classes $[Z]$ of abelian threefolds. The Weil classes are such combinations, and no Weil class is a multiple of a single $[Z]$. For every $Z$, $\ch(\mathcal{O}_{Z})=[Z]$ and $\ch(\mathcal{O}_{Z}\otimes L^{a})=[Z]\,e^{a\theta}$.
+\item $\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},\mathcal{O}_{Z'}\otimes L^{b})=0$ for $k\ne3$, and $\dim\Ext^{3}=|Z\cap Z'|=(Z\cdot Z')$, for all $a,b$.
+\item The groups $\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},\mathcal{O}_{Z}\otimes L^{b})$ are given by \eqref{eq:cmextz} below, with $N_{Z}\cong\mathcal{O}_{Z}^{3}$. For $a=b$ it has dimension $\binom{6}{k}$ and the characteristic map $HT^{2}(A_{0})\to\Ext^{2}$ is onto; for $b>a$ it lives in degrees $0$ to $3$, of dimension $\binom{3}{k}(b-a)^{3}\chi_{Z}$; for $b<a$ in degrees $3$ to $6$, of dimension $\binom{3}{k-3}(a-b)^{3}\chi_{Z}$.
+\item For $b>a$, $\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},L^{b})$ is concentrated in degree $3$ and $\Ext^{k}(L^{a},\mathcal{O}_{Z}\otimes L^{b})$ in degree $0$, both of dimension $(b-a)^{3}\chi_{Z}$; for $b<a$ the first is concentrated in degree $6$ and the second in degree $3$, both of dimension $(a-b)^{3}\chi_{Z}$; for $a=b$ the dimensions are $\binom{3}{k-3}$ and $\binom{3}{k}$.
+\item For $b>a$, $\Ext^{k}(L^{a},L^{b})=H^{k}(A_{0},L^{b-a})$ is concentrated in degree $0$, of dimension $(b-a)^{6}\theta^{6}/720$; for $b<a$ in degree $6$; for $a=b$ it is $H^{k}(\mathcal{O}_{A_{0}})$, of dimension $\binom{6}{k}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The Hodge group of $A_{0}$ is the norm-one torus $K^{1}$ acting by $z$ on $V_{+}$ and $\bar z$ on $V_{-}$, so over $\CC$ the Hodge classes of degree $2k$ are $\bigwedge^{k}V_{+}\otimes\bigwedge^{k}V_{-}$, which is spanned by the products of $k$ elements of $V_{+}\otimes V_{-}=\Hdg^{2}(A_{0})_{\CC}$; since $\Hdg^{2}=\NS_{\QQ}$ by Lefschetz, the $\QQ$-span of the products of $k$ divisor classes has full dimension $\binom{6}{k}^{2}$. The classes $f^{*}[0]$, $f\in\Hom(E_{0}^{6},E_{0})=\ZZ[i]^{6}$, are the rank-one hermitian forms $v\bar v^{\mathsf{T}}$ and span $\NS_{\QQ}$. For $f_{1},f_{2},f_{3}$ independent over $K$ the map $f=(f_{1},f_{2},f_{3})\colon A_{0}\to E_{0}^{3}$ is a surjective homomorphism, hence flat, and $f_{1}^{*}[0]\,f_{2}^{*}[0]\,f_{3}^{*}[0]=f^{*}[0]=[f^{-1}(0)]$ is a positive multiple of the class of the abelian threefold $\ker(f)^{\circ}$; for dependent $f_{i}$ the product is zero. A Weil class $w$ satisfies $w\theta=0$, while $[Z]\theta=i_{*}(\theta|_{Z})\ne0$ because $(\theta|_{Z})^{3}>0$. Since $Z$ is a translate of a subgroup, $N_{Z}$ is trivial and $\mathrm{td}(N_{Z})=1$, so Grothendieck--Riemann--Roch gives $\ch(i_{*}\mathcal{O}_{Z})=i_{*}(1)=[Z]$ and $\ch(\mathcal{O}_{Z}\otimes L^{a})=[Z]e^{a\theta}$.
+
+(ii) Since $\dim Z\cap Z'=0$ and the tangent spaces are translation invariant, $T_{Z}\oplus T_{Z'}=T_{A_{0}}$ at every point of $Z\cap Z'$, so $Z$ and $Z'$ are locally transverse complete intersections and $Z\cap Z'$ is reduced. In local coordinates with $Z=\{x_{1}=x_{2}=x_{3}=0\}$ and $Z'=\{y_{1}=y_{2}=y_{3}=0\}$, the Koszul resolution of $\mathcal{O}_{Z}$ gives $\mathcal{E}xt^{k}(\mathcal{O}_{Z},\mathcal{O}_{Z'})$ as the cohomology of the Koszul complex of $x_{1},x_{2},x_{3}$ on $\mathcal{O}_{Z'}$, a regular sequence there; so $\mathcal{E}xt^{k}=0$ for $k\ne3$ and $\mathcal{E}xt^{3}=\mathcal{O}_{Z\cap Z'}$. The local-to-global spectral sequence has one row, $H^{k-3}(Z\cap Z',\mathcal{O})$, and twisting by line bundles does not change a sheaf on a finite reduced scheme; the intersection number equals $|Z\cap Z'|$ by transversality.
+
+(iii) Let $\pi\colon A_{0}\to A_{0}/Z$ be the quotient. The normal bundle $N_{Z}$ is the restriction of the trivial bundle $\pi^{*}T_{A_{0}/Z}$, so it extends to all of $A_{0}$, and by the theorem of Arinkin and C\u{a}ld\u{a}raru \cite{AC12} the derived restriction $i^{*}i_{*}\mathcal{O}_{Z}$ is formal, $i^{*}i_{*}\mathcal{O}_{Z}\cong\bigoplus_{p}\bigwedge^{p}N_{Z}^{\vee}[p]$. Hence
+\begin{widetext}
+\begin{equation}\label{eq:cmextz}
+\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},\mathcal{O}_{Z}\otimes L^{b})=\Ext^{k}_{Z}\bigl(i^{*}i_{*}\mathcal{O}_{Z},L^{b-a}|_{Z}\bigr)=\bigoplus_{p+q=k}H^{q}\bigl(Z,L^{b-a}|_{Z}\bigr)\otimes\textstyle\bigwedge^{p}N_{Z}.
+\end{equation}
+\end{widetext}
+For $a=b$ the dimension is $\sum_{p+q=k}\binom{3}{q}\binom{3}{p}=\binom{6}{k}$; for $b\ne a$ the cohomology of $L^{b-a}|_{Z}$ on the abelian threefold $Z$ sits in degree $0$ or $3$ according to the sign of $b-a$, with dimension $|b-a|^{3}\chi_{Z}$ by Riemann--Roch, which gives the two ranges of degrees and their dimensions. The characteristic map sends $H^{2}(\mathcal{O}_{A_{0}})$ onto $H^{2}(\mathcal{O}_{Z})$ by restriction, $H^{1}(T_{A_{0}})=H^{1}(\mathcal{O})\otimes T_{0}$ onto $H^{1}(\mathcal{O}_{Z})\otimes N_{Z,0}$ through the quotient $T_{0}\to N_{Z,0}$, and $H^{0}(\bigwedge^{2}T_{A_{0}})=\bigwedge^{2}T_{0}$ onto $\bigwedge^{2}N_{Z,0}$; all three are surjective, the first because $H^{*}(A_{0})\to H^{*}(Z)$ is onto for an abelian subvariety.
+
+(iv) By Grothendieck duality for the regular embedding, whose relative dualising sheaf $\det N_{Z}$ is trivial, and by adjunction,
+\begin{align*}
+\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},L^{b})&=H^{k-3}\bigl(Z,L^{b-a}|_{Z}\bigr),\\
+\Ext^{k}(L^{a},\mathcal{O}_{Z}\otimes L^{b})&=H^{k}\bigl(Z,L^{b-a}|_{Z}\bigr).
+\end{align*}
+On $Z$ the cohomology of an ample bundle is concentrated in degree $0$ and that of an anti-ample one in degree $3$, of dimension $\chi=c_{1}^{3}/6$ by Riemann--Roch, and $c_{1}(L^{m}|_{Z})^{3}=m^{3}(\theta|_{Z})^{3}$; for $m=0$ one gets $H^{*}(\mathcal{O}_{Z})$.
+
+(v) is the same statement on $A_{0}$, with $\chi(L^{m})=m^{6}\theta^{6}/720$.
+\end{proof}
+
+Theorem~\ref{thm:criterion} applies at $A_{0}$ with the same number $r=57$: the rank of the contraction of $HT^{2}$ into $\ch(\mathcal{E})$ is invariant under $\SU(V,H)(\RR)$, which fixes the Weil classes and $\theta$ and acts transitively on $\cD_{3,3}$, so it is the rank computed at a very general point, and the argument of Buchweitz and Flenner is local on the base. An object $\mathcal{E}$ with $\dim\Ext^{2}(\mathcal{E},\mathcal{E})=57$ at $A_{0}$ would therefore deform along all of $\cD_{3,3}$ and prove the Weil classes algebraic on every member with full Hodge group. By (i) every Chern character of polarised shape is realised at $A_{0}$ by a convolution of pieces $\mathcal{O}_{Z_{a}}\otimes L^{k_{a}}[s_{a}]$ and $L^{k}[t]$, with at least two subvariety pieces, since $w$ is not a multiple of one $[Z]$, and at least three powers of $L$, since the Hankel rank is three; by (ii) to (v) every group between two pieces is known. What the lemma decides is how the diagonal classes can disappear.
+
+\begin{proposition}[No cancellation in two steps]\label{prop:twostep}
+Let $\mathcal{E}$ be a convolution of pieces $F_{a}[s_{a}]$ of the types of Lemma~\ref{lem:cmext}, no two of which are isomorphic sheaves placed at shifts differing by at most one. A class of $\Ext^{2}(F_{a},F_{a})$ is cancelled in the spectral sequence of the convolution only through a closed chain $a=a_{0},a_{1},\dots,a_{m}=a$ of pieces with $\Ext^{k_{i}}(F_{a_{i-1}},F_{a_{i}})\ne0$ and $\sum_{i}k_{i}=m$, and no such chain has $m=2$. The chains with $m=3$ are exactly those through three twists $k<k'<k''$ of one threefold, $\mathcal{O}_{Z}\otimes L^{k}[s]\to\mathcal{O}_{Z}\otimes L^{k'}[s+1]\to\mathcal{O}_{Z}\otimes L^{k''}[s+2]\to\mathcal{O}_{Z}\otimes L^{k}[s]$, with degrees $0,0,3$. Hence every cancellation among the diagonal classes of degree two is a Massey product of length at least three.
+\end{proposition}
+
+\begin{proof}
+The Maurer--Cartan components of the twisted complex and the class $\eta$ whose differential is computed all have total degree one, that is, a component in $\Ext^{k}(F_{a},F_{b})$ has $k+s_{b}-s_{a}=1$. A product of $m$ such components along a closed chain lands in $\Ext^{\sum k_{i}-m+2}(F_{a},F_{a})$, since the shifts cancel around the chain and the $m$-fold product lowers the degree by $m-2$; so it reaches degree two exactly when $\sum k_{i}=m$. For $m=2$ both components have degree at most two. Between two pieces that are not isomorphic sheaves, Lemma~\ref{lem:cmext} gives the degrees: $3$ and $3$ between $\mathcal{O}_{Z}$ and $\mathcal{O}_{Z'}$; $0$ to $3$ one way and $3$ to $6$ the other between two twists of one $\mathcal{O}_{Z}$; $3$ and $3$ between $\mathcal{O}_{Z}\otimes L^{a}$ and $L^{b}$ with $a<b$, $6$ and $0$ with $a>b$, and $3$ to $6$ against $0$ to $3$ for $a=b$; $0$ and $6$ between two powers of $L$. In every case the two degrees add up to at least three. Between two copies of one sheaf at shifts $s$, $s'$ the two degrees are $1-s'+s$ and $1-s+s'$, which are both at most two only when $|s-s'|\le1$, the case excluded. For $m=3$ the edges of degree at most two are, by the same list, the edges that raise the twist and the edges $L^{a}\to\mathcal{O}_{Z}\otimes L^{a}$; a closed chain cannot consist of them alone, so one edge has degree at least three and the other two have degree zero. Two edges of degree zero from a line bundle lead to a power of $L$ or to a subvariety piece of strictly larger twist, from which every edge back to the line bundle has degree six; from $\mathcal{O}_{Z}\otimes L^{k}$ they lead only to $\mathcal{O}_{Z}\otimes L^{k''}$ with $k''>k$ through an intermediate twist $k'$, and the edge back has degree three, through $H^{3}(Z,L^{k-k''}|_{Z})\otimes\bigwedge^{0}N_{Z}$. These are the chains displayed, and their three groups are nonzero.
+
+\end{proof}
+
+For line-bundle pieces alone the same bookkeeping holds on $E_{0}^{6}$, and there the Massey products of length four are the ones that act, with the result $\dim\Ext^{2}\ge69$ \cite[Thm.~18.35]{BMB26}. With subvariety pieces the first page carries, in degree two, the fifteen diagonal classes of each of the $p+q\ge5$ pieces, at least $75$ in all, together with the cross terms $\Ext^{3}(\mathcal{O}_{Z_{a}},\mathcal{O}_{Z_{b}})$ of pairs whose shifts differ by one; at least eighteen of them must be cancelled, and by Proposition~\ref{prop:twostep} every cancellation is a Massey product of length at least three, the shortest running through three twists of one threefold. The question at the stopping point is therefore the rank of these products for the finitely many shift patterns that a given Chern character allows. We have not carried that computation out; the groups entering it are the ones of Lemma~\ref{lem:cmext}, and the Hodge locus of the obstruction, the only other way the criterion could fail, is settled by Theorem~\ref{thm:criterion} itself.
+
 \subsection{The exceptional classes of a Mumford fourfold}\label{ssec:mumford}
 
 Keep Setting~\ref{setup:mumford} and write $\psi$ for the polarisation form on $V$, $T=D^{0}$, $q_{\lambda}(x,y)=\Tr_{F/\QQ}(\lambda\,\trd(xy))$ for $\lambda\in F$, and $m_{a}$ for multiplication by $a\in F$ on $T$. The copy $T_{X}(-1)\subseteq V\otimes V$, $x\mapsto\bigl((v,w)\mapsto\psi(xv,w)\bigr)$, is symmetric and carries the form induced by $\psi\otimes\psi$, equal to $-4\,\trd(xy)$ summed over the three real places, that is $q_{1}$ up to the scalar $-4$. The exceptional classes of $X\times X$ are the elements $m_{a}$, $a\in F\setminus\QQ$, of $\End_{\Hdg}T_{X}(-1)=F$ \cite[Prop.~21.2]{BMB26}, and in \cite[Thm.~21.4]{BMB26} their algebraicity is derived from the Kuga--Satake class of a K3 surface $S_{\lambda}$ with $T(S_{\lambda})_{\QQ}\cong(T,q_{\lambda})$. We replace $S_{\lambda}$ by an abelian variety.
@@ -206,7 +255,7 @@ The reduced trace is invariant under conjugation and cyclic, so $\psi_{c}(y,x)=\
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.92\textwidth]{figures/fig_link}
+\includegraphics[width=0.78\textwidth]{figures/fig_link}
 \caption{The sixfold link. Two copies of the Mumford fourfold $X_{t}$ and the sixfold $Z_{K,t}$ sit over the same point $t$ of the Shimura curve $C$; the class $\xi_{t}$ in the mixed K\"unneth component identifies the two copies of $T$ and is flat along $C$.}
 \label{fig:link}
 \end{figure*}

@@ -20,8 +20,10 @@ run sixfold_link.py    python3 -I sixfold_link.py
 run link_weights.py    python3 -I link_weights.py
 run bypass_checks.py   python3 -I bypass_checks.py
 run zeta9_invariants.py python3 -I zeta9_invariants.py
+run zeta7_invariants.py python3 -I zeta7_invariants.py
 run annihilator_exact.py python3 -I annihilator_exact.py
 run riemann_roch_pieces.py python3 -I riemann_roch_pieces.py
+run cm_point_ext.py    python3 -I cm_point_ext.py
 run closure_graph.jl   "$JULIA" closure_graph.jl
 run eigencharacter.jl  "$JULIA" eigencharacter.jl
 tmp=$(mktemp -d)
@@ -29,8 +31,8 @@ run closure_graph.c    sh -c "$CC -O2 -o $tmp/cg closure_graph.c && $tmp/cg"
 run closure_graph.cpp  sh -c "$CXX -std=c++17 -O2 -o $tmp/cgpp closure_graph.cpp && $tmp/cgpp"
 run hilbert.c          sh -c "$CC -O2 -o $tmp/hilbert hilbert.c && $tmp/hilbert"
 rm -rf "$tmp"
-# the Lean certificate: 36 theorems, every one axiom-free or on propext and Quot.sound
-run lean               sh -c "cd ../lean && $LEAN HodgeClosure.lean > /tmp/run_all_lean.out && test \$(grep -c 'does not depend on any axioms' /tmp/run_all_lean.out) -eq 34 && test \$(grep -c 'depends on axioms: \[propext, Quot.sound\]' /tmp/run_all_lean.out) -eq 2"
+# the Lean certificate: 40 theorems, every one axiom-free or on propext and Quot.sound
+run lean               sh -c "cd ../lean && $LEAN HodgeClosure.lean > /tmp/run_all_lean.out && test \$(grep -c 'does not depend on any axioms' /tmp/run_all_lean.out) -eq 38 && test \$(grep -c 'depends on axioms: \[propext, Quot.sound\]' /tmp/run_all_lean.out) -eq 2"
 # the sqrt6 and Fricke scripts report their own counts; they must read 25 and 41
 grep -q "25 checks passed, 0 failed" /tmp/run_all_sqrt6_chain.py.log || { echo "FAIL  sqrt6_chain.py count"; fail=1; }
 grep -q "41 checks passed, 0 failed" /tmp/run_all_fricke_families.py.log || { echo "FAIL  fricke_families.py count"; fail=1; }
