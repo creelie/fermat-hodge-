@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\input{ringlib}
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}
+  \ring{28}
+  \foreach \y in {3,17,22,14} {\elt{28}{\y}{sorange}}
+  \lab{28}{3}{$x$}
+  \lab{28}{17}{$x+\tfrac M2$}
+  \lab{28}{22}{$-2x$}
+  \lab{28}{14}{$\tfrac M2$}
+  \lab{28}{0}{$0$}
+  \node[font=\small] at (0,-2.05) {(a) $T(x)$ for $M=28$, $x=3$};
+\end{scope}
+\begin{scope}[xshift=6.2cm]
+  \ring{20}
+  \draw[ablue!70,line width=0.7pt,dashed] \respos{20}{1}{0.9} -- \respos{20}{5}{0.9} -- \respos{20}{9}{0.9}
+     -- \respos{20}{13}{0.9} -- \respos{20}{17}{0.9} -- cycle;
+  \foreach \y in {1,5,9,13,17} {\elt{20}{\y}{ablue}}
+  \elt{20}{15}{sorange}
+  \foreach \y/\t in {1/$x$,5/$x+\tfrac M5$,9/$x+\tfrac{2M}5$,13/$x+\tfrac{3M}5$,17/$x+\tfrac{4M}5$,15/$-5x$} {\lab{20}{\y}{\t}}
+  \lab{20}{0}{$0$}
+  \node[font=\small] at (0,-2.05) {(b) $\sigma_{5,x}=\Phi_{5}(x)+\{-5x\}$ for $M=20$, $x=1$};
+\end{scope}
+\end{tikzpicture}
+\end{document}
