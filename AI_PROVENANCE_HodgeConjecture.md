@@ -1,7 +1,6 @@
 # AI provenance
 
-Paper: *Algebraic Loci of Hodge Classes and the Two Statements Left on
-Abelian Varieties*, Deep Bhattacharjee and Ushashi Bhattacharya.
+Paper: *Algebraic Loci of Hodge Classes on Abelian Varieties and K3 Surfaces*, Deep Bhattacharjee and Ushashi Bhattacharya.
 
 ## What was done with AI assistance
 
@@ -23,7 +22,15 @@ follows.
   and the combinatorial and arithmetic ones are proved in
   `lean/HodgeClosure.lean`.
 * Two numerical ranks (`product_object.py`, `convolution_checks.py`) are
-  computed in floating point; no statement of the paper rests on them.
+  computed in floating point; no statement of the paper rests on them. The
+  rank behind Theorem VI.6 is also computed exactly (`annihilator_exact.py`),
+  the Riemann-Roch polynomial and the thirty-one supports of Proposition VI.7
+  (`riemann_roch_pieces.py`), and the invariants of the trace form behind
+  Theorem V.12 (`zeta9_invariants.py`).
+* The theorem on real multiplication by Q(zeta_9)^+ was found in a second
+  round of AI sessions and checked against van Geemen and Schütt (2025,
+  Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal
+  orders (Theorem 33.15) and Platonov and Rapinchuk (Theorem 7.8).
 
 ## What the AI did not do
 
