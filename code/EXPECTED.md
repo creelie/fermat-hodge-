@@ -17,6 +17,9 @@ Times are those of one run on a 4-core x86-64 machine.
 | `sixfold_link.py` | the sixfold Z_K: alternation and invariance of psi_c, the copy of T, the ratio of the forms at the three places, the count 26, the weight support of xi | `ALL CHECKS PASSED` | 20 s |
 | `link_weights.py` | the Hodge classes of degree four on X x X x Z_K under three groups, the action of the cyclic permutation, Hom(X_c, Z_{K,c}) = 0 at the compositum CM point | `ALL CHECKS PASSED` | 1 min |
 | `bypass_checks.py` | the Horn closure with the abelian-variety facts of the literature adjoined, Manin's blow-up bookkeeping | `ALL CHECKS PASSED` | < 1 s |
+| `zeta9_invariants.py` | the trace form of the quaternion algebra (-1,-theta) over Q(zeta_9)^+ scaled by -theta has the rank, signature, discriminant and Hasse invariants of the transcendental lattice (U + A_2(-1)^4)^perp; three contrasting algebras do not | `MATCH=True` on the predicted line, `MATCH=False` on the contrasts, `zeta9_invariants: PASS` | 4 s |
+| `annihilator_exact.py` | exact arithmetic over Q(sqrt -3) at (m,m') = (2,1), (2,2): the identity for ch(E'), the annihilator of ch(E') in T D_{n,n} of dimension m^2 + m'^2, and the same for each component theta_A^k (x) R_k | lines `(2) ... True`, `(3) ... 2mm' ? True`, `annihilator_exact: PASS` | < 1 s |
+| `riemann_roch_pieces.py` | the polynomial P(l) = chi(F, L^l), the 31 supports S: a polarised p with P = 0 on its whole support exists only for singletons; the Euler characteristics and the A'-side table | `admissible supports: [(0,), (1,), (2,), (3,), (4,)]`, `riemann_roch_pieces: PASS` | 1 s |
 | `../lean/HodgeClosure.lean` | thirty-six theorems; `#print axioms` for each | 34 lines `does not depend on any axioms`, 2 lines `depends on axioms: [propext, Quot.sound]` (`prym_locus_small`, `sum_squares_lt`) | 1 min |
 
 The ranks in `product_object.py` and `convolution_checks.py` are computed in

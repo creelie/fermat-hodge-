@@ -4,7 +4,7 @@
 Let $\pi\colon\mathcal{X}\to S$ be a smooth projective morphism to a smooth connected complex quasi-projective variety, and let $\xi$ be a global section of $R^{2p}\pi_{*}\QQ$ that is a Hodge class at one point. The algebraic locus of $\xi$ is the set $\Sigma(\xi)$ of $s\in S$ at which $\xi_{s}\in H^{2p}(\mathcal{X}_{s})$ is algebraic.
 \end{definition}
 
-By the theorem of the fixed part \cite{Del71,And92}, the flat sections of a polarisable variation form a sub-Hodge structure, constant along $S$; so $\xi_{s}$ is a Hodge class at every point once it is one somewhere.
+By the theorem of the fixed part \cite{Del71,And92}, the flat sections of a polarisable variation form a sub-Hodge structure, constant along $S$; so $\xi_{s}$ is a Hodge class at every point once it is one somewhere.\footnote{The theorem says that for a polarisable variation of Hodge structure $\mathcal{V}$ over a smooth connected quasi-projective base $S$, the space $H^{0}(S,\mathcal{V})$ of global flat sections, which is the subspace of a fibre $\mathcal{V}_{s}$ fixed by the monodromy group, is a sub-Hodge structure of $\mathcal{V}_{s}$, and the Hodge structure it carries does not depend on $s$. Deligne proved it for the variations $R^{k}\pi_{*}\QQ$ of a smooth projective morphism, where it follows from the degeneration of the Leray spectral sequence and the weight filtration of a smooth compactification; Andr\'e proved it for every polarisable variation by showing that the connected monodromy group is a normal subgroup of the derived group of the generic Mumford--Tate group. In the situation of the text the section $\xi$ is flat, so its value at one point is fixed by the monodromy; if that value has type $(p,p)$ at one point, the sub-Hodge structure of flat sections contains it as a Hodge class, and since that Hodge structure is the same at every point, $\xi_{s}$ has type $(p,p)$ everywhere.}
 
 \begin{lemma}[Dichotomy]\label{lem:dichotomy}
 \leavevmode
@@ -20,7 +20,7 @@ By the theorem of the fixed part \cite{Del71,And92}, the flat sections of a pola
 
 (ii) A countable union of proper Zariski closed subsets of an irreducible $S$ has empty interior in $S^{\mathrm{an}}$, and each is closed, so the union is meagre; if one of the closed sets is $S$ itself, $\Sigma(\xi)=S$.
 
-(iii) By the Baire category theorem $S^{\mathrm{an}}$ is not meagre in itself, so $\Sigma(\xi)=S$ excludes meagreness, and a set with an interior point is not meagre; by (ii) not meagre forces $\Sigma(\xi)=S$. The complement of a countable union of proper closed subvarieties is the very general locus, so algebraicity at the very general point means that one of the closed sets is all of $S$. A dense set that is also closed is $S$.
+(iii) By the Baire category theorem\footnote{A subset of a topological space is meagre when it is a countable union of nowhere dense sets, that is, of sets whose closure has empty interior. The Baire category theorem states that a complete metric space, or a locally compact Hausdorff space, is not meagre in itself; a connected complex manifold such as $S^{\mathrm{an}}$ is locally compact, so the theorem applies to it. A proper Zariski closed subset of an irreducible variety has empty interior in the analytic topology, because a holomorphic function vanishing on an open set vanishes identically on a connected manifold; so a countable union of proper Zariski closed subsets is meagre, and the alternative in (ii) is exactly whether one of the countably many closed strata of (i) is the whole of $S$.} $S^{\mathrm{an}}$ is not meagre in itself, so $\Sigma(\xi)=S$ excludes meagreness, and a set with an interior point is not meagre; by (ii) not meagre forces $\Sigma(\xi)=S$. The complement of a countable union of proper closed subvarieties is the very general locus, so algebraicity at the very general point means that one of the closed sets is all of $S$. A dense set that is also closed is $S$.
 \end{proof}
 
 \begin{lemma}[Points of CM type are dense]\label{lem:cmdense}
@@ -76,11 +76,11 @@ Each $\Gamma_{*}$ is a morphism of Hodge structures, so its image and the sum of
 
 Theorem~\ref{thm:intro-loci} is Lemma~\ref{lem:dichotomy}, Theorem~\ref{thm:propagation}, Proposition~\ref{prop:weil-dense} and Proposition~\ref{prop:abpart}. Figure~\ref{fig:locus} draws the locus of Proposition~\ref{prop:weil-dense}.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=0.95\columnwidth]{figures/fig_locus}
+\includegraphics[width=0.92\textwidth]{figures/fig_locus}
 \caption{The period domain $\cD_{n,n}$ of a Weil family as a surface. The star is the CM base point, the dots and curves are strata of the algebraic locus, dense by the Hecke orbit. The locus is a countable union of closed strata; it is either the whole surface or meagre.}
 \label{fig:locus}
-\end{figure}
+\end{figure*}
 
 Both statements are now of one shape. There is a dense set of points at which the class is algebraic by an explicit cycle; the locus is a countable union of closed strata; the statement is that this union is not meagre, that is, that algebraicity propagates from the dense set. The rest of the paper goes to the first point where the propagation is not known and builds the object that would carry it.
