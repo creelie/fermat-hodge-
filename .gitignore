@@ -19,3 +19,12 @@ lean/*.olean
 lean/*.ilean
 lean/lean.out
 lean/lean.err
+fourfolds/paper/*.aux
+fourfolds/paper/*.bbl
+fourfolds/paper/*.blg
+fourfolds/paper/*.fdb_latexmk
+fourfolds/paper/*.fls
+fourfolds/paper/*.log
+fourfolds/paper/*.out
+fourfolds/paper/figures/src/*.aux
+fourfolds/paper/figures/src/*.log
