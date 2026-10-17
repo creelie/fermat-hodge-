@@ -49,7 +49,7 @@ def fig_locus():
     ax.scatter(pts[:, 0], pts[:, 1], 0.25 * (pts[:, 0]**2 - pts[:, 1]**2) + 0.02,
                s=4, color="#1f3f7a")
     ax.scatter([0], [0], [0.03], s=30, color="black", marker="*")
-    ax.text(0.05, 0.05, 0.25, r"$s_0$", fontsize=9)
+    ax.text(0.05, 0.05, 0.25, r"$s_0$", fontsize=9, bbox=dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.92))
     ax.set_xlabel(r"$\mathcal{D}_{n,n}$", labelpad=-8)
     ax.set_ylabel("", labelpad=-8)
     ax.set_zlabel("", labelpad=-8)
@@ -74,8 +74,8 @@ def fig_eigen():
         ax.bar3d(k - 0.3, 0, 0, 0.6, 0.6, 1, color="#9fb4d8", alpha=0.9)
     ax.bar3d(n - 0.3, 1.2, 0, 0.6, 0.6, 1, color="#c0504d", alpha=0.9)
     ax.bar3d(n - 0.3, 2.0, 0, 0.6, 0.6, 1, color="#c0504d", alpha=0.9)
-    ax.text(n, 1.6, 1.25, r"character $\tau^{2n}$", fontsize=9, ha="center")
-    ax.text(1.0, 0.3, 1.25, r"character $N(\tau)^{k}$", fontsize=9, ha="center")
+    ax.text2D(0.03, 0.86, r"$\eta^{k}$: character $N(\tau)^{k}$", fontsize=9, ha="left", color="#4f6b96", transform=ax.transAxes)
+    ax.text2D(0.03, 0.80, r"Weil line: character $\tau^{2n}$", fontsize=9, ha="left", color="#a0302a", transform=ax.transAxes)
     ax.set_xlabel(r"degree $2k$", labelpad=4)
     ax.set_yticks([0.3, 1.5, 2.3])
     ax.set_yticklabels([r"$\eta^k$", r"$\omega_1$", r"$\omega_2$"], fontsize=9)
@@ -129,7 +129,7 @@ def fig_graph():
         x, y, _ = proj3d.proj_transform(*p, ax.get_proj())
         ax.annotate(name, (x, y), xycoords="data", textcoords="offset points",
                     xytext=off[name], ha="center", va="center", fontsize=10,
-                    annotation_clip=False)
+                    annotation_clip=False, bbox=dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.92))
     ax.set_title("The closure graph: HC $\\Leftrightarrow$ (F2) $\\wedge$ (F3$'$)",
                  fontsize=10)
     save(fig, "fig_graph")
@@ -207,8 +207,8 @@ def fig_product():
     ax.quiver(0, 0, 0.02, 1.3, 0, 0, color="#1f3f7a", arrow_length_ratio=0.15, lw=1.6)
     ax.quiver(0, 0, 0.02, 0, 1.3, 0, color="#c0504d", arrow_length_ratio=0.15, lw=1.6)
     ax.text2D(0.66, 0.16, r"$T$(product locus), $m^{2}+m'^{2}$", fontsize=9, ha="left", color="#1f3f7a", transform=ax.transAxes)
-    ax.text2D(0.30, 0.78, r"mixed directions, $n^{2}-m^{2}-m'^{2}$", fontsize=9,
-            color="#c0504d", ha="center", transform=ax.transAxes)
+    ax.text2D(0.22, 0.84, r"mixed directions, $n^{2}-m^{2}-m'^{2}$", fontsize=9,
+            color="#c0504d", ha="center", transform=ax.transAxes, bbox=dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.92))
     ax.text2D(0.5, 0.06, r"$A\times A'$", fontsize=10, ha="center", transform=ax.transAxes)
     ax.set_xlim(-1.6, 1.6); ax.set_ylim(-1.6, 1.6)
     ax.set_axis_off(); ax.set_box_aspect((2.4, 2.4, 1.2), zoom=1.2); ax.view_init(elev=28, azim=-60)
@@ -263,13 +263,13 @@ def fig_fricke():
            0.6: r"$p$", 3.4: r"$N^{k}/p$"}
     for x, lab in pts.items():
         ax.scatter([x], [0], [0], color="black", s=10)
-        ax.text(x, 0, -0.42, lab, fontsize=9, ha="center", va="top")
+        ax.text(x, 0, 0.32, lab, fontsize=9, ha="center", va="bottom")
     # the Fricke involution as arcs under the base
     def arc(x0, x1, depth, col):
         u = np.linspace(0, np.pi, 40)
         ax.plot((x0 + x1) / 2 + (x1 - x0) / 2 * np.cos(u), 0 * u, -depth * np.sin(u), color=col, lw=0.8, ls="--")
     arc(0.0, 4.0, 1.3, "#555555"); arc(1.2, 2.8, 0.6, "#555555"); arc(0.6, 3.4, 0.95, "#b03a2e")
-    ax.text(2.0, 0, -1.55, r"$w(t)=N^{k}/t$", fontsize=9, ha="center", color="#555555")
+    ax.text(2.0, 0, -2.0, r"$w(t)=N^{k}/t$", fontsize=9, ha="center", va="top", color="#555555")
     # the surface X_p: fibres over the base drawn as a tube, with two tori marked
     def tube(x0, x1, cz, col):
         u = np.linspace(x0, x1, 40); v = np.linspace(0, 2 * np.pi, 20)
@@ -318,6 +318,7 @@ def fig_zeta9():
     algebraic, the point of Mumford type, and the rational isometry that
     moves it into the patch."""
     fig = plt.figure(figsize=(7.0, 3.5))
+    fig.subplots_adjust(left=0.0, right=1.0, bottom=0.0, top=0.92)
     ax = fig.add_subplot(111, projection="3d")
     ax.computed_zorder = False
     u = np.linspace(-1.8, 1.8, 120); v = np.linspace(-1.2, 1.2, 90)
@@ -345,14 +346,20 @@ def fig_zeta9():
     ax.quiver(xs[-2], ys[-2], zs[-2], x1 - xs[-2], y1 - ys[-2], f(x1, y1) + 0.04 - zs[-2],
               arrow_length_ratio=0.9, color="#1f3f7a", lw=1.4, zorder=4)
     ax.set_xlim(-1.9, 1.9); ax.set_ylim(-1.3, 1.3); ax.set_zlim(-0.5, 1.0)
-    ax.set_axis_off(); ax.set_box_aspect((3.0, 1.8, 1.1), zoom=1.3); ax.view_init(elev=34, azim=-58)
+    ax.set_axis_off(); ax.set_box_aspect((3.0, 1.8, 1.1), zoom=1.5); ax.view_init(elev=34, azim=-58)
     fig.canvas.draw()
-    _lab(ax, x0, y0, f(x0, y0), r"$[S_{\lambda}]$", dx=-8, dy=-16)
-    _lab(ax, x1, y1, f(x1, y1), r"$g\cdot[S_{\lambda}]$", dx=34, dy=4)
-    _lab(ax, xs[30], ys[30], zs[30], r"$x\mapsto axg$, $(a,g)\in Q^{1}\times Q^{1}$", dy=14, color="#1f3f7a")
-    _lab(ax, 1.0, -0.7, f(1.0, -0.7), r"$U$, image of the dihedral family", dx=36, dy=-24, color="#7a4a10")
-    _lab(ax, -1.75, 1.1, f(-1.75, 1.1), r"$\mathcal{D}_{T_{12}}$", dx=-10, dy=12)
-    _lab(ax, -1.2, -1.2, f(-1.2, -1.2), r"loci where an $F$-line $N$ is algebraic", dx=-30, dy=-44, color="#7a1f1f")
+    wb = dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.92)
+    def lead(col):
+        return dict(arrowstyle="-", color=col, lw=0.7, shrinkA=0, shrinkB=3)
+    _lab(ax, x0, y0, f(x0, y0), r"$[S_{\lambda}]$", dx=-14, dy=-18, bbox=wb)
+    _lab(ax, x1, y1, f(x1, y1), r"$g\cdot[S_{\lambda}]$", dx=62, dy=22, bbox=wb, arrowprops=lead("black"))
+    _lab(ax, xs[30], ys[30], zs[30], r"$x\mapsto axg$, $(a,g)\in Q^{1}\times Q^{1}$", dx=-20, dy=30,
+         color="#1f3f7a", bbox=wb, arrowprops=lead("#1f3f7a"))
+    _lab(ax, 1.15, -0.45, f(1.15, -0.45), r"$U$, image of the dihedral family", dx=96, dy=-30,
+         color="#7a4a10", bbox=wb, arrowprops=lead("#7a4a10"))
+    _lab(ax, -1.75, 1.1, f(-1.75, 1.1), r"$\mathcal{D}_{T_{12}}$", dx=-12, dy=14, bbox=wb)
+    _lab(ax, -1.2, -1.2, f(-1.2, -1.2), r"loci where an $F$-line $N$ is algebraic", dx=-20, dy=-40,
+         color="#7a1f1f", bbox=wb, arrowprops=lead("#7a1f1f"))
     ax.set_title(r"Real multiplication by $\mathbb{Q}(\zeta_7)^{+}$ or $\mathbb{Q}(\zeta_9)^{+}$: moving the surface of Mumford type into the dihedral family",
                  fontsize=10)
     save(fig, "fig_zeta9")
@@ -386,7 +393,7 @@ def fig_surgery():
         ax.add_patch(FancyArrowPatch((cx - 0.1, 0.0), (cx + 0.1, 0.0), arrowstyle="-|>", mutation_scale=10, lw=1.0, color="black"))
         ax.text(cx, -0.95, nm, ha="center", va="top", fontsize=8.5)
     ax.add_patch(Ellipse((xs[0] + 0.8, 0.05), 0.4, 0.16, facecolor="none", edgecolor="#1f3f7a", lw=1.2))
-    ax.text(xs[0] + 0.8, 0.28, r"$E\to Z$", ha="center", va="bottom", fontsize=8, color="#1f3f7a")
+    ax.text(xs[0] + 0.8, -0.5, r"$E\to Z$", ha="center", va="top", fontsize=8, color="#1f3f7a")
     ax.set_xlim(0, 11.9); ax.set_ylim(-1.9, 2.9); ax.set_aspect("equal"); ax.set_axis_off()
     ax.set_title(r"The defect $\delta=\dim\mathrm{Hdg}/\mathrm{Alg}$ never drops: blow-up, domination, derived equivalence, degeneration",
                  fontsize=10)
@@ -443,9 +450,9 @@ def fig_cubicstop():
     ax.set_axis_off(); ax.set_box_aspect((1, 1, 1), zoom=0.85); ax.view_init(elev=22, azim=-55)
     fig.canvas.draw()
     _lab(ax, 0, 0, 1.0, r"$\mathcal{D}_{T_{18}}$, dimension four", dy=22)
-    _lab(ax, 0, 0, -1.0, "$U$, image of the family,\ndimension three", dy=-24, fontsize=8, color="#7a4a10")
-    _lab(ax, 0, 0, -1.0, "Shimura curves of $(F,D)$,\nnot known to meet $U$", dy=-48, fontsize=8, color="#7a1f1f")
-    _lab(ax, 0, 0, -1.0, "(ii)", dy=-66)
+    _lab(ax, 0, 0, -1.0, "$U$, image of the family,\ndimension three", dy=-36, fontsize=8, color="#7a4a10", bbox=dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.92))
+    _lab(ax, 0, 0, -1.0, "Shimura curves of $(F,D)$,\nnot known to meet $U$", dy=-62, fontsize=8, color="#7a1f1f", bbox=dict(boxstyle="round,pad=0.15", facecolor="white", edgecolor="none", alpha=0.92))
+    _lab(ax, 0, 0, -1.0, "(ii)", dy=-82)
     # right panel: finite groups on P^1 and their fields
     ax = fig.add_subplot(gs[0, 2]); ax.set_axis_off()
     ax.set_xlim(0, 10); ax.set_ylim(0, 10)
@@ -518,8 +525,8 @@ def fig_cmpoint():
     ax.set_title(r"(b) two twists of one $Z$", fontsize=9)
     # (c) the closed chains
     ax = fig.add_subplot(gs[0, 2]); ax.set_axis_off()
-    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
-    P = {"k": (2.0, 2.2), "k'": (5.0, 7.6), "k''": (8.0, 2.2)}
+    ax.set_xlim(-0.6, 10.6); ax.set_ylim(0, 10)
+    P = {"k": (1.4, 2.2), "k'": (5.0, 7.8), "k''": (8.6, 2.2)}
     names = {"k": r"$\mathcal{O}_Z L^{k}$", "k'": r"$\mathcal{O}_Z L^{k'}$", "k''": r"$\mathcal{O}_Z L^{k''}$"}
     for key, (x, y) in P.items():
         ax.add_patch(plt.Circle((x, y), 0.95, facecolor="#dde5f0", edgecolor="#333333", lw=0.8))
@@ -530,11 +537,12 @@ def fig_cmpoint():
                     arrowprops=dict(arrowstyle="-|>", color=col, lw=1.2, shrinkA=20, shrinkB=20,
                                     connectionstyle="arc3,rad=%s" % rad))
         ax.text((x1 + x2) / 2 + dx, (y1 + y2) / 2 + dy, text, ha="center", va="center", fontsize=8, color=col)
-    arrow("k", "k'", r"$\mathrm{Ext}^{0}$", "#7a1f1f", -0.15, -1.3, 0.3)
-    arrow("k'", "k''", r"$\mathrm{Ext}^{0}$", "#7a1f1f", -0.15, 1.3, 0.3)
+    arrow("k", "k'", r"$\mathrm{Ext}^{0}$", "#7a1f1f", -0.15, -2.1, 0.5)
+    arrow("k'", "k''", r"$\mathrm{Ext}^{0}$", "#7a1f1f", -0.15, 2.1, 0.5)
     arrow("k''", "k", r"$\mathrm{Ext}^{3}=H^{3}(Z,L^{k-k''}|_Z)$", "#1f3f7a", -0.25, 0, -1.3)
-    ax.text(5.0, 5.3, r"$0+0+3=3$", ha="center", fontsize=8)
-    ax.text(5.0, 4.4, r"a product into $\mathrm{Ext}^{2}$", ha="center", fontsize=8)
+    ax.text(5.0, 5.5, r"$0+0+3=3$", ha="center", va="center", fontsize=7.5)
+    ax.text(5.0, 4.7, "a product", ha="center", va="center", fontsize=7.5)
+    ax.text(5.0, 3.95, r"into $\mathrm{Ext}^{2}$", ha="center", va="center", fontsize=7.5)
     ax.text(5.0, -0.6, r"two pieces: $k_{1}+k_{2}\geq 3$, nothing in $\mathrm{Ext}^{2}$",
             ha="center", fontsize=7.5, color="#333333")
     ax.set_title(r"(c) closed chains, $k<k'<k''$", fontsize=9)
@@ -557,11 +565,11 @@ def fig_roadmap():
                                     connectionstyle="arc3,rad=%s" % rad))
     red, blue, gold, grey = "#7a1f1f", "#1f3f7a", "#7a4a10", "#555555"
     box(50, 48, 46, 6, r"the Hodge conjecture $\Leftrightarrow$ (F2) $\wedge$ (F3$'$)", fc="#f0e3c0", fs=8.5)
-    box(50, 40.5, 56, 5.2, r"the locus of either statement: dense, every CM point, all or meagre", fc="#e8e8e8", fs=8)
+    box(50, 40.5, 70, 5.2, r"the locus of either statement: dense, every CM point, all or meagre", fc="#e8e8e8", fs=7.8)
     arr(50, 45, 50, 43.1)
     # the two columns
-    box(24, 33, 46, 5, r"(F3$'$): every Hodge class comes from abelian varieties" "\n" r"first case: real multiplication of K3 surfaces", fc="#e5ecf6", ec=blue, fs=7.2)
-    box(76, 33, 46, 5, r"(F2): the Hodge conjecture for abelian varieties" "\n" r"first case: Weil classes of a product of two fourfolds", fc="#f6e5e5", ec=red, fs=7.2)
+    box(24, 33, 48, 5, r"(F3$'$): every Hodge class comes from abelian varieties" "\n" r"first case: real multiplication of K3 surfaces", fc="#e5ecf6", ec=blue, fs=6.6)
+    box(76, 33, 48, 5, r"(F2): the Hodge conjecture for abelian varieties" "\n" r"first case: Weil classes of a product of two fourfolds", fc="#f6e5e5", ec=red, fs=6.6)
     arr(38, 38, 28, 35.6, col=blue); arr(62, 38, 72, 35.6, col=red)
     # F3' constructions
     ys = [25.5, 18.5, 11.5]
@@ -577,8 +585,8 @@ def fig_roadmap():
         box(76, y, 42, 4.6, t1 + "\n" + t2, fc="white", ec=red, fs=7.2)
     arr(24, 30.5, 24, 27.9, col=blue); arr(24, 23.2, 24, 20.9, col=blue); arr(24, 16.2, 24, 13.9, col=blue)
     arr(76, 30.5, 76, 27.9, col=red); arr(76, 23.2, 76, 20.9, col=red); arr(76, 16.2, 76, 13.9, col=red)
-    box(24, 4.5, 46, 4.4, r"proved: HC for $S\times S$ in the dihedral families," "\n" r"and for $S_\lambda\times S_\lambda$ and $S_\lambda^{[2]}$ of Mumford type", fc="#e5ecf6", ec=blue, fs=7.0)
-    box(76, 4.5, 46, 4.4, r"proved: what each object does and where it stops;" "\n" r"the defect survives maps, blow-ups, derived equivalences", fc="#f6e5e5", ec=red, fs=7.0)
+    box(24, 4.5, 48, 4.4, r"proved: HC for $S\times S$ in the dihedral families," "\n" r"and for $S_\lambda\times S_\lambda$ and $S_\lambda^{[2]}$ of Mumford type", fc="#e5ecf6", ec=blue, fs=6.6)
+    box(76, 4.5, 48, 4.4, r"proved: what each object does and where it stops;" "\n" r"the defect survives maps, blow-ups, derived equivalences", fc="#f6e5e5", ec=red, fs=6.6)
     arr(24, 9.2, 24, 6.9, col=blue); arr(76, 9.2, 76, 6.9, col=red)
     ax.text(50, 18.5, "both open", ha="center", va="center", fontsize=9, color=grey, rotation=90)
     save(fig, "fig_roadmap")
