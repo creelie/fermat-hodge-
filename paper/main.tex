@@ -16,6 +16,7 @@
 \usepackage{orcidlink}
 \usepackage[protrusion=true,expansion=false]{microtype}
 \usepackage{xurl}
+\makeatletter\let\write@bibliographystyle\relax\let\bibliography@latex\@gobble\makeatother
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
@@ -59,8 +60,8 @@
 \newcommand{\cS}{\mathcal{S}}
 \newcommand{\HC}{\mathbf{HC}}
 \newcommand{\AB}{\mathbf{AB}}
-\newcommand{\Fii}{\textup{(F2)}}
-\newcommand{\Fiii}{\textup{(F3$'$)}}
+\newcommand{\Fii}{\texorpdfstring{\textup{(F2)}}{(F2)}}
+\newcommand{\Fiii}{\texorpdfstring{\textup{(F3$'$)}}{(F3')}}
 \newcommand{\zenodoCodeID}{10.5281/zenodo.23439578}
 \newcommand{\leancount}{four hundred and nine}
 

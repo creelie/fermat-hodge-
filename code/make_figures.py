@@ -16,7 +16,8 @@ from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 OUT = os.path.join(os.path.dirname(__file__), "..", "paper", "figures")
 os.makedirs(OUT, exist_ok=True)
 plt.rcParams.update({"font.family": "serif", "font.size": 10,
-                     "mathtext.fontset": "cm"})
+                     "mathtext.fontset": "cm",
+                     "pdf.fonttype": 42})
 
 
 def save(fig, name):
