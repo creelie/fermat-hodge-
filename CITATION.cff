@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this archive, cite the paper and the archive."
-title: "Source and verification code for the paper Algebraic Loci of Hodge Classes"
+title: "Source and verification code for the paper Dense Algebraic Loci of Hodge Classes"
 type: software
 authors:
   - family-names: Bhattacharjee
