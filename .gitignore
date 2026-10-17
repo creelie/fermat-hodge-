@@ -1,0 +1,21 @@
+# LaTeX build artefacts
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*Notes.bib
+paper/build.log
+# program outputs
+code/__pycache__/
+code/*.o
+code/closure_graph_c
+code/closure_graph_cpp
+code/hilbert
+lean/*.olean
+lean/*.ilean
+lean/lean.out
+lean/lean.err
