@@ -1,7 +1,6 @@
 # AI provenance
 
-Paper: *Algebraic Loci of Hodge Classes and the Two Statements Left on
-Abelian Varieties*, Deep Bhattacharjee and Ushashi Bhattacharya.
+Paper: *Algebraic Loci of Hodge Classes on Abelian Varieties and K3 Surfaces*, Deep Bhattacharjee and Ushashi Bhattacharya.
 
 ## What was done with AI assistance
 
