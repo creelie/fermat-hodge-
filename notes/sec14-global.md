@@ -102,16 +102,22 @@ up to units, none with a splitting or a 4-tuple move; `glob/extra.py`). The
 Hodge conjecture for X^4_210 follows from Aoki's reduction (Q(210) = {15, 21,
 35}) and the class ξ_35.
 
-**ξ_35 without Peterson's coniveau computation (checked by hand).** The
+**ξ_35 without Peterson's coniveau computation (proved by hand).** The
 character α = (1, 2, 16, 21, 30) of μ_35^5, the one Peterson uses, admits a
 block pattern in the sense of e84hc def:blockpattern: columns
 (0,0,0,5,0), (1,1,2,0,0), (1,2,0,0,1), (3,1,0,0,1), (0,0,0,0,35) with
 δ = 10, 25, 10, 5, 1. The weights are 105, 35, 35, 35, 1050 (all divisible by
 35), every coordinate sum is D = 50, and Σδ = 51 > D. So by e84hc
-thm:uniruled the quotient of X^3_35 by ker α is uniruled and M_α ⊆
-N^1 H^3(X^3_35), which is Peterson's coniveau statement; the rest of his
-deduction (the join to X^6_35) is the e84hc join step. Found with
-`bp/bp.py` (LP value 1.02).
+thm:uniruled, M_α ⊆ N^1 H^3(X^3_35). With the curve character
+b = (17, 22, 31) one has ⟨tα⟩ + ⟨tb⟩ = 4 for every unit t, so by e84hc
+prop:joindivisor(b) the eight-element multiset
+β = {1, 2, 16, 17, 21, 22, 30, 31} is balanced and algebraic. Its only
+element with square 1 mod 35 is 1, so ν_R([β]) = 1 (e84hc lem:nusqrt,
+35 = 5·7), and as Q(35) = {35}, the argument of e84hc cor:B114 gives
+B_35 = S_35 + Z[β]: the Hodge conjecture for X^n_35 in every dimension,
+and so ξ_35. This replaces [Pet26] (whose character it is) by the e84hc
+uniruled-quotient step. b is the only curve character with this property
+(search in `bp/`; the block pattern from `bp/bp.py`, LP value 1.02).
 
 ## G4. Two maximal parts (proved, given the list; the final count checked)
 
