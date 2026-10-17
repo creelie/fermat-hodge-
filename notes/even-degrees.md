@@ -14,7 +14,7 @@ Each statement below is marked **proved** (a hand proof written here),
 
 ## 0. Setting
 
-M is even and prime to 3 (multiples of 6 are treated separately, Section 9).
+M is even and prime to 3 (multiples of 6 are treated separately, Section 14).
 A is a sextuple at level M: a balanced multiset of six nonzero elements that
 contains no pair, generates Z/M and is not the union of two zero-sum triples.
 The aim is to show that A has a direct or lowering move, possibly after a
@@ -45,7 +45,7 @@ prop:core applies.
 
 So every maximal order is even. In particular, if e* is a maximal element of
 the set of odd parts of the orders in A, some element has order 2^j e* with
-j >= 1. Sections 2-7 treat j = 1 (written 2 || e); Section 8 treats 4 | e.
+j >= 1. Sections 2-11 treat j = 1 (written 2 || e); Section 13 treats 4 | e.
 
 ## 2. Notation at a top order e = 2e*, e* odd (2 || e), e* prime to 3
 
@@ -370,8 +370,8 @@ at e* in {35, 55}, which Section 10 confines to M in {70, 110}. Uniqueness of
 the maximal odd part is not needed: any maximal odd part with largest order
 2e* will do.
 
-So the open case for M prime to 3 is: every maximal odd part e* of A has
-largest order 2^J e* with J >= 2.
+The remaining case for M prime to 3, every maximal odd part e* of A having
+largest order 2^J e* with J >= 2, is Section 13.
 
 ## 12. What the computations show (checked)
 
@@ -395,26 +395,304 @@ largest order 2^J e* with J >= 2.
   4-tuples {a, b, c, -t}, {t, rest}): the residuals at 60, 66, 78, 84, 132,
   156, 330 and 390 have such a move or splitting. Every balanced 4-tuple is
   algebraic (Lefschetz), so these are valid moves.
+* `scratch-checks/loc4.c` (J = 2): every local configuration at a top order
+  4e*, e* <= 25 prime to 3, with no pair, T-pair, move (c) or fibre line and
+  with (R1), (R2) exact. Configurations occur only at e* = 5, 7, 11:
+  {x_{+,1}, x_{+,2}, z_3} and its double at 5; {x_{+,1}, x_{+,2}, x_{+,4}}, its
+  double, {x_{+,1}, x_{+,2}, x_{+,3}, z_4, z_5} and {x_{+,1}, x_{+,2}, x_{+,4},
+  y_1, y_2, y_4} (which has move (d)) at 7; and (g) at 11, in agreement with
+  13.4-13.6 (the doubles are shape II with c = 2).
+* `scratch-checks/shape2.py`: the sets S of 13.5 with (p - 1)/2 + |F| <= 6,
+  up to units, for p = 5, 7, 11, 13.
+* `scratch-checks/cands4.py`, `scratch-checks/glob4.py`, `scratch-checks/chk44.py`:
+  the finite check of 13.8 (all completions at M = 20, 28, 44, the chain at
+  28, and a brute force over five elements of order 44 and one of order 11).
 
-## 13. Top orders divisible by 4: open
+## 13. Top orders divisible by 4 (proved)
 
-The case left for M prime to 3: every maximal odd part has largest order
-2^J e* with J >= 2. For J = 2 write G_j at v (j = 0, 1, 2) for the elements
-(M/(2^j e*))u of order 2^j e* with u ≡ v mod e*; for j = 2 there are two, with
-u ≡ 1 or 3 mod 4, and minus one of them at v is the other at -v. With G_j the
-odd counting functions on U*, eq:charrel at c = e* reads
+Here 4 | M and e* is a maximal odd part of A whose largest order is 2^J e*
+with J >= 2. U* = (Z/e*)^x and H* is the product of the K_p, p | e*.
 
-  G_0^ + (1 - chi(2)) G_1^ + (1 - chi(2)) G_2^ / 2 = 0
+### 13.1 J = 2: notation and the two relations
 
-for every odd primitive chi mod e*, and at c = 4e* the order-4e* elements give
-a function on (Z/4e*)^x split along the subgroup of order 2 (whose lines are
-the T-pairs {x, x + M/2}) and the K_p. A hand version of Sections 2-10 for
-these three types is to be written.
+For v in U*:
+
+* x_{+,v}, x_{-,v}: the elements (M/4e*)u with u ≡ 1, resp. 3, mod 4 and
+  u ≡ v mod e*; order 4e*.
+* y_v = (M/2e*)u with u odd, u ≡ v mod e*; order 2e*.
+* z_v = (M/e*)v; order e*.
+
+Then -x_{+,v} = x_{-,-v}, x_{-,v} = x_{+,v} + M/2, 2x_{±,v} = y_v,
+-2x_{±,v} = y_{-v}, y_v + M/2 = z_{v/2}, z_v + M/2 = y_{2v}, -2y_v = z_{-v}.
+The elements of odd part e* are exactly these (maximality of e* and of J);
+the others are called *low*. N_x, N_y, N_z count the elements of orders 4e*,
+2e*, e*. Put
+
+  P(v) = mult(x_{+,v}) - mult(x_{-,-v}),  Y(v) = mult(y_v) - mult(y_{-v}),
+  Z(v) = mult(z_v) - mult(z_{-v}).
+
+Y and Z are odd, P is neither; as A has no pair, sum |P| = N_x and the masses
+of Y, Z are 2N_y, 2N_z. Write f^(chi) = sum_v f(v) chi̅(v); then
+(f(2·))^ = chi(2) f^.
+
+**(R1), conductor e* (proved).** For an odd primitive chi mod e*, the
+elements a with e* | f_a are the x, y, z. In eq:charrel, z_v contributes
+chi̅(v)/phi(e*), y_v contributes chi̅(v)(1 - chi(2))/phi(e*), x_{±,v}
+contributes chi̅(v)(1 - chi(2))/(2 phi(e*)). Since chi is odd,
+sum_v mult(z_v) chi̅(v) = Z^/2, likewise for Y, and
+sum_v (mult(x_{+,v}) + mult(x_{-,v})) chi̅(v) = P^. Hence
+
+  Z^ + (1 - chi(2)) (Y^ + P^) = 0.
+
+**(R2), conductor 4e* (proved).** A primitive chi of conductor 4e* is
+chi_4 psi with psi primitive mod e*, and chi is odd exactly when psi is even.
+Only the elements of order 4e* enter, with chi̅(u) = ±psi̅(v) for x_{±,v}, so
+sum_v (mult(x_{+,v}) - mult(x_{-,v})) psi̅(v) = 0, that is P^(psi) = 0 for
+every even primitive psi mod e*.
+
+**Consequences.**
+
+* D = P + P(-·) is even, and D^(psi) = 0 for every primitive psi (odd psi:
+  D is even; even psi: D^ = 2P^ = 0). By the proof of lem:splitF, D is split
+  along (K_p)_{p | e*} on every coset of H*.
+* G = Z + Y - Y(2·) + P - P(2·) has G^(chi) = 0 for every primitive chi:
+  for odd chi this is (R1); for even chi, Z^ = Y^ = 0 and
+  G^ = (1 - chi(2)) P^ = 0 by (R2). So G is split on every coset of H*.
+* e* > 1: for e* = 1 all odd parts are 1, generation gives M = 4, and (R2)
+  at conductor 4 reads mult(M/4) = mult(3M/4); with no pair, N_x = 0.
+
+### 13.2 Moves at J = 2 (proved)
+
+Each of the following leaves the elements of order larger than 4e* in place
+and lowers the number of elements of order 4e*, or keeps it and lowers the
+number of order 2e*; so it lowers the profile.
+
+* (b) T-pairs. x_{+,v}, x_{-,v} in A: with S = {x, x + M/2} in T(x),
+  A'' = A - x_{+,v} - x_{-,v} + y_v + M/2. y_{2v}, z_v in A:
+  A'' = A - y_{2v} - z_v + z_{2v} + M/2.
+* (c) a with -2a. x_{±,v} and y_{-v} = -2x in A: S = {x, -2x} in T(x),
+  A'' = A - x - y_{-v} + (-x + M/2) + M/2 (one element of order 2e* fewer,
+  the same number of order 4e*). y_v and z_{-v} = -2y_v in A:
+  A'' = A - y_v - z_{-v} + z_{-v/2} + M/2.
+* (d) y_v and y_{2v} in A: -2y_v = z_{-v} = -y_{2v} + M/2, and
+  A'' = A - y_v - y_{2v} + z_{2v} + z_{-v/2} satisfies
+  A'' + T(y_{2v}) + T(y_v) = A + pairs.
+* Fibre moves (lem:movecrit). For q | e*, the elements x_{+,w} with w on a
+  line vK_q are elements of order 4e* of one fibre Phi_q(x_{+,v}) (their
+  differences are (M/4e*) times multiples of 4e*/q); likewise for x_{-,w},
+  y_w, and z_w (for z only when e* != q). So no line along K_q carries
+  (q + 1)/2 distinct elements of one type.
+
+From now on none of these applies. Two sign facts follow.
+
+* (i) P(v) and P(-v) never have opposite signs: P(v) >= 1 > 0 > P(-v) means
+  x_{+,v}, x_{-,v} in A, and P(v) < 0 < P(-v) means x_{-,-v}, x_{+,-v} in A,
+  T-pairs. So |D(v)| = |P(v)| + |P(-v)|, the mass of D is 2N_x <= 12, and
+  D != 0; where P(v) != 0 it has the sign of D(v).
+* (ii) Z(w), Y(w), -Y(2w) never have opposite signs ((c) for y_{±w} with
+  z_{∓w}, (b) for z_{±w} with y_{±2w}, (d) for y_{±w} with y_{±2w}). So
+  |Z + Y - Y(2·)|(w) = |Z(w)| + |Y(w)| + |Y(2w)|, and Z + Y - Y(2·) has mass
+  2N_z + 4N_y.
+
+Replacing A by -A changes the sign of P, D and G; so we may fix the sign of
+one nonzero value of D.
+
+### 13.3 The even core (proved)
+
+**Lemma E.** D is of one of three shapes:
+
+* I: D = sigma(1_L + 1_{-L}), sigma = ±1, L != -L a line along K_q with
+  |K_q| <= 6 (q = 5, or q = 7 with 7 || e*);
+* II: e* = p is prime and D is constant;
+* III: e* = 35 and N_x = 6.
+
+Proof. Lemma S and lem:grid apply to the K_p (Section 6). Let C be a coset
+of H* on which D does not vanish; nonzero split functions have mass >= 4.
+
+* Case (a), -1 not in H*. C and -C are distinct with the same mass (D is
+  even), so D has mass <= 6 on C, and by lem:grid D = sigma 1_L on C, L a
+  line along some K_q with |K_q| <= 6; by evenness D = sigma 1_{-L} on -C.
+  These carry mass 2|L| >= 8, so D vanishes on every other coset: shape I.
+* Case (b1), -1 in H* and e* = p prime. H* = K_p = U* and D is constant
+  (S4): shape II. (For e* = p^k, k >= 2, -1 is not in H* = K_p.)
+* Case (b2), -1 in H*, at least two primes. Take K = K_p of largest order,
+  slices S_c = x c H' (c in K, H' the product of the other K_q), and write
+  -1 = eps eps' with eps in K, eps' in H'; eps != 1 != eps' by lem:Kp(b).
+  Since D(z eps eps') = D(-z) = D(z), multiplication by eps eps' maps S_c
+  onto S_{c eps} and mu(c eps) = mu(c).
+  - (i) Some slice vanishes. By (S2) D is split along H' on every slice. A
+    nonzero slice S_c has mu(c) = mu(c eps) <= 6, and by lem:grid D = sigma
+    on a line L along some K_q (q != p, |K_q| <= 6) in S_c and 0 elsewhere
+    on S_c; on S_{c eps}, D = sigma on L eps eps' = -L. This uses mass
+    2|L| >= 8, so no other slice or coset is nonzero: shape I.
+  - (ii) All slices nonzero, mu(c_s) = 1 for some c_s. Then mu(c_s eps) = 1,
+    and z -> D(z) - D(z eps) on S_{c_s} is split along H' of mass <= 2, hence
+    0. If z_0 is the support point in S_{c_s}, the points z_0 eps and
+    z_0 eps eps' of S_{c_s eps} both carry D(z_0) != 0, so they coincide and
+    eps' = 1. Contradiction.
+  - (iii) All mu(c) >= 2. Then 2|K| <= 12, so every |K_q| <= 6 and the primes
+    of e* are 5 and 7. If 25 | e*, then |K_5| = 5 and eps in K_5 with
+    eps^2 = 1 (from eps^2 eps'^2 = 1 and K_5 ∩ K_7 = 1) gives eps = 1; so
+    e* = 35, |K| = 6, every mu(c) = 2 and the mass is 12 = 2N_x: shape III. ∎
+
+### 13.4 Shape I: the compound move (proved)
+
+Take sigma = 1. By (i), P = 1_S where S ⊂ L ∪ -L contains exactly one of
+v, -v for each v in L, and N_x = |L|; all elements of order 4e* are x_{+,w},
+w in S. By the fibre moves, S ∩ L and S ∩ -L have at most (q - 1)/2 points
+each. If 25 | e*, |L| = 5 > 2 + 2; so q || e*, |L| = q - 1, and both have
+exactly (q - 1)/2 points.
+
+Let x = x_{+,v_0} with v_0 in S ∩ L, and apply sigma_{q,x}: Phi_q(x) consists
+of the x_{+,w}, w in L, and one element x_0 of order 4e*/q. With
+S' = {x_{+,w} : w in S ∩ L},
+
+  A'' = A - S' + {-x_{+,w} : w in L \ S} + {-x_0, qx}.
+
+For w in L \ S we have -w in S, and -x_{+,w} = x_{-,-w} = x_{+,-w} + M/2, so
+A'' contains the (q - 1)/2 T-pairs {x_{+,u}, x_{-,u}}, u in S ∩ -L. The
+T-moves replace each by {y_u, M/2}. The result,
+
+  A - {x_{+,w} : w in S} + {y_u : u in S ∩ -L} + ((q - 1)/2) M/2 + {-x_0, qx},
+
+has 8 elements, among them at least two copies of M/2; removing one pair
+leaves at most 6 elements (4 if x_0 is in A), with no element of order 4e*
+and none of larger order that A did not have. The chain is direct or
+lowering (lem:transfer).
+
+### 13.5 Shape II: prime e* (proved)
+
+Take D = c > 0 constant on U* = (Z/p)^x. By (i), 0 <= P(v) <= c and
+P(v) + P(-v) = c. The w with P(w) >= 1 index distinct elements x_{+,w} on the
+line U* along K_p; by the fibre moves there are at most (p - 1)/2 of them, one
+for each pair ±v at least. So P = c 1_S with S a set of representatives of
+U*/±1, and N_x = c(p - 1)/2 <= 6.
+
+* c >= 2. The move sigma_{p,x}, x = x_{+,v_0}, v_0 in S, works as in 13.4:
+  Phi_p(x) is the x_{+,w}, w in U*, and one element x_0 of order 4; the
+  T-pairs {x_{+,u}, x_{-,u}}, u in S, appear and the result is
+  A - 2{x_{+,u} : u in S} + {y_u : u in S} + ((p - 1)/2) M/2 + {-x_0, px},
+  with 8 elements, at least two copies of M/2, and fewer elements of order 4p.
+* c = 1. G is constant on U* (S4) and sum_v G(v) = 0 (Z, Y odd;
+  sum P = sum P(2·)), so G = 0. With psi = 1_S - 1_{-S},
+  P(2·) - P = (psi(2·) - psi)/2, so
+
+    Z + Y - Y(2·) = (psi(2·) - psi)/2,
+
+  which takes the value 1 exactly on F = {w : w not in S, 2w in S}, -1 on -F,
+  and 0 elsewhere. If y_v is in A, then (ii) gives (Z + Y - Y(2·))(v) >= 1,
+  so v is not in S, -v is in S, and x_{+,-v} with y_v = -2x_{+,-v} is a move
+  (c). So N_y = 0, Z = 1_F - 1_{-F}, and the elements of order p are the z_w,
+  w in F, each once: N_z = |F|. The function psi along the cycles of w -> 2w
+  on (Z/p)^x changes sign 2|F| times, and (p - 1)/2 + |F| <= 6.
+  - p = 5: one 4-cycle with -1 = 4 = 2^2; the number of sign changes is
+    twice an odd number and at most 4, so |F| = 1. Up to units, S = {1, 2},
+    F = {3}: (a) {x_{+,1}, x_{+,2}, z_3} and three low elements.
+  - p = 7: two 3-cycles {1, 2, 4}, -{1, 2, 4}; |F| = 0 or 2. Up to units,
+    (c) S = {1, 2, 4}: {x_{+,1}, x_{+,2}, x_{+,4}} and three low elements;
+    (e) S = {1, 2, 3}, F = {4, 5}: {x_{+,1}, x_{+,2}, x_{+,3}, z_4, z_5} and
+    one low element.
+  - p = 11: one 10-cycle with -1 = 2^5; the number of sign changes is twice an
+    odd number, so |F| = 1, and psi is +1 on five consecutive powers of 2.
+    Up to units S = {1, 2, 4, 8, 5}, F = {6}: (g)
+    {x_{+,1}, x_{+,2}, x_{+,4}, x_{+,8}, x_{+,5}, z_6}.
+  - p = 13: (p - 1)/2 + |F| >= 6 + 1. Impossible.
+
+"Up to units" uses the units t ≡ 1 mod 4 of Z/M, which act on U* through all
+of (Z/p)^x and keep the types x_+, x_-.
+
+### 13.6 Shape III (proved)
+
+Here N_x = 6, so Z = Y = 0 and G = P - P(2·), G^ = (1 - chi(2)) P^ for every
+primitive chi mod 35. For chi = chi_5 chi_7 with both factors nontrivial,
+chi_5(2) has order 2 or 4 (2 generates (Z/5)^x) and chi_7(2) has order 1 or 3
+(2 has order 3 mod 7), so chi(2) != 1. Hence P^ = 0 at every primitive
+character, P is split on U* = H*, nonzero, of mass 6, and by lem:grid
+P = sigma 1_L with L a line along K_7: six distinct elements of one type
+x_{+,w} (or x_{-,-w}) on one line along K_7, a fibre move. Contradiction.
+
+### 13.7 J >= 3 (proved)
+
+The elements of order 2^J e* are x_{t,v} = (M/2^J e*)u with
+u ≡ t mod 2^J, u ≡ v mod e*, (t, v) in (Z/2^J)^x × U*. Put
+F~(t, v) = mult(x_{t,v}) - mult(x_{-t,-v}). By lem:charstep and lem:splitF at
+the order 2^J e* (no element has a larger order divisible by it), F~ is split
+along K~_2 = {1, eta} × {1}, eta = 1 + 2^{J-1}, and the K_p. As
+x_{t,v} + M/2 = x_{t eta, v}, the T-pairs are {x_{t,v}, x_{t eta,v}}.
+
+Suppose A has no T-pair among these. The function
+g(t, ·) = F~(t, ·) - F~(t eta, ·) is split along (K_p) on every coset of H*
+(S1). For the orbit O = {t, t eta, -t, -t eta} (four elements, as J >= 3),
+the four elements x_{t,v}, x_{t eta,v}, x_{-t,-v}, x_{-t eta,-v} form a
+square of pairs and T-pairs, so A contains at most one of them or a diagonal,
+and |g(t, v)| is the number of elements of A among them. Summing over v,
+the mass of g(t, ·) is the number of elements of A of order 2^J e* with
+first coordinate in O. Since a nonzero split function has mass >= 4 and
+N_x <= 6, exactly one orbit O is occupied, and g(t_0, ·) = sigma 1_L with L a
+line along K_q, |L| = N_x <= 6 (lem:grid). Replacing t_0 by t_0 eta we may
+take sigma = 1: for v in L exactly one of x_{t_0,v}, x_{-t_0 eta,-v} lies in
+A, once, and nothing else of order 2^J e*. The x_{t_0,v} lie on one fibre
+line and the x_{-t_0 eta,-v} on another, so by the fibre moves each set has at
+most (q - 1)/2 elements; hence q || e*, |L| = q - 1 and both have
+(q - 1)/2 elements. The move sigma_{q,x}, x = x_{t_0,v_0} in A, produces
+-x_{t_0,w} = x_{-t_0,-w} for the w in L with x_{t_0,w} not in A, and these
+form T-pairs with the x_{-t_0 eta,-w} in A. As in 13.4 the T-moves leave at
+most 6 elements, none of order 2^J e*. For e* = 1, g = 0 (an empty family),
+so a T-pair always exists.
+
+So at J >= 3 there is always a direct or lowering chain.
+
+### 13.8 The global step (proved)
+
+Let M be even, prime to 3, 4 | M, and suppose A has no move or chain. Every
+maximal odd part e* has J >= 1 (Section 1); J = 1 gives a move (Section 11,
+as M is not 70 or 110), J >= 3 a chain (13.7). So every maximal odd part has
+J = 2, and by 13.4-13.6 its elements of odd part e* form, up to units and
+sign, one of (a)_5, (c)_7, (e)_7, (g)_11, of sizes 3, 3, 5, 6.
+
+* Two maximal odd parts. Sizes 3 + 3 with different odd parts: (a)_5 and
+  (c)_7, so A lies in the subgroup of order 140 and M = 140.
+* One maximal odd part e* in {5, 7, 11}. The low elements have odd part 1. If
+  the largest 2-power order among them is 2^K with K >= 3, then eq:charrel at
+  conductor 2^K involves only these elements (2^K does not divide 4e*), their
+  odd counting function on (Z/2^K)^x has vanishing transform at every
+  primitive character, and the others are trivial on {1, 1 + 2^{K-1}}; so it
+  is invariant under multiplication by 1 + 2^{K-1}, and an element a of
+  order 2^K comes with a + M/2: a T-pair, whose T-move lowers the profile.
+  So the low elements lie in {M/4, M/2, 3M/4}, A lies in the subgroup of
+  order 4e*, and M = 4e* in {20, 28, 44}.
+
+The finite check. Balance at t = 1 says that the representatives in
+[1, M - 1] add up to 3M.
+
+* M = 20, (a) = {1, 17, 12}: the three low elements in {5, 10, 15} must add
+  up to 30: {5, 10, 15} or {10, 10, 10}, both with a pair.
+* M = 28, (c) = {1, 9, 25}: the low elements in {7, 14, 21} must add up to
+  49: {7, 21, 21} or {14, 14, 21}, both with a pair.
+* M = 28, (e) = {1, 9, 17, 16, 20}: the low element is 21, and
+  A = {1, 9, 16, 17, 20, 21} is balanced. T(1) = {1, 15, 26, 14} gives
+  {2, 9, 13, 14, 16, 17, 20, 21}, and T(6) = {6, 20, 16, 14} then gives
+  {2, 9, 13, 17, 21, 22} = {2, 9, 17} ∪ {13, 21, 22}, a split sextuple
+  (2 + 9 + 17 = 28, 13 + 21 + 22 = 56). So A is algebraic.
+* M = 44, (g) = {1, 13, 37, 41, 5, 24}: the sum is 121, not 132.
+* M = 140, (a)_5 ∪ (c)_7: up to units, {7, 119, 84} with {5, 45, 125} or
+  {55, 75, 115} (the two signs of (c)); the sums are 385 and 455, not 420.
+
+**Theorem (M prime to 3).** Let M be even and prime to 3, M not 70 or 110.
+Every sextuple at level M has a direct or lowering move, or a chain of moves
+to at most four elements, to six elements of lower profile or lower level, or
+to a split sextuple. Hence, by induction on (M, profile), with
+e84hc Theorem B for odd degrees and Peterson's theorem for degree 70, the
+Hodge conjecture holds for the Fermat fourfold X^4_M whenever 3 ∤ M and
+110 ∤ M.
 
 ## 14. Multiples of 6 and the exceptional degrees: open
 
-The residual degrees 60, 66, 78, 84, 114, 132, 156, 168, 210 have the Hodge
-conjecture by known theorems (Aoki for 2^a 3^b 5^c 7^d with c = 0 or d = 0;
-Peterson for 70, 140, 210; e84hc Theorem A for 66, 78, 114, 132, 156), and
-70 by Peterson; 330 is a multiple of 110. 110 stays open. A hand argument for
-3 | M (where K_3 has order 2 or 3 and lem:grid fails) is to be written.
+For 3 ∤ M everything is closed except the multiples of 110 (Section 13).
+For 3 | M, K_3 has order 2 or 3 and lem:grid fails, so Sections 2-13 do not
+apply as they stand. The computations of Section 12 leave, up to 400, the
+residual degrees 60, 66, 78, 84, 114, 132, 156, 168, 210 (and 330, a multiple
+of 110); these have the Hodge conjecture by known theorems (Aoki for
+2^a 3^b 5^c 7^d with c = 0 or d = 0; Peterson for 70, 140, 210; e84hc Theorem
+A for 66, 78, 114, 132, 156). A hand argument for every multiple of 6 is to be
+written.
