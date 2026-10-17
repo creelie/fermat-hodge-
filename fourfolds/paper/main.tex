@@ -1,0 +1,109 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath,amsthm,mathtools}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,3d,decorations.pathreplacing}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink]{cleveref}
+
+\setlength{\footnotesep}{9pt}
+\setlist[enumerate]{leftmargin=2.3em}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{maintheorem}{Theorem}
+\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\crefname{maintheorem}{Theorem}{Theorems}
+
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\Hdg}{\operatorname{Hdg}}
+\newcommand{\Alg}{\operatorname{Alg}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\ord}{\operatorname{ord}}
+\newcommand{\mult}{\operatorname{mult}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\HC}{\textup{(HC)}}
+\newcommand{\zenodoCodeID}{10.5281/zenodo.00000000}
+
+\begin{document}
+
+\title[The Hodge conjecture for Fermat fourfolds]{The Hodge conjecture for
+Fermat fourfolds of degree not divisible by $110$}
+
+\author{Deep Bhattacharjee\textsuperscript{\dag}}
+\address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL),
+\newline Bhubaneswar, Odisha 751030, India}
+\address{Formerly, University of Calcutta, Kolkata, India}
+\email{d.bhattacharjee@erl-forschung.de}
+\email{itsdeep@live.com}
+\author{Ushashi Bhattacharya}
+\address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
+\email{rai.bhattacharya.in@gmail.com}
+\thanks{\textsuperscript{\dag}\,Corresponding author: Deep Bhattacharjee.
+ORCID iDs: Deep Bhattacharjee 0000-0003-0466-750X; Ushashi Bhattacharya
+0009-0002-2254-3914.}
+\thanks{An earlier preprint of the authors, \emph{Relative secant cycles and
+Hodge classes}, Preprints.org (2026),
+\href{https://doi.org/10.20944/preprints202602.0462.v5}{doi:10.20944/preprints202602.0462.v5},
+claimed a proof of the Hodge conjecture that does not hold, and the present
+paper replaces it. The secant variety $\mathrm{Sec}^{n}(A^{\vee})$ contains
+$A^{\vee}$, so the cycle $\Sigma\cap A^{\vee}$ of its Definition~3 is
+$A^{\vee}$ itself, whose Fourier--Mukai transform is a skyscraper sheaf with
+no component in degree $2n$, contrary to its Lemma~4. The Weil classes span a
+space of dimension two on which $K^{\times}$ acts by $\tau\mapsto\tau^{2n}$,
+while $\eta^{n}$ has the character $N(\tau)^{n}$, contrary to its
+Propositions~1 and~2. Its general case, Theorem~12, applies the Kuga--Satake
+construction to Hodge structures that are not of K3 type and assumes that the
+Kuga--Satake correspondence is algebraic, which is open.}
+\thanks{Funding: none. Competing interests: none.}
+
+\subjclass[2020]{Primary 14C30 (Transcendental methods, Hodge theory);
+Secondary 14C25 (Algebraic cycles), 14J70 (Hypersurfaces and algebraic
+geometry), 11R18 (Cyclotomic extensions)}
+\keywords{Hodge conjecture, Fermat varieties, algebraic cycles}
+
+\begin{abstract}
+We prove the Hodge conjecture for the Fermat fourfold of every degree not
+divisible by $110$. Each Hodge class is carried, through the cycles of Shioda
+and Aoki, to classes of lower degree or lower order, except for a finite
+number of classes, which come from uniruled quotients of Fermat threefolds.
+\end{abstract}
+
+\maketitle
+
+\input{sections/s1_intro}
+\input{sections/s2_fermat}
+\input{sections/s3_primetosix}
+\input{sections/s4_odd}
+\input{sections/s5_aoki}
+\input{sections/s6_classes}
+\input{sections/s7_even}
+\input{sections/s8_four}
+\input{sections/s9_six}
+\input{sections/s10_proof}
+\input{sections/declarations}
+
+\bibliographystyle{amsalpha}
+\bibliography{references}
+
+\end{document}

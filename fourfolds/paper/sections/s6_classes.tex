@@ -1,0 +1,535 @@
+\section{Classes supported on divisors}\label{sec:classes}
+
+By \Cref{cor:Bone}, at each of the levels $114$, $44$, $52$, $102$, $33$,
+$35$ and $39$ a single balanced multiset $\beta$ with $\nu([\beta])=1$
+completes the standard multisets. For $33$ and $39$ the multiset $O_{M}$ of
+\Cref{sec:odd} serves. For the other five we take $\beta$ to be the join of
+two characters of the Fermat threefold, or of one character of the threefold
+and one of the curve, and the main step is to show that the corresponding
+pieces of $H^{3}$ of the threefold are supported on divisors. This follows
+from a finite set of integers, a block pattern, which makes the quotient of
+the threefold by the kernel of the character uniruled.
+
+\subsection{Coniveau}
+For a smooth projective variety $V$ let $N^{1}H^{k}(V,\QQ)$ be the set of
+classes in $H^{k}(V,\QQ)$ that vanish on $V\setminus D$ for some divisor
+$D\subseteq V$. It is a subspace, since a union of two divisors is a
+divisor, and every proper closed subset of $V$ lies in a divisor.
+
+\begin{lemma}\label{lem:N1}
+Let $V$ and $W$ be smooth projective varieties.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item Let $f\colon V\to W$ be a surjective morphism with $\dim V=\dim W$.
+Then $f^{*}N^{1}H^{k}(W,\QQ)\subseteq N^{1}H^{k}(V,\QQ)$,
+$f_{*}N^{1}H^{k}(V,\QQ)\subseteq N^{1}H^{k}(W,\QQ)$, and $f_{*}f^{*}$ is
+multiplication by $\deg f$.
+\item There is a divisor $D\subseteq W$ such that $N^{1}H^{k}(W,\QQ)=
+\iota_{*}H^{k-2}(\tilde D,\QQ)$, where $\iota\colon\tilde D\to W$ is a
+resolution of $D$ followed by the inclusion.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) For an open set $U\subseteq W$ the maps $f^{*}$ and $f_{*}$ commute with
+restriction to $U$ and to $f^{-1}(U)$; for $f_{*}$ this is the compatibility
+of proper push-forward in Borel--Moore homology, which on a smooth variety
+is cohomology by Poincar\'e duality, with restriction to open sets
+\cite[\S19.1]{Ful98}. If $y$ vanishes on $W\setminus D$, then $f^{*}y$
+vanishes on the complement of $f^{-1}(D)$, a proper closed subset as $f$ is
+surjective. If $v$ vanishes on $V\setminus E$ for a divisor $E$, then $f(E)$
+has dimension less than $\dim W$, so it lies in a divisor $D$, and $f_{*}v$
+vanishes on $W\setminus D$ because $f^{-1}(W\setminus D)\subseteq V\setminus
+E$. By the projection formula, $f_{*}f^{*}y=f_{*}(f^{*}y\cup1)=y\cup
+f_{*}1=(\deg f)\,y$.
+
+(b) The kernels of the restriction maps $H^{k}(W,\QQ)\to H^{k}(W\setminus
+D,\QQ)$ grow with $D$, and $H^{k}(W,\QQ)$ is finite-dimensional, so
+$N^{1}H^{k}(W,\QQ)$ is one of these kernels. By a theorem of Deligne
+\cite[Corollaire~8.2.8]{Del74}, the sequence $H^{k-2}(\tilde D,\QQ)
+\xrightarrow{\iota_{*}}H^{k}(W,\QQ)\to H^{k}(W\setminus D,\QQ)$ is
+exact.\footnote{The weight filtration on $H^{k}(W\setminus D)$ starts in
+weight $k$, and its lowest piece is the image of $H^{k}(W)$; the kernel of
+$H^{k}(W)\to H^{k}(W\setminus D)$ is the image of the cohomology with
+supports $H^{k}_{D}(W)$, whose quotient of weight $k$ is the Gysin image of
+$H^{k-2}(\tilde D)$, and the purity of $H^{k}(W)$ forces the kernel into
+that quotient.}
+\end{proof}
+
+\begin{lemma}\label{lem:uniruledN1}
+If $Y$ is a smooth projective uniruled threefold, then $N^{1}H^{3}(Y,\QQ)=
+H^{3}(Y,\QQ)$.
+\end{lemma}
+
+\begin{proof}
+As $Y$ is uniruled, there are a smooth projective surface $S$ and a dominant
+rational map $\PP^{1}\times S\dashrightarrow Y$. Resolving its points of
+indeterminacy \cite{Hir64}, we obtain a smooth projective threefold $W$, a
+birational morphism $\sigma\colon W\to\PP^{1}\times S$ and a surjective
+morphism $\varphi\colon W\to Y$.
+
+First, $N^{1}H^{3}(\PP^{1}\times S)=H^{3}(\PP^{1}\times S)$. By the
+K\"unneth formula, $H^{3}(\PP^{1}\times S,\QQ)$ is the sum of
+$\pr^{*}H^{3}(S,\QQ)$ and $h\cup\pr^{*}H^{1}(S,\QQ)$, where $\pr$ is the
+projection to $S$ and $h$ is the class of $\{p\}\times S$. The second
+summand vanishes on $(\PP^{1}\setminus\{p\})\times S$. Let $C\subseteq S$ be
+a smooth hyperplane section. By the Lefschetz hyperplane theorem $H_{1}(C,
+\QQ)\to H_{1}(S,\QQ)$ is surjective, so by Poincar\'e duality every class of
+$H^{3}(S,\QQ)$ is the Gysin image of a class of $H^{1}(C,\QQ)$, and it
+vanishes on $S\setminus C$. So the first summand vanishes on $\PP^{1}\times
+(S\setminus C)$.
+
+Next, $N^{1}H^{3}(W)=H^{3}(W)$. The morphism $\sigma$ is an isomorphism over
+the complement $U$ of a proper closed subset of $\PP^{1}\times S$. For
+$w\in H^{3}(W,\QQ)$ the class $\sigma^{*}\sigma_{*}w-w$ vanishes on
+$\sigma^{-1}(U)$, and $\sigma^{*}\sigma_{*}w$ lies in $N^{1}$ by the first
+step and \Cref{lem:N1}(a); so $w\in N^{1}H^{3}(W,\QQ)$.
+
+Finally, for $y\in H^{3}(Y,\QQ)$ we have $y=(\deg\varphi)^{-1}\varphi_{*}
+\varphi^{*}y$, which lies in $N^{1}H^{3}(Y,\QQ)$ by \Cref{lem:N1}(a).
+\end{proof}
+
+\begin{lemma}\label{lem:quotientN1}
+Let $X$ be a smooth projective threefold, $K$ a finite group acting on $X$,
+and $\rho\colon\tilde Y\to X/K$ a resolution that is an isomorphism over the
+smooth locus of $X/K$. If $N^{1}H^{3}(\tilde Y,\QQ)=H^{3}(\tilde Y,\QQ)$,
+then $H^{3}(X,\QQ)^{K}\subseteq N^{1}H^{3}(X,\QQ)$.
+\end{lemma}
+
+\begin{proof}
+We may assume that $K$ acts faithfully. Let $q\colon X\to X/K$ be the
+quotient map, $X_{0}\subseteq X$ the dense open set of points with trivial
+stabilizer, and $Y_{0}=q(X_{0})$. Then $X_{0}=q^{-1}(Y_{0})$, the variety
+$Y_{0}$ is smooth, and $q\colon X_{0}\to Y_{0}$ is a finite \'etale Galois
+covering with group $K$, so that $q^{*}q_{*}=\sum_{g\in K}g^{*}$ on the
+cohomology of $X_{0}$. The rational map $\theta=\rho^{-1}\circ q\colon
+X\dashrightarrow\tilde Y$ is a morphism on $X_{0}$. Resolving its
+indeterminacy \cite{Hir64} gives a smooth projective threefold $X''$, a
+birational morphism $\sigma\colon X''\to X$ that is an isomorphism over
+$X_{0}$, and a surjective morphism $\tau\colon X''\to\tilde Y$ with
+$\rho\tau=q\sigma$. If $\tau(p)\in\rho^{-1}(Y_{0})$, then $q\sigma(p)\in
+Y_{0}$ and so $\sigma(p)\in X_{0}$. Hence $\tau^{-1}(\rho^{-1}(Y_{0}))=
+\sigma^{-1}(X_{0})$, and under the isomorphisms $\sigma^{-1}(X_{0})\cong
+X_{0}$ and $\rho^{-1}(Y_{0})\cong Y_{0}$ the restriction of $\tau$ is $q$.
+
+Let $x\in H^{3}(X,\QQ)^{K}$ and $w=\sigma^{*}x$. By the compatibility with
+restriction used in the proof of \Cref{lem:N1}(a), the restriction of
+$\tau^{*}\tau_{*}w$ to $\sigma^{-1}(X_{0})\cong X_{0}$ is
+$\sum_{g\in K}g^{*}(x|_{X_{0}})=|K|\,x|_{X_{0}}$. So $\tau^{*}\tau_{*}w-
+|K|\,w$ vanishes on the complement of a proper closed subset of $X''$. Since
+$\tau_{*}w\in N^{1}H^{3}(\tilde Y,\QQ)$, \Cref{lem:N1}(a) gives
+$\tau^{*}\tau_{*}w\in N^{1}H^{3}(X'',\QQ)$, hence $w\in N^{1}H^{3}(X'',\QQ)$,
+and $x=\sigma_{*}\sigma^{*}x=\sigma_{*}w$ lies in $N^{1}H^{3}(X,\QQ)$.
+\end{proof}
+
+\subsection{Block patterns}
+Let $X=X^{3}_{m}\subseteq\PP^{4}$. Its cohomology $H^{3}(X,\QQ)$ is
+primitive, and by \Cref{prop:fermatchars}(i), $H^{3}(X,\CC)$ is the direct
+sum of the lines $V(a)$, $a\in\mathfrak A^{3}_{m}$, with $V(a)\subseteq
+H^{3-q,q}$ for $q=\langle a\rangle-1$. As in the proof of
+\Cref{prop:fermatchars}(ii), for $a\in\mathfrak A^{3}_{m}$ the sum
+$\bigoplus_{t}V(ta)$ over the units $t$ is defined over $\QQ$; let
+$M_{a}\subseteq H^{3}(X,\QQ)$ be the rational sub-Hodge structure with
+$M_{a}\otimes\CC=\bigoplus_{t}V(ta)$.
+
+Fix $\alpha\in\mathfrak A^{3}_{m}$, with representatives $\bar\alpha_{k}\in
+\{1,\dots,m-1\}$ of its entries, and write $g\cdot\bar\alpha=\sum_{k}g_{k}
+\bar\alpha_{k}$ for $g\in\ZZ^{5}$.
+
+\begin{definition}\label{def:blockpattern}
+A \emph{block pattern} for $\alpha$ consists of integers $\delta_{1},\dots,
+\delta_{r}\ge1$ and $e_{kl}\ge0$ ($0\le k\le4$, $1\le l\le r$) such that
+\begin{enumerate}[label=\textup{(P\arabic*)}]
+\item $D=\sum_{l}e_{kl}\delta_{l}$ does not depend on $k$;
+\item for every $l$, some $e_{kl}$ is positive, some $e_{kl}$ vanishes, and
+the column $e_{l}=(e_{0l},\dots,e_{4l})$ has $e_{l}\cdot\bar\alpha\equiv0
+\pmod m$;
+\item $\sum_{l}\delta_{l}>D$.
+\end{enumerate}
+\end{definition}
+
+The integers have a geometric meaning: a column $e_{l}$ with degree
+$\delta_{l}$ stands for a binary form of degree $\delta_{l}$, and $D$ is the
+degree of a rational curve $s\mapsto[u_{0}(s):\dots:u_{4}(s)]$ with
+$u_{k}=\prod_{l}P_{l}^{e_{kl}}$ for binary forms $P_{l}$ of degree
+$\delta_{l}$. Condition (P2) makes the monomials $\prod_{k}u_{k}^{\bar
+\alpha_{k}}$ powers of $m$-th powers, and (P3) says that such curves move in
+families large enough to sweep out the quotient below; the proof uses only
+the integers.
+
+Let $T=(\CC^{\times})^{5}/\CC^{\times}\subseteq\PP^{4}$ be the open torus.
+Its character lattice is $M_{0}=\{u\in\ZZ^{5}:\ \sum_{k}u_{k}=0\}$, the
+character $u$ being the function $x^{u}=\prod_{k}x_{k}^{u_{k}}$. The group
+$G=\mu_{m}^{5}/\mu_{m}$ is a subgroup of $T$, and $g\in G$ multiplies $x^{u}$
+by the value at $g$ of the character $u\bmod m$ of $G$. Let $K=\ker\alpha
+\subseteq G$. The characters of $G$ that are trivial on $K$ are the multiples
+of $\alpha$, so $T/K$ is a torus with character lattice
+\[
+  L_{\alpha}=\{u\in M_{0}:\ u\equiv j\bar\alpha\pmod m\ \text{for some}\
+  j\in\ZZ\}.
+\]
+The open set $X^{\circ}=X\cap T$ is stable under $G$, and $X^{\circ}/K$ is
+the hypersurface in $T/K$ defined by the $K$-invariant Laurent polynomial
+\[
+  f=\sum_{k=0}^{4}x^{m(e_{k}-e_{0})}=x_{0}^{-m}\sum_{k=0}^{4}x_{k}^{m},
+\]
+where $e_{0},\dots,e_{4}$ is the standard basis of $\ZZ^{5}$; it is a dense
+open subset of $X/K$. The Newton polytope of $f$ is the simplex
+$P\subseteq L_{\alpha}\otimes\RR=M_{0}\otimes\RR$ with the five vertices
+$m(e_{k}-e_{0})$, which lie in $L_{\alpha}$. As the coefficients of $f$ at
+these vertices do not vanish, $f$ is nondegenerate with respect to $P$
+\cite[Example~5.2]{Bat24}. Following Batyrev \cite[Definition~1.2]{Bat24},
+the \emph{Fine interior} $F(P)$ is the set of points $y\in P$ with
+$\nu(y)-\min_{P}\nu\ge1$ for every nonzero $\nu$ in the dual lattice
+$L_{\alpha}^{\vee}=\operatorname{Hom}(L_{\alpha},\ZZ)$.
+
+\begin{lemma}\label{lem:fine}
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item The nonzero elements of $L_{\alpha}^{\vee}$ are the functionals
+$\nu_{g}(u)=(g\cdot u)/m$ with $g\in\ZZ^{5}$ not constant and
+$g\cdot\bar\alpha\equiv0\pmod m$. For $y=\sum_{k}y_{k}\,m(e_{k}-e_{0})\in P$,
+with $y_{k}\ge0$ and $\sum_{k}y_{k}=1$, one has
+$\nu_{g}(y)-\min_{P}\nu_{g}=\sum_{k}y_{k}g_{k}-\min_{k}g_{k}$.
+\item If $\alpha$ admits a block pattern, then $F(P)$ is empty.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) A linear form $\nu$ on $M_{0}\otimes\RR$ that is integral on
+$L_{\alpha}\supseteq mM_{0}$ has $m\nu$ integral on $M_{0}$, so $m\nu(u)=
+g\cdot u$ for some $g\in\ZZ^{5}$, and $\nu\ne0$ exactly when $g$ is not
+constant. The vector $u=\bar\alpha-\langle\alpha\rangle me_{0}$ lies in
+$L_{\alpha}$, and $g\cdot u\equiv g\cdot\bar\alpha\pmod m$; so
+$g\cdot\bar\alpha\equiv0$. Conversely, if $g\cdot\bar\alpha\equiv0$ and
+$u\equiv j\bar\alpha\pmod m$, then $g\cdot u\equiv jg\cdot\bar\alpha\equiv0$,
+and $\nu_{g}$ is integral on $L_{\alpha}$. Since $\nu_{g}(m(e_{k}-e_{0}))=
+g_{k}-g_{0}$, we get $\nu_{g}(y)=\sum_{k}y_{k}g_{k}-g_{0}$, and the minimum
+of $\nu_{g}$ on the simplex $P$ is attained at a vertex, so it is
+$\min_{k}g_{k}-g_{0}$.
+
+(b) Let $(\delta_{l},e_{kl})$ be a block pattern and $y\in F(P)$, with
+barycentric coordinates $y_{k}$ as in (a). By (P2) and (a), each column
+$e_{l}$ defines a nonzero $\nu_{e_{l}}\in L_{\alpha}^{\vee}$ with
+$\min_{k}e_{kl}=0$, so $\sum_{k}y_{k}e_{kl}\ge1$. Multiplying by $\delta_{l}$,
+adding over $l$ and using (P1),
+\[
+  \sum_{l}\delta_{l}\le\sum_{l}\delta_{l}\sum_{k}y_{k}e_{kl}=\sum_{k}y_{k}
+  \sum_{l}e_{kl}\delta_{l}=D\sum_{k}y_{k}=D,
+\]
+which contradicts (P3).
+\end{proof}
+
+\begin{theorem}\label{thm:uniruled}
+Let $\alpha\in\mathfrak A^{3}_{m}$ admit a block pattern, and let
+$K=\ker\alpha\subseteq G$. Then every smooth projective variety birational to
+$X^{3}_{m}/K$ is uniruled, and $M_{\alpha}\subseteq N^{1}H^{3}(X^{3}_{m},
+\QQ)$.
+\end{theorem}
+
+\begin{proof}
+Let $\tilde Y$ be a smooth projective variety birational to $X/K$. By
+\Cref{lem:fine}(b) and Batyrev's theorem \cite[Corollary~5.6]{Bat24}, the
+nondegenerate hypersurface $X^{\circ}/K$ has negative Kodaira dimension;
+since $X^{\circ}/K$ is birational to $\tilde Y$, so has $\tilde Y$. A smooth
+projective threefold of negative Kodaira dimension is uniruled: by Mori's
+theorem \cite{Mor88} it is birational to a projective threefold $Y'$ with
+terminal singularities that is either minimal, with $K_{Y'}$ nef, or the
+total space of a Mori fibre space. In the first case $Y'$ would have
+nonnegative Kodaira dimension by Miyaoka's theorem \cite{Miy88}. In the
+second, a general fibre $F$ has $-K_{F}$ ample, so $K_{F}$ is negative on
+the curves cut out on $F$ by general ample divisors, and $F$ is uniruled by
+the criterion of Miyaoka and Mori \cite{MM86}; hence $Y'$ is uniruled, and so
+is $\tilde Y$.
+
+Choose $\tilde Y$ to be a resolution of $X/K$ that is an isomorphism over
+the smooth locus \cite{Hir64}. By \Cref{lem:uniruledN1},
+$N^{1}H^{3}(\tilde Y,\QQ)=H^{3}(\tilde Y,\QQ)$, and by
+\Cref{lem:quotientN1}, $H^{3}(X,\QQ)^{K}\subseteq N^{1}H^{3}(X,\QQ)$. For a
+unit $t$ the character $t\alpha$ is trivial on $K$, so $K$ acts trivially on
+$V(t\alpha)$ and on $M_{\alpha}$, and $M_{\alpha}\subseteq H^{3}(X,\QQ)^{K}$.
+\end{proof}
+
+\subsection{Joins}
+The joins below use the inductive structure of \Cref{sec:fermat}: for
+$r,s\ge1$ the map $f\colon H^{r+s-2}(X^{r-1}_{m}\times X^{s-1}_{m})\to
+H^{r+s}(X^{r+s}_{m})$ carries $V(a')\otimes V(b')$ onto $V(a'*b')$ and
+algebraic classes to algebraic classes.
+
+\begin{proposition}\label{prop:joindivisor}
+Let $\alpha,\alpha'\in\mathfrak A^{3}_{m}$ with $M_{\alpha}$ and
+$M_{\alpha'}$ contained in $N^{1}H^{3}(X^{3}_{m},\QQ)$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item If $\langle t\alpha\rangle+\langle t\alpha'\rangle=5$ for every unit
+$t$, then the multiset of the ten entries of $\alpha$ and $\alpha'$ is
+balanced and algebraic.
+\item If $b\in\mathfrak A^{1}_{m}$ and $\langle t\alpha\rangle+\langle
+tb\rangle=4$ for every unit $t$, then the multiset of the eight entries of
+$\alpha$ and $b$ is balanced and algebraic.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Let $X=X^{3}_{m}$. The multiset is balanced, because for every unit $t$
+the representatives of the entries of $t\alpha$ and $t\alpha'$ add up to
+$5m$. For every $t$, one of $V(t\alpha)$, $V(t\alpha')$ lies in $H^{2,1}$
+and the other in $H^{1,2}$, as $\langle ta\rangle\in\{1,\dots,4\}$ and
+$\langle-ta\rangle=5-\langle ta\rangle$ force both values into $\{2,3\}$. So
+$L=\bigoplus_{t}V(t\alpha)\otimes V(t\alpha')\subseteq H^{6}(X\times X,\CC)$
+has type $(3,3)$. It is stable under $\operatorname{Gal}(\QQ(\mu_{m})/\QQ)$,
+so $L=L_{\QQ}\otimes\CC$ for a space $L_{\QQ}\subseteq M_{\alpha}\otimes
+M_{\alpha'}$ of Hodge classes.
+
+By \Cref{lem:N1}(b) there are smooth projective surfaces $\tilde D,\tilde D'$
+with morphisms $\iota\colon\tilde D\to X$, $\iota'\colon\tilde D'\to X$ such
+that $M_{\alpha}\subseteq\iota_{*}H^{1}(\tilde D,\QQ)$ and $M_{\alpha'}
+\subseteq\iota'_{*}H^{1}(\tilde D',\QQ)$. The map
+\[
+  \gamma=(\iota\times\iota')_{*}\colon H^{1}(\tilde D,\QQ)\otimes
+  H^{1}(\tilde D',\QQ)(-2)\to H^{3}(X,\QQ)\otimes H^{3}(X,\QQ)
+\]
+is a morphism of polarizable Hodge structures of weight $6$, given by
+$\pm\iota_{*}\otimes\iota'_{*}$ in the K\"unneth decomposition, and its image
+contains $M_{\alpha}\otimes M_{\alpha'}$. Applying \Cref{lem:lift} to the
+restriction of $\gamma$ to $\gamma^{-1}(M_{\alpha}\otimes M_{\alpha'})$,
+every $\upsilon\in L_{\QQ}$ is $\gamma(\upsilon')$ for a Hodge class
+$\upsilon'$ in $H^{1}(\tilde D)\otimes H^{1}(\tilde D')(-2)$, that is, a
+Hodge class of degree $2$ on $\tilde D\times\tilde D'$. By \Cref{thm:lef11}
+it is algebraic, and so is $\upsilon=(\iota\times\iota')_{*}\upsilon'$.
+Hence $V(\alpha)\otimes V(\alpha')\subseteq\Alg^{3}(X\times X)\otimes\CC$,
+and by the inductive structure with $r=s=4$ the line $V(\alpha*\alpha')=
+f\bigl(V(\alpha)\otimes V(\alpha')\bigr)$ is algebraic.
+
+(b) Let $X'=X^{1}_{m}$. The multiset is balanced because the entries of
+$t\alpha$ and $tb$ add up to $4m$. As $\langle tb\rangle\in\{1,2\}$, we have
+$\langle t\alpha\rangle\in\{2,3\}$, and $V(t\alpha)\subseteq H^{2,1}(X)$
+exactly when $V(tb)\subseteq H^{0,1}(X')$; so $\bigoplus_{t}V(t\alpha)
+\otimes V(tb)\subseteq H^{4}(X\times X',\CC)$ has type $(2,2)$, and as in (a)
+it is $L_{\QQ}\otimes\CC$ for a space $L_{\QQ}\subseteq M_{\alpha}\otimes
+H^{1}(X',\QQ)$ of Hodge classes. With $\tilde D$ and $\iota$ as in (a), the
+map $(\iota\times\mathrm{id})_{*}\colon H^{1}(\tilde D,\QQ)\otimes
+H^{1}(X',\QQ)(-1)\to H^{3}(X,\QQ)\otimes H^{1}(X',\QQ)$ has image containing
+$M_{\alpha}\otimes H^{1}(X',\QQ)$, and \Cref{lem:lift} lifts every
+$\upsilon\in L_{\QQ}$ to a Hodge class of degree $2$ on the threefold
+$\tilde D\times X'$. It is algebraic by \Cref{thm:lef11}, so $\upsilon$ is
+algebraic, and the inductive structure with $r=4$ and $s=2$ shows that
+$V(\alpha*b)$ is algebraic.
+\end{proof}
+
+\subsection{Five pairs of characters}
+For a character $a$ of $X^{3}_{m}$ or $X^{1}_{m}$ we have $\langle-ta\rangle
+=5-\langle ta\rangle$, respectively $3-\langle ta\rangle$, so it suffices to
+list the values at the units $t<m/2$. Each value is the sum of the
+representatives in $\{1,\dots,m-1\}$ of the entries of $ta$, divided by $m$.
+
+\begin{lemma}\label{lem:charpairs}
+In each line of the following list, the characters named satisfy the
+hypothesis of \Cref{prop:joindivisor}(a) or~(b), and the multiset $\beta$ of
+their entries is balanced, contains no pair, and has $\nu([\beta])=1$ for the
+homomorphism $\nu$ of \Cref{cor:Bone}.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $m=114$: $\alpha_{1}=(1,25,43,57,102)$, $\alpha_{2}=(39,63,68,80,92)$,
+$\beta=\{1,\allowbreak 25,\allowbreak 39,\allowbreak 43,\allowbreak 57,\allowbreak 63,\allowbreak 68,\allowbreak 80,\allowbreak 92,\allowbreak 102\}$, $\nu=\nu_{19}$.
+\item $m=44$: $\alpha=(1,5,8,33,41)$, $b=(9,37,42)$,
+$\beta=\{1,\allowbreak 5,\allowbreak 8,\allowbreak 9,\allowbreak 33,\allowbreak 37,\allowbreak 41,\allowbreak 42\}$, $\nu=\nu_{11}$.
+\item $m=52$: $\alpha=(1,5,16,37,45)$, $\alpha'=(29,18,42,50,17)$,
+$\beta=\{1,\allowbreak 5,\allowbreak 16,\allowbreak 17,\allowbreak 18,\allowbreak 29,\allowbreak 37,\allowbreak 42,\allowbreak 45,\allowbreak 50\}$, $\nu=\nu_{13}$.
+\item $m=102$: $\alpha=(1,7,51,60,85)$, $\alpha'=(91,34,26,98,57)$,
+$\beta=\{1,\allowbreak 7,\allowbreak 26,\allowbreak 34,\allowbreak 51,\allowbreak 57,\allowbreak 60,\allowbreak 85,\allowbreak 91,\allowbreak 98\}$, $\nu=\nu_{17}$.
+\item $m=35$: $\alpha=(1,2,16,21,30)$, $b=(17,22,31)$,
+$\beta=\{1,\allowbreak 2,\allowbreak 16,\allowbreak 17,\allowbreak 21,\allowbreak 22,\allowbreak 30,\allowbreak 31\}$, $\nu=\nu_{R}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+The entries are nonzero and the entry sums are multiples of $m$: $228$ and
+$342$ in (i), $88$ and $88$ in (ii), $104$ and $156$ in (iii), $204$ and
+$306$ in (iv), $70$ and $70$ in (v). The values at the units $t<m/2$ are:
+
+\smallskip
+\noindent(i) $m=114$:
+\begin{center}
+\small
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{l*{18}{c}}
+\toprule
+$t$ & 1 & 5 & 7 & 11 & 13 & 17 & 23 & 25 & 29 & 31 & 35 & 37 & 41 & 43 & 47 & 49 & 53 & 55\\
+\midrule
+$\langle t\alpha_{1}\rangle$ & 2&2&2&2&3&2&2&2&3&3&2&2&3&2&2&3&3&2\\
+$\langle t\alpha_{2}\rangle$ & 3&3&3&3&2&3&3&3&2&2&3&3&2&3&3&2&2&3\\
+\bottomrule
+\end{tabular}
+\end{center}
+(ii) $m=44$:
+\begin{center}
+\small
+\begin{tabular}{l*{10}{c}}
+\toprule
+$t$ & 1 & 3 & 5 & 7 & 9 & 13 & 15 & 17 & 19 & 21\\
+\midrule
+$\langle t\alpha\rangle$ & 2&2&3&2&2&2&3&3&2&3\\
+$\langle tb\rangle$ & 2&2&1&2&2&2&1&1&2&1\\
+\bottomrule
+\end{tabular}
+\end{center}
+(iii) $m=52$:
+\begin{center}
+\small
+\begin{tabular}{l*{12}{c}}
+\toprule
+$t$ & 1 & 3 & 5 & 7 & 9 & 11 & 15 & 17 & 19 & 21 & 23 & 25\\
+\midrule
+$\langle t\alpha\rangle$ & 2&2&2&2&3&2&3&2&3&2&2&3\\
+$\langle t\alpha'\rangle$ & 3&3&3&3&2&3&2&3&2&3&3&2\\
+\bottomrule
+\end{tabular}
+\end{center}
+(iv) $m=102$:
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l*{16}{c}}
+\toprule
+$t$ & 1 & 5 & 7 & 11 & 13 & 19 & 23 & 25 & 29 & 31 & 35 & 37 & 41 & 43 & 47 &
+49\\
+\midrule
+$\langle t\alpha\rangle$ & 2&2&2&2&3&2&2&3&2&2&2&3&2&3&2&3\\
+$\langle t\alpha'\rangle$ & 3&3&3&3&2&3&3&2&3&3&3&2&3&2&3&2\\
+\bottomrule
+\end{tabular}
+\end{center}
+(v) $m=35$:
+\begin{center}
+\small
+\begin{tabular}{l*{12}{c}}
+\toprule
+$t$ & 1 & 2 & 3 & 4 & 6 & 8 & 9 & 11 & 12 & 13 & 16 & 17\\
+\midrule
+$\langle t\alpha\rangle$ & 2&2&2&2&2&3&2&2&2&3&3&3\\
+$\langle tb\rangle$ & 2&2&2&2&2&1&2&2&2&1&1&1\\
+\bottomrule
+\end{tabular}
+\end{center}
+For instance, in (v), $8\alpha=(8,16,23,28,30)$ and $8b=(31,1,3)$ have
+entry sums $105$ and $35$.
+
+In each line the representatives of the entries of $t\beta$ add up to
+$m(\langle t\alpha\rangle+\langle t\alpha'\rangle)$ or $m(\langle t\alpha
+\rangle+\langle tb\rangle)$, a constant, so $\beta$ is balanced; and no two
+entries of $\beta$ add up to $m$. The elements of order $19$ in $\ZZ/114$ are
+the nonzero multiples of $6$, and $102$ is the only entry of $\beta$ of this
+kind in (i); the elements of order $11$ in $\ZZ/44$ and of order $13$ in
+$\ZZ/52$ are the nonzero multiples of $4$, and $8$, respectively $16$, is
+the only such entry in (ii), (iii); the elements of order $17$ in $\ZZ/102$
+are the nonzero multiples of $6$, and $60$ is the only such entry in (iv).
+In (v) the elements of $\ZZ/35$ with square $1$ are $1$, $6$, $29$ and
+$34$, and only $1$ is an entry of $\beta$.
+\end{proof}
+
+\begin{corollary}\label{cor:patterns}
+Each of the characters in the following table admits the block pattern
+listed, a column $e_{l}$ with degree $\delta_{l}$ being written
+$e_{l}{:}\delta_{l}$:
+\begin{center}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{0.52\textwidth}@{}}
+\toprule
+$m$ & $\alpha$ & $D$ & block pattern\\
+\midrule
+$114$ & $13\alpha_{2}=(51,21,86,14,56)$ & $3$ & $(0,0,1,2,0){:}1$,
+$(0,0,2,0,1){:}1$, $(1,3,0,0,0){:}1$, $(2,0,0,1,2){:}1$\\
+$114$ & $\alpha_{1}=(1,25,43,57,102)$ & $24$ & $(3,1,2,0,0){:}7$,
+$(0,1,5,0,1){:}2$, $(0,0,0,2,0){:}12$, $(1,5,0,0,1){:}3$,
+$(0,0,0,0,19){:}1$\\
+$44$ & $(1,5,8,33,41)$ & $11$ & $(3,0,0,0,1){:}1$, $(0,0,11,0,0){:}1$,
+$(1,1,0,0,2){:}5$, $(1,2,0,1,0){:}3$, $(0,0,0,4,0){:}2$\\
+$52$ & $(1,5,16,37,45)$ & $14$ & $(0,0,0,3,1){:}4$, $(0,1,1,0,3){:}1$,
+$(2,1,0,0,1){:}7$, $(0,0,13,0,0){:}1$, $(0,3,0,1,0){:}2$\\
+$52$ & $9\alpha'=(1,6,14,34,49)$ & $5$ & $(0,0,5,1,0){:}1$,
+$(3,0,0,0,1){:}1$, $(2,0,0,3,0){:}1$, $(0,3,0,1,0){:}1$,
+$(0,1,0,0,2){:}2$\\
+$102$ & $37\alpha'=(1,34,44,56,69)$ & $6$ & $(0,0,0,3,2){:}1$,
+$(0,0,3,0,4){:}1$, $(0,3,0,0,0){:}2$, $(2,0,1,1,0){:}3$\\
+$102$ & $5\alpha=(5,35,51,96,17)$ & $18$ & $(0,0,0,0,6){:}2$,
+$(0,0,0,17,0){:}1$, $(0,0,2,0,0){:}9$, $(0,6,0,1,0){:}1$,
+$(3,2,0,0,1){:}6$\\
+$35$ & $(1,2,16,21,30)$ & $50$ & $(0,0,0,5,0){:}10$, $(1,1,2,0,0){:}25$,
+$(1,2,0,0,1){:}10$, $(3,1,0,0,1){:}5$, $(0,0,0,0,35){:}1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+In each row the degrees add up to $D+1$. Hence $M_{\alpha}\subseteq N^{1}H^{3}
+(X^{3}_{m},\QQ)$ for each of these characters.
+\end{corollary}
+
+\begin{proof}
+Condition (P1) says that each of the five coordinates of $\sum_{l}\delta_{l}
+e_{l}$ equals $D$; for instance, in the second row these coordinates are
+$21+3$, $7+2+15$, $14+10$, $24$ and $2+3+19$, and in the last row they are
+$25+10+15$, $25+20+5$, $50$, $50$ and $10+5+35$. Condition (P2) is the
+divisibility of the weights $e_{l}\cdot\bar\alpha$ by $m$. Row by row, the
+weights are
+\[
+\begin{array}{@{}l@{\qquad}l@{}}
+  114,\ 228,\ 114,\ 228; & 114,\ 342,\ 114,\ 228,\ 1938;\\
+  44,\ 88,\ 88,\ 44,\ 132; & 156,\ 156,\ 52,\ 208,\ 52;\\
+  104,\ 52,\ 104,\ 52,\ 104; & 306,\ 408,\ 102,\ 102;\\
+  102,\ 1632,\ 102,\ 306,\ 102; & 105,\ 35,\ 35,\ 35,\ 1050;
+\end{array}
+\]
+for instance $(0,0,1,2,0)\cdot(51,21,86,14,56)=86+28$. The degrees add up to
+$4$, $25$, $12$, $15$, $6$, $7$, $19$ and $51$, which is (P3).
+\Cref{thm:uniruled} gives the last assertion.
+\end{proof}
+
+\begin{theorem}\label{thm:classes}
+The levels $33$, $35$, $39$, $44$, $52$, $102$ and $114$ are complete, and so
+are $51$ and $57$.
+\end{theorem}
+
+\begin{proof}
+For $M\in\{33,39\}$, $O_{M}$ is balanced and algebraic by
+\Cref{lem:exceptional}. The elements of $\ZZ/33$ with square $1$ are $1$,
+$10$, $23$, $32$, and those of $\ZZ/39$ are $1$, $14$, $25$, $38$; of these,
+$O_{33}=\{1,4,16,22,25,31\}$ and $O_{39}=\{1,7,16,22,34,37\}$ contain only
+$1$. So $\nu_{R}([O_{M}])=1$, and by \Cref{cor:Bone}, $B_{M}=S_{M}+
+\ZZ[O_{M}]$.
+
+For the other five levels let $\beta$ be the multiset of \Cref{lem:charpairs}.
+Since $M_{ta}=M_{a}$ for every unit $t$, \Cref{cor:patterns} shows that
+$M_{\alpha}$, and $M_{\alpha'}$ in (i), (iii), (iv), lie in
+$N^{1}H^{3}(X^{3}_{m},\QQ)$: in (i), $M_{\alpha_{2}}=M_{13\alpha_{2}}$; in
+(iii), $M_{\alpha'}=M_{9\alpha'}$; in (iv), $M_{\alpha}=M_{5\alpha}$ and
+$M_{\alpha'}=M_{37\alpha'}$. By \Cref{prop:joindivisor}, $\beta$ is
+algebraic, and by \Cref{cor:Bone}, $B_{m}=S_{m}+\ZZ[\beta]$.
+
+In all seven cases \Cref{lem:transfer} shows that the level is complete.
+The levels $57$ and $51$ divide $114$ and $102$.
+\end{proof}
+
+\begin{corollary}\label{cor:degrees}
+The following levels $M$ are complete, and the Hodge conjecture holds for
+$X^{n}_{M}$ for every $n$:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item $M=2^{a}3^{b}5^{c}7^{d}$ with $420\nmid M$;
+\item $M=2^{a}3^{b}11^{c}$ and $M=2^{a}3^{b}13^{c}$;
+\item $M=2^{a}3^{b}17^{c}$ and $M=2^{a}3^{b}19^{c}$ with $a\le1$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+For $M\le2$, $X^{n}_{M}$ is a linear space or a quadric, and every
+balanced multiset at level $2$ is a sum of pairs $\{1,1\}$; let $M\ge3$. In
+(i), the elements of $\mathsf P$ dividing $M$ are among $4,3,5,7$, so
+$\mathcal Q(M)$ is contained in $\{12,15,20,21,28,35,420\}$, and $420\nmid M$
+removes the last; in (ii) it is contained in $\{12,33,44\}$ or $\{12,39,52\}$;
+in (iii), where $4\nmid M$, in $\{51\}$ or $\{57\}$. These levels are
+complete by \Cref{prop:aokidegrees} and \Cref{thm:classes}, and
+\Cref{prop:complete} applies.
+\end{proof}
+
+Part (i) for the degrees divisible by $35$ is due to Peterson \cite{Pet26},
+who proves the case $M=35$ with the character $\alpha$ of
+\Cref{lem:charpairs}(v) by a family of curves on $X^{3}_{35}$ and a residue
+computation; the block pattern replaces that computation. Parts (ii) and
+(iii) are \cite[Theorem~A]{BBe84hc}, where the coniveau step is also proved
+by families of curves.
