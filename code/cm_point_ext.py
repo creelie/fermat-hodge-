@@ -16,6 +16,9 @@ E_0^6 and the bookkeeping of cancellations).
     closed chains of three pieces with total degree three are exactly O_Z L^k -> O_Z L^k' ->
     O_Z L^k'' -> O_Z L^k with k < k' < k'' (degrees 0, 0, 3).
 (E) The count of the stopping point: five pieces of fifteen diagonal classes give 75, and 75 - 57 = 18.
+(F) The identities of Lemma A.1 in the exterior algebra of the real one-forms dx_j, dy_j on E_0^6:
+    theta^6/720 integrates to 1, alpha theta = 0, [C_zeta][C_zeta'] = |zeta - zeta'|^2 on B_j,
+    [Z_zeta] theta^3 = 48, the twisted sums T_{m,j}, and S(1) - S(-1) = 32 (alpha + alphabar).
 Run: python3 -I cm_point_ext.py
 """
 import itertools
@@ -110,6 +113,72 @@ check("no three-step chain of total degree 3 starts at a line bundle", not any(P
 
 # (E)
 check("count at the stopping point: 5*15 = 75 and 75 - 57 = 18", 5*15 == 75 and 75 - 57 == 18)
+
+# (F) exterior algebra on the twelve real one-forms e_0..e_11, e_{2j} = dx_j, e_{2j+1} = dy_j (j = 0..5)
+I = sp.I
+def wedge(f, g):
+    out = {}
+    for s1, c1 in f.items():
+        for s2, c2 in g.items():
+            if set(s1) & set(s2): continue
+            seq = list(s1) + list(s2); sign = 1
+            # sign of the permutation sorting seq
+            for i in range(len(seq)):
+                for j in range(i+1, len(seq)):
+                    if seq[i] > seq[j]: sign = -sign
+            key = tuple(sorted(seq)); out[key] = sp.expand(out.get(key, 0) + sign*c1*c2)
+    return {k: v for k, v in out.items() if v != 0}
+def add(f, g, cg=1):
+    out = dict(f)
+    for k, v in g.items(): out[k] = sp.expand(out.get(k, 0) + cg*v)
+    return {k: v for k, v in out.items() if v != 0}
+def scale(c, f): return {k: sp.expand(c*v) for k, v in f.items()}
+def one_form(j, conj=False):  # dz_j or dzbar_j
+    return {(2*j,): 1, (2*j+1,): (-I if conj else I)}
+def form(p, q):  # (i/2) dz_p wedge dzbar_q
+    return scale(I/2, wedge(one_form(p), one_form(q, conj=True)))
+a = [form(j, j) for j in range(3)]; b = [form(3+j, 3+j) for j in range(3)]
+c = [form(j, 3+j) for j in range(3)]; cb = [form(3+j, j) for j in range(3)]
+def prod(*fs):
+    out = {(): 1}
+    for f in fs: out = wedge(out, f)
+    return out
+def integral(f, gens):  # coefficient of the oriented volume form of the factors listed in gens
+    key = tuple(sorted(sum(([2*j, 2*j+1] for j in gens), [])))
+    return f.get(key, 0)
+theta = {}
+for j in range(3): theta = add(add(theta, a[j]), b[j])
+theta6 = prod(*([theta]*6))
+check("theta^6/720 integrates to 1 over E_0^6", integral(theta6, range(6)) == 720)
+alpha = prod(c[0], c[1], c[2]); alphabar = prod(cb[0], cb[1], cb[2])
+check("alpha theta = 0 and alphabar theta = 0", wedge(alpha, theta) == {} and wedge(alphabar, theta) == {})
+check("a_j = dx_j dy_j and the real and imaginary parts of c_j are real forms",
+      a[0] == {(0, 1): 1} and all(sp.im(v) == 0 for v in add(c[0], cb[0]).values()) and all(sp.re(v) == 0 for v in add(c[0], cb[0], -1).values()))
+mu4 = [1, I, -1, -I]
+def curve(j, z): return add(add(add(a[j], b[j]), scale(sp.conjugate(z), c[j])), scale(z, cb[j]))
+ok = True
+for z in mu4:
+    for w in mu4:
+        ok &= (integral(wedge(curve(0, z), curve(0, w)), [0, 3]) == sp.expand(abs(z-w)**2))
+    ok &= (integral(wedge(add(a[0], b[0]), curve(0, z)), [0, 3]) == 2)
+check("[C_zeta][C_zeta'] = |zeta - zeta'|^2 and theta.C_zeta = 2 on B_j", ok)
+def threefold(zs): return prod(curve(0, zs[0]), curve(1, zs[1]), curve(2, zs[2]))
+Z1 = threefold([1, 1, 1]); theta3 = prod(theta, theta, theta)
+check("[Z_zeta] theta^3 = 48, so chi_Z = 8", integral(wedge(Z1, theta3), range(6)) == 48 and 48 // 6 == 8)
+T = {}
+for m in range(4):
+    for j in range(3):
+        t = {}
+        for z in mu4: t = add(t, curve(j, z), z**m)
+        T[(m, j)] = t
+exp = {0: lambda j: scale(4, add(a[j], b[j])), 1: lambda j: scale(4, c[j]), 2: lambda j: {}, 3: lambda j: scale(4, cb[j])}
+check("T_{m,j} = 4(a_j+b_j), 4c_j, 0, 4cbar_j for m = 0,1,2,3", all(T[(m, j)] == exp[m](j) for m in range(4) for j in range(3)))
+S = {1: {}, -1: {}}
+for zs in itertools.product(mu4, repeat=3):
+    w = sp.expand(zs[0]*zs[1]*zs[2])
+    if w in S: S[w] = add(S[w], threefold(zs))
+lhs = add(S[1], S[-1], -1); rhs = scale(32, add(alpha, alphabar))
+check("S(1) - S(-1) = 32 (alpha + alphabar), thirty-two threefolds", lhs == rhs and sum(1 for zs in itertools.product(mu4, repeat=3) if sp.expand(zs[0]*zs[1]*zs[2]) in (1, -1)) == 32)
 
 print(f"cm_point_ext: {'PASS' if fails == 0 else 'FAIL'}")
 raise SystemExit(fails)

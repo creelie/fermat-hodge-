@@ -40,7 +40,7 @@ Section VII records where the earlier preprint
 ```
 paper/                      REVTeX source, figures and the compiled main.pdf
 preprintHodgeConjecture/    the compiled paper only
-lean/HodgeClosure.lean      40 theorems (Lean 4.24.0, no Mathlib)
+lean/HodgeClosure.lean      47 theorems (Lean 4.24.0, no Mathlib)
 code/                       Python, Julia, C, C++ and shell checks; run_all.sh
 ```
 
@@ -55,7 +55,7 @@ compiler; lean (through elan; `lean/lean-toolchain` pins the version). Set
 `JULIA`, `CC`, `CXX` or `LEAN` to override the commands. The run takes about
 ten minutes and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
 program, what it checks and its expected output. The Lean file prints
-`#print axioms` for every theorem: thirty-eight use no axiom and two use
+`#print axioms` for every theorem: forty-five use no axiom and two use
 `propext` and `Quot.sound`.
 
 No statement of the paper rests on these checks; they guard the hand
