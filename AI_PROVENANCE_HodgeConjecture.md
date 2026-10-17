@@ -28,7 +28,11 @@ follows.
   the Riemann-Roch polynomial and the thirty-one supports of Proposition VI.7
   (`riemann_roch_pieces.py`), and the invariants of the trace form behind
   Theorem V.12 (`zeta9_invariants.py`), with the Ext groups and chains at the
-  CM point of Appendix A (`cm_point_ext.py`, Lean Section 6).
+  CM point of Appendix A (`cm_point_ext.py`, Lean Section 6). A fourth
+  round of AI sessions added Lemma VI.9 and Proposition VI.11 (convolutions
+  with three line bundles fail at E_0^6); its claim that no Massey product
+  had been computed was kept as stated, and the configurations it leaves
+  are listed as open in the paper.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal

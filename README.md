@@ -24,7 +24,11 @@ programs that recompute every finite quantity used in the proofs.
   holds for X x X when X lies in a dihedral family.
 * A complex on a product of two Weil fourfolds has the Chern character the
   polarised semiregularity criterion asks for; direct sums are never
-  semiregular, and convolutions with mismatched slopes are obstructed.
+  semiregular, and convolutions with mismatched slopes are obstructed. At the
+  point of complex multiplication E_0^6 every Ext group between the pieces
+  is computed, no diagonal class cancels in two steps, and every convolution
+  built from at most three line bundles and threefolds meeting in finite sets
+  fails the criterion; the remaining configurations are open.
 * A single class on an abelian fourteenfold carries the exceptional classes
   of a Mumford fourfold.
 * Specialisation, degeneration and blow-ups relocate the two open statements
