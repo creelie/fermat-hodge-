@@ -1,0 +1,1087 @@
+\subsection{The \texorpdfstring{$2$}{2}- and \texorpdfstring{$3$}{3}-parts of
+a local configuration}\label{ssec:twothree}
+
+Throughout this subsection $e'>1$ is prime to $6$, $D=2^{v}3^{w}$, $N=De'$,
+$U=(\ZZ/e')^{\times}$, and $B$ is a local configuration at level $N$. We
+show that $B$ has a local chain as soon as one of its elements has an order
+divisible by $16$ or by $27$, so that the orders in a configuration without a
+local chain divide $72e'$.
+
+\subsubsection*{Coordinates}
+An element $x$ of core $e'$ has order $n=2^{j}3^{i}e'$, and $x=(N/n)u$ for a
+unit $u$ modulo $n$. We write $x=[t,\beta,\mu]_{j,i}$, where $t$, $\beta$ and
+$\mu$ are the residues of $u$ modulo $2^{j}$, $3^{i}$ and $e'$, and call $j$
+the \emph{$2$-level} and $i$ the \emph{$3$-level} of $x$; the coordinate $t$
+is omitted when $j=0$, and $\beta$ when $i=0$. By the Chinese remainder
+theorem these data determine $x$. Put $\eta_{j}=1+2^{j-1}$. The following
+rules come from $N/2=(N/n)(n/2)$ and the analogous identities for $N/3$ and
+$N/q$.
+\begin{enumerate}[label=\textup{(C\arabic*)}]
+\item $-x=[-t,-\beta,-\mu]_{j,i}$. If $j\ge2$, then
+$x+N/2=[t\eta_{j},\beta,\mu]_{j,i}$; if $j=0$, then
+$x+N/2=[1,2\beta,2\mu]_{1,i}$.
+\item If $i\ge1$, then $3x=[t,\beta\bmod 3^{i-1},\mu]_{j,i-1}$. If $j\ge1$,
+then $2x=[t\bmod 2^{j-1},\beta,\mu]_{j-1,i}$.
+\item If $i\ge2$, the coset $\Phi_{3}(x)$ consists of the three elements
+$[t,\beta',\mu]_{j,i}$ with $\beta'\equiv\beta\pmod{3^{i-1}}$. If $i=1$, it
+consists of $[t,\pm\beta,\mu]_{j,1}$ and $[t/3,\mu/3]_{j,0}$.
+\item For a prime $q\mid e'$, the elements of order $n$ in $\Phi_{q}(x)$ are
+the $[t,\beta,\mu']_{j,i}$ with $\mu'\in\mu K_{q}$, where $K_{q}\subseteq U$
+is the subgroup of \Cref{lem:Kp}. If $q\parallel e'$, the remaining element
+of $\Phi_{q}(x)$ has order $n/q$ and core $e'/q$.
+\end{enumerate}
+In these terms, \Cref{def:localconf}(ii) says in particular that $B$ does not
+contain both $x$ and $-x$, nor, when $j\ge2$, both $[t,\beta,\mu]_{j,i}$ and
+$[t\eta_{j},\beta,\mu]_{j,i}$. By (C3) and (C4), \Cref{def:localconf}(iii)
+says that $B$ does not contain two distinct elements $[t,\beta,\mu]_{j,i}$
+and $[t,\beta',\mu]_{j,i}$ with $i\ge1$ and $\beta'\equiv\beta\pmod{3^{i-1}}$,
+and that for no prime $q\mid e'$ does $B$ contain $(q+1)/2$ distinct elements
+$[t,\beta,\mu']_{j,i}$ whose coordinates $\mu'$ lie in one coset of $K_{q}$.
+
+\subsubsection*{The relations of \texorpdfstring{$B$}{B} on boxes}
+Let $G_{2}=(\ZZ/2^{v})^{\times}$ and $G_{3}=(\ZZ/3^{w})^{\times}$, with Haar
+measures of total mass $1$. The \emph{box} of $x=[t,\beta,\mu]_{j,i}$ is
+\[
+  Q(x)=\{(s,a)\in G_{2}\times G_{3}:\ s\equiv t\ (2^{j}),\
+  a\equiv\beta\ (3^{i})\},
+\]
+of volume $1/\varphi(2^{j})\varphi(3^{i})$. We work in the group algebra
+$\QQ[U]$, with basis $[\mu]$ for $\mu\in U$, and regard $f=\sum f(\mu)[\mu]$
+as a function on $U$. Put $\|f\|=\sum|f(\mu)|$, $c_{*}[\mu]=[c\mu]$ for
+$c\in U$, and $\psi(f)=\sum f(\mu)\psi(\mu)$ for a character $\psi$ of $U$.
+Call $f$ \emph{split} if $\psi(f)=0$ for every primitive character $\psi$
+modulo $e'$, and write $f\sim g$ when $f-g$ is split. For a submultiset
+$B'\subseteq B$ let
+\[
+  R_{B'}(s,a)=\sum_{x\in B'}\Bigl(\mathbf 1_{Q(x)}(s,a)\,[\mu_{x}]
+  -\mathbf 1_{Q(x)}(-s,-a)\,[-\mu_{x}]\Bigr)\in\ZZ[U],
+\]
+where $\mu_{x}$ is the coordinate $\mu$ of $x$, and $R=R_{B}$. Thus
+$R(-s,-a)=-(-1)_{*}R(s,a)$.
+
+\begin{lemma}\label{lem:boxrel}
+Let $B_{3}$ and $B_{2}$ consist of the elements of $B$ of $3$-level at least
+$1$ and of $2$-level at least $1$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $R(s,a)-R(s',a)-R(s,a')+R(s',a')\sim0$ for $s,s'\in G_{2}$ and
+$a,a'\in G_{3}$.
+\item $F_{3}(s)=\int_{G_{3}}\bigl(R(s,a)-(1/3)_{*}R_{B_{3}}(3s,a)\bigr)\,da$
+satisfies $F_{3}(s)\sim F_{3}(s')$ for $s,s'\in G_{2}$.
+\item $F_{2}(a)=\int_{G_{2}}\bigl(R(s,a)-(1/2)_{*}R_{B_{2}}(s,2a)\bigr)\,ds$
+satisfies $F_{2}(a)\sim F_{2}(a')$ for $a,a'\in G_{3}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Let $\chi_{2}$ and $\chi_{3}$ be characters of $G_{2}$ and $G_{3}$, of
+conductors $c_{2}$ and $c_{3}$, let $\psi$ be primitive modulo $e'$, and let
+$\chi=\chi_{2}\chi_{3}\psi$, a primitive character of conductor
+$c=c_{2}c_{3}e'$ dividing $N$. If $\chi$ is odd, so is $\bar\chi$, and
+\eqref{eq:charrel} holds for $B$ at $\bar\chi$ by \Cref{def:localconf}(i).
+For $x=[t,\beta,\mu]_{j,i}$ in $B$ we have $c\mid f_{x}$ exactly when
+$c_{2}\mid2^{j}$ and $c_{3}\mid3^{i}$, and then $z_{x}$ has the residues $t$,
+$\beta$, $\mu$ and
+\[
+  \frac{\chi(z_{x})}{\varphi(f_{x})}=\frac{1}{\varphi(e')}\iint
+  \chi_{2}(s)\chi_{3}(a)\,\mathbf 1_{Q(x)}(s,a)\,\psi([\mu])\,ds\,da;
+\]
+otherwise the integral vanishes, because $\chi_{2}$ or $\chi_{3}$ is
+nontrivial on the units congruent to $1$ modulo $2^{j}$ or $3^{i}$. The
+primes in the product of \eqref{eq:charrel} are $2$, when $c_{2}=1$ and
+$j\ge1$, and $3$, when $c_{3}=1$ and $i\ge1$. Finally, for every function
+$R'$ built like $R$ from a function $R'^{+}(s,a)=\sum\mathbf 1_{Q}(s,a)[\mu]$,
+the substitution $(s,a)\mapsto(-s,-a)$ gives
+\[
+  \iint\chi_{2}\chi_{3}\,\psi(R')=\bigl(1-\chi(-1)\bigr)
+  \iint\chi_{2}\chi_{3}\,\psi(R'^{+}),
+\]
+which vanishes when $\chi$ is even.
+
+(a) Let $\chi_{2}$ and $\chi_{3}$ be nontrivial. Then $6\mid c$, the product
+in \eqref{eq:charrel} is empty, and \eqref{eq:charrel} at $\bar\chi$ says
+that $\iint\chi_{2}\chi_{3}\,\psi(R^{+})=0$ when $\chi$ is odd. Hence
+$\iint\chi_{2}\chi_{3}\,\psi(R)=0$ for all nontrivial $\chi_{2}$ and
+$\chi_{3}$: the function $\psi(R(s,a))$ on $G_{2}\times G_{3}$ is a sum
+$g(s)+h(a)$, and its second differences vanish. This holds for every
+primitive $\psi$.
+
+(b) Let $\chi_{2}$ be nontrivial and $\chi_{3}=1$. For $i\ge1$ the factor of
+$x$ in \eqref{eq:charrel} at $\bar\chi$ is $1-\bar\chi(3)$, and
+$\chi(z_{x})\bar\chi(3)=\chi_{2}(t/3)\psi(\mu/3)$, while $\mathbf
+1_{Q(x)}(3s,a)$ is the indicator of the box of $x$ with $t$ replaced by
+$t/3$. So \eqref{eq:charrel} says that
+$\iint\chi_{2}(s)\,\psi\bigl(R^{+}(s,a)-(1/3)_{*}R_{B_{3}}^{+}(3s,a)\bigr)
+=0$ when $\chi$ is odd, and as in (a), $\int\chi_{2}(s)\,\psi(F_{3}(s))\,ds=0$
+for every nontrivial $\chi_{2}$. So $\psi(F_{3}(s))$ does not depend on $s$.
+
+(c) The same, with $\chi_{2}=1$, $\chi_{3}$ nontrivial and the factor
+$1-\bar\chi(2)$, for $j\ge1$.
+\end{proof}
+
+\begin{lemma}\label{lem:splitsmall}
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item A line $wK_{q}$ along some $K_{q}$ is split, and $c_{*}f$ is split
+when $f$ is.
+\item A nonzero split $f\in\ZZ[U]$ has $\|f\|\ge4$. If $\|f\|\le6$, then
+$f=\pm\mathbf 1_{L}$ for a line $L$ along $K_{5}$, or along $K_{7}$ when
+$7\parallel e'$, and $|L|$ is $4$ if $5\parallel e'$, $5$ if $25\mid e'$,
+and $6$ for $K_{7}$.
+\item Two distinct lines along subgroups $K_{q}$ and $K_{q'}$ meet in at most
+one point.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) $K_{q}$ is the kernel of $U\to(\ZZ/(e'/q))^{\times}$, so a primitive
+$\psi$ is nontrivial on $K_{q}$ and $\psi(\mathbf
+1_{wK_{q}})=\psi(w)\sum_{k\in K_{q}}\psi(k)=0$. Also
+$\psi(c_{*}f)=\psi(c)\psi(f)$.
+
+(b) By Fourier inversion on $U$, $f$ is a combination of characters that are
+not primitive, each trivial on some $K_{p}$ by \Cref{lem:Kp}(c). So on every
+coset of $H=\prod_{p}K_{p}$ the function $f$ is split along
+$(K_{p})_{p\mid e'}$ in the sense of \Cref{def:split}, and \Cref{lem:Kp}(a)
+gives the hypothesis of \Cref{lem:grid}. On a coset where $f$ does not
+vanish its mass is at least $7$, or by \Cref{lem:grid} equal to some
+$|K_{p}|\ge4$. If $\|f\|\le6$, then $f$ lives on one coset, and
+\Cref{lem:grid} gives $f=\pm\mathbf 1_{L}$ for a line along a $K_{q}$ with
+$|K_{q}|\le6$, that is $q=5$, or $q=7$ and $7\parallel e'$, by
+\Cref{lem:Kp}(a).
+
+(c) Lines along one $K_{q}$ are equal or disjoint, and for $q\ne q'$ the set
+$wK_{q}\cap w'K_{q'}$ is empty or a coset of $K_{q}\cap K_{q'}$, which is
+trivial by \Cref{lem:Kp}(b).
+\end{proof}
+
+The lines of size at most $6$ are the \emph{short lines}. There are none
+when $5\nmid e'$ and $7$ does not divide $e'$ exactly once, and then every
+nonzero split $f\in\ZZ[U]$ has $\|f\|\ge7$.
+
+\subsubsection*{Tops and orbits}
+From here to the end of the proof of \Cref{prop:twolevel}, $J\ge4$ is the
+largest $2$-level of an element of $B$, so $v\ge J$, and $\eta=\eta_{J}$. A
+\emph{top} is an element of $B$ of $2$-level $J$. The function $R(s,a)$
+depends on $s$ only modulo $2^{J}$, and a box of $2$-level smaller than $J$
+contains $(s,a)$ and $(s\eta,a)$ together. The \emph{orbit} of a unit $t$
+modulo $2^{J}$ is $O_{t}=\{\pm t,\pm t\eta\}$, a coset of the subgroup
+$\{\pm1,\pm\eta\}$.
+
+Fix a \emph{base} $t$ of an orbit $O$. A top $x$ whose coordinate $t_{x}$
+lies in $O$ is a \emph{top of $O$}. Its \emph{type} $(\varepsilon_{x},
+\sigma_{x})$ is $(+,+)$, $(-,+)$, $(-,-)$ or $(+,-)$ according as $t_{x}$ is
+$t$, $t\eta$, $-t$ or $-t\eta$; its \emph{signed box} $P_{x}$ is the ball of
+the $a\in G_{3}$ with $a\equiv\sigma_{x}\beta_{x}\pmod{3^{i}}$, $i$ its
+$3$-level ($P_{x}=G_{3}$ when $i=0$); and its \emph{label} is
+$\lambda_{x}=\sigma_{x}\mu_{x}$. We call $\varepsilon_{x}$ the \emph{sign} of
+$x$. Since the other elements contribute equally at $s=t$ and $s=t\eta$, and a
+top $x$ contributes $\mathbf 1_{Q(x)}(s,a)[\mu_{x}]$ at $s=t_{x}$ and
+$-\mathbf 1_{Q(x)}(-s,-a)[-\mu_{x}]$ at $s=-t_{x}$,
+\begin{equation}\label{eq:PhiO}
+  \Phi_{O}(a):=R(t,a)-R(t\eta,a)=\sum_{x\ \text{top of}\ O}
+  \varepsilon_{x}\,\mathbf 1_{P_{x}}(a)\,[\lambda_{x}].
+\end{equation}
+Replacing the base $t$ by $t\eta$ changes every sign, keeps the signed boxes
+and the labels, and replaces $\Phi_{O}$ by $-\Phi_{O}$.
+
+The group $(\ZZ/2^{J})^{\times}=\{\pm1\}\times\langle5\rangle$ has
+$\{\pm1,\pm\eta\}$ as the product of $\{\pm1\}$ with the subgroup of order
+$2$ of $\langle5\rangle$, so the orbits form a cyclic group of order
+$K=2^{J-3}\ge2$, generated by the class of $3$ (as $-3\equiv5\pmod8$), and
+$3^{K}\equiv\eta\pmod{2^{J}}$ because $3^{2^{m}}-1$ is exactly divisible by
+$2^{m+2}$ for $m\ge1$. For a base $t$ let $O_{k}=O_{3^{k}t}$, with base
+$3^{k}t$. Then $O_{0},\dots,O_{K-1}$ are distinct, and $O_{K}$ is $O_{0}$
+with the base $t\eta$, so $\Phi_{O_{K}}=-\Phi_{O_{0}}$.
+
+\begin{lemma}\label{lem:orbit}
+Let $O$ be an orbit with base $t$, and $O'=O_{3t}$ with base $3t$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $\Phi_{O}(a)\sim\Phi_{O}(a')$ for $a,a'\in G_{3}$.
+\item $I_{O}\sim(1/3)_{*}W_{O'}$, where $I_{O}=\int_{G_{3}}\Phi_{O}(a)\,da$
+and $W_{O'}=\sum\varepsilon_{x}\varphi(3^{i})^{-1}[\lambda_{x}]$, the sum over
+the tops $x$ of $O'$ of $3$-level $i\ge1$.
+\item Two tops of $O$ with the same $3$-level, the same signed box and the
+same label have the same sign.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) is \Cref{lem:boxrel}(a) with $s=t$ and $s'=t\eta$. (b) By
+\Cref{lem:boxrel}(b), $F_{3}(t)\sim F_{3}(t\eta)$, and $\int(R(t,a)-
+R(t\eta,a))\,da=I_{O}$. In $R_{B_{3}}(3t,a)-R_{B_{3}}(3t\eta,a)$ only the tops
+of $O'$ of $3$-level at least $1$ contribute, by \eqref{eq:PhiO} for $O'$
+and its base $3t$, and a signed box of $3$-level $i$ has measure
+$\varphi(3^{i})^{-1}$. So $F_{3}(t)-F_{3}(t\eta)=I_{O}-(1/3)_{*}W_{O'}$.
+(c) Let $x$ and $x'$ be such tops with opposite signs. If
+$\sigma_{x}=\sigma_{x'}$, they have the same coordinates $\beta$ and $\mu$,
+and their coordinates $t$ are $t$ and $t\eta$, or $-t$ and $-t\eta$; then
+$x'=x+N/2$ by (C1), against \Cref{def:localconf}(ii). If
+$\sigma_{x}=-\sigma_{x'}$, then $\beta_{x'}=-\beta_{x}$, $\mu_{x'}=-\mu_{x}$,
+and the coordinates $t$ are $t$ and $-t$, or $t\eta$ and $-t\eta$; then
+$x'=-x$, against \Cref{def:localconf}(ii).
+\end{proof}
+
+For a top $y=[s,\alpha,\mu]_{J,1}$ put $y^{*}=[-s\eta,\alpha,-\mu]_{J,1}$,
+so that $y^{**}=y$. If $y$ has the type $(\varepsilon,\sigma)$, then $y^{*}$
+has the type $(\varepsilon,-\sigma)$, the same label and the opposite signed
+box; so a pair $\{y,y^{*}\}\subseteq B$ contributes the constant
+$\varepsilon[\lambda_{y}]$ to $\Phi_{O}$. We say that $B$ contains
+\emph{\textup{(C)}} if $B$ contains $y$, $y^{*}$ and $-3y=[-s,-\mu]_{J,0}$
+for some top $y$ of $3$-level $1$.
+
+\begin{lemma}\label{lem:flat}
+Let $O$ be an orbit, $\lambda\in U$ and $m\ge1$, and suppose that the
+coefficient of $[\lambda]$ in $\Phi_{O}$ is constant on every ball of
+$3$-level $m-1$ in $G_{3}$. Then no top of $O$ with label $\lambda$ has
+$3$-level at least $\max(m,2)$. If $m=1$, the tops of $O$ of $3$-level $1$
+with label $\lambda$ form pairs $\{y,y^{*}\}$, counted with multiplicity.
+\end{lemma}
+
+\begin{proof}
+Let $k$ be the largest $3$-level of a top of $O$ with label $\lambda$, and
+suppose that $k\ge1$ and $k\ge m$. Let $P$ be a ball of $3$-level $k-1$. On
+$P$ the tops of $3$-level smaller than $k$ contribute constants, so the tops
+of $3$-level $k$ and label $\lambda$ contribute equally to the children of
+$P$, the balls of $3$-level $k$ in $P$; there are three of them if $k\ge2$,
+and two, $Q$ and $-Q$, if $k=1$. For such a child $Q'$ let $n_{Q'}$ be the
+sum of the signs of these tops with signed box $Q'$; it is $\pm$ their
+number by \Cref{lem:orbit}(c), and the $n_{Q'}$ are equal. Suppose they are
+nonzero, of sign $\varepsilon$. The tops of sign $\varepsilon$ have the two
+types $(\varepsilon,\pm)$, and two tops of one type with label $\lambda$ at
+two different children have the same coordinates $t$ and $\mu$ and
+coordinates $\beta$ that agree modulo $3^{k-1}$, which
+\Cref{def:localconf}(iii) excludes. For $k\ge2$ this is impossible with
+three children, so the $n_{Q'}$ vanish; then no top of $3$-level $k$ and
+label $\lambda$ lies in $P$, for every $P$, against the choice of $k$. This
+proves the first claim. For $k=m=1$, one type occurs at $Q$ and only the
+other at $-Q$; the tops of type $(\varepsilon,\sigma)$ at $Q$ are copies of
+one element $y$, those of type $(\varepsilon,-\sigma)$ at $-Q$ are copies
+of $y^{*}$, and there are equally many.
+\end{proof}
+
+An orbit $O$ is \emph{flat} if $\Phi_{O}$ is constant. By \Cref{lem:flat}
+with $m=1$, the tops of a flat orbit have $3$-level $0$ or $1$, and those of
+$3$-level $1$ form pairs $\{y,y^{*}\}$. Let $Z_{O}$ be the sum of
+$\varepsilon_{x}[\lambda_{x}]$ over the tops of $O$ of $3$-level $0$, $Y_{O}$
+the sum of $\varepsilon_{y}[\lambda_{y}]$ over the pairs, and $z_{O}$,
+$y_{O}$ the numbers of these tops and pairs. Then $\Phi_{O}=I_{O}=Z_{O}+
+Y_{O}$ and $W_{O}=Y_{O}$. By \Cref{lem:orbit}(c), $\|Z_{O}\|=z_{O}$ and
+$\|Y_{O}\|=y_{O}$. If $Z_{O}$ and $Y_{O}$ have opposite signs at a label
+$\lambda$, then $B$ contains (C): by (C1) and (C2) the two tops of
+$3$-level $0$ with label $\lambda$ and sign opposite to that of a pair
+$\{y,y^{*}\}$ at $\lambda$ are $-3y$ and $-3y^{*}$.
+
+\subsubsection*{Chains}
+
+\begin{lemma}\label{lem:twochains}
+In each of the following cases $B$ has a local chain. In \textup{(c)},
+\textup{(d)} and \textup{(e)}, $O$ is an orbit with base $t$.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item For a prime $q\parallel e'$, a line $L=wK_{q}$ is the disjoint union of
+two sets $L_{1}$ and $L_{4}$ of $(q-1)/2$ elements, and $B$ contains the
+elements $[t,b,\lambda]_{j,i}$ for $\lambda\in L_{1}$ and
+$[-t\eta_{j},-b,-\lambda]_{j,i}$ for $\lambda\in L_{4}$, where $j\ge2$.
+\item $B$ contains \textup{(C)}.
+\item For some label $\lambda$ and some $i\ge2$, $B$ contains a top $z_{1}$
+of $O$ of $3$-level $i-1$, sign $+$, signed box $P$ and label $\lambda$, and
+two tops of $O$ of $3$-level $i$ and label $\lambda$, of the types $(-,+)$
+and $(-,-)$, whose signed boxes are two different balls contained in $P$.
+\item For some label $\mu^{*}$, $B$ contains a top $s$ of $O$ of $3$-level
+$1$ and sign $-$ and a top $z_{0}$ of $O$ of $3$-level $0$ and sign $+$, both
+with label $\mu^{*}$, and a top $e_{6}$ of $O_{t/3}$, with base $t/3$, of
+$3$-level $0$, sign $-$ and label $\mu^{*}/3$; or the same holds with all
+signs reversed.
+\item $5\parallel e'$, $L=wK_{5}$ contains $\nu$, and $B$ consists of three
+tops of $O$ of $3$-level $0$ and sign $+$ with the labels in $L-\{\nu\}$, a
+pair $\{y,y^{*}\}$ of tops of $O$ of sign $+$ and label $\nu$, and a top of
+$O_{t/3}$ of $3$-level $0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+In each case we list the moves and the final multiset $B^{\flat}$. One checks
+from \Cref{def:localconf}(ii),(iii) that an element added by a move is never
+the negative of an element that a later move uses, so the pairs removed
+between the moves, among them the copies of $N/2$, only lower $|B^{\flat}|$
+by an even number.
+
+(a) Let $n$ be the order of these elements and $x=[t,b,\lambda_{1}]_{j,i}$
+with $\lambda_{1}\in L_{1}$. By (C4), $\Phi_{q}(x)$ consists of the
+$[t,b,\lambda]_{j,i}$ with $\lambda\in L$ and an element $x_{0}$ of core
+$e'/q$. The elements $[t,b,\lambda]_{j,i}$ with $\lambda\in L_{4}$ are not in
+$B$ by \Cref{def:localconf}(iii), and $x_{0}$, $-qx$ are not in $B$ as their
+cores differ from $e'$. So the move by $\sigma_{q,x}$ removes the elements
+with $\lambda\in L_{1}$ and adds $z_{\lambda}=[-t,-b,-\lambda]_{j,i}$ for
+$\lambda\in L_{4}$, together with $-x_{0}$ and $qx$. By (C1),
+$z_{\lambda}+N/2=[-t\eta_{j},-b,-\lambda]_{j,i}$ lies in $B$, and the move by
+$T(z_{\lambda})$ removes $z_{\lambda}$ and $z_{\lambda}+N/2$ and adds
+$2z_{\lambda}$ and $N/2$ (or removes $-2z_{\lambda}$ and adds $N/2$, if
+$-2z_{\lambda}$ is present). After these $1+(q-1)/2$ moves, $(q-1)$
+elements of order $n$ have been removed, and at most $(q-1)/2$ elements of
+order $n/2$, two of order $n/q$ and one copy of $N/2$ added. As $q\ge5$ and
+$|B^{\flat}|\equiv|B|\pmod2$, we get $|B^{\flat}|\le|B|$, and if equality
+holds, $B$ has more elements of order $n$ than $B^{\flat}$ and as many of
+every larger order.
+
+(b) Let $y=[s,\alpha,\mu]_{J,1}$ with $y,y^{*},-3y\in B$, and $n=\ord(y)$. By
+(C3), $\Phi_{3}(y)=\{y,y',y_{0}\}$ with $y'=[s,-\alpha,\mu]_{J,1}$, which is
+not in $B$ by \Cref{def:localconf}(iii), and $y_{0}=[s/3,\mu/3]_{J,0}$. The
+move by $\sigma_{3,y}$ removes $y$ and $-3y$, and $y_{0}$ if it lies in $B$,
+and adds $-y'$, and $-y_{0}$ if $y_{0}\notin B$. By (C1),
+$-y'+N/2=[-s\eta,\alpha,-\mu]_{J,1}=y^{*}$, so the move by $T(-y')$ removes
+$-y'$ and $y^{*}$ and adds $-2y'$ and $N/2$. The result is
+$B-\{y,y^{*},-3y\}+\{-y_{0},-2y',N/2\}$, with the orders $n,n,n/3$ removed and
+$n/3,n/2,2$ added, or $B-\{y,y^{*},y_{0},-3y\}+\{-2y',N/2\}$, with
+$|B|-2$ elements.
+
+(c) Let $P$ be the ball of the $a\equiv p\pmod{3^{i-1}}$. The top of type
+$(-,+)$ is $[t\eta,b_{1},\lambda]_{J,i}$, and by (C1), (C2) its image under
+$-3$ is $[-t\eta,-p,-\lambda]_{J,i-1}$, of type $(+,-)$, signed box $P$ and
+label $\lambda$. The top of type $(-,-)$ is $[-t,-b_{2},-\lambda]_{J,i}$,
+and its image under $-3$ is $[t,p,\lambda]_{J,i-1}$, of type $(+,+)$,
+signed box $P$ and label $\lambda$. These are the two tops of $3$-level
+$i-1$ with sign $+$, signed box $P$ and label $\lambda$, so $z_{1}=-3z_{2}$
+for exactly one of the two tops of $3$-level $i$, say $z_{2}$; let $z_{3}$
+be the other one and $n=\ord(z_{2})$. By (C3), $\Phi_{3}(z_{2})$ consists of
+$z_{2}$ and two siblings, which are not in $B$ by
+\Cref{def:localconf}(iii), and one of them is $-(z_{3}+N/2)$: for instance,
+if $z_{2}=[-t,-b_{2},-\lambda]_{J,i}$, then $z_{3}+N/2=[t,b_{1},\lambda]_{J,i}$
+by (C1), and $b_{1}\equiv b_{2}\pmod{3^{i-1}}$. The move by
+$\sigma_{3,z_{2}}$ removes $z_{2}$ and $z_{1}$ and adds $z_{3}+N/2$ and the
+negative $z'$ of the other sibling; the move by $T(z_{3})$ removes $z_{3}$
+and $z_{3}+N/2$ and adds $2z_{3}$ and $N/2$. The result is
+$B-\{z_{1},z_{2},z_{3}\}+\{z',2z_{3},N/2\}$, with the orders $n,n,n/3$ removed
+and $n,n/2,2$ added.
+
+(d) Let $s=[s_{2},\gamma,\nu]_{J,1}$, $n=\ord(s)$, and
+$s_{0}=[s_{2}/3,\nu/3]_{J,0}$. By (C1) and (C2), the two tops of $O$ of
+$3$-level $0$ with sign $+$ and label $\mu^{*}$ are $-3s$ and $3s+N/2$, and
+the two tops of $O_{t/3}$ of $3$-level $0$ with sign $-$ and label
+$\mu^{*}/3$ are $s_{0}$ and $-s_{0}+N/2$; we take $z_{0}=-3s$ if $-3s\in B$
+and $e_{6}=s_{0}$ if $s_{0}\in B$. By (C3), $\Phi_{3}(s)=\{s,s',s_{0}\}$ with
+$s'\notin B$. The move by $\sigma_{3,s}$ removes $s$, and $z_{0}$ if
+$z_{0}=-3s$, and $e_{6}$ if $e_{6}=s_{0}$; it adds $-s'$, and $3s$ if
+$z_{0}\ne-3s$, and $-s_{0}$ if $e_{6}\ne s_{0}$. In these two cases follow it
+by the move by $T(3s)$, which removes $3s$ and $z_{0}=3s+N/2$, and by the
+move by $T(-s_{0})$, which removes $-s_{0}$ and $e_{6}=-s_{0}+N/2$; each adds
+an element of order $n/6$ and $N/2$. The result is $B-\{s,z_{0},e_{6}\}+
+\{-s'\}$ plus one element of order $n/6$ for each move by $T$ and the
+copies of $N/2$: it has $|B|-2$ elements if no move by $T$ is needed, and
+otherwise $|B|$ elements, with the orders $n/3,n/3$ removed and only smaller
+orders added, and as many elements of order $n$ as $B$. Replacing $t$ by
+$t\eta$ reverses all signs in $O$ and in $O_{t/3}$, and the moves do not
+depend on the base.
+
+(e) By (C1), the tops of $3$-level $0$, sign $+$ and label $\lambda$ are
+$[t,\lambda]_{J,0}$ and $[-t\eta,-\lambda]_{J,0}$, and by
+\Cref{def:localconf}(iii) and (C4) at most two of the three tops of
+$3$-level $0$ are of each of these forms. Suppose two of them are
+$[t,\lambda]_{J,0}$ for $\lambda\in\{\lambda_{1},\lambda_{2}\}$, the third
+being $[-t\eta,-\lambda_{3}]_{J,0}$, so that $L=\{\lambda_{1},\lambda_{2},
+\lambda_{3},\nu\}$, and let $y=[t,\alpha,\nu]_{J,1}$ be the element of type
+$(+,+)$ of the pair. The move by $\sigma_{5,x}$ with $x=[t,\lambda_{1}]_{J,0}$
+removes the two tops $[t,\lambda_{1}]_{J,0}$, $[t,\lambda_{2}]_{J,0}$ and adds
+$[-t,-\lambda_{3}]_{J,0}$, $[-t,-\nu]_{J,0}$ and two elements of core
+$e'/5$. The move by $T([-t,-\lambda_{3}]_{J,0})$ removes
+$[-t,-\lambda_{3}]_{J,0}$ and $[-t\eta,-\lambda_{3}]_{J,0}$ and adds an
+element of order $n_{0}/2$, $n_{0}=\ord(x)$, and $N/2$. Now
+$[-t,-\nu]_{J,0}=-3y$, so the multiset contains (C), and the two moves of (b)
+follow. If the top of $O_{t/3}$ is $y_{0}$, the result has $4=|B|-2$
+elements. Otherwise it has six, the two elements of order $3n_{0}$ of $B$ are
+removed, and the added elements have orders at most $3n_{0}/2$. If two of
+the three tops have the form $[-t\eta,-\lambda]_{J,0}$, the same moves with
+$x=[-t\eta,-\lambda_{1}]_{J,0}$ and with $y^{*}$ in place of $y$ apply, as
+$-3y^{*}=[t\eta,\nu]_{J,0}$.
+\end{proof}
+
+\begin{proposition}\label{prop:twolevel}
+If some element of $B$ has $2$-level at least $4$, then $B$ has a local
+chain.
+\end{proposition}
+
+\begin{proof}
+Suppose that $B$ has no local chain, and let $J\ge4$ be the largest
+$2$-level. Every orbit has at most six tops.
+
+\emph{Step 1: if there are no short lines, every orbit is flat.} For an orbit
+$O$ and $a,a'\in G_{3}$, the function $\Phi_{O}(a)-\Phi_{O}(a')$ is split by
+\Cref{lem:orbit}(a), has integer coefficients and mass at most the number of
+tops of $O$, at most $6$; so it vanishes by \Cref{lem:splitsmall}(b).
+
+\emph{Step 2: a non-flat orbit $O$, with base $t$.} By
+\Cref{lem:orbit}(a) and \Cref{lem:splitsmall}(b), every nonzero difference
+$\Phi_{O}(a)-\Phi_{O}(a')$ is $\pm\mathbf 1_{L}$ for a short line $L$. So $O$
+has at least four tops, and the other orbits are flat. If $\Phi_{O}$ took
+three values, two nonzero differences $\pm\mathbf 1_{L_{1}}$ and
+$\pm\mathbf 1_{L_{2}}$ would add up to a third, $\pm\mathbf 1_{L_{3}}$; but
+for $L_{1}=L_{2}$ the sum is $0$ or has coefficients $\pm2$, and for
+$L_{1}\ne L_{2}$, by \Cref{lem:splitsmall}(c), it has a coefficient $\pm2$,
+or coefficients of both signs, or at least eight nonzero coefficients. So
+$\Phi_{O}(a)=\varphi_{0}+\mathbf 1_{V}(a)\mathbf 1_{L}$ for one short line
+$L$, a proper nonempty subset $V$ of $G_{3}$ and $\varphi_{0}\in\ZZ[U]$.
+
+Every $\lambda\in L$ carries a top of $O$ of $3$-level at least $1$, as the
+coefficient of $[\lambda]$ is not constant. Since $|L|\ge4$ and there are at
+most six tops, at least $2|L|-6\ge2$ labels of $L$ carry exactly one top
+$x$, and there $\varepsilon_{x}\mathbf 1_{P_{x}}=\varphi_{0}(\lambda)+\mathbf
+1_{V}$; so $V$ is $P_{x}$ or its complement. Replacing $t$ by $t\eta$
+replaces $V$ by its complement, so we may assume that $V$ is a ball of some
+$3$-level $i\ge1$. By \Cref{lem:flat}, applied with $m=i+1$ at each label,
+no top of $O$ has $3$-level larger than $i$. A top of $3$-level $i$, sign $+$
+and signed box $V$ is an \emph{$S^{+}$ element}; for $i=1$, a top of
+$3$-level $1$, sign $-$ and signed box $-V$ is an \emph{$S^{-}$ element}.
+
+\emph{The case $i=1$.} At $\lambda\in L$ let $n_{V}$ and $n_{-V}$ be the sums
+of the signs of the tops of $3$-level $1$ with signed boxes $V$ and $-V$.
+They have one sign each by \Cref{lem:orbit}(c), and $n_{V}-n_{-V}=1$. So
+either $n_{V}\ge1$, and $\lambda$ carries $S^{+}$ elements and no $S^{-}$
+element, or $n_{-V}\le-1$, and the reverse. In the first case the types at
+$V$ and at $-V$ are different, by \Cref{def:localconf}(iii); since $-V$
+carries tops when $n_{V}\ge2$, the tops at $V$ are then copies of one
+element $y$ and those at $-V$ copies of $y^{*}$. So $\lambda$ carries one
+$S^{+}$ element and $n_{V}-1$ pairs $\{y,y^{*}\}$ of sign $+$; likewise in
+the second case, with sign $-$.
+
+\emph{The case $i\ge2$.} A label of $L$ with a single top carries an $S^{+}$
+element, since the complement of a ball of $3$-level at least $2$ is not a
+ball. Suppose that $\lambda_{4}\in L$ carries no $S^{+}$ element. Let $P$ be
+the parent of $V$, of $3$-level $i-1$, and $V'$, $V''$ its other children.
+At $\lambda_{4}$ the tops of $3$-level smaller than $i$ contribute equally to
+$V$, $V'$ and $V''$, so the sums of signs at $3$-level $i$ satisfy
+$n_{V}-n_{V'}=n_{V}-n_{V''}=1$, and $n_{V}\le0$. So $V'$ and $V''$ carry
+tops of sign $-$, of different types by \Cref{def:localconf}(iii), and
+then $V$ carries no top of sign $-$: $n_{V}=0$ and $n_{V'}=n_{V''}=-1$. In
+every other ball of $3$-level $i-1$ the tops of $3$-level $i$ at $\lambda_{4}$
+vanish as in the proof of \Cref{lem:flat}. Hence the tops of $3$-level
+smaller than $i$ at $\lambda_{4}$ contribute $c+\mathbf 1_{P}$ for a constant
+$c$, and there is at least one of them: $\lambda_{4}$ carries at least three
+tops and each of the other $|L|-1\ge3$ labels at least one. So $|L|=4$, the
+other three labels carry one $S^{+}$ element each, and $\lambda_{4}$ carries
+exactly one top $z_{1}$ of $3$-level smaller than $i$, with
+$\varepsilon_{z_{1}}\mathbf 1_{P_{z_{1}}}=c+\mathbf 1_{P}$. If
+$\varepsilon_{z_{1}}=+$, then $P_{z_{1}}=P$, and this is
+\Cref{lem:twochains}(c). Otherwise the complement of $P$ is the ball
+$P_{z_{1}}$, so $i=2$, $z_{1}$ has $3$-level $1$, and $c=-1$; then the six
+tops all lie in $O$, $\varphi_{0}=-[\lambda_{4}]$, and $I_{O}=\varphi_{0}+
+\frac16\mathbf 1_{L}\sim-[\lambda_{4}]$ by \Cref{lem:splitsmall}(a). The orbit
+$O_{3t}\ne O$ has no top, so \Cref{lem:orbit}(b) gives $[\lambda_{4}]\sim0$,
+against \Cref{lem:splitsmall}(b).
+
+\emph{Every label of $L$ carries an $S^{+}$ element, or, for $i=1$, every
+label carries an $S^{-}$ element.} In the second case replace $t$ by
+$t\eta$, which turns the $S^{-}$ elements for $V$ into $S^{+}$ elements for
+$-V$. Let $b$ be the centre of $V$. The $S^{+}$ elements of the types $(+,+)$
+and $(+,-)$ are $[t,b,\lambda]_{J,i}$ and $[-t\eta,-b,-\lambda]_{J,i}$. If $L$
+is a line along $K_{q}$, then by (C4) and \Cref{def:localconf}(iii) at most
+$(q-1)/2$ labels of $L$ carry $S^{+}$ elements of each type, so
+$|L|\le q-1$; hence $|L|=q-1$, $q\parallel e'$, and the two types occupy
+disjoint sets $L_{1}$ and $L_{4}$ of $(q-1)/2$ labels. This is
+\Cref{lem:twochains}(a) with $j=J$.
+
+\emph{The mixed case: $i=1$, and $L=L_{+}\sqcup L_{-}$ with nonempty sets
+$L_{\pm}$ of labels that carry $S^{\pm}$ elements, of sizes $\ell_{\pm}$.} At
+$a\in-V$ the $S^{+}$ elements contribute $0$ and the $S^{-}$ elements $-1$, so
+$\varphi_{0}=-\mathbf 1_{L_{-}}+Z+Y$, where $Z$ is the sum of
+$\varepsilon_{x}[\lambda_{x}]$ over the tops of $O$ of $3$-level $0$ and $Y$
+the sum of $\varepsilon_{y}[\lambda_{y}]$ over the pairs $\{y,y^{*}\}$ of
+$O$. Also $I_{O}=\varphi_{0}+\frac12\mathbf 1_{L}$ and $W_{O}=Y-\mathbf
+1_{L_{-}}+\frac12\mathbf 1_{L}$. The orbits $O_{3t}$ and $O_{t/3}$ are flat,
+and \Cref{lem:orbit}(b) for $O$ and for $O_{t/3}$ (with base $t/3$), with
+\Cref{lem:splitsmall}(a), gives
+\begin{align}
+  G&=-\mathbf 1_{L_{-}}+Z+Y-(1/3)_{*}Y_{O_{3t}}\sim0,\tag{G1}\\
+  E&=\Phi_{O_{t/3}}-(1/3)_{*}Y\sim-(1/3)_{*}\mathbf 1_{L_{-}}.\tag{G2}
+\end{align}
+Both $G$ and $E$ have integer coefficients.
+
+If $|L|=6$, the six $S^{\pm}$ elements are all of $B$, so $E=0$ and
+$(1/3)_{*}\mathbf 1_{L_{-}}$ is split with at most five nonzero coefficients.
+By \Cref{lem:splitsmall}(b) it is the indicator of a line along $K_{5}$, which
+meets the line $(1/3)L$ along $K_{7}$ in at most one point by
+\Cref{lem:splitsmall}(c): impossible. If $|L|=5$, then $25\mid e'$, there are
+no short lines of size four, and $B$ has at most one element $w$ besides the
+five $S^{\pm}$ elements. If $w$ is a top of $O_{t/3}$ of $3$-level $0$, then
+$Z=Y=Y_{O_{3t}}=0$ and (G1) says $\mathbf 1_{L_{-}}\sim0$ with
+$1\le\ell_{-}\le4$; otherwise $E=0$ and (G2) says $(1/3)_{*}\mathbf
+1_{L_{-}}\sim0$. Both contradict \Cref{lem:splitsmall}(b).
+
+Let $|L|=4$, so $5\parallel e'$. Besides the four $S^{\pm}$ elements, $B$ has
+at most two elements, and they make up $E$, so $\|E\|\le2$. The split
+function $E+(1/3)_{*}\mathbf 1_{L_{-}}$ has integer coefficients and mass at
+most $5$, so by \Cref{lem:splitsmall}(b) it is $0$ or $\pm\mathbf 1_{L'}$
+for a line $L'$ of size $4$. For $L'\ne(1/3)L$, \Cref{lem:splitsmall}(c)
+gives $\|E\|\ge3$; for $L'=(1/3)L$ the sign $-$ gives $\|E\|\ge4$. Hence
+$E=-(1/3)_{*}\mathbf 1_{L_{-}}$ with $\ell_{-}\le2$, or $E=(1/3)_{*}\mathbf
+1_{L_{+}}$ with $\ell_{+}\le2$, and in particular $E\ne0$.
+\begin{itemize}
+\item $\ell_{+}=\ell_{-}=2$. Then $\|E\|=2$; a pair contributes $1$ to $\|E\|$
+with two elements, so both further elements are tops of $O_{t/3}$ of
+$3$-level $0$. Then $Z=Y=0$, and $O_{3t}$ has no pair (for $K=2$ it is
+$O_{t/3}$), so (G1) says $\mathbf 1_{L_{-}}\sim0$: impossible.
+\item $\ell_{-}=1$, $L_{-}=\{\mu^{*}\}$. Then $E=-[\mu^{*}/3]$. A pair of $O$
+contributes $-(1/3)_{*}(\varepsilon_{y}[\lambda_{y}])$ to $E$, which would
+need sign $+$ at $\mu^{*}$, whereas the pairs at $\mu^{*}$ have the sign $-$
+of the $S^{-}$ element there. A pair of $O_{t/3}$ uses both further
+elements; then $Z=Y=0$ and $G$ is $-[\mu^{*}]$, or, for $K=2$, where
+$O_{3t}$ is $O_{t/3}$ with the base $(t/3)\eta$, $-[\mu^{*}]-[\mu^{*}/9]$: a
+nonzero split function of mass at most $2$. So one further element $e_{6}$ is
+a top of $O_{t/3}$ of $3$-level $0$, sign $-$ and label $\mu^{*}/3$, and $G$
+consists of $-[\mu^{*}]$ and the contribution of the other further element;
+as $G\sim0$ has mass at most $2$, it vanishes, and that element is a top of
+$O$ of $3$-level $0$, sign $+$ and label $\mu^{*}$. With the $S^{-}$ element
+at $\mu^{*}$ this is \Cref{lem:twochains}(d).
+\item $\ell_{+}=1$. Replacing $t$ by $t\eta$ exchanges the $S^{+}$ and
+$S^{-}$ elements and reverses all signs, and the previous case gives
+\Cref{lem:twochains}(d) with all signs reversed.
+\end{itemize}
+
+\emph{Step 3: all orbits flat.} By \Cref{lem:twochains}(b), $B$ does not
+contain (C). Fix a base $t$ of an orbit with a top, and write $Z_{k}$,
+$Y_{k}$, $z_{k}$, $y_{k}$ for $O_{k}$, $0\le k<K$, and $Y_{K}=-Y_{0}$. By
+\Cref{lem:orbit}(b),
+\[
+  E_{k}=Z_{k}+Y_{k}-(1/3)_{*}Y_{k+1}\sim0,
+\]
+with integer coefficients. Without (C), $\|Z_{k}+Y_{k}\|=z_{k}+y_{k}$, so
+$\sum_{k}\|E_{k}\|\le\sum_{k}(z_{k}+2y_{k})\le6$.
+
+If every $E_{k}$ vanishes, then $z_{k}+y_{k}=y_{k+1}$ for all $k$, with
+$y_{K}=y_{0}$; summing over $k$ gives $\sum z_{k}=0$, so all $y_{k}$ are
+equal to some $p\ge1$, and $2Kp\le6$ forces $K=2$ and $p=1$. Then
+$Y_{0}=(1/3)_{*}Y_{1}$ and $Y_{1}=(1/3)_{*}Y_{2}=-(1/3)_{*}Y_{0}$, so
+$Y_{0}=-(1/9)_{*}Y_{0}$ for $Y_{0}=\pm[\nu]$, which is impossible. If there
+are no short lines, every nonzero $E_{k}$ has mass at least $7$; so this
+case shows that $B$ contains (C), a contradiction.
+
+So there are short lines, and as each nonzero $E_{k}$ has mass at least
+$4$, exactly one of them is nonzero; choose $t$ so that it is $E_{0}$. For
+$1\le k<K$, $z_{k}+y_{k}=y_{k+1}$, so $y_{1}\le y_{2}\le\dots\le y_{K}=y_{0}$
+and $\sum_{1\le k<K}z_{k}=y_{0}-y_{1}$. With $4\le\|E_{0}\|\le
+z_{0}+y_{0}+y_{1}$ and
+\[
+  \sum_{k}(z_{k}+2y_{k})=z_{0}+3y_{0}+y_{1}+2\sum_{2\le k<K}y_{k}\le6
+\]
+this gives $y_{0}+(K-2)y_{1}\le1$.
+\begin{itemize}
+\item $y_{0}=0$. All $y_{k}$, and all $z_{k}$ with $k\ge1$, vanish, and
+$E_{0}=Z_{0}$ is $\pm\mathbf 1_{L}$ for a short line $L$. After replacing $t$
+by $t\eta$, $Z_{0}=\mathbf 1_{L}$, so $L$ is covered by the labels of tops
+$[t,\lambda]_{J,0}$ and $[-t\eta,-\lambda]_{J,0}$, one at each label; as in
+Step 2, (C4) and \Cref{def:localconf}(iii) give \Cref{lem:twochains}(a).
+\item $y_{0}=1$ and $y_{1}=0$. Then $y_{k}=0$ for $1\le k<K$, $z_{K-1}=1$
+and $z_{k}=0$ for $1\le k<K-1$. So $E_{0}=Z_{0}+Y_{0}$ with
+$4\le\|E_{0}\|\le z_{0}+1$ and $z_{0}+3\le6$: $z_{0}=3$, and
+$E_{0}=\pm\mathbf 1_{L}$ for a line $L$ of size four, so $5\parallel e'$.
+After replacing $t$ by $t\eta$, $E_{0}=\mathbf 1_{L}$, and $B$ consists of
+three tops of $O_{0}$ of $3$-level $0$ and sign $+$, a pair of $O_{0}$ of
+sign $+$ at the fourth label of $L$, and one top of $3$-level $0$ of
+$O_{K-1}=O_{t/3}$. This is \Cref{lem:twochains}(e).
+\item $K=2$ and $y_{0}=y_{1}=1$. Then $z_{1}=0$, $z_{0}=2$, and $B$
+consists of two tops of $O_{0}$ of $3$-level $0$ and the four elements of a
+pair of $O_{0}$ and a pair of $O_{1}$. Let $y=[t_{y},\alpha,\mu_{y}]_{J,1}$
+lie in the pair of $O_{0}$, fix $b\in G_{3}$, and put
+$\Delta(s)=R(s,b)-R(s,-b)$. By \Cref{lem:boxrel}(a), $\Delta(s)\sim
+\Delta(s')$. Only the four elements of the two pairs contribute to $\Delta$,
+and only $y$ among them has its coordinate $t$ equal to $\pm t_{y}$. So
+$\Delta(t_{y})-\Delta(-t_{y})=d([\mu_{y}]-[-\mu_{y}])$ with $d=\mathbf
+1_{\alpha}(b)-\mathbf 1_{\alpha}(-b)=\pm1$, where $\mathbf 1_{\alpha}$ is the
+indicator of $a\equiv\alpha\pmod3$: a nonzero split function of mass $2$,
+against \Cref{lem:splitsmall}(b).
+\end{itemize}
+In every case $B$ has a local chain, which proves the proposition.
+\end{proof}
+
+\subsubsection*{Elements of large \texorpdfstring{$3$}{3}-level}
+From here to the end of the proof of \Cref{prop:threelevel}, every element
+of $B$ has $2$-level at most $3$, and $I\ge3$ is the largest $3$-level of an
+element of $B$, so $w\ge I$. When $N$ is odd every element has $2$-level $0$,
+and what follows about elements of positive $2$-level is void. Put
+$\kappa=1+3^{I-1}$, so that $\kappa^{3}\equiv1\pmod{3^{I}}$. A \emph{top} is
+now an element of $B$ of $3$-level $I$. The function $R(s,a)$ depends on $a$
+only modulo $3^{I}$, and a box of $3$-level smaller than $I$ contains
+$(s,a)$, $(s,a\kappa)$ and $(s,a\kappa^{2})$ together.
+
+The cosets of $\{\pm1,\pm\kappa,\pm\kappa^{2}\}$ in $(\ZZ/3^{I})^{\times}$
+form a cyclic group of order $K=3^{I-2}\ge3$, generated by the class of $2$,
+and $2^{K}\equiv-\kappa^{2}\pmod{3^{I}}$, since $2=-(1-3)$ and
+$(1-3)^{3^{I-2}}\equiv1-3^{I-1}\equiv\kappa^{2}\pmod{3^{I}}$. Fix a unit
+$b$ modulo $3^{I}$, put $b_{k}=2^{k}b$, and call
+$\Omega_{k}=\{\pm b_{k}\kappa^{r}\}$, with the \emph{base} $b_{k}$, the
+\emph{$3$-orbits}; then $\Omega_{k+K}=\Omega_{k}$ and $b_{k+K}=-\kappa^{-1}
+b_{k}$. A top $x=[t,\beta,\mu]_{j,I}$ with $\beta\in\Omega_{k}$ is a
+\emph{top of $\Omega_{k}$}. Relative to the base $b_{k}$ it has a
+\emph{position} $r\in\ZZ/3$ and a \emph{sign} $\sigma$ with
+$\beta=\sigma b_{k}\kappa^{r}$, the \emph{label} $\lambda_{x}=\sigma\mu$ and
+the \emph{signed box} $C_{x}=\{s\in G_{2}:s\equiv\sigma t\ (2^{j})\}$, which
+is $G_{2}$ when $j\le1$. Relative to the base $b_{k+K}$ the same top has the
+position $r+1$, the sign $-\sigma$, the label $-\lambda_{x}$ and the signed
+box $-C_{x}$; replacing $b$ by $-b$ keeps the positions and replaces the
+signs, labels and signed boxes by their negatives. Put
+$T_{k}(r,s)=R(s,b_{k}\kappa^{r})$. As in \eqref{eq:PhiO},
+\begin{equation}\label{eq:Tk}
+  T_{k}(r,s)=h_{k}(s)+\sum_{x}\sigma_{x}\,\mathbf 1_{C_{x}}(s)\,[\lambda_{x}],
+\end{equation}
+the sum over the tops of $\Omega_{k}$ at the position $r$, where $h_{k}(s)$
+collects the elements of $3$-level smaller than $I$ and does not depend on
+$r$.
+
+\begin{lemma}\label{lem:threeorbit}
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $T_{k}(r,s)-T_{k}(r,s')-T_{k}(r',s)+T_{k}(r',s')\sim0$.
+\item $G_{k}(r)\sim G_{k}(r')$, where
+\[
+  G_{k}(r)=\sum_{x}\frac{\sigma_{x}}{\varphi(2^{j_{x}})}[\lambda_{x}]
+  -(1/2)_{*}\sum_{y}\frac{\sigma_{y}}{\varphi(2^{j_{y}})}[\lambda_{y}],
+\]
+the sums over the tops $x$ of $\Omega_{k}$ at $r$ and over the tops $y$ of
+$\Omega_{k+1}$ of $2$-level at least $1$ at $r$, with the data of $y$
+relative to $b_{k+1}$.
+\item Let $x$ and $x'$ be tops of one $3$-orbit, with data relative to one
+base.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item If they have the same sign, $2$-level, signed box and label, they have
+the same position.
+\item If they have the same position, $2$-level, signed box and label, they
+have the same sign.
+\item If they have the same position, sign, $2$-level $j\ge2$ and label, their
+signed boxes are not $C$ and $C\eta_{j}$.
+\item If $q\mid e'$ is prime and the tops of $\Omega_{k}$ of one position,
+sign, $2$-level and signed box have labels in one coset of $K_{q}$, they have
+at most $(q-1)/2$ different labels.
+\end{enumerate}
+\item A top of $\Omega_{k}$ of $2$-level $0$ at $(r,\sigma,\lambda)$ and a top
+of $\Omega_{k+1}$ of $2$-level $1$ at $(r,\sigma,2\lambda)$, relative to
+$b_{k+1}$, do not both lie in $B$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) is \Cref{lem:boxrel}(a) at $a=b_{k}\kappa^{r}$ and $a'=b_{k}\kappa^{r'}$.
+(b) By \Cref{lem:boxrel}(c), $F_{2}(b_{k}\kappa^{r})\sim F_{2}(b_{k}
+\kappa^{r'})$. In $\int R(s,b_{k}\kappa^{r})\,ds$ a top $x$ of $\Omega_{k}$
+at $r$ contributes $\sigma_{x}\varphi(2^{j_{x}})^{-1}[\lambda_{x}]$ by
+\eqref{eq:Tk}, and the elements of $3$-level smaller than $I$ contribute the
+same for every $r$. In $R_{B_{2}}(s,2b_{k}\kappa^{r})=R_{B_{2}}(s,b_{k+1}
+\kappa^{r})$ the tops of $\Omega_{k+1}$ at $r$ relative to $b_{k+1}$
+contribute in the same way. Subtracting gives (b). (c) In (i) the two tops
+have the same coordinates $t$ and $\mu$, and coordinates $\beta$ that agree
+modulo $3^{I-1}$; by (C3) and \Cref{def:localconf}(iii) they are equal. In
+(ii), opposite signs would give $x'=-x$. In (iii), the coordinates $t$ would
+be $t$ and $t\eta_{j}$, so $x'=x+N/2$ by (C1). (iv) is (C4) with
+\Cref{def:localconf}(iii). (d) By (C1), a top $z=[\beta,\mu]_{0,I}$ has
+$z+N/2=[1,2\beta,2\mu]_{1,I}$, whose data relative to $b_{k+1}$ are
+$(r,\sigma,2\lambda)$.
+\end{proof}
+
+\begin{lemma}\label{lem:flatthree}
+Let $\lambda\in U$, let $Y$ be a multiset of tops of $\Omega_{k}$ with label
+$\lambda$, let $j\ge2$ be the largest $2$-level in $Y$, and let $F(r,s)$ be
+the coefficient of $[\lambda]$ in $\sum_{x\in Y}\sigma_{x}[r=r_{x}]\mathbf
+1_{C_{x}}(s)$. If $P$ is a ball of $2$-level $j-1$ such that
+$F(r,s)-F(r,s')$ does not depend on $r$ for $s,s'\in P$, then no element of
+$Y$ of $2$-level $j$ has its signed box in $P$.
+\end{lemma}
+
+\begin{proof}
+Let $C_{1}$ and $C_{2}=C_{1}\eta_{j}$ be the two balls of $2$-level $j$ in
+$P$, and $s_{i}\in C_{i}$. The elements of $Y$ of smaller $2$-level
+contribute equally at $s_{1}$ and $s_{2}$. So, if $n_{r}(C)$ is the sum of the
+signs of the elements of $Y$ of $2$-level $j$ at the position $r$ with signed
+box $C$, then $n_{r}(C_{1})-n_{r}(C_{2})=\delta$ for every $r$, with $\delta$
+independent of $r$. By \Cref{lem:threeorbit}(c)(i), each of the four kinds of
+such elements, with signed box $C_{1}$ or $C_{2}$ and sign $+$ or $-$,
+occupies at most one position. The positive contributions to $\delta$ come
+from two kinds, so from at most two of the three positions, and $\delta>0$
+is impossible; so is $\delta<0$. Hence $n_{r}(C_{1})=n_{r}(C_{2})$ for every
+$r$. By \Cref{lem:threeorbit}(c)(ii) each $n_{r}(C_{i})$ is $\pm$ a number of
+elements, and two equal nonzero values would put elements of one sign with
+the signed boxes $C_{1}$ and $C_{1}\eta_{j}$ at one position, against
+\Cref{lem:threeorbit}(c)(iii). So $n_{r}(C_{1})=n_{r}(C_{2})=0$, and by
+\Cref{lem:threeorbit}(c)(ii) no element of $2$-level $j$ has its signed box
+in $P$.
+\end{proof}
+
+A $3$-orbit $\Omega_{k}$ is \emph{flat} if every coefficient of $T_{k}$ is
+a sum $g(r)+h(s)$. Tops of $2$-level at most $1$ contribute functions of $r$
+alone to $T_{k}$; conversely, by \Cref{lem:flatthree}, applied at every
+label to all the tops there and to every ball, a flat $3$-orbit has no top of
+$2$-level at least $2$.
+
+\begin{lemma}\label{lem:labelthree}
+Let $\lambda\in U$, $m\in\{2,3\}$, $V$ a ball of $2$-level $m$, $P$ the ball
+of $2$-level $m-1$ containing it and $V'=V\eta_{m}$ the other ball of
+$2$-level $m$ in $P$. Let $Y$ be a multiset of tops of $\Omega_{k}$ with label
+$\lambda$ and $2$-level at most $m$, and suppose that the coefficient of
+$[\lambda]$ in $\sum_{x\in Y}\sigma_{x}[r=r_{x}]\mathbf 1_{C_{x}}(s)$ is
+$A(r,s)+[r=r^{*}]\mathbf 1_{V}(s)$ with $A$ additive. Then the elements of
+$Y$ of $2$-level $m$ are
+\begin{itemize}
+\item one top at $(r^{*},+)$ with signed box $V$ \textup{(type $S^{+}$)}, or
+\item one top at $(r^{*},-)$ with signed box $V'$ \textup{(type $S^{-}$)}, or
+\item two tops, at $(r_{1},-)$ with signed box $V$ and at $(r_{2},+)$ with
+signed box $V'$, where $\{r^{*},r_{1},r_{2}\}=\ZZ/3$ \textup{(type $D$)};
+\end{itemize}
+and the other elements of $Y$ contribute, up to an additive function, $0$,
+$[r=r^{*}]\mathbf 1_{P}$ or $-[r=r_{2}]\mathbf 1_{P}$ in the three cases.
+\end{lemma}
+
+\begin{proof}
+On a ball of $2$-level $m-1$ other than $P$ the function $\mathbf 1_{V}$
+vanishes, and \Cref{lem:flatthree} leaves no element of $2$-level $m$ there.
+Inside $P$, with $s_{V}\in V$, $s_{V'}\in V'$ and $n_{r}$ as in the proof
+of \Cref{lem:flatthree},
+\[
+  n_{r}(V)-n_{r}(V')=\delta+[r=r^{*}],\qquad\delta=A(r,s_{V})-A(r,s_{V'}),
+\]
+and $\delta$ does not depend on $r$. The kinds $(V,+)$ and $(V',-)$ give the
+positive contributions and $(V,-)$, $(V',+)$ the negative ones, each kind at
+one position, so $\delta\ge1$ and $\delta\le-2$ are impossible. If
+$\delta=0$, the counts at $r\ne r^{*}$ vanish as in the proof of
+\Cref{lem:flatthree}, and at $r^{*}$ we have $n(V)-n(V')=1$ where the two
+counts are not nonzero of one sign, by \Cref{lem:threeorbit}(c)(iii); so
+$n(V)=1$ and $n(V')=0$, or $n(V)=0$ and $n(V')=-1$, and by
+\Cref{lem:threeorbit}(c)(ii) these counts are numbers of tops: types $S^{+}$
+and $S^{-}$. If $\delta=-1$, both positions other than $r^{*}$ need a negative
+contribution, so the kinds $(V,-)$ and $(V',+)$ sit at one of them each. At
+the position of $(V,-)$, \Cref{lem:threeorbit}(c)(ii) excludes $(V,+)$ and
+(c)(iii) excludes $(V',-)$, so the count $-1$ there is one top; likewise at
+the position of $(V',+)$. The kinds $(V,+)$ and $(V',-)$ can then sit only at
+$r^{*}$, where $n(V)-n(V')=0$ excludes them: type $D$. Subtracting the part of
+$2$-level $m$ from $[r=r^{*}]\mathbf 1_{V}$ leaves $0$, $[r=r^{*}](\mathbf
+1_{V}+\mathbf 1_{V'})$ and $[r=r^{*}]\mathbf 1_{V}+[r=r_{1}]\mathbf 1_{V}-
+[r=r_{2}]\mathbf 1_{V'}=\mathbf 1_{V}(s)-[r=r_{2}]\mathbf 1_{P}(s)$.
+\end{proof}
+
+\begin{lemma}\label{lem:threechains}
+In each of the following cases $B$ has a local chain.
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $B$ contains an element $x$ of $2$-level $j\ge1$ and $-2x$.
+\item $5\parallel e'$, $x_{1}$ has $2$-level $1$ and order $n$, the elements
+of order $n$ in $\Phi_{5}(x_{1})$ are $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$, and
+$B=\{x_{1},x_{2},2y_{1},2y_{2},N/2-y_{1},N/2-y_{2}\}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) The move by $T(x)=\{x,x+N/2,-2x,N/2\}$ removes $x$ and $-2x$ and adds
+$-x+N/2$ and $N/2$, as $x+N/2\notin B$. If $j\ge2$, then $-x+N/2$ has the
+order $n$ of $x$, and the orders $n,n/2$ are replaced by $n,2$; if $j=1$, it
+has order $n/2$, and $n,n/2$ are replaced by $n/2,2$. Either way the result
+has $|B|$ elements and fewer of the order $n/2$ or $n$.
+
+(b) By (C4), $\Phi_{5}(x_{1})$ consists of $x_{1}$, $x_{2}$, $y_{1}$, $y_{2}$
+and an element $x_{0}$ of core $e'/5$. Of these and $-5x_{1}$, only $x_{1}$
+and $x_{2}$ lie in $B$, so the move by $\sigma_{5,x_{1}}$ removes $x_{1}$,
+$x_{2}$ and adds $-y_{1}$, $-y_{2}$, $-x_{0}$, $5x_{1}$. The move by
+$T(-y_{1})=\{-y_{1},N/2-y_{1},2y_{1},N/2\}$ removes three elements and adds
+$N/2$. The result $\{-y_{2},2y_{2},N/2-y_{2},-x_{0},5x_{1},N/2\}$ has $|B|$
+elements; the orders $n,n/2,n/2$ of $B$ are replaced by $n/5,n/5,2$.
+\end{proof}
+
+\begin{proposition}\label{prop:threelevel}
+If every element of $B$ has $2$-level at most $3$ and some element has
+$3$-level at least $3$, then $B$ has a local chain.
+\end{proposition}
+
+\begin{proof}
+Suppose that $B$ has no local chain. By \Cref{lem:threechains}(a), $B$
+contains no element $x$ of positive $2$-level together with $-2x$. Note that
+if $x$ is a top of $2$-level $1$ at $(r,\sigma,\lambda)$, then $-2x$ is the
+top of $2$-level $0$ of the same $3$-orbit at $(r,-\sigma,\lambda)$, by (C2).
+
+\emph{Step 1: every $3$-orbit is flat.} Suppose that $\Omega_{0}$ is not, and
+let $F_{\lambda}(r,s)$ be the coefficient of $[\lambda]$ in $T_{0}(r,s)$. By
+\Cref{lem:threeorbit}(a) and \Cref{lem:splitsmall}(b), each nonzero second
+difference of $T_{0}$ is $\pm\mathbf 1_{L}$ for a short line $L$, as its mass
+is at most the number of tops of $\Omega_{0}$. The labels at which
+$F_{\lambda}$ is not additive form a union of such lines, and each of them
+carries a top of $\Omega_{0}$ of $2$-level at least $2$. Two different short
+lines have at least seven points together by \Cref{lem:splitsmall}(c), so
+these labels form one short line $L$, every nonzero second difference is
+$\pm\mathbf 1_{L}$, and $F_{\lambda}-F_{\lambda'}$ is additive for $\lambda,\lambda'\in L$. At least $2|L|-6\ge2$
+labels of $L$ carry exactly one top of $\Omega_{0}$, of $2$-level at least
+$2$, and there $F_{\lambda}=h(s)+\sigma_{x}[r=r_{x}]\mathbf 1_{C_{x}}(s)$.
+For two such labels with different positions, the additive difference
+vanishes at the third position, so it depends on $r$ alone, and
+$\mathbf 1_{C_{x}}$ would be constant. So these tops share a position $r^{*}$,
+and $\sigma_{x}\mathbf 1_{C_{x}}-\sigma_{x'}\mathbf 1_{C_{x'}}$ is constant:
+either $(\sigma_{x'},C_{x'})=(\sigma_{x},C_{x})$, or $\sigma_{x'}=-\sigma_{x}$
+and $C_{x}$, $C_{x'}$ are the two balls of $2$-level $2$. After replacing $b$
+by $-b$ if necessary,
+\[
+  F_{\lambda}(r,s)=A_{\lambda}(r,s)+[r=r^{*}]\mathbf 1_{V}(s)\quad
+  (\lambda\in L),
+\]
+with $A_{\lambda}$ additive and $V$ a ball of some $2$-level $m\in\{2,3\}$,
+and $F_{\lambda}$ is additive for $\lambda\notin L$. By
+\Cref{lem:flatthree} the tops of $\Omega_{0}$ have $2$-level at most $1$ at
+the labels outside $L$, and at most $m$ at the labels of $L$, since
+$\mathbf 1_{V}$ is constant on every ball of $2$-level at least $m$.
+
+Let $P$ and $V'$ be as in \Cref{lem:labelthree}, which applies at every
+$\lambda\in L$ to all the tops of $\Omega_{0}$ there. Let $a$, $c$ and $d$
+be the numbers of labels of $L$ of the types $S^{+}$, $S^{-}$ and $D$, so
+that $a+c+d=|L|$, and let $L=wK_{q}$. With $t$ a residue modulo $2^{m}$
+defining $V$ and $b'=b\kappa^{r^{*}}$, the tops of type $S^{+}$ are the
+$[t,b',\lambda]_{m,I}$ and those of type $S^{-}$ the
+$[-t\eta_{m},-b',-\lambda]_{m,I}$; by \Cref{lem:threeorbit}(c)(iv), $a$ and
+$c$ are at most $(q-1)/2$. If $m=3$, then $P$ is a ball of $2$-level $2$, and
+at a label of type $S^{-}$ or $D$ the tops of $2$-level at most $2$ contribute
+$[r=r']\mathbf 1_{W}$ up to an additive function, with $W=P$, $r'=r^{*}$, or
+$W=G_{2}-P$, $r'=r_{2}$; so \Cref{lem:labelthree} with $m=2$ gives one
+more top there. A top of $2$-level $2$ enters $G_{0}$ with the weight $1/2$.
+Let $p$ and $p'$ be the positions other than $r^{*}$; the tops of the types
+$S^{\pm}$ lie at $r^{*}$, and for $m=2$ a label of type $D$ contributes
+$\mp\frac12$ times its point to $G_{0}(p)$ and $\pm\frac12$ times it to
+$G_{0}(p')$.
+\begin{itemize}
+\item $m=2$, $|L|=6$, so $7\parallel e'$: $a+c+2d\le6$ forces $d=0$ and
+$a=c=3$, and \Cref{lem:twochains}(a) applies.
+\item $m=2$, $|L|=5$, so $25\mid e'$: $a,c\le2$ force $d=1$, $a=c=2$, and
+these six tops are all of $B$. Then $G_{0}(p)-G_{0}(p')$ is $\pm$ one point,
+against \Cref{lem:threeorbit}(b) and \Cref{lem:splitsmall}(b).
+\item $m=2$, $|L|=4$, so $5\parallel e'$ and $a,c\le2$. For $d=0$,
+\Cref{lem:twochains}(a) applies. For $d=2$ the six tops are all of $B$, and
+$G_{0}(p)-G_{0}(p')$ is a sum of two points with signs, again impossible. For
+$d=1$, $B$ has at most one element $w$ besides the five tops in $L$, and
+$2(G_{0}(p)-G_{0}(p'))$ is split, with integer coefficients, mass at most
+$4$ and at most two nonzero coefficients, so it vanishes, and $G_{0}(p)=G_{0}(p')=\pm\frac12[\lambda_{D}]$ for the label
+$\lambda_{D}$ of type $D$. Then $2(G_{0}(r^{*})-G_{0}(p))$ is split, with
+integer coefficients, and has the four points of $L$ with both signs,
+against \Cref{lem:splitsmall}(b).
+\item $m=3$: a label of type $S^{-}$ carries at least two tops and one of
+type $D$ at least three, so $a+2c+3d\le6$. With $a,c\le(q-1)/2$ this leaves
+only $|L|=4$, $d=0$ and $a=c=2$, and \Cref{lem:twochains}(a) with $j=3$
+applies.
+\end{itemize}
+So every $3$-orbit is flat, and every top has $2$-level at most $1$.
+
+\emph{Step 2: cells.} For $k\in\ZZ/K$ and $\lambda\in U$, the \emph{cell}
+$(k,\lambda)$ consists of the tops of $\Omega_{k}$ with label $\lambda$ and of
+its \emph{upper tops}, the tops of $\Omega_{k+1}$ of $2$-level $1$ with label
+$2\lambda$ relative to $b_{k+1}$. Let $v(r)=v_{0}(r)+v_{1}(r)$ and $u(r)$ be
+the sums of the signs of the tops of $\Omega_{k}$ of $2$-level $0$ and $1$ in
+the cell, and of its upper tops, at the position $r$. By \Cref{lem:threeorbit}
+the coefficient of $[\lambda]$ in $G_{k}(r)$ is $v(r)-u(r)$, and:
+\begin{itemize}
+\item each of the kinds \emph{top of $2$-level $0$ of a given sign}, \emph{top
+of $2$-level $1$ of a given sign}, \emph{upper top of a given sign} occupies
+at most one position;
+\item at each position the tops of $\Omega_{k}$ of the cell have one sign, by
+(c)(ii) and the absence of $x$ with $-2x$, and so have the upper tops;
+\item a top of $2$-level $0$ and an upper top of the same sign do not share a
+position, by (d).
+\end{itemize}
+The upper tops of $(k,\lambda)$ are the tops of $2$-level $1$ of the cell
+$\pi(k,\lambda)=(k+1,2\lambda)$, with labels relative to $b_{k+1}$; by the
+change of base, $\pi(K-1,\lambda)=(0,-2\lambda)$. Let $n_{1}$ be the number of
+tops of $2$-level $1$ of a cell.
+
+\emph{Constant cells.} Suppose $v-u=c$ is constant. If $c=0$, the cell has
+no top of $2$-level $0$, since such a top of sign $\sigma$ at $r$ makes $v(r)$,
+hence $u(r)$, of sign $\sigma$; so $v_{1}=u$. If $c\ne0$, reverse the signs
+in the cell to get $c>0$. Every position needs a positive contribution, from
+the three kinds: tops of $2$-level $0$ of sign $+$, tops of $2$-level $1$ of
+sign $+$, and upper tops of sign $-$; so they sit at three different
+positions $p_{0}$, $p_{1}$, $q$. Upper tops of sign $+$ can only sit where
+$v>0$, and not at $p_{0}$, so at $p_{1}$; tops of $\Omega_{k}$ of sign $-$
+can only sit where $u<0$, at $q$, and have $2$-level $1$. So the cell has
+exactly $c$ tops of $2$-level $0$, all at $p_{0}$, and at $p_{1}$ and $q$ the
+numbers $a_{1},b_{1}$ of tops of $2$-level $1$ of signs $\pm$ and
+$a_{u},b_{u}$ of upper tops satisfy $a_{1}-a_{u}=c=b_{u}-b_{1}$. In both
+cases $n_{1}(C)=n_{1}(\pi(C))$; a constant cell without upper tops, or
+without tops of $2$-level $1$, is empty; and in a constant cell with one top
+of $2$-level $1$ and one upper top, the upper top has the position and the
+sign of that top and there is no top of $2$-level $0$ ($c=0$), or it has the
+opposite sign and another position and there is exactly one top of $2$-level
+$0$ ($c\ne0$).
+
+\emph{Defective cells.} The function $G_{k}$ has integer coefficients, and
+$\|G_{k}(r)-G_{k}(r')\|$ is at most the number of tops of $\Omega_{k}$ and of
+tops of $2$-level $1$ of $\Omega_{k+1}$. As in Step 2 of the proof of
+\Cref{prop:twolevel}, \Cref{lem:threeorbit}(b) and \Cref{lem:splitsmall}
+give
+\[
+  G_{k}(r)=g_{k}+\varepsilon_{k}[r=\rho_{k}]\mathbf 1_{L_{k}},\qquad
+  \varepsilon_{k}\in\{0,\pm1\},
+\]
+with a short line $L_{k}$ when $\varepsilon_{k}\ne0$. Let $\mathcal D$ be the
+set of $k$ with $\varepsilon_{k}\ne0$ and $\ell_{k}=|L_{k}|\ge4$. The cells
+$(k,\lambda)$ with $k\in\mathcal D$ and $\lambda\in L_{k}$ are
+\emph{defective}, with $v-u=c+\varepsilon_{k}[r=\rho_{k}]$; all other cells
+are constant. The same counting as for constant cells, with $\varepsilon_{k}$
+in place of $+1$, shows:
+\begin{itemize}
+\item a defective cell with one top is of type $\alpha$ (a top of $\Omega_{k}$
+at $(\rho_{k},\varepsilon_{k})$) or $\beta$ (an upper top at
+$(\rho_{k},-\varepsilon_{k})$);
+\item a defective cell without upper tops is of type $\alpha$, or of type $A$:
+a top of $2$-level $0$ and a top of $2$-level $1$, both of sign
+$-\varepsilon_{k}$, at the two positions other than $\rho_{k}$;
+\item a defective cell without tops of $2$-level $1$ is of type $\alpha$ with
+a top of $2$-level $0$, of type $\beta$, or of type $B'$: an upper top of sign
+$\varepsilon_{k}$ and a top of $2$-level $0$ of sign $-\varepsilon_{k}$, at
+the two positions other than $\rho_{k}$;
+\item a defective cell with neither is of type $\alpha$ with a top of
+$2$-level $0$.
+\end{itemize}
+Indeed, with $\varepsilon_{k}=1$, in the second and third cases each sign
+comes from two kinds at one position each, which excludes $c\ge1$ and
+$c\le-2$; $c=0$ leaves type $\alpha$ or $\beta$, by the last two rules above
+at the positions $r\ne\rho_{k}$ and at $\rho_{k}$, and $c=-1$ puts the two
+negative kinds at the two positions other than $\rho_{k}$, one top each, and
+leaves no room for the positive kinds.
+
+Each defective cell of $k$ contains a top, of $\Omega_{k}$ or of $2$-level $1$
+of $\Omega_{k+1}$, and distinct cells of $k$ have no common top. For
+$k,k'\in\mathcal D$ with $k'\notin\{k-1,k,k+1\}$ this needs eight tops, so
+$\mathcal D\subseteq\{k,k+1\}$ for some $k$, or $K=3$ and $\mathcal D=\ZZ/3$.
+Let $N_{1}(k)$ be the number of tops of $2$-level $1$ of $\Omega_{k}$; as
+$\pi$ maps the cells of $k$ bijectively onto those of $k+1$,
+$N_{1}(k)=N_{1}(k+1)$ for $k\notin\mathcal D$. Let $T_{0}$ and $T_{1}$ be the
+numbers of tops of $2$-level $0$ and $1$, so $T_{0}+T_{1}\le6$. If $L_{k}=wK_{q}$,
+then by \Cref{lem:threeorbit}(c)(iv) at most $(q-1)/2\le\ell_{k}-2$
+defective cells of $k$ contain a top of one given kind at one given
+position.
+
+\emph{Step 3: $\mathcal D=\emptyset$.} Then $n_{1}$ is constant along every
+$\pi$-orbit of cells, and the $\pi$-orbit of $(0,\lambda)$ has $K\cdot
+\ord(\gamma)$ cells, $\gamma=-2^{K}\in U$. If there is a top of $2$-level $1$,
+this gives $K\ord(\gamma)\le6$, so $K=3$, $64\equiv1\pmod{e'}$, $e'=7$ and
+$\gamma=-1$ has order $2$. Then the six cells of the $\pi$-orbit have one top
+of $2$-level $1$ each, there is no top of $2$-level $0$, every cell has
+$c=0$, and the top of $2$-level $1$ of $\pi(C)$ has the position and sign of
+that of $C$. Passing around the $\pi$-orbit, the top of $(0,\lambda)$ at
+$(r,\sigma)$ forces one at $(r-1,-\sigma)$ in $(0,-\lambda)$ and one at
+$(r-2,\sigma)$ in $(0,\lambda)$, which has only one. If there is no top of
+$2$-level $1$, every cell has $c=0$ and no top at all, which is impossible.
+
+\emph{$K=3$ and $\mathcal D=\ZZ/3$.} A top of $2$-level $0$ lies in the cells
+of one $k$, a top of $2$-level $1$ in those of two, so $12\le\sum_{k}\ell_{k}
+\le T_{0}+2T_{1}\le12$. Hence $T_{1}=6$, $\ell_{k}=4$, and every defective
+cell has one top. By the last remark of Step 2 each $k$ has defective cells
+of both types $\alpha$ and $\beta$; so the tops of $\Omega_{k+1}$ are at
+$(\rho_{k},-\varepsilon_{k})$ and at $(\rho_{k+1},\varepsilon_{k+1})$,
+relative to $b_{k+1}$, whence $\rho_{k+1}=\rho_{k}$ and
+$\varepsilon_{k+1}=-\varepsilon_{k}$ for $k=0,1$. For $k=2$, the tops of
+$\Omega_{3}=\Omega_{0}$ are at $(\rho_{0},-\varepsilon_{2})=
+(\rho_{0},-\varepsilon_{0})$ relative to $b_{3}$, that is at
+$(\rho_{0}-1,\varepsilon_{0})$ relative to $b_{0}$, while they are at
+$(\rho_{0},\varepsilon_{0})$: impossible.
+
+\emph{$\mathcal D=\{k\}$.} Then $N_{1}$ is constant, equal to $a_{1}$, and
+$T_{1}=Ka_{1}$.
+\begin{itemize}
+\item $a_{1}=0$, which holds when $K\ge9$: the defective cells of $k$ are of
+type $\alpha$ with tops of $2$-level $0$, and $\ell_{k}$ of them give too
+many labels at one position and sign.
+\item $K=3$, $a_{1}=2$: $T_{0}=0$, the defective cells of $k$ contain the four
+tops of $\Omega_{k}$ and of $2$-level $1$ of $\Omega_{k+1}$, one each, and
+$\ell_{k}=4$; so the tops of $\Omega_{k}$ are at $(\rho_{k},\varepsilon_{k})$
+and those of $\Omega_{k+1}$ at $(\rho_{k},-\varepsilon_{k})$. The cells of
+$k+1$ and $k+2$ are constant with $c=0$, so the tops of $\Omega_{k+2}$, and
+those of $\Omega_{k+3}=\Omega_{k}$ relative to $b_{k+3}$, are at
+$(\rho_{k},-\varepsilon_{k})$, that is at $(\rho_{k}-1,\varepsilon_{k})$
+relative to $b_{k}$: impossible.
+\item $K=3$, $a_{1}=1$: let $x$, $y$, $z$ be the tops of $2$-level $1$ of
+$\Omega_{k}$, $\Omega_{k+1}$, $\Omega_{k+2}$, and
+$(\rho,\varepsilon)=(\rho_{k},\varepsilon_{k})$. A defective cell of $k$
+containing neither $x$ nor $y$ is of type $\alpha$ with a top of $2$-level
+$0$, so there are at most $(q-1)/2$ of them and at least $\ell_{k}-2$;
+hence $\ell_{k}=4$, there are exactly two, and $x$ and $y$ lie in two further defective cells: the cell of
+$x$ has no upper top and is of type $\alpha$ ($x$ at $(\rho,\varepsilon)$) or
+$A$ ($x$ of sign $-\varepsilon$, with a top of $2$-level $0$), and the cell
+of $y$ has no top of $2$-level $1$ and is of type $\beta$ ($y$ at
+$(\rho,-\varepsilon)$) or $B'$ ($y$ of sign $\varepsilon$, with a top of
+$2$-level $0$). With $z$ these are at least five tops, so $A$ and $B'$ do not
+both occur. The cells of $k+1$ and $k+2$ are constant; the cell of $y$ has
+the upper top $z$, and the cell of $z$ the upper top $x$, relative to
+$b_{k+3}$. In each of these two cells the upper top keeps the position and
+sign of the top of $2$-level $1$, or the cell has one more top of $2$-level
+$0$ and the sign changes; passing from $b_{k+3}$ to $b_{k}$ changes the sign
+again and lowers the position by $1$. For $\alpha$ and $\beta$ (five tops, so
+at most one further top of $2$-level $0$), $x$ is at $(\rho-1,\varepsilon)$
+or has the sign $-\varepsilon$; for $\alpha$ and $B'$ (six tops), $x$ has the
+sign $-\varepsilon$; for $A$ and $\beta$ (six tops), $x$ has the sign
+$\varepsilon$. Each contradicts the type of the cell of $x$.
+\end{itemize}
+
+\emph{$\mathcal D=\{k,k+1\}$.} Here $N_{1}(k')=a_{1}$ for $k'\ne k+1$ and
+$N_{1}(k+1)=b_{1}$, so $T_{1}=(K-1)a_{1}+b_{1}$. Let $S_{k}$ and $S_{k+1}$
+be the sets of tops in the defective cells of $k$ and of $k+1$. They meet only
+in tops of $2$-level $1$ of $\Omega_{k+1}$, so $b_{1}\ge|S_{k}|+|S_{k+1}|-6
+\ge2$.
+\begin{itemize}
+\item $a_{1}\ge1$. Then $K=3$, and $(a_{1},b_{1})$ is $(2,2)$, $(1,2)$, $(1,3)$
+or $(1,4)$. For $(2,2)$, $T_{0}=0$, every defective cell has one top, and the
+tops of $\Omega_{k}$, $\Omega_{k+1}$, $\Omega_{k+2}$ are at
+$(\rho_{k},\varepsilon_{k})$, at $(\rho_{k},-\varepsilon_{k})=(\rho_{k+1},
+\varepsilon_{k+1})$ and at $(\rho_{k+1},-\varepsilon_{k+1})=(\rho_{k},
+\varepsilon_{k})$; the cells of $k+2$ are constant with $c=0$, so the tops
+of $\Omega_{k}$ relative to $b_{k+3}$ are at $(\rho_{k},\varepsilon_{k})$,
+that is at $(\rho_{k}-1,-\varepsilon_{k})$ relative to $b_{k}$: impossible.
+For $(1,2)$, $|S_{k}\cup S_{k+1}|\ge6$ forces equality everywhere: every top
+lies in $S_{k}\cup S_{k+1}$, every defective cell has one top, and so the top
+$x$ of $2$-level $1$ of $\Omega_{k}$ is at $(\rho_{k},\varepsilon_{k})$, those
+of $\Omega_{k+1}$ at $(\rho_{k},-\varepsilon_{k})=(\rho_{k+1},
+\varepsilon_{k+1})$, and the top $z$ of $2$-level $1$ of $\Omega_{k+2}$ at
+$(\rho_{k+1},-\varepsilon_{k+1})=(\rho_{k},\varepsilon_{k})$, while
+$\Omega_{k+2}$ has no top of $2$-level $0$. So the cell of $z$ is constant with
+$c=0$, and $x$ relative to $b_{k+3}$ is at $(\rho_{k},\varepsilon_{k})$, that
+is at $(\rho_{k}-1,-\varepsilon_{k})$ relative to $b_{k}$: impossible. For
+$(1,3)$ and $(1,4)$, $T_{0}\le1$, so $\Omega_{k}$ or $\Omega_{k+1}$ has no
+top of $2$-level $0$. In the first case the defective cells of $k$ without
+the top of $2$-level $1$ of $\Omega_{k}$ are of type $\beta$, at least
+$\ell_{k}-1$ of them; in the second the defective cells of $k+1$ without
+the top of $2$-level $1$ of $\Omega_{k+2}$ are of type $\alpha$ with tops of
+$2$-level $1$, at least $\ell_{k+1}-1$ of them. Both are too many.
+\item $a_{1}=0$. Only $\Omega_{k+1}$ has tops of $2$-level $1$. The cells of
+$k$ have no top of $2$-level $1$, all other cells have no upper top, and so
+every constant cell is empty: every top lies in a defective cell of $k$, of
+type $\alpha$, $\beta$ or $B'$, or of $k+1$, of type $\alpha$ or $A$. Let
+$n_{\alpha}$, $n_{\beta}$, $n_{B}$ and $m_{0}$, $m_{1}$, $m_{A}$ count these
+cells, with $m_{0}$ and $m_{1}$ the cells of type $\alpha$ of $k+1$ with a
+top of $2$-level $0$ and $1$. Each top of $2$-level $1$ of $\Omega_{k+1}$ is
+the upper top of a cell $\beta$ or $B'$ of $k$ and the top of a cell $\alpha$
+or $A$ of $k+1$, so
+\[
+  b_{1}=n_{\beta}+n_{B}=m_{1}+m_{A},\qquad
+  T=\ell_{k}+n_{B}+m_{0}+m_{A}=\ell_{k+1}+n_{\alpha}+n_{B}+m_{A}\le6,
+\]
+with $\ell_{k}=n_{\alpha}+n_{\beta}+n_{B}$ and $\ell_{k+1}=m_{0}+m_{1}+m_{A}$.
+Moreover $n_{\alpha},n_{\beta}\le(q-1)/2$ for the line $L_{k}$, and
+$m_{0},m_{1}\le(q'-1)/2$ for $L_{k+1}$, by \Cref{lem:threeorbit}(c)(iv). If
+$\ell_{k}=6$, then $n_{B}=m_{0}=m_{A}=0$ and $n_{\alpha}=n_{\beta}=3$, so
+$T\ge\ell_{k+1}+3>6$; if $\ell_{k}=5$, then $n_{B}=1$, $n_{\alpha}=n_{\beta}
+=2$, and again $T>6$; $\ell_{k+1}\in\{5,6\}$ fails in the same way. So
+$\ell_{k}=\ell_{k+1}=4$ and $5\parallel e'$. Now $n_{\beta}=4-n_{\alpha}-
+n_{B}\ge2+m_{A}$ and $m_{1}\ge2+n_{B}$, so $m_{A}=n_{B}=0$,
+$n_{\beta}=m_{1}=2$, $n_{\alpha}=m_{0}=2$ and $T=6$. Thus $\Omega_{k}$ has two
+tops of $2$-level $0$ at $(\rho_{k},\varepsilon_{k})$, and $\Omega_{k+1}$ has
+two tops of $2$-level $1$, at $(\rho_{k},-\varepsilon_{k})$ and at
+$(\rho_{k+1},\varepsilon_{k+1})$, and two tops of $2$-level $0$ at
+$(\rho_{k+1},\varepsilon_{k+1})$. Put $\rho=\rho_{k}=\rho_{k+1}$ and
+$\varepsilon=\varepsilon_{k+1}=-\varepsilon_{k}$. The labels $M_{1}$ of the
+tops of $2$-level $1$ lie in the lines $2L_{k}$ and $L_{k+1}$, which share two
+points and so coincide; the tops of $2$-level $0$ of $\Omega_{k+1}$ have the
+labels $M_{0}=L_{k+1}-M_{1}$, and those of $\Omega_{k}$ the labels
+$L_{k}-\frac12M_{1}=\frac12M_{0}$. With $\beta'=\varepsilon b_{k+1}
+\kappa^{\rho}$, the elements $[1,\beta',\varepsilon\nu]_{1,I}$, $\nu\in
+L_{k+1}$, are the four elements of order $n=2\cdot3^{I}e'$ in one coset
+$\Phi_{5}(x_{1})$ by (C4). Those with $\nu\in M_{1}$ are the two tops $x_{1}$,
+$x_{2}$ of $2$-level $1$; for the other two, $y_{1}$ and $y_{2}$, the elements
+$2y_{i}=[\beta',\varepsilon\nu]_{0,I}$ are the tops of $2$-level $0$ of
+$\Omega_{k+1}$, and $N/2-y_{i}=[-\beta'/2,-\varepsilon\nu/2]_{0,I}$, by (C1),
+are those of $\Omega_{k}$. This is \Cref{lem:threechains}(b).
+\end{itemize}
+In every case $B$ has a local chain, which proves the proposition.
+\end{proof}
+
+\begin{corollary}\label{cor:seventytwo}
+If a local configuration $B$ at level $N$ has no local chain, then the order
+of every element of $B$ divides $72e'$.
+\end{corollary}
+
+\begin{proof}
+By \Cref{prop:twolevel} every element has $2$-level at most $3$, and then by
+\Cref{prop:threelevel} every element has $3$-level at most $2$.
+\end{proof}

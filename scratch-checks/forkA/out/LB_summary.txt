@@ -1,0 +1,14 @@
+out/L_5_1_5.txt total 18 nochain_at_LB 0
+out/L_5_1_7.txt total 8 nochain_at_LB 0
+out/L_5_1_11.txt total 8 nochain_at_LB 0
+out/L_5_1_13.txt total 8 nochain_at_LB 0
+out/L_4_2_5.txt total 12 nochain_at_LB 0
+out/L_4_2_7.txt total 4 nochain_at_LB 0
+out/L_4_2_11.txt total 4 nochain_at_LB 0
+out/L_4_2_13.txt total 4 nochain_at_LB 0
+out/L_3_3_5.txt total 8 nochain_at_LB 0
+out/L_3_3_7.txt total 0 nochain_at_LB 0
+out/L_3_3_11.txt total 0 nochain_at_LB 0
+out/L_1_5_5.txt total 12 nochain_at_LB 0
+out/L_4_1_35.txt total 8 nochain_at_LB 0
+out/L_1_3_35.txt total 4 nochain_at_LB 0
