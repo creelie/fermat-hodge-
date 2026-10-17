@@ -1,0 +1,29 @@
+\section{What is proved and what is open}\label{sec:status}
+
+
+Table~\ref{tab:status} lists the statements. Three remarks on what the table says.
+
+The two open statements are not independent problems that happen to add up to the conjecture; they are two halves of one phenomenon. Both say that the algebraic locus of a flat Hodge class, a countable union of closed strata through a dense set of points of complex multiplication, is not meagre. For \Fii{} the dense set is supplied by explicit cycles at CM points and the first instance is a single class on an abelian fourteenfold or a single Ext group on an eightfold; for \Fiii{} the dense set is supplied by the K3 surfaces with complex multiplication and by the chains of Section~\ref{sec:f3prime}, and the first instance is a cubic real multiplication on one K3 surface of Picard number $13$.
+
+Each construction of this paper ends at a question with a definite answer. Whether some convolution of the pieces of Theorem~\ref{thm:product} has $\dim\Ext^{2}=57$ is a finite computation in the Ext algebra of two sheaves on a fourfold. Whether the link $\xi$ is algebraic is a question about one Hodge class on one abelian variety, equivalent by Theorem~\ref{thm:link}(v) to the exceptional classes together with one more cycle. Whether a correspondence acting on $T(S_{\lambda})$ otherwise than by a similarity exists is a question about one K3 surface. A negative answer to the first closes that route, as the analogous question on $E_{0}^{6}$ closed; a positive answer to any of them proves the corresponding statement at its first instance.
+
+\subsection{Specialisation, degeneration and blow-ups}\label{ssec:bypass}
+
+Three devices are often proposed for passing from the members where a class is known to be algebraic to the others, and it is worth recording exactly what each one proves.
+
+\begin{proposition}\label{prop:bypass}
+Let $\pi:\mathcal{X}\to B$ be a smooth projective family over an irreducible base and $\xi$ a flat Hodge class on its fibres.
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.4em,itemsep=2pt]
+\item If $\xi_{t}$ is algebraic at the generic point of a curve $C\subseteq B$ then it is algebraic at every point of $C$. The converse implication, from one point of $C$ to its generic point, holds when $\xi_{t_{0}}$ is the Chern character of a perfect complex whose semiregularity map is injective, and in no greater generality is it known.
+\item Let $\tilde X$ be the blow-up of a smooth projective variety $X$ along a smooth closed subvariety $Z$ of codimension $c$. Then $\Hdg^{k}(\tilde X)/\Alg^{k}(\tilde X)\cong\Hdg^{k}(X)/\Alg^{k}(X)\oplus\bigoplus_{i=1}^{c-1}\Hdg^{k-i}(Z)/\Alg^{k-i}(Z)$. In particular the Hodge conjecture for $\tilde X$ is equivalent to the Hodge conjecture for $X$ and for $Z$, and no sequence of blow-ups and blow-downs reduces the defect of a variety.
+\item For the Weil classes of $\cD_{n,n}$ and the exceptional class of a Mumford fourfold, every degeneration to a fibre with a semistable model on which the limit class is algebraic has its lift to the generic fibre as its missing step, and for the Mumford fourfold no degeneration keeping the class of Hodge type exists, since the Hodge locus of the class is a compact Shimura curve.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) Specialisation of cycles along a curve \cite[Ch.~20]{Ful98} sends an algebraic cycle on the generic fibre to one on each special fibre with the same flat cohomology class; this is the direction used by Schoen's degeneration and by Proposition~\ref{prop:weil-dense}. In the other direction the algebraic locus is a countable union of closed sets by Lemma~\ref{lem:dichotomy}, and a point in one stratum says nothing about the stratum being the whole base; the one proved lift is the semiregularity theorem of Bloch, Buchweitz and Flenner \cite{Blo72,BF03}, which is the content of Theorem~\ref{thm:criterion}. (ii) Manin's decomposition of the motive of a blow-up \cite{Man68}, $h(\tilde X)=h(X)\oplus\bigoplus_{i=1}^{c-1}h(Z)(-i)$, is realised by the algebraic correspondences $\pi^{*}$ and $j_{*}\circ p^{*}\circ(\text{powers of the relative hyperplane class})$, which are compatible with Hodge classes and with algebraic classes; so both the Hodge classes and the algebraic classes of $\tilde X$ decompose accordingly, and the quotients add. A birational map between smooth projective varieties factors through blow-ups and blow-downs along smooth centres only in special cases, but every birational map is dominated by a sequence of blow-ups, and (ii) shows that the defect of the top variety is at least that of the bottom one, so the defect cannot be removed on the way. (iii) A flat class has a limit in the limit mixed Hodge structure of a semistable fibre, and on a totally degenerate fibre the graded pieces are combinatorial and every class is algebraic on the components; the return to the generic fibre is the lift of (i), with the same unproved step. For a Mumford fourfold the Hodge locus of the exceptional class is the compact Shimura curve of \cite[Thm.~21.7]{BMB26}, which has no boundary, so no fibre at which the class is still of Hodge type degenerates.
+\end{proof}
+
+The devices therefore relocate the two open statements without weakening them. The one true reduction in shape is Theorem~\ref{thm:propagation}: the whole of \Fii{} is equivalent to a lift from CM points along polarised abelian schemes, and the lift along each scheme is a question about one semiregular object at one point.
+
+Nothing in the paper assumes an open statement, and no section depends on a computation that is not also proved by hand in the text. The machine checks of Appendix~\ref{app:checks} recompute the finite quantities; they do not carry any proof.
