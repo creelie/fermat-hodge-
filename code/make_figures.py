@@ -312,7 +312,7 @@ def _lab(ax, x, y, z, text, dx=0, dy=0, **kw):
 
 def fig_zeta9():
     """Theorem thm:zeta9: the two-dimensional period domain of the twelve-
-    dimensional space with real multiplication by Q(zeta_9)^+, the image of
+    dimensional space with real multiplication by Q(zeta_7)^+ or Q(zeta_9)^+, the image of
     the dihedral family as a shaded patch, the curves where an F-line becomes
     algebraic, the point of Mumford type, and the rational isometry that
     moves it into the patch."""
@@ -352,7 +352,7 @@ def fig_zeta9():
     _lab(ax, 1.0, -0.7, f(1.0, -0.7), r"$U$, image of the dihedral family", dx=36, dy=-24, color="#7a4a10")
     _lab(ax, -1.75, 1.1, f(-1.75, 1.1), r"$\mathcal{D}_{T_{12}}$", dx=-10, dy=12)
     _lab(ax, -1.2, -1.2, f(-1.2, -1.2), r"loci where an $F$-line $N$ is algebraic", dx=-30, dy=-44, color="#7a1f1f")
-    ax.set_title(r"Real multiplication by $\mathbb{Q}(\zeta_9)^{+}$: moving the surface of Mumford type into the dihedral family",
+    ax.set_title(r"Real multiplication by $\mathbb{Q}(\zeta_7)^{+}$ or $\mathbb{Q}(\zeta_9)^{+}$: moving the surface of Mumford type into the dihedral family",
                  fontsize=10)
     save(fig, "fig_zeta9")
 
@@ -391,8 +391,80 @@ def fig_surgery():
                  fontsize=10)
     save(fig, "fig_surgery")
 
+
+def fig_cubicstop():
+    """Proposition prop:cubicstop: the three places where the dihedral mechanism
+    stops. Left: the Mumford algebras over F = Q(zeta_7)^+ or Q(zeta_9)^+ as a
+    row of discs; a rank-twelve family carries only D_infinity. Middle: the
+    four-dimensional period domain of the rank-eighteen family drawn as a box,
+    the image of the family as a threefold (a surface in the picture) and the
+    Shimura curves of the surfaces of Mumford type for the other algebras, which
+    the threefold is not known to meet. Right: the finite groups acting on the
+    base P^1 and the fields they produce."""
+    from matplotlib.patches import Circle, FancyArrowPatch, Rectangle, FancyBboxPatch
+    fig = plt.figure(figsize=(7.2, 3.9))
+    gs = fig.add_gridspec(1, 3, width_ratios=[0.95, 1.5, 0.95], wspace=0.02)
+    # left panel: algebras over F
+    ax = fig.add_subplot(gs[0, 0]); ax.set_axis_off()
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+    ax.text(5, 9.3, r"Mumford algebras $D$ over $F$", ha="center", fontsize=9)
+    labels = [r"$D_{\infty}$", r"$D_{13}$", r"$D_{29}$", r"$D_{41}$", r"$\cdots$"]
+    from matplotlib.patches import Ellipse
+    for k, lab in enumerate(labels):
+        cx = 1.3 + 2.15 * k
+        if k < 4:
+            col = "#f0c78a" if k == 0 else "#dde5f0"
+            ax.add_patch(Ellipse((cx, 6.3), 2.0, 1.25, facecolor=col, edgecolor="#333333", lw=0.8))
+        ax.text(cx, 6.3, lab, ha="center", va="center", fontsize=8.5)
+    ax.text(5, 4.6, r"ramified at two real places, and at", ha="center", fontsize=8)
+    ax.text(5, 3.9, r"two places above a split prime $p$", ha="center", fontsize=8)
+    ax.add_patch(FancyArrowPatch((1.2, 2.9), (1.2, 2.1), arrowstyle="-|>", mutation_scale=9, lw=1.0, color="#7a4a10"))
+    ax.text(5, 1.75, r"rank-twelve family, disc$\,\Phi$ a square,", ha="center", va="center", fontsize=8, color="#7a4a10")
+    ax.text(5, 1.15, r"only $D_{\infty}$ is reached", ha="center", va="center", fontsize=8, color="#7a4a10")
+    ax.text(5, 0.3, "(i)", ha="center", fontsize=9)
+    # middle panel: the four-dimensional domain of the rank-eighteen family
+    ax = fig.add_subplot(gs[0, 1], projection="3d"); ax.computed_zorder = False; ax.patch.set_alpha(0)
+    u = np.linspace(-1, 1, 40); v = np.linspace(-1, 1, 40); U, V = np.meshgrid(u, v)
+    Z = 0.25 * U - 0.35 * V**2 + 0.1
+    ax.plot_surface(U, V, Z, color="#f0c78a", alpha=0.95, linewidth=0, shade=True, zorder=1)
+    # box edges
+    for sgn in [(-1, -1), (-1, 1), (1, -1), (1, 1)]:
+        ax.plot([sgn[0]] * 2, [sgn[1]] * 2, [-1, 1], color="#999999", lw=0.6, zorder=0)
+    for z in (-1, 1):
+        ax.plot([-1, 1, 1, -1, -1], [-1, -1, 1, 1, -1], [z] * 5, color="#999999", lw=0.6, zorder=0)
+    t = np.linspace(-0.95, 0.95, 60)
+    curves = [(0.55 * t, -0.6 + 0.2 * t, 0.65 - 0.4 * t**2), (-0.7 + 0.1 * t, 0.5 * t, -0.55 + 0.3 * t),
+              (0.6 + 0.2 * t, 0.7 * t, 0.85 - 0.5 * t)]
+    for cx, cy, cz in curves:
+        ax.plot(cx, cy, cz, color="#7a1f1f", lw=1.1, zorder=3)
+    ax.scatter([0.35], [-0.6], [0.65 - 0.4 * 0.35**2 / 0.55**2 * 0.55**2], s=36, color="black", marker="*", depthshade=False, zorder=5)
+    ax.set_xlim(-1.1, 1.1); ax.set_ylim(-1.1, 1.1); ax.set_zlim(-1.1, 1.1)
+    ax.set_axis_off(); ax.set_box_aspect((1, 1, 1), zoom=0.85); ax.view_init(elev=22, azim=-55)
+    fig.canvas.draw()
+    _lab(ax, 0, 0, 1.0, r"$\mathcal{D}_{T_{18}}$, dimension four", dy=22)
+    _lab(ax, 0, 0, -1.0, "$U$, image of the family,\ndimension three", dy=-24, fontsize=8, color="#7a4a10")
+    _lab(ax, 0, 0, -1.0, "Shimura curves of $(F,D)$,\nnot known to meet $U$", dy=-48, fontsize=8, color="#7a1f1f")
+    _lab(ax, 0, 0, -1.0, "(ii)", dy=-66)
+    # right panel: finite groups on P^1 and their fields
+    ax = fig.add_subplot(gs[0, 2]); ax.set_axis_off()
+    ax.set_xlim(0, 10); ax.set_ylim(0, 10)
+    ax.text(5, 9.3, r"finite groups acting on $\mathbb{P}^{1}$", ha="center", fontsize=9)
+    rows = [(r"$C_{m}$", r"$\mathbb{Q}(\zeta_{m})$"), (r"$D_{m}$", r"$\mathbb{Q}(\zeta_{m})^{+}$"),
+            (r"$A_{4}$", r"$\mathbb{Q},\ \mathbb{Q}(\sqrt{-3})$"), (r"$S_{4}$", r"$\mathbb{Q}$"), (r"$A_{5}$", r"$\mathbb{Q},\ \mathbb{Q}(\sqrt{5})$")]
+    for k, (g, f) in enumerate(rows):
+        y = 7.6 - 1.25 * k
+        col = "#f0c78a" if k == 1 else "#dde5f0"
+        ax.add_patch(FancyBboxPatch((0.6, y - 0.42), 2.2, 0.84, boxstyle="round,pad=0.05", facecolor=col, edgecolor="#333333", lw=0.7))
+        ax.text(1.7, y, g, ha="center", va="center", fontsize=8.5)
+        ax.add_patch(FancyArrowPatch((3.0, y), (4.1, y), arrowstyle="-|>", mutation_scale=8, lw=0.8, color="black"))
+        ax.text(4.4, y, f, ha="left", va="center", fontsize=8.5)
+    ax.text(5, 1.3, r"cubic only for $D_{7},D_{9},D_{14},D_{18}$", ha="center", fontsize=8, color="#7a4a10")
+    ax.text(5, 0.4, "(iii)", ha="center", fontsize=9)
+    fig.suptitle(r"Where the dihedral mechanism stops: finitely ramified algebras, the threefold in $\mathcal{D}_{T_{18}}$, and the fields of finite groups on $\mathbb{P}^{1}$", fontsize=9.5, y=0.99)
+    save(fig, "fig_cubicstop")
+
 if __name__ == "__main__":
     fig_locus(); fig_eigen(); fig_graph(); fig_chain()
     fig_hankel(); fig_product(); fig_link(); fig_fricke()
-    fig_zeta9(); fig_surgery()
+    fig_zeta9(); fig_surgery(); fig_cubicstop()
     print("figures written to", os.path.abspath(OUT))

@@ -305,6 +305,41 @@ theorem fricke_multiplier : 1 * 7 = 7 ∧ 1 * 5 = 5 ∧ 2 * 2 = 4 ∧ 2 * 3 = 6 
 def heckeDim (n : Nat) : Nat := (n + 1) / 2
 theorem hecke_dims : heckeDim 5 = 3 ∧ heckeDim 7 = 4 ∧ heckeDim 9 = 5 ∧ heckeDim 11 = 6 := by decide
 
+/-! ## Section 5: the Dickson families of the cyclic cubic fields (Section V of the paper) -/
+
+/-- Dickson polynomials (Theorem V.12 for n = 7 and n = 9, and Proposition V.13).
+v^7 p_{7,a}(v + a/v) = v^14 + a^7 with p_{7,a} = t^7 - 7 a t^5 + 14 a^2 t^3 - 7 a^3 t, checked at
+a = 1 and a = 2 as identities of polynomials in v; the same for
+p_{9,a} = t^9 - 9 a t^7 + 27 a^2 t^5 - 30 a^3 t^3 + 9 a^4 t at a = 1. -/
+def dickson7 (a : Int) : List Int :=
+  padd (psub (ppow [a, 0, 1] 7) (pscale (7 * a) (pmul [0, 0, 1] (ppow [a, 0, 1] 5))))
+       (psub (pscale (14 * a * a) (pmul [0, 0, 0, 0, 1] (ppow [a, 0, 1] 3)))
+             (pscale (7 * a * a * a) (pmul [0, 0, 0, 0, 0, 0, 1] [a, 0, 1])))
+def dickson9 (a : Int) : List Int :=
+  padd (padd (psub (ppow [a, 0, 1] 9) (pscale (9 * a) (pmul [0, 0, 1] (ppow [a, 0, 1] 7))))
+             (pscale (27 * a * a) (pmul [0, 0, 0, 0, 1] (ppow [a, 0, 1] 5))))
+       (padd (pscale (-30 * a * a * a) (pmul [0, 0, 0, 0, 0, 0, 1] (ppow [a, 0, 1] 3)))
+             (pscale (9 * a * a * a * a) (pmul [0, 0, 0, 0, 0, 0, 0, 0, 1] [a, 0, 1])))
+theorem dickson7_identity :
+    ptrim (dickson7 1) = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] ∧
+    ptrim (dickson7 2) = [128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] := by decide
+theorem dickson9_identity :
+    ptrim (dickson9 1) = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] := by decide
+
+/-- The prime 2 has order three in (Z/7)^x/{+-1} and in (Z/9)^x/{+-1}, so it is inert in
+Q(zeta_7)^+ and Q(zeta_9)^+ (Theorem V.12, the place above 2). The cubic polynomials
+t^3 + t^2 - 2 t - 1 and t^3 - 3 t + 1 of theta change sign on [-2,-1], [-1,0], [0,2] and on
+[-2,-1], [0,1], [1,2], so each has three real roots, exactly one of them positive for n = 7
+and two for n = 9: the unit epsilon of the proof is positive at exactly one real place. -/
+theorem two_inert_7_9 :
+    (2 % 7 ≠ 1 ∧ 2 % 7 ≠ 6 ∧ 4 % 7 ≠ 1 ∧ 4 % 7 ≠ 6 ∧ 8 % 7 = 1) ∧
+    (2 % 9 ≠ 1 ∧ 2 % 9 ≠ 8 ∧ 4 % 9 ≠ 1 ∧ 4 % 9 ≠ 8 ∧ 8 % 9 = 8) := by decide
+def f7 (t : Int) : Int := t * t * t + t * t - 2 * t - 1
+def f9 (t : Int) : Int := t * t * t - 3 * t + 1
+theorem theta_sign_pattern :
+    (f7 (-2) < 0 ∧ f7 (-1) > 0 ∧ f7 0 < 0 ∧ f7 2 > 0) ∧
+    (f9 (-2) < 0 ∧ f9 0 > 0 ∧ f9 1 < 0 ∧ f9 2 > 0) := by decide
+
 end HodgeClosure
 
 #print axioms HodgeClosure.hc_from_f2_f3p
@@ -343,3 +378,7 @@ end HodgeClosure
 #print axioms HodgeClosure.fricke_transcendental
 #print axioms HodgeClosure.fricke_multiplier
 #print axioms HodgeClosure.hecke_dims
+#print axioms HodgeClosure.dickson7_identity
+#print axioms HodgeClosure.dickson9_identity
+#print axioms HodgeClosure.two_inert_7_9
+#print axioms HodgeClosure.theta_sign_pattern
