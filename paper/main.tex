@@ -1,0 +1,103 @@
+\documentclass[aps,prd,twocolumn,superscriptaddress,nofootinbib,longbibliography,floatfix,amsmath,amssymb,10pt]{revtex4-2}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,matrix,shapes.geometric,decorations.pathreplacing}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{orcidlink}
+\usepackage[protrusion=true,expansion=false]{microtype}
+\usepackage{xurl}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{setup}[theorem]{Setting}
+
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\Hdg}{\mathrm{Hdg}}
+\newcommand{\Hg}{\mathrm{Hg}}
+\newcommand{\NS}{\mathrm{NS}}
+\newcommand{\Ab}{\mathrm{Ab}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\End}{\mathrm{End}}
+\newcommand{\ch}{\mathrm{ch}}
+\newcommand{\Tr}{\mathrm{Tr}}
+\newcommand{\trd}{\mathrm{trd}}
+\newcommand{\nrd}{\mathrm{nrd}}
+\newcommand{\Sp}{\mathrm{Sp}}
+\newcommand{\SO}{\mathrm{SO}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\SL}{\mathrm{SL}}
+\tolerance=2000
+\emergencystretch=2em
+\hbadness=2000
+\hfuzz=1pt
+\newcommand{\Alg}{\mathrm{Alg}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\HC}{\mathbf{HC}}
+\newcommand{\AB}{\mathbf{AB}}
+\newcommand{\Fii}{\textup{(F2)}}
+\newcommand{\Fiii}{\textup{(F3$'$)}}
+\newcommand{\zenodoCodeID}{10.5281/zenodo.XXXXXXXX}
+\newcommand{\leancount}{four hundred and nine}
+
+\begin{document}
+
+\title{Algebraic Loci of Hodge Classes and the Two Statements Left on Abelian Varieties}
+
+\author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
+\email{itsdeep@live.com}
+\thanks{$*$\,Corresponding author. Second address: \mbox{d.bhattacharjee@erl-forschung.de}.}
+\affiliation{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India}
+
+\author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
+\email{rai.bhattacharya.in@gmail.com}
+\affiliation{Formerly, National Taiwan University, Taipei 106319, Taiwan}
+
+\date{October 17, 2026}
+
+\begin{abstract}
+The Hodge conjecture is equivalent to two statements about abelian varieties. We prove this, and we prove that for each statement the set of varieties on which it is known is dense in every family and is either the whole family or a meagre set. We then build the first object each statement needs: a chain of quotients that makes the real multiplication by $\sqrt6$ on K3 surfaces algebraic, a complex on a product of two Weil fourfolds with the Chern character the semiregularity criterion asks for, and a single class on an abelian fourteenfold that carries the exceptional classes of a Mumford fourfold. Neither statement is proved. We say at which step each construction stops.
+\end{abstract}
+
+\keywords{Hodge conjecture; abelian varieties; Weil classes; K3 surfaces; semiregularity}
+
+\maketitle
+
+\input{sec1_intro}
+\input{sec2_conventions}
+\input{sec3_reduction}
+\input{sec4_loci}
+\input{sec5_f3prime}
+\input{sec6_f2}
+\input{sec7_earlier}
+\input{sec8_status}
+
+\appendix
+\input{appA_checks}
+
+\input{declarations}
+
+\input{bibliography}
+
+\end{document}
