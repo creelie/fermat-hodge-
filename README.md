@@ -1,4 +1,4 @@
-# Algebraic Loci of Hodge Classes
+# Dense Algebraic Loci of Hodge Classes
 
 Deep Bhattacharjee and Ushashi Bhattacharya
 

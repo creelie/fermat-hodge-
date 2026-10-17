@@ -1,6 +1,6 @@
 # AI provenance
 
-Paper: *Algebraic Loci of Hodge Classes*, Deep Bhattacharjee and Ushashi Bhattacharya.
+Paper: *Dense Algebraic Loci of Hodge Classes*, Deep Bhattacharjee and Ushashi Bhattacharya.
 
 ## What was done with AI assistance
 
