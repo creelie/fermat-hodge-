@@ -180,7 +180,15 @@ these vertices do not vanish, $f$ is nondegenerate with respect to $P$
 \cite[Example~5.2]{Bat24}. Following Batyrev \cite[Definition~1.2]{Bat24},
 the \emph{Fine interior} $F(P)$ is the set of points $y\in P$ with
 $\nu(y)-\min_{P}\nu\ge1$ for every nonzero $\nu$ in the dual lattice
-$L_{\alpha}^{\vee}=\operatorname{Hom}(L_{\alpha},\ZZ)$.
+$L_{\alpha}^{\vee}=\operatorname{Hom}(L_{\alpha},\ZZ)$.\footnote{Every interior
+lattice point $y_{0}$ of a lattice polytope lies in its Fine interior: a
+nonzero integral functional $\nu$ takes integer values at the vertices, so
+$\min_{P}\nu\le\nu(y_{0})-1$. For a reflexive polytope, whose facets lie at
+lattice distance one from the interior point, the Fine interior is that
+point alone; these are the polytopes of Batyrev's Calabi--Yau hypersurfaces.
+The reflexive polytopes of dimension four, which give the Calabi--Yau
+threefolds of the Kreuzer--Skarke list, are the subject of
+\cite{BhaKS26}.}
 
 \begin{lemma}\label{lem:fine}
 \begin{enumerate}[label=\textup{(\alph*)}]
@@ -424,11 +432,10 @@ In (v) the elements of $\ZZ/35$ with square $1$ are $1$, $6$, $29$ and
 $34$, and only $1$ is an entry of $\beta$.
 \end{proof}
 
-\begin{corollary}\label{cor:patterns}
-Each of the characters in the following table admits the block pattern
-listed, a column $e_{l}$ with degree $\delta_{l}$ being written
-$e_{l}{:}\delta_{l}$:
-\begin{center}
+\begin{table}[ht]
+\centering
+\caption{Block patterns, a column $e_{l}$ with degree $\delta_{l}$ being
+written $e_{l}{:}\delta_{l}$}\label{tab:patterns}
 \small
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}llc>{\raggedright\arraybackslash}p{0.52\textwidth}@{}}
@@ -456,7 +463,11 @@ $35$ & $(1,2,16,21,30)$ & $50$ & $(0,0,0,5,0){:}10$, $(1,1,2,0,0){:}25$,
 $(1,2,0,0,1){:}10$, $(3,1,0,0,1){:}5$, $(0,0,0,0,35){:}1$\\
 \bottomrule
 \end{tabular}
-\end{center}
+\end{table}
+
+\begin{corollary}\label{cor:patterns}
+Each of the characters in \Cref{tab:patterns} admits the block pattern
+listed there.
 In each row the degrees add up to $D+1$. Hence $M_{\alpha}\subseteq N^{1}H^{3}
 (X^{3}_{m},\QQ)$ for each of these characters.
 \end{corollary}

@@ -26,14 +26,14 @@
     \pgfmathtruncatemacro{\d}{19-\r}
     \if\k k\blk{\c}{\d}{0.05}{kn}{kns}\fi
     \if\k a\blk{\c}{\d}{0.17}{na!75!white}{na}\fi
-    \if\k b\blk{\c}{\d}{0.17}{nb!75!white}{nb}\fi
+    \if\k b\blk{\c}{\d}{0.05}{nb!75!white}{nb}\fi
     \if\k x\blk{\c}{\d}{0.05}{ex}{ex}\fi
     \ifnum\c=0 \node[font=\tiny,anchor=east,inner sep=1pt] at \pq{0}{\d+0.5}{0} {$\M$};\fi
   }
   \foreach \c in {0,...,23} {\node[font=\tiny,anchor=north,inner sep=1pt] at \pq{\c+0.5}{0}{-0.03} {$\c$};}
   \node[font=\tiny,anchor=east,inner sep=1pt] at \pq{0}{-0.35}{0} {$+$};
   \begin{scope}[shift={(0.6,-0.85)}]
-    \foreach \x/\h/\t/\s/\lab in {0/0.05/kn/kns/known before,3.2/0.17/na!75!white/na/{new, $3\nmid M$},6.4/0.17/nb!75!white/nb/{new, $6\mid M$},9.6/0.05/ex/ex/{$110\mid M$}} {
+    \foreach \x/\h/\t/\s/\lab in {0/0.05/kn/kns/known before,3.2/0.17/na!75!white/na/{new},6.4/0.05/nb!75!white/nb/{open, $6\mid M$},9.6/0.05/ex/ex/{$110\mid M$}} {
       \begin{scope}[xshift=\x cm]\blk{0}{0}{\h}{\t}{\s}
       \node[font=\scriptsize,anchor=west] at (0.55,0.12) {\lab};\end{scope}}
   \end{scope}

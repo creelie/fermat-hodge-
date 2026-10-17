@@ -34,9 +34,9 @@ $250$ other than $110$, $114$, $220$ and $228$ \cite{Jum26b}, and
 \cite[Theorem~B]{BBe84hc} every odd degree.
 
 \begin{maintheorem}\label{thm:main}
-Let $M\ge1$ be an integer that is not divisible by $110$. Then every Hodge
-class on the Fermat fourfold $X^{4}_{M}$ is algebraic.\footnote{Kang claimed
-this for all degrees \cite[Corollary~3.2]{Kan16}, but his proof has a gap. It
+Let $M\ge1$ be an integer divisible neither by $6$ nor by $110$. Then every
+Hodge class on the Fermat fourfold $X^{4}_{M}$ is algebraic.\footnote{Kang
+claimed this for all degrees \cite[Corollary~3.2]{Kan16}, but his proof has a gap. It
 bounds a refined motivic dimension of $X^{1}_{M}\times X^{3}_{M}$ through
 \cite[Proposition~2.2(iv)]{Kan15}, whose proof writes the level filtration of
 a tensor product as $F^{m}(H\otimes H')=\bigoplus_{t+s=m}F^{t}H\otimes
@@ -50,9 +50,14 @@ while $F^{1}H^{1}(E)=0$ and the right-hand side vanishes. The preprint
 $57$.}
 \end{maintheorem}
 
-The degrees not divisible by $110$ that the results above leave open begin
-with $228=4\cdot3\cdot19$, $258=2\cdot3\cdot43$, $260=4\cdot5\cdot13$ and
-$266=2\cdot7\cdot19$. The degree $110$ is an
+The degrees that the results above leave open begin with
+$228=4\cdot3\cdot19$, $258=2\cdot3\cdot43$, $260=4\cdot5\cdot13$ and
+$266=2\cdot7\cdot19$. \Cref{thm:main} settles $260$, $266$ and every other
+degree divisible neither by $6$ nor by $110$. For the degrees divisible by
+$6$, such as $228$ and $258$, \Cref{sec:six} reduces the conjecture to a
+statement about configurations of at most six residues,
+\Cref{hyp:local}, and proves the part of it that concerns large powers of
+$2$ and $3$; the rest of that statement is open. The degree $110$ is an
 exception of the method. At that level Aoki's reduction leaves one class, the
 image of his class at level $55$, and the induction leaves sextuples that it
 cannot lower; we do not know whether their lines are algebraic, and the
@@ -63,8 +68,9 @@ theorem says nothing about $X^{4}_{M}$ when $110\mid M$ (\Cref{rem:110}).
 \includegraphics[width=\textwidth]{figures/fig_degrees}
 \caption{The degrees $M\le480$, in rows of $24$: the row label plus the
 column number is $M$. Light tiles are degrees covered by the results quoted
-above, raised tiles are the degrees added by \Cref{thm:main}, and the dark
-tiles are the multiples of $110$.}\label{fig:degrees}
+above, raised tiles are the degrees added by \Cref{thm:main}, orange tiles
+are the degrees divisible by $6$ that remain open, and the dark tiles are the
+multiples of $110$.}\label{fig:degrees}
 \end{figure}
 
 \subsection*{The method}
@@ -100,5 +106,6 @@ reduction, and \Cref{sec:classes} supplies the classes it leaves at the
 levels $33$, $35$, $39$, $44$, $52$, $102$ and $114$, by showing that the
 relevant parts of the cohomology of Fermat threefolds are supported on
 divisors. \Cref{sec:even,sec:four} treat even degrees prime to $3$, according
-to the power of $2$ in the largest order of an entry, and \Cref{sec:six} the
-degrees divisible by $6$. \Cref{sec:proof} assembles the proof.
+to the power of $2$ in the largest order of an entry. \Cref{sec:proof}
+assembles the proof, and \Cref{sec:six} carries the method to the degrees
+divisible by $6$ as far as it goes.

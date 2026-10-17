@@ -20,6 +20,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
 \newtheorem{maintheorem}{Theorem}
 \renewcommand{\themaintheorem}{\Alph{maintheorem}}
 \theoremstyle{definition}
@@ -28,6 +29,7 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \crefname{maintheorem}{Theorem}{Theorems}
+\crefname{hypothesis}{Hypothesis}{Hypotheses}
 
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
@@ -48,12 +50,13 @@
 \begin{document}
 
 \title[The Hodge conjecture for Fermat fourfolds]{The Hodge conjecture for
-Fermat fourfolds of degree not divisible by $110$}
+Fermat fourfolds of degree not divisible by $6$ or $110$}
 
 \author{Deep Bhattacharjee\textsuperscript{\dag}}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL),
 \newline Bhubaneswar, Odisha 751030, India}
-\address{Formerly, University of Calcutta, Kolkata, India}
+\address{Formerly, University of Calcutta, Senate House, 87/1 College Street,
+\newline Kolkata 700073, West Bengal, India}
 \email{d.bhattacharjee@erl-forschung.de}
 \email{itsdeep@live.com}
 \author{Ushashi Bhattacharya}
@@ -83,8 +86,8 @@ geometry), 11R18 (Cyclotomic extensions)}
 \keywords{Hodge conjecture, Fermat varieties, algebraic cycles}
 
 \begin{abstract}
-We prove the Hodge conjecture for the Fermat fourfold of every degree not
-divisible by $110$. Each Hodge class is carried, through the cycles of Shioda
+We prove the Hodge conjecture for the Fermat fourfold of every degree
+divisible neither by $6$ nor by $110$. Each Hodge class is carried, through the cycles of Shioda
 and Aoki, to classes of lower degree or lower order, except for a finite
 number of classes, which come from uniruled quotients of Fermat threefolds.
 \end{abstract}
@@ -99,8 +102,8 @@ number of classes, which come from uniruled quotients of Fermat threefolds.
 \input{sections/s6_classes}
 \input{sections/s7_even}
 \input{sections/s8_four}
-\input{sections/s9_six}
 \input{sections/s10_proof}
+\input{sections/s9_six}
 \input{sections/declarations}
 
 \bibliographystyle{amsalpha}
