@@ -353,6 +353,18 @@ theorem theta_sign_pattern :
     (f7 (-2) < 0 ∧ f7 (-1) > 0 ∧ f7 0 < 0 ∧ f7 2 > 0) ∧
     (f9 (-2) < 0 ∧ f9 0 > 0 ∧ f9 1 < 0 ∧ f9 2 > 0) := by decide
 
+/-- Proposition V.14: a symplectic automorphism of order five has coinvariant rank 16 and one
+of order seven rank 18 (Nikulin), so the transcendental lattice, of signature (2, t - 2), lies
+in a lattice of rank 22 - 16 = 6 and signature (3, 3) (resp. rank 4, signature (3, 1)); hence
+t <= 5 (resp. t <= 3), while a totally real endomorphism field of degree at least two needs
+t >= 2 * 3 = 6 (Zarhin: dim_E T >= 3). The symplectic orders are at most eight, and those not
+of the form 2^a 3^b are 5 and 7. -/
+theorem symplectic_chain_bound :
+    (22 - 16 = 6 ∧ 19 - 16 = 3 ∧ 2 + 3 = 5 ∧ 5 < 2 * 3) ∧
+    (22 - 18 = 4 ∧ 19 - 18 = 1 ∧ 2 + 1 = 3 ∧ 3 < 2 * 3) ∧
+    ((List.range 9).filter (fun n => n ≥ 2 ∧ n % 5 ≠ 0 ∧ n % 7 ≠ 0) = [2, 3, 4, 6, 8]) ∧
+    ((List.range 9).filter (fun n => n ≥ 2 ∧ (n % 5 = 0 ∨ n % 7 = 0)) = [5, 7]) := by decide
+
 /-! ## Section 6: the point of complex multiplication E_0^6 (Lemma VI.8, Proposition VI.10, Appendix A) -/
 
 /-- Binomial coefficients, by Pascal's rule. -/
@@ -688,6 +700,62 @@ def familyD_R : List Nat := [15049296491,15049296491,15116671599,8,15654345339,1
 def familyD_RT : List Nat := [14401906103,14401906103,4,14401906111,16,14401906103,14401906167,128,256,14401906615,1024,14401908151,274773268,8192,1078060432,32768,65536,14401906103,409797892,524288,1350116368,2097152,4194304,1122607232,14418683319,33554432,1577649172,134217728,268435456,2049450128,1073741824,16549389751,14401906103,14401906103,17179869184,34359738368,68719476736]
 theorem iso_familyD : isolatedCert familyD familyD_E1 familyD_E3 familyD_R familyD_RT 5325 = true := by decide +kernel
 
+/-! ### Pieces outside every closed chain (Proposition VI.14, Corollary VI.15) -/
+
+/-- The threefold pieces certified to lie on no cycle of the graph of blocks of total degree one: a is
+chain-free when no piece b != a carries such a block from a and reaches a in the certificate R.  Since R
+contains the reachability relation (`reachOK`), a piece counted here lies on no closed chain. -/
+def chainFreeZ (ps : List Piece) (E1 R : List Nat) : Nat :=
+  (ps.foldl (fun s p =>
+    let free := p.isZ && (List.range ps.length).all (fun b =>
+      b == s.2 || !(bit (E1.getD s.2 0) b) || !(bit (R.getD b 0) s.2))
+    (if free then s.1 + 1 else s.1, s.2 + 1)) (0, 0)).1
+
+/-- The degree-one rows are those of the Ext table, R is a reachability certificate, and the number of
+threefold pieces outside every closed chain is `v`. -/
+def chainFreeCert (ps : List Piece) (E1 R : List Nat) (v : Nat) : Bool :=
+  rows1 ps == E1 && reachOK ps.length E1 R && chainFreeZ ps E1 R == v
+
+/-- Family (c): twenty-two of the thirty-two threefold pieces lie on no closed chain. -/
+theorem chainfree_familyC : chainFreeCert familyC familyC_E1 familyC_R 22 = true := by decide +kernel
+
+/-- Family (a): no threefold piece lies on a closed chain. -/
+theorem chainfree_familyA : chainFreeCert familyA familyA_E1 familyA_R 32 = true := by decide +kernel
+
+/-- An edge u -> v of the graph: a block of total degree one from u to v. -/
+def edge (u v : Piece) : Bool := (pairInfo u v).1
+
+/-- The sixteen pieces at the top shift of the thirty-two (shift 1, offset 8). -/
+def topBase : List Piece := base.filter (fun p => p.shift == 9)
+
+/-- Pieces of positive twist at shifts -3 to 2: O_{Z_zeta} (x) L^k [s] for every zeta in mu_4^3 and
+k = 1, 2, 3, and L^l [t] for l = 1, .., 4. -/
+def belowTop : List Piece :=
+  ((List.range 64).flatMap fun i => (List.range 3).flatMap fun k => (List.range 6).map fun s =>
+    Z (i / 16) ((i / 4) % 4) (i % 4) (k + 1) (s + 5)) ++
+  ((List.range 4).flatMap fun l => (List.range 6).map fun t => L (l + 1) (t + 5))
+
+/-- Corollary VI.15 (ii) in the window: no base piece and no piece of positive twist at a shift at most one
+above the top enters a top piece (self-loops are not edges of the graph). -/
+theorem no_entry_top :
+    ((base ++ belowTop).all fun u => topBase.all fun v => (u.shift == 9 && u.isZ && u.twist == 0) || !(edge u v)) = true := by
+  decide +kernel
+
+/-- The sharpness: a line bundle or a twisted copy at shift 3 does enter every top piece. -/
+theorem entry_at_shift_three :
+    (topBase.all fun v => edge (L 1 11) v && edge (L 4 11) v && edge (Z 0 0 0 1 11) v) = true := by decide +kernel
+
+/-- Corollary VI.15 (iii), the limit: with L^1[-2], .., L^6[3] every one of the thirty-two lies on a closed chain of
+length six, through L^6[3], L^2[-1], L^3[0], L^4[1], L^5[2] at shift 1 and through L^5[2], L^1[-2], L^2[-1], L^3[0],
+L^4[1] at shift 0. -/
+def cycleThrough (p : Piece) : Bool :=
+  if p.shift == 9 then
+    edge (L 6 11) p && edge p (L 2 7) && edge (L 2 7) (L 3 8) && edge (L 3 8) (L 4 9) && edge (L 4 9) (L 5 10) && edge (L 5 10) (L 6 11)
+  else
+    edge (L 5 10) p && edge p (L 1 6) && edge (L 1 6) (L 2 7) && edge (L 2 7) (L 3 8) && edge (L 3 8) (L 4 9) && edge (L 4 9) (L 5 10)
+
+theorem six_bundles_cycles : (base.all cycleThrough) = true := by decide +kernel
+
 end Isolated
 
 end HodgeClosure
@@ -732,6 +800,7 @@ end HodgeClosure
 #print axioms HodgeClosure.dickson9_identity
 #print axioms HodgeClosure.two_inert_7_9
 #print axioms HodgeClosure.theta_sign_pattern
+#print axioms HodgeClosure.symplectic_chain_bound
 #print axioms HodgeClosure.binomial_six
 #print axioms HodgeClosure.curve_intersections
 #print axioms HodgeClosure.twist_sums
@@ -745,3 +814,8 @@ end HodgeClosure
 #print axioms HodgeClosure.Isolated.iso_familyA
 #print axioms HodgeClosure.Isolated.iso_familyC
 #print axioms HodgeClosure.Isolated.iso_familyD
+#print axioms HodgeClosure.Isolated.chainfree_familyC
+#print axioms HodgeClosure.Isolated.chainfree_familyA
+#print axioms HodgeClosure.Isolated.no_entry_top
+#print axioms HodgeClosure.Isolated.entry_at_shift_three
+#print axioms HodgeClosure.Isolated.six_bundles_cycles

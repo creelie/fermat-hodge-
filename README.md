@@ -31,10 +31,20 @@ programs that recompute every finite quantity used in the proofs.
   fails the criterion. A count of isolated Ext blocks, valid for every
   twisting cochain, settles every placement of those thirty-five pieces
   (dim Ext^2 >= 2605) and two threefolds at one shift meeting along a surface
-  (dim Ext^2 >= 5325), and reduces the two remaining configurations to the
-  rank of one sixfold Massey product (four line bundles) and of the products
-  of length three to five (one threefold at three twists); those ranks are
-  not computed.
+  (dim Ext^2 >= 5325); and one threefold piece outside every closed chain of
+  Ext blocks already fails the criterion, which settles every further piece
+  of positive twist within one shift of the thirty-two threefolds. For every
+  polarisation of E_0^6, a convolution of distinct threefolds and at most
+  five line bundles at any twists fails the criterion (by hand: every
+  threefold piece must lie on a cycle of Ext blocks that carries a Massey
+  product, of both parities of shift, and with five line bundles the
+  Maurer-Cartan equation leaves no such cycle); the enumeration of the
+  archive extends this to six and seven line bundles and to eight outside
+  thirty-one arrangements. An object meeting the criterion cannot be a
+  shifted line bundle on a threefold off a divisor that is not ample, and its
+  threefolds form a set closed under sign changes. What remains at E_0^6 are
+  eight or more line bundles and a threefold at several twists, decided by
+  the products along their chains, which are not computed.
 * A single class on an abelian fourteenfold carries the exceptional classes
   of a Mumford fourfold.
 * Specialisation, degeneration and blow-ups relocate the two open statements
@@ -50,7 +60,7 @@ Section VII records where the earlier preprint
 ```
 paper/                      REVTeX source, figures and the compiled main.pdf
 preprintHodgeConjecture/    the compiled paper only
-lean/HodgeClosure.lean      53 theorems (Lean 4.24.0, no Mathlib)
+lean/HodgeClosure.lean      59 theorems (Lean 4.24.0, no Mathlib)
 code/                       Python, Julia, C, C++ and shell checks; run_all.sh
 ```
 
@@ -63,14 +73,19 @@ cd code && ./run_all.sh
 Requirements: python3 with sympy, numpy and mpmath; julia; a C and a C++
 compiler; lean (through elan; `lean/lean-toolchain` pins the version). Set
 `JULIA`, `CC`, `CXX` or `LEAN` to override the commands. The run takes about
-twenty-five minutes and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
+thirty minutes and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
 program, what it checks and its expected output. The Lean file prints
-`#print axioms` for every theorem: forty-five use no axiom, two use
-`propext` and `Quot.sound`, and the six isolated-block counts of Section 7
-use `propext`; `native_decide` is not used.
+`#print axioms` for every theorem: forty-nine use no axiom, two use
+`propext` and `Quot.sound`, and the six isolated-block counts and two
+chain-free counts of Section 7 use `propext`; `native_decide` is not used.
 
-No statement of the paper rests on these checks; they guard the hand
-computations.
+No statement proved in the paper rests on these checks; the enumerations of
+Proposition VI.13 and Remark VI.25 are their output and are stated as such,
+and the rest guard the hand computations. The candidate configurations at E_0^6 were proposed by Anaxia,
+the construction engine of the BLLM project
+([creelie/eBLLM](https://github.com/creelie/eBLLM), release v3.0.5,
+doi:10.5281/zenodo.23469389); the engine proposes, and the proofs and these
+programs decide.
 
 ## Building the paper
 
