@@ -26,6 +26,7 @@ run riemann_roch_pieces.py python3 -I riemann_roch_pieces.py
 run cm_point_ext.py    python3 -I cm_point_ext.py
 run cm_point_counts.py python3 -I cm_point_counts.py
 run cm_point_chains.py python3 -I cm_point_chains.py
+run line_bundle_chains.py python3 -I line_bundle_chains.py
 run closure_graph.jl   "$JULIA" closure_graph.jl
 run eigencharacter.jl  "$JULIA" eigencharacter.jl
 tmp=$(mktemp -d)

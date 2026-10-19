@@ -32,11 +32,19 @@ programs that recompute every finite quantity used in the proofs.
   twisting cochain, settles every placement of those thirty-five pieces
   (dim Ext^2 >= 2605) and two threefolds at one shift meeting along a surface
   (dim Ext^2 >= 5325); and one threefold piece outside every closed chain of
-  Ext blocks already fails the criterion, which settles four line bundles,
-  five line bundles and every further piece of positive twist within one
-  shift of the thirty-two threefolds. What remains at E_0^6 are the
-  convolutions in which every threefold piece lies on a closed chain, decided
-  by products of length three and six that are not computed.
+  Ext blocks already fails the criterion, which settles every further piece
+  of positive twist within one shift of the thirty-two threefolds. For every
+  polarisation of E_0^6, a convolution of distinct threefolds and at most
+  five line bundles at any twists fails the criterion (by hand: every
+  threefold piece must lie on a cycle of Ext blocks that carries a Massey
+  product, of both parities of shift, and with five line bundles the
+  Maurer-Cartan equation leaves no such cycle); the enumeration of the
+  archive extends this to six and seven line bundles and to eight outside
+  thirty-one arrangements. An object meeting the criterion cannot be a
+  shifted line bundle on a threefold off a divisor that is not ample, and its
+  threefolds form a set closed under sign changes. What remains at E_0^6 are
+  eight or more line bundles and a threefold at several twists, decided by
+  the products along their chains, which are not computed.
 * A single class on an abelian fourteenfold carries the exceptional classes
   of a Mumford fourfold.
 * Specialisation, degeneration and blow-ups relocate the two open statements
@@ -71,8 +79,9 @@ program, what it checks and its expected output. The Lean file prints
 `propext` and `Quot.sound`, and the six isolated-block counts and two
 chain-free counts of Section 7 use `propext`; `native_decide` is not used.
 
-No statement of the paper rests on these checks; they guard the hand
-computations. The candidate configurations at E_0^6 were proposed by Anaxia,
+No statement proved in the paper rests on these checks; the enumerations of
+Proposition VI.13 and Remark VI.25 are their output and are stated as such,
+and the rest guard the hand computations. The candidate configurations at E_0^6 were proposed by Anaxia,
 the construction engine of the BLLM project
 ([creelie/eBLLM](https://github.com/creelie/eBLLM), release v3.0.5,
 doi:10.5281/zenodo.23469389); the engine proposes, and the proofs and these

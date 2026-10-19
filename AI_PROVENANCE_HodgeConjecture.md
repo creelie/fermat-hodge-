@@ -57,6 +57,24 @@ follows.
   record of configuration (a) carried the same wrong chain; the engine
   proposes, and the proofs and programs decide. The paper now cites the
   engine in a footnote, the bibliography and the data availability section.
+  A seventh round added Section VI.G, Setting VI.17 to Corollary VI.27,
+  with hand proofs throughout: every threefold piece of an object meeting
+  the criterion lies on a directed cycle of Ext blocks with exactly one
+  edge on which the twisting cochain vanishes, through pieces of both
+  parities of shift (Lemma VI.18 to Lemma VI.21); the shape of such cycles
+  (Lemma VI.22); and Theorem VI.23, that for every hermitian polarisation
+  of E_0^6 a convolution of distinct threefolds and at most five line
+  bundles, at any twists, fails the criterion. The enumeration of six,
+  seven and eight line bundles (`line_bundle_chains.py`; six and seven
+  fail, eight outside thirty-one arrangements) is stated in the paper as a
+  computation of the archive, Remark VI.25, and no proved statement rests
+  on it. Proposition VI.26 (an object meeting the criterion that is a
+  shifted line bundle on a threefold off an open set has an ample
+  divisorial complement) and Corollary VI.27 (the threefolds of such an
+  object form a set closed under sign changes) are proved by hand. The
+  enumeration was first run on the graph of the engine, as its record C8;
+  its rules were then proved in the text and the counts recomputed by the
+  program of the archive.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal
