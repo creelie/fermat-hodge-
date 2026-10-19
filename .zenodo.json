@@ -16,6 +16,6 @@
   ],
   "description": "<p>The REVTeX source, figures and compiled PDF of the paper <em>Dense Algebraic Loci of Hodge Classes</em>, the Lean 4 certificate <code>lean/HodgeClosure.lean</code> (fifty-three theorems: forty-five axiom-free, two on <code>propext</code> and <code>Quot.sound</code>, six on <code>propext</code>), and the Python, Julia, C, C++ and shell programs that recompute every finite quantity used in the proofs (<code>code/run_all.sh</code>). The paper proves that the Hodge conjecture is equivalent to two statements about abelian varieties, that for each the known locus is dense and either everything or meagre, proves the real multiplications by sqrt 5, sqrt 6, sqrt 7 and by the cubic fields Q(zeta_7)^+ and Q(zeta_9)^+ algebraic on explicit families of K3 surfaces, builds the first object each statement needs, and at the point of complex multiplication E_0^6 bounds dim Ext^2 by isolated Ext blocks for every twisting cochain, which settles every placement of thirty-five pieces and leaves the rank of one sixfold Massey product and of products of length three to five; neither statement is proved and the conjecture is not claimed. The folder <code>preprintHodgeConjecture</code> holds the compiled paper only.</p>",
   "keywords": ["Hodge conjecture", "abelian varieties", "Weil classes", "K3 surfaces", "semiregularity", "Lean 4"],
-  "version": "2.0.0",
+  "version": "2.0.1",
   "access_right": "open"
 }
