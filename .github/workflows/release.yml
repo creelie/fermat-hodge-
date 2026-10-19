@@ -1,0 +1,32 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag of the release, for example v2.0.0"
+        required: true
+      title:
+        description: "Title of the release"
+        required: true
+      notes:
+        description: "Release notes"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create the release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ inputs.tag }}
+          TITLE: ${{ inputs.title }}
+          NOTES: ${{ inputs.notes }}
+        run: |
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES" \
+            preprintHodgeConjecture/HodgeConjecture.pdf HodgeConjecture_tex.zip hcfinal.zip
