@@ -17,6 +17,9 @@ version: 2.0.1
 date-released: 2026-10-19
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.23461820
+    description: "Version DOI of release v2.0.1"
+  - type: doi
     value: 10.5281/zenodo.23461752
     description: "Version DOI of release v2.0.0"
   - type: doi
