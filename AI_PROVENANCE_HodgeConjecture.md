@@ -20,8 +20,9 @@ follows.
   and Picard numbers, the dimension counts 57, 104 and 26, the Hecke algebra
   dimensions) is recomputed by programs in `code/` in at least two languages
   and the combinatorial and arithmetic ones are proved in
-  `lean/HodgeClosure.lean` (forty-seven theorems, forty-five of them free of
-  every axiom and two depending on propext and Quot.sound only).
+  `lean/HodgeClosure.lean` (fifty-three theorems, forty-five of them free of
+  every axiom, two depending on propext and Quot.sound only, and six on
+  propext only; `native_decide` is not used).
 * Two numerical ranks (`product_object.py`, `convolution_checks.py`) are
   computed in floating point; no statement of the paper rests on them. The
   rank behind Theorem VI.6 is also computed exactly (`annihilator_exact.py`),
@@ -32,7 +33,16 @@ follows.
   round of AI sessions added Lemma VI.9 and Proposition VI.11 (convolutions
   with three line bundles fail at E_0^6); its claim that no Massey product
   had been computed was kept as stated, and the configurations it leaves
-  are listed as open in the paper.
+  are listed as open in the paper. A fifth round (release v2.0.0) added
+  Lemma VI.12 and Proposition VI.13: a lower bound for dim Ext^2 by
+  isolated Ext blocks, valid for every twisting cochain, computed over every
+  configuration of the four open kinds in a window of twists and shifts
+  (`cm_point_counts.py`; the six least values are proved in Lean Section 7
+  with a kernel-checked reachability certificate), and Remark V.14 on the
+  shape a chain for sqrt 10 would need. The bound settles every placement of
+  the thirty-five pieces and two threefolds at one shift meeting along a
+  surface; for the other two kinds it is 0 and decides nothing, and the
+  Massey products that decide them were not computed.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal

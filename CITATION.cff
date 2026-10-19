@@ -13,12 +13,9 @@ authors:
     orcid: "https://orcid.org/0009-0002-2254-3914"
     email: rai.bhattacharya.in@gmail.com
     affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
-version: 1.0.0
-date-released: 2026-10-17
+version: 2.0.0
+date-released: 2026-10-19
 identifiers:
-  - type: doi
-    value: 10.5281/zenodo.23439578
-    description: "Version DOI of release v1.0.0"
   - type: doi
     value: 10.5281/zenodo.23439577
     description: "Concept DOI of all versions"

@@ -475,7 +475,7 @@ def fig_cubicstop():
 
 def fig_cmpoint():
     """Appendix A: the three Weil surfaces B_j with the four curves C_zeta, the dimensions of the
-    Ext groups between two twists of one threefold, and the closed chains of Proposition VI.9."""
+    Ext groups between two twists of one threefold, and the closed chains of Proposition VI.10."""
     fig = plt.figure(figsize=(7.6, 3.5))
     gs = fig.add_gridspec(1, 3, width_ratios=[1.2, 1.0, 1.1], wspace=0.12)
     # (a) three surfaces, each a square torus fundamental domain, with the four curves u + zeta v = 0
@@ -596,7 +596,7 @@ def fig_roadmap():
 def fig_extgrid():
     """Appendix A: the least degree k with Ext^k(F_P, F_Q) != 0 for the twelve pieces O_Z L^k,
     O_Z' L^k, L^k (k = 0..3), as a matrix; the two-step and three-step statements of
-    Proposition VI.9 are read off from it."""
+    Proposition VI.10 are read off from it."""
     import itertools
     TW = range(4)
     pieces = [('Z', k) for k in TW] + [('W', k) for k in TW] + [('L', k) for k in TW]

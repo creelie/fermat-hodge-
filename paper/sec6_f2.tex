@@ -264,6 +264,56 @@ For the last sentence of the statement: when the threefolds meet in finite sets 
 
 Proposition~\ref{prop:separated} settles the configuration that Appendix~\ref{app:cmpoint} writes down, the thirty-two threefolds $Z_{\zeta}$ at one twist with three powers of $L$: no convolution of these thirty-five pieces meets the criterion. By Lemma~\ref{lem:cmext}(i) every object meeting the criterion at $A_{0}$ is a convolution of pieces $\mathcal{O}_{Z}\otimes L^{k}[s]$ and $L^{l}[t]$, so what remains are the convolutions with four or more line bundles, with a sheaf at two shifts, with a threefold at several twists, or with two threefold pieces at the same shift meeting along an abelian surface, as two of the $Z_{\zeta}$ with two equal coordinates do. In each of these closed chains exist: through four line bundles, $L^{l}\to\mathcal{O}_{Z}\otimes L^{k}\to\mathcal{O}_{Z'}\otimes L^{k'}\to L^{l'}\to L^{l''}\to L^{l'''}\to L^{l}$ with $k>l>l'''>l''>l'>k'$ and degrees $0,3,3,0,0,0$; through three twists of one threefold, the chain of Proposition~\ref{prop:twostep}; and between two pieces $\mathcal{O}_{Z_{\zeta}}\otimes L^{k}[s]$, $\mathcal{O}_{Z_{\zeta'}}\otimes L^{k}[s]$ with two equal coordinates, the chain of length two with degrees $1,1$, through the groups $H^{0}(W,\mathcal{O}_{W})$ of Lemma~\ref{lem:cmmeet}(iii). The question at the stopping point is whether the diagonal components $\bigl(\mathrm{ev}_{F_{a}}(v)\bigr)_{a}$, $v\in T\cD_{3,3}$, lie in the image of the products along these chains, a finite computation in the groups of Lemmas~\ref{lem:cmext} and \ref{lem:cmmeet} that we have not carried out; the Hodge locus of the obstruction, the only other way the criterion could fail, is settled by Theorem~\ref{thm:criterion} itself.
 
+\subsection{Counting the remaining configurations at $E_{0}^{6}$}\label{ssec:e06count}
+
+The four kinds of convolution left open by Proposition~\ref{prop:separated} can be tested by a bound that uses no product at all. Fix pieces $F_{a}$ with shifts $s_{a}$ and a minimal $A_{\infty}$-model of their full subcategory, so that $\Hom^{\bullet}(\mathcal{E},\mathcal{E})$ for a convolution $\mathcal{E}$ of the $F_{a}$ is the direct sum of the blocks $\Ext^{k}(F_{a},F_{b})$ placed in total degree $k+s_{b}-s_{a}$, with the differential $x\mapsto\sum_{p,q}m_{p+q+1}(\delta,\dots,\delta,x,\delta,\dots,\delta)$ built from the twisting cochain $\delta$, whose components lie in the blocks of total degree one. Call a block $\Ext^{k}(F_{a},F_{b})$ of total degree two \emph{isolated} when no block of total degree one maps to it and it maps to no block of total degree three along such a term: that is, there is no chain $a\to\cdots\to a'$ and $b'\to\cdots\to b$ of pieces with every step a nonzero block of total degree one and $(a',b')\ne(a,b)$ carrying a block of total degree one, and no such chain $a'\to\cdots\to a$, $b\to\cdots\to b'$ with $(a',b')$ carrying a block of total degree three.
+
+\begin{lemma}[Isolated blocks]\label{lem:isolated}
+For every twisting cochain $\delta$ on the pieces $F_{a}$, the isolated blocks of total degree two inject into $\Ext^{2}(\mathcal{E},\mathcal{E})$; so $\dim\Ext^{2}(\mathcal{E},\mathcal{E})$ is at least the sum of their dimensions.
+\end{lemma}
+
+\begin{proof}
+An element of an isolated block is a cycle, since every term of its differential lands in a block of total degree three reached from it along a chain of components of $\delta$, and there is none; and it is not a boundary, since every term of the differential of a class of total degree one lands in a block reached from that class along such a chain, and none reaches an isolated block. The blocks are direct summands, so the cycles of the isolated blocks meet the boundaries only in zero.
+\end{proof}
+
+The bound depends only on the Ext groups of Lemmas~\ref{lem:cmext} and \ref{lem:cmmeet} and on the shifts, not on $\delta$, so it can be computed over all configurations of a family at once. We did this for the configurations of the four kinds within a window of twists $1$ to $4$ and shifts $-3$ to $3$ around the thirty-five pieces, keeping those whose Chern character has the polarised shape, and recorded for each the sums $C^{1},C^{2},C^{3}$ of the block dimensions in total degrees one to three, the Euler characteristic $C^{2}-C^{1}-C^{3}$ and the isolated blocks (Table~\ref{tab:e06count}). The programs are in the archive of the Data availability section.
+
+\begin{table}[t]
+\caption{The isolated-block bound of Lemma~\ref{lem:isolated} over the configurations at $A_{0}=E_{0}^{6}$. ``Polarised'' counts the configurations of the family in the window whose Chern character has the polarised shape; ``least'' is the smallest bound among them, with the configuration attaining it. The criterion needs $\dim\Ext^{2}=57$.}
+\label{tab:e06count}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}p{0.72\columnwidth}rr@{}}
+\hline
+family (least bound attained at) & polarised & least \\
+\hline
+thirty-five pieces, $L^{1},L^{2},L^{3}$ at shifts $0,0,0$ & $1$ & $7213$ \\
+the same at shifts $2,3,4$ or $-3,-2,-1$ & $2$ & $2605$ \\
+(a) four or five line bundles ($L^{1}[-2]$, $L^{2}[-1]$, $L^{3}[0]$, $L^{4}[1]$) & $2401$ & $0$ \\
+(b) one threefold at a second shift & $0$ & \\
+(c) one threefold at three twists ($Z_{(1,1,1)}\otimes L^{1}$ at $[-1]$, $[0]$ and $\otimes L^{2}$ at $[1]$, $[2]$) & $432$ & $0$ \\
+(d) a second threefold meeting $Z_{\zeta}$ along a surface, at the shift of $Z_{\zeta}$ and a neighbouring one ($Z_{(1,1,-1)}$ at $[0]$, $[1]$) & $6$ & $5325$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{proposition}[What counting decides]\label{prop:e06count}
+At $A_{0}=E_{0}^{6}$, with the pieces of Appendix~\ref{app:cmpoint}:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item For the thirty-five pieces of Proposition~\ref{prop:separated} with the three line bundles at any shifts in the window, $\dim\Ext^{2}(\mathcal{E},\mathcal{E})\ge2605$ for every twisting cochain, by isolated blocks alone.
+\item Adding to them a threefold $Z_{\zeta'}$ meeting $Z_{\zeta}$ along an abelian surface, at the shift of $Z_{\zeta}$ and at a neighbouring shift so that the Chern character keeps the polarised shape, gives $\dim\Ext^{2}\ge5325$: the configuration of two threefold pieces at the same shift meeting along a surface fails for every twisting cochain.
+\item Adding one further copy of a threefold at a second shift within the window never gives the polarised shape.
+\item For four or five line bundles, and for one threefold at three twists, the isolated blocks are $0$ at the configurations of Table~\ref{tab:e06count} and the Euler characteristic is negative throughout the window: the bound decides nothing, and $\dim\Ext^{2}$ is the rank of the products along the closed chains. For four line bundles no closed chain has all its steps of total degree one, and the chain of the paragraph after Proposition~\ref{prop:separated} has length six, so the deciding product is $m_{6}$; for one threefold at three twists the closed chains have lengths two to five.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i), (ii) and (iv) are Lemma~\ref{lem:isolated} applied to the block dimensions of Lemmas~\ref{lem:cmext} and \ref{lem:cmmeet}, enumerated over the window; (iii) is the enumeration of Chern characters, since a second copy of $\mathcal{O}_{Z_{\zeta}}$ at a shift of the other parity changes the Weil component by $\pm2[Z_{\zeta}]$, which no choice of line bundles compensates. The chains in (iv) are enumerated among the blocks of total degree one; the chain of length six has steps of Ext degrees $0,3,3,0,0,0$, which are of total degree one only through the shifts of its pieces, so the enumeration of degree-one steps does not see it and the product it carries is the sixfold one.
+\end{proof}
+
+Proposition~\ref{prop:e06count} closes the configuration (d) of two threefolds at one shift and every placement of the thirty-five pieces, and it reduces the two remaining configurations (a) and (c) to the ranks of finitely many Massey products, $m_{6}$ along one chain of two threefolds and four line bundles, and $m_{3}$ to $m_{5}$ along the chains through one threefold at three twists. Those ranks are computable in the theta-function model of \cite[\S18]{BMB26}, where the fourfold products of line-bundle pieces at distance at least two were found to give $\dim\Ext^{2}\ge69$; we have not computed them, and \Fii{} at $E_{0}^{6}$ stands or falls with them.
+
 \subsection{The exceptional classes of a Mumford fourfold}\label{ssec:mumford}
 
 Keep Setting~\ref{setup:mumford} and write $\psi$ for the polarisation form on $V$, $T=D^{0}$, $q_{\lambda}(x,y)=\Tr_{F/\QQ}(\lambda\,\trd(xy))$ for $\lambda\in F$, and $m_{a}$ for multiplication by $a\in F$ on $T$. The copy $T_{X}(-1)\subseteq V\otimes V$, $x\mapsto\bigl((v,w)\mapsto\psi(xv,w)\bigr)$, is symmetric and carries the form induced by $\psi\otimes\psi$, equal to $-4\,\trd(xy)$ summed over the three real places, that is $q_{1}$ up to the scalar $-4$. The exceptional classes of $X\times X$ are the elements $m_{a}$, $a\in F\setminus\QQ$, of $\End_{\Hdg}T_{X}(-1)=F$ \cite[Prop.~21.2]{BMB26}, and in \cite[Thm.~21.4]{BMB26} their algebraicity is derived from the Kuga--Satake class of a K3 surface $S_{\lambda}$ with $T(S_{\lambda})_{\QQ}\cong(T,q_{\lambda})$. We replace $S_{\lambda}$ by an abelian variety.
