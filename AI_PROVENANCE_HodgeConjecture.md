@@ -57,7 +57,7 @@ follows.
   record of configuration (a) carried the same wrong chain; the engine
   proposes, and the proofs and programs decide. The paper now cites the
   engine in a footnote, the bibliography and the data availability section.
-  A seventh round added Section VI.G, Setting VI.17 to Corollary VI.27,
+  A seventh round added Section VI.G, Setting VI.17 to Remark VI.25,
   with hand proofs throughout: every threefold piece of an object meeting
   the criterion lies on a directed cycle of Ext blocks with exactly one
   edge on which the twisting cochain vanishes, through pieces of both
@@ -66,15 +66,25 @@ follows.
   of E_0^6 a convolution of distinct threefolds and at most five line
   bundles, at any twists, fails the criterion. The enumeration of six,
   seven and eight line bundles (`line_bundle_chains.py`; six and seven
-  fail, eight outside thirty-one arrangements) is stated in the paper as a
-  computation of the archive, Remark VI.25, and no proved statement rests
-  on it. Proposition VI.26 (an object meeting the criterion that is a
-  shifted line bundle on a threefold off an open set has an ample
-  divisorial complement) and Corollary VI.27 (the threefolds of such an
-  object form a set closed under sign changes) are proved by hand. The
-  enumeration was first run on the graph of the engine, as its record C8;
-  its rules were then proved in the text and the counts recomputed by the
-  program of the archive.
+  fail, eight outside thirty-one arrangements, whose ranks the program
+  reports) is stated in the paper as a computation of the archive, Remark
+  VI.25, and no proved statement rests on it. The enumeration was first
+  run on the graph of the engine, as its record C8; its rules were then
+  proved in the text and the counts recomputed by the program of the
+  archive. An eighth round added Section VI.H, Lemma VI.26 to Proposition
+  VI.34, on the support of an object meeting the criterion, with hand
+  proofs throughout: the localised Chern character of the support, the
+  class of a threefold in local cohomology (Lemma VI.26); the rest of the
+  support cuts every threefold of nonzero multiplicity in an ample divisor
+  (Theorem VI.27); two threefolds of the same family meeting along a
+  surface carry nothing (Theorem VI.29); objects supported on the
+  thirty-two threefolds of one family fail (Corollary VI.31); a smooth
+  complete intersection cannot carry the rest (Proposition VI.33); an
+  ample divisor in the support empties the localised obstruction
+  (Proposition VI.34). The identities of signs and residues used there
+  are checked by `threefold_supports.py`. The intersection and
+  localisation arguments were proposed in the engine's record C8
+  (release v3.1.0, doi:10.5281/zenodo.23484160) and proved in the text.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal
