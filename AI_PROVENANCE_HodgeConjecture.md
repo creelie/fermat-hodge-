@@ -20,8 +20,8 @@ follows.
   and Picard numbers, the dimension counts 57, 104 and 26, the Hecke algebra
   dimensions) is recomputed by programs in `code/` in at least two languages
   and the combinatorial and arithmetic ones are proved in
-  `lean/HodgeClosure.lean` (fifty-four theorems, forty-six of them free of
-  every axiom, two depending on propext and Quot.sound only, and six on
+  `lean/HodgeClosure.lean` (fifty-nine theorems, forty-nine of them free of
+  every axiom, two depending on propext and Quot.sound only, and eight on
   propext only; `native_decide` is not used).
 * Two numerical ranks (`product_object.py`, `convolution_checks.py`) are
   computed in floating point; no statement of the paper rests on them. The
@@ -41,8 +41,22 @@ follows.
   with a kernel-checked reachability certificate), and Remark V.14 on the
   shape a chain for sqrt 10 would need. The bound settles every placement of
   the thirty-five pieces and two threefolds at one shift meeting along a
-  surface; for the other two kinds it is 0 and decides nothing, and the
-  Massey products that decide them were not computed.
+  surface; for the other two kinds it is 0 and decides nothing. A sixth
+  round added Proposition VI.14 and Corollary VI.15: a threefold piece
+  outside every closed chain of Ext blocks fails the criterion for every
+  twisting cochain, which settles four line bundles, five line bundles and
+  every further piece of positive twist within one shift of the thirty-two
+  threefolds (`cm_point_chains.py`; the counts, the entering edges and the
+  six-cycles are proved in Lean Section 7). The same round corrected the
+  earlier statement that four line bundles are decided by a sixfold Massey
+  product: the chain described does not exist when the threefolds have twist
+  0, and no closed chain at all exists with four line bundles. The candidate
+  configurations (a), (c), (d) and the quotient chains of Proposition V.14
+  came from the candidate record of the Anaxia engine of the BLLM project
+  (creelie/eBLLM, release v3.0.5, doi:10.5281/zenodo.23469389), whose
+  record of configuration (a) carried the same wrong chain; the engine
+  proposes, and the proofs and programs decide. The paper now cites the
+  engine in a footnote, the bibliography and the data availability section.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal
