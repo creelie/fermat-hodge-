@@ -353,6 +353,18 @@ theorem theta_sign_pattern :
     (f7 (-2) < 0 ∧ f7 (-1) > 0 ∧ f7 0 < 0 ∧ f7 2 > 0) ∧
     (f9 (-2) < 0 ∧ f9 0 > 0 ∧ f9 1 < 0 ∧ f9 2 > 0) := by decide
 
+/-- Proposition V.14: a symplectic automorphism of order five has coinvariant rank 16 and one
+of order seven rank 18 (Nikulin), so the transcendental lattice, of signature (2, t - 2), lies
+in a lattice of rank 22 - 16 = 6 and signature (3, 3) (resp. rank 4, signature (3, 1)); hence
+t <= 5 (resp. t <= 3), while a totally real endomorphism field of degree at least two needs
+t >= 2 * 3 = 6 (Zarhin: dim_E T >= 3). The symplectic orders are at most eight, and those not
+of the form 2^a 3^b are 5 and 7. -/
+theorem symplectic_chain_bound :
+    (22 - 16 = 6 ∧ 19 - 16 = 3 ∧ 2 + 3 = 5 ∧ 5 < 2 * 3) ∧
+    (22 - 18 = 4 ∧ 19 - 18 = 1 ∧ 2 + 1 = 3 ∧ 3 < 2 * 3) ∧
+    ((List.range 9).filter (fun n => n ≥ 2 ∧ n % 5 ≠ 0 ∧ n % 7 ≠ 0) = [2, 3, 4, 6, 8]) ∧
+    ((List.range 9).filter (fun n => n ≥ 2 ∧ (n % 5 = 0 ∨ n % 7 = 0)) = [5, 7]) := by decide
+
 /-! ## Section 6: the point of complex multiplication E_0^6 (Lemma VI.8, Proposition VI.10, Appendix A) -/
 
 /-- Binomial coefficients, by Pascal's rule. -/
@@ -732,6 +744,7 @@ end HodgeClosure
 #print axioms HodgeClosure.dickson9_identity
 #print axioms HodgeClosure.two_inert_7_9
 #print axioms HodgeClosure.theta_sign_pattern
+#print axioms HodgeClosure.symplectic_chain_bound
 #print axioms HodgeClosure.binomial_six
 #print axioms HodgeClosure.curve_intersections
 #print axioms HodgeClosure.twist_sums

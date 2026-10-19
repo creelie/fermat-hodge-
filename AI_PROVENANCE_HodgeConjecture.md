@@ -20,7 +20,7 @@ follows.
   and Picard numbers, the dimension counts 57, 104 and 26, the Hecke algebra
   dimensions) is recomputed by programs in `code/` in at least two languages
   and the combinatorial and arithmetic ones are proved in
-  `lean/HodgeClosure.lean` (fifty-three theorems, forty-five of them free of
+  `lean/HodgeClosure.lean` (fifty-four theorems, forty-six of them free of
   every axiom, two depending on propext and Quot.sound only, and six on
   propext only; `native_decide` is not used).
 * Two numerical ranks (`product_object.py`, `convolution_checks.py`) are
