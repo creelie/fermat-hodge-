@@ -19,3 +19,4 @@ lean/*.olean
 lean/*.ilean
 lean/lean.out
 lean/lean.err
+paper/journal.pdf

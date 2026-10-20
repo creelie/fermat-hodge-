@@ -2,7 +2,8 @@
 Bhattacharjee-Bhattacharya 2026, doi:10.5281/zenodo.23461752): the vectors of T D_h and their
 images in H^1 of the threefolds, the four points where two threefolds of one family meet, the
 threefolds through a general curve, the weights of the classes [Z_x], the Fourier inversion
-on the four orbits, and the weight spaces of H^4 and H^6.
+on the four orbits, the weight spaces of H^4 and H^6, and the line of four threefolds of Lemma VI.32 with the
+relations mu_a = m a^2 and the vanishing of sum_x sigma(x)^2 [Z_x] (Theorem VI.33).
 
 Conventions.  E_0 = C/Z[i]; on the j-th factor B_j = E_0^2 with coordinates (u, v) = (z_j, z_{3+j})
 the curve C_zeta is u + zeta v = 0; Z_x = C_{x_1} x C_{x_2} x C_{x_3}.  A vector of T D_h is
@@ -203,6 +204,136 @@ for eps in EPS:
     monos = [mono for mono in itertools.combinations(range(12), 6) if tuple(sum(weight(g)[j] for g in mono) for j in range(3)) == target]
     ok9 &= monos == [X_mono(eps)]
 check("H^4(A_0) has no class of weight +-2 eps, and X_eps spans the weight 2 eps part of H^6(A_0)", ok9)
+
+# ---------------------------------------------------------------- checks 10-16: the line of four threefolds (Lemma VI.32) and the sixty-four (Theorem VI.33)
+# check 10: at Y = E_jk the vector v gives dn_a(v) = a dzbar_k, dn_k(v) = (h_{3+j}/h_k) dzbar_{3+j}, dn_l(v) = 0
+hs = sp.symbols('h1:7', positive=True)
+ok10 = True
+for j in range(3):
+    for k in range(3):
+        if k == j:
+            continue
+        l = 3 - j - k
+        Y = [[sp.Integer(0)] * 3 for _ in range(3)]
+        Y[j][k] = sp.Integer(1)
+        v = tdh_vector(Y, hs)
+        for xi_k in MU4:
+            for xi_l in MU4:
+                for aa in MU4:
+                    dn_a = [v[j][bb] + aa * v[3 + j][bb] for bb in range(6)]          # coefficients of dzbar_b in dn_a(v)
+                    dn_k = [v[k][bb] + xi_k * v[3 + k][bb] for bb in range(6)]
+                    dn_l = [v[l][bb] + xi_l * v[3 + l][bb] for bb in range(6)]
+                    ok10 &= all(sp.simplify(dn_a[bb] - (aa if bb == k else 0)) == 0 for bb in range(6))
+                    ok10 &= all(sp.simplify(dn_k[bb] - (hs[3 + j] / hs[k] if bb == 3 + j else 0)) == 0 for bb in range(6))
+                    ok10 &= all(dn_l[bb] == 0 for bb in range(6))
+check("at Y = E_jk: dn_a(v) = a dzbar_k, dn_k(v) = (h_{3+j}/h_k) dzbar_{3+j}, dn_l(v) = 0, for all j != k, a, xi_k, xi_l", ok10)
+
+# check 11: [C_a] wedge dzbar_{3+j} = (i/2)(dz_j + a dz_{3+j}) dzbar_j dzbar_{3+j}, and the two relations
+# forms on B_j in the generators 0: dz_j, 1: dz_{3+j}, 2: dzbar_j, 3: dzbar_{3+j}, as dicts monomial -> coefficient
+def wmul(f, g):
+    out = {}
+    for m1, c1 in f.items():
+        for m2, c2 in g.items():
+            r = wedge(m1, m2)
+            if r is None:
+                continue
+            sgn, m = r
+            out[m] = sp.expand(out.get(m, 0) + sgn * c1 * c2)
+    return {m: c for m, c in out.items() if c != 0}
+
+
+def curve_class(aa):
+    one = {(0,): sp.Integer(1), (1,): aa}                       # dn_a = dz_j + a dz_{3+j}
+    two = {(2,): sp.Integer(1), (3,): sp.conjugate(aa)}        # dnbar_a
+    return {m: I / 2 * c for m, c in wmul(one, two).items()}
+
+
+mu = {aa: sp.Symbol('mu_%d' % n) for n, aa in enumerate(MU4)}
+dzbar3j = {(3,): sp.Integer(1)}
+ok11 = True
+total = {}
+for aa in MU4:
+    w = wmul(curve_class(aa), dzbar3j)
+    ok11 &= w == {(0, 2, 3): I / 2, (1, 2, 3): sp.expand(I / 2 * aa)}
+    for mono, cf in w.items():
+        total[mono] = sp.expand(total.get(mono, 0) + mu[aa] * cf)
+rel1 = sp.expand(total[(0, 2, 3)] * 2 / I)
+rel2 = sp.expand(total[(1, 2, 3)] * 2 / I)
+ok11 &= sp.expand(rel1 - sum(mu[aa] for aa in MU4)) == 0 and sp.expand(rel2 - sum(aa * mu[aa] for aa in MU4)) == 0
+check("[C_a] dzbar_{3+j} = (i/2)(dz_j + a dz_{3+j}) dzbar_j dzbar_{3+j}; the coefficients of sum mu_a [C_a] dzbar_{3+j} are sum mu_a and sum a mu_a", ok11)
+
+# check 12: the rational solutions of the two relations are mu_a = m a^2
+rsyms = [sp.Symbol('r_%d' % n, real=True) for n in range(4)]
+rel2r = rel2.subs({mu[aa]: rsyms[n] for n, aa in enumerate(MU4)})
+eqs = [sum(rsyms), sp.re(sp.expand(rel2r)), sp.im(sp.expand(rel2r))]
+sol = sp.linsolve(eqs, rsyms)
+(vec,) = list(sol)
+free12 = set().union(*[term.free_symbols for term in vec])
+ok12 = len(free12) == 1 and vec[0] != 0
+ok12 = ok12 and [sp.simplify(vec[n] / vec[0]) for n in range(4)] == [sp.expand(aa ** 2) for aa in MU4]
+check("the relations sum mu_a = 0, sum a mu_a = 0 have the one-dimensional solution space mu_a = m a^2, i.e. mu_1 = mu_-1 = -mu_i = -mu_-i", ok12)
+
+# check 13: Q . C_b = 8, Q^2 = 32, and C_1 meets C_i in |1 - i|^2 = 2 points: Q has finite stabiliser
+QUARTER = [sp.Rational(p, 4) + sp.Rational(q, 4) * I for p in range(4) for q in range(4)]      # (1/4)Z[i] / Z[i]
+ok13 = True
+for bb in MU4:
+    ok13 &= sum(sp.expand(abs(aa - bb) ** 2) for aa in MU4 if aa != bb) == 8
+ok13 &= sum(sp.expand(abs(aa - bb) ** 2) for aa in MU4 for bb in MU4 if aa != bb) == 32
+for aa in MU4:
+    for bb in MU4:
+        if aa != bb:
+            pts = [u for u in QUARTER if in_lattice((aa - bb) * u)]       # u = z_j on C_a cap C_b, with z_{3+j} = -conj(a) u
+            ok13 &= len(pts) == sp.expand(abs(aa - bb) ** 2)
+ok13 &= len([u for u in QUARTER if in_lattice((1 - I) * u)]) == 2
+check("Q . C_b = 8 for every b, Q^2 = 32, and C_a meets C_b in |a - b|^2 points, 2 for (1, i): Q is ample with finite stabiliser", ok13)
+
+# check 14: the threefolds meeting Q x {y} for general y in Pi = C_{xi_k} x C_{xi_l} are the four T_a
+tgen = sp.sqrt(2) / 7
+ok14 = True
+for j in range(3):
+    for k in range(3):
+        if k == j:
+            continue
+        l = 3 - j - k
+        for xi_k in MU4:
+            for xi_l in MU4:
+                yk = (tgen, -sp.conjugate(xi_k) * tgen)           # a point of C_{xi_k} off the other curves
+                yl = (sp.sqrt(3) / 11, -sp.conjugate(xi_l) * sp.sqrt(3) / 11)
+                meeting = []
+                for x in itertools.product(MU4, repeat=3):
+                    ink = in_lattice(yk[0] + x[k] * yk[1])
+                    inl = in_lattice(yl[0] + x[l] * yl[1])
+                    if ink and inl:                                  # C_{x_j} meets Q always
+                        meeting.append(x)
+                ok14 &= sorted(meeting, key=str) == sorted([x for x in itertools.product(MU4, repeat=3) if x[k] == xi_k and x[l] == xi_l], key=str)
+                ok14 &= len(meeting) == 4 and len({x[0] * x[1] * x[2] for x in meeting if (x[0] * x[1] * x[2]) ** 2 == 1}) == 2
+check("the threefolds meeting Q x {y}, y general in Pi, are the four T_a, two of each family, for all j, k, xi_k, xi_l", ok14)
+
+# check 15: mu_x / x_j^2 independent of x_j for each j forces mu_x = m sigma(x)^2
+XS = list(itertools.product(MU4, repeat=3))
+msym = {x: sp.Symbol('m_%d' % n) for n, x in enumerate(XS)}
+eqs15 = []
+for x in XS:
+    for j in range(3):
+        for aa in MU4:
+            if aa != x[j]:
+                xp = tuple(aa if jj == j else x[jj] for jj in range(3))
+                eqs15.append(sp.expand(msym[x] * x[j] ** 2 - msym[xp] * xp[j] ** 2))      # x_j^{-2} = x_j^2
+M15 = sp.Matrix([[sp.Poly(e, *[msym[x] for x in XS]).coeff_monomial(msym[x]) for x in XS] for e in eqs15])
+ns = M15.nullspace()
+ok15 = len(ns) == 1
+if ok15:
+    vec15 = ns[0]
+    ref = vec15[XS.index((sp.Integer(1), sp.Integer(1), sp.Integer(1)))]
+    ok15 &= all(sp.simplify(vec15[n] / ref - sp.expand((x[0] * x[1] * x[2]) ** 2)) == 0 for n, x in enumerate(XS))
+check("the relations along all lines of four threefolds have the one-dimensional solution space mu_x = m sigma(x)^2", ok15)
+
+# check 16: sum_x sigma(x)^2 [Z_x] = prod_j T_{2,j} = 0 in H^6(A_0), T_{2,j} = sum_a a^2 [C_a] = 0 in H^2(B_j)
+ok16 = sp.expand(sum(sp.expand((x[0] * x[1] * x[2]) ** 2) * cls(x) for x in XS)) == 0
+for j in range(3):
+    ok16 &= sp.expand(sum(sp.expand(aa ** 2) * (a[j] + b[j] + sp.conjugate(aa) * c[j] + aa * cb[j]) for aa in MU4)) == 0
+ok16 &= sp.expand(sum(cls(x) for x in XS if (x[0] * x[1] * x[2]) ** 2 == 1) - sum(cls(x) for x in XS if (x[0] * x[1] * x[2]) ** 2 == -1)) == 0
+check("sum_x sigma(x)^2 [Z_x] = 0: T_{2,j} = 0 for each j, and the sum over the family sigma = +-1 equals the sum over sigma = +-i", ok16)
 
 bad = [n for n, ok in checks if not ok]
 print(f"threefold_supports: {len(checks) - len(bad)} checks passed, {len(bad)} failed")
