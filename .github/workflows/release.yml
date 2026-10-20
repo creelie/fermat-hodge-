@@ -29,4 +29,4 @@ jobs:
           NOTES: ${{ inputs.notes }}
         run: |
           gh release create "$TAG" --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES" \
-            preprintHodgeConjecture/HodgeConjecture.pdf HodgeConjecture_tex.zip hcfinal.zip
+            preprints/HodgeConjecture.pdf HodgeConjecture_tex.zip hcfinal.zip

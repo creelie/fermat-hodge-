@@ -72,19 +72,29 @@ follows.
   run on the graph of the engine, as its record C8; its rules were then
   proved in the text and the counts recomputed by the program of the
   archive. An eighth round added Section VI.H, Lemma VI.26 to Proposition
-  VI.34, on the support of an object meeting the criterion, with hand
+  VI.36, on the support of an object meeting the criterion, with hand
   proofs throughout: the localised Chern character of the support, the
   class of a threefold in local cohomology (Lemma VI.26); the rest of the
   support cuts every threefold of nonzero multiplicity in an ample divisor
   (Theorem VI.27); two threefolds of the same family meeting along a
   surface carry nothing (Theorem VI.29); objects supported on the
   thirty-two threefolds of one family fail (Corollary VI.31); a smooth
-  complete intersection cannot carry the rest (Proposition VI.33); an
+  complete intersection cannot carry the rest (Proposition VI.35); an
   ample divisor in the support empties the localised obstruction
-  (Proposition VI.34). The identities of signs and residues used there
-  are checked by `threefold_supports.py`. The intersection and
-  localisation arguments were proposed in the engine's record C8
-  (release v3.1.0, doi:10.5281/zenodo.23484160) and proved in the text.
+  (Proposition VI.36). A ninth round added Lemma VI.32 and Theorem
+  VI.33 to the same section: along each line of four threefolds through
+  a surface the multiplicities satisfy two linear relations, read off
+  from the second summand of the localised obstruction on the surface
+  B_j, where the four curves form an ample divisor, so that the
+  multiplicities are m a^2; and no object supported on all sixty-four
+  threefolds, of both families, has the polarised shape and meets the
+  criterion, because the alternating sum of the sixty-four classes is
+  zero. The identities of signs and residues used in the section are
+  checked by `threefold_supports.py` (sixteen checks). The intersection
+  and localisation arguments were proposed in the engine's record C8
+  (release v3.1.0, doi:10.5281/zenodo.23484160) and proved in the text;
+  the line relations were found in the same engine run on the mixed
+  supports that Corollary VI.31 left open.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal
