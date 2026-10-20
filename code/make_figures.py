@@ -253,8 +253,8 @@ def fig_fricke():
     Fricke coordinate t, the involution w(t) = N^k/t exchanges the cusps 0 and
     infinity and the two elliptic points e_1, e_2; the twist X_p at the pair
     {p, N^k/p} is carried to itself by the fibrewise isogeny f of degree N,
-    and f^* is the real multiplication by sqrt N on the transcendental
-    lattice of rank 6."""
+    and f^* is the complex multiplication by sqrt(-N) on the transcendental
+    lattice."""
     fig = plt.figure(figsize=(7.0, 3.6))
     ax = fig.add_subplot(111, projection="3d")
     # the base P^1_t as a line, with the special points
@@ -293,7 +293,7 @@ def fig_fricke():
     u = np.linspace(0, np.pi, 40)
     ax.plot(2.0 + 1.6 * np.cos(u), 0 * u, 2.6 + 0.5 * np.sin(u), color="#b03a2e", lw=1.0)
     ax.quiver(3.55, 0, 2.65, 0.05, 0, -0.1, arrow_length_ratio=0.9, color="#b03a2e", lw=1.0)
-    ax.text(2.0, 0, 3.3, r"$f$, degree $N$: $f^{*}=\pm\sqrt{N}$ on $T(X_p)$, rank $6$", fontsize=9, ha="center", color="#b03a2e")
+    ax.text(2.0, 0, 3.3, r"$f$, degree $N$: $f^{*}=\pm\sqrt{-N}$ on $T(X_p)$", fontsize=9, ha="center", color="#b03a2e")
     ax.set_xlim(-0.3, 4.3); ax.set_ylim(-1.2, 1.2); ax.set_zlim(-1.6, 3.6)
     ax.set_axis_off(); ax.set_box_aspect((3.0, 1.2, 2.4), zoom=1.35); ax.view_init(elev=10, azim=-90)
     ax.set_title(r"The family $\mathfrak{A}_N$, $N\in\{5,7\}$: twists at a pair exchanged by $w$",
@@ -575,7 +575,7 @@ def fig_roadmap():
     # F3' constructions
     ys = [25.5, 18.5, 11.5]
     left = [(r"$\sqrt{6}$: chain of two quotients, $3\cdot2$", r"stops: $\sqrt{N}$ needs a map of degree $N$"),
-            (r"$\sqrt{5},\sqrt{7}$: Fricke isogenies in families", r"stops: only multiquadratic fields"),
+            (r"$\sqrt{-5},\sqrt{-7}$: Fricke isogenies, HC on all powers", r"stops: only multiquadratic fields"),
             (r"$\mathbb{Q}(\zeta_7)^{+},\mathbb{Q}(\zeta_9)^{+}$ on Mumford type", r"stops: other cubic fields, other algebras")]
     right = [(r"product object on $A\times A'$, Hankel rank 3", r"stops: Ext of the secant sheaves"),
              (r"CM point $E_0^6$: all Ext groups explicit", r"stops: ranks of Massey products"),

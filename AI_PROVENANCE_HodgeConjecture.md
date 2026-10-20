@@ -20,7 +20,7 @@ follows.
   and Picard numbers, the dimension counts 57, 104 and 26, the Hecke algebra
   dimensions) is recomputed by programs in `code/` in at least two languages
   and the combinatorial and arithmetic ones are proved in
-  `lean/HodgeClosure.lean` (fifty-nine theorems, forty-nine of them free of
+  `lean/HodgeClosure.lean` (sixty-two theorems, fifty-two of them free of
   every axiom, two depending on propext and Quot.sound only, and eight on
   propext only; `native_decide` is not used).
 * Two numerical ranks (`product_object.py`, `convolution_checks.py`) are
@@ -28,7 +28,7 @@ follows.
   rank behind Theorem VI.6 is also computed exactly (`annihilator_exact.py`),
   the Riemann-Roch polynomial and the thirty-one supports of Proposition VI.7
   (`riemann_roch_pieces.py`), and the invariants of the trace form behind
-  Theorem V.12 (`zeta9_invariants.py`), with the Ext groups and chains at the
+  Theorem V.14 (`zeta9_invariants.py`), with the Ext groups and chains at the
   CM point of Appendix A (`cm_point_ext.py`, Lean Section 6). A fourth
   round of AI sessions added Lemma VI.9 and Proposition VI.11 (convolutions
   with three line bundles fail at E_0^6); its claim that no Massey product
@@ -38,7 +38,7 @@ follows.
   isolated Ext blocks, valid for every twisting cochain, computed over every
   configuration of the four open kinds in a window of twists and shifts
   (`cm_point_counts.py`; the six least values are proved in Lean Section 7
-  with a kernel-checked reachability certificate), and Remark V.14 on the
+  with a kernel-checked reachability certificate), and Remark V.22 on the
   shape a chain for sqrt 10 would need. The bound settles every placement of
   the thirty-five pieces and two threefolds at one shift meeting along a
   surface; for the other two kinds it is 0 and decides nothing. A sixth
@@ -51,7 +51,7 @@ follows.
   earlier statement that four line bundles are decided by a sixfold Massey
   product: the chain described does not exist when the threefolds have twist
   0, and no closed chain at all exists with four line bundles. The candidate
-  configurations (a), (c), (d) and the quotient chains of Proposition V.14
+  configurations (a), (c), (d) and the quotient chains of Proposition V.21
   came from the candidate record of the Anaxia engine of the BLLM project
   (creelie/eBLLM, release v3.0.5, doi:10.5281/zenodo.23469389), whose
   record of configuration (a) carried the same wrong chain; the engine
@@ -96,16 +96,16 @@ follows.
   the line relations were found in the same engine run on the mixed
   supports that Corollary VI.31 left open.
 * A ninth round (release v2.4.0) opened the attack on (F3') beyond the
-  square: Proposition V.14 reduces, by Varesco's theorem on the Hodge
+  square: Proposition V.16 reduces, by Varesco's theorem on the Hodge
   classes of the powers of a K3 surface with totally real endomorphism
   field, the Hodge conjecture for all powers of the surfaces of Section V
-  to their exceptional classes (the E-determinant of T); Proposition V.15
+  to their exceptional classes (the E-determinant of T); Proposition V.17
   proves (F3') and the Hodge conjecture on every power and Hilbert scheme
   of a K3 surface of Kummer type over Q, that is, whose transcendental
   space embeds in U_Q^3, which is Ma's criterion for dominating a Kummer
   surface, and gives the condition explicitly on the Hasse invariants at
   Picard numbers 17 and 18 by Hasse-Minkowski (the local existence
-  conditions for a complement of rank one or two); Remark V.16 records
+  conditions for a complement of rank one or two); Remark V.18 records
   that the Fricke surfaces are neither of Kummer type nor in Varesco's two
   families (discriminants 5, 7 against 1, 3), so their exceptional classes
   stay open; and Proposition III.4 records, from Bloch and Srinivas, (F3')
@@ -116,7 +116,7 @@ follows.
   attributes to it what it proves; the new content is the explicit
   arithmetic condition and the assembly.
 * A tenth round (release v2.5.0) took the first of those exceptional
-  classes: Proposition V.17 computes the transcendental spaces of the Fricke
+  classes: its Proposition V.17 computed the transcendental spaces of the Fricke
   surfaces as U_Q^2 + <-1> + <-N> by Witt cancellation of the trivial
   lattice from the K3 lattice, so that by Lombardo and van Geemen the
   Kuga-Satake variety is B^4 for an abelian fourfold B of Q(sqrt(-N))-Weil
@@ -140,7 +140,38 @@ follows.
   Abdulali 1999 and 2002, Schlickewei 2010, van Geemen-Verra 2003, Markman
   2023, Varesco 2025) was read before writing and the paper attributes to
   it what it proves; the new content is the identification of the lattice,
-  the assembly and the dichotomy.
+  the assembly and the dichotomy. The quaternionic description of the
+  Kuga-Satake fourfold, the reduction to one very general member and the
+  statement of real multiplication by sqrt 5 and sqrt 7 were wrong and are
+  withdrawn in the eleventh round.
+* An eleventh round (release v2.6.0) corrected the Fricke families. The
+  self-isogeny f of a Fricke surface satisfies (f^*)^2 = -N, not +N:
+  Lemma V.8 proves phi_{w(t)} phi_t = [-N] on the universal curve (the
+  analytic model z -> z/tau has square [-N], and the comparison sign is
+  constant on the connected base), and the sign of (f^*)^2 on the twisted
+  surface is -N divided by c(t) c(w(t)), where u(w(t)) = c(t)^2 u(t) is the
+  behaviour of the twisting function under the Fricke involution: the pair
+  twists (t-p)(t-q), (t-w(p))(t-w(q)) that form the families have
+  c(t) c(w(t)) = 1 and give complex multiplication by Q(sqrt -N), the
+  fixed-point twists t^2 - N^k have c(t) c(w(t)) = -1 and give the real
+  multiplication by sqrt N of the two surfaces of van Geemen and Schutt,
+  who state the complex multiplication of the families without proof in
+  their Section 7.6. Theorem V.9 then gives the Hodge conjecture on every
+  power and Hilbert scheme of every member (Ramon Mari, Varesco) and (F3')
+  with it, Remark V.10 states the Picard number 16 of the very general
+  member as a computation of the archive (point counts over F_11 and F_7,
+  `fricke_picard.py`, twelve checks, the method of the module k3frob of
+  the Anaxia engine at commit 8782bd3, which first found that the level-13
+  self-map is a complex multiplication), and Proposition V.19 replaces the
+  quaternionic Kuga-Satake fourfold by the splitting B ~ E_K x B_3 into a
+  CM elliptic curve and a simple threefold with endomorphism field K, by
+  the branching of the half-spin representations. The sign is also checked
+  by Velu's formulas (`fricke_sign.py`, thirty-two checks; the polynomial
+  identity behind lambda(t)^2 = -t^2/N^(k-1) is proved in Lean, three
+  theorems). The literature (van Geemen-Schutt 2025 Section 7, Zarhin 1983,
+  Varesco 2025, Ramon Mari 2008, Lombardo 2001) was read before writing;
+  the new content is the sign lemma, the twist bookkeeping and the
+  splitting.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal

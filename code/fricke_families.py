@@ -365,7 +365,7 @@ for N in (7, 5):
     for row in cl: print("     ", row)
     check(f"level {N}: every non-isotrivial elliptic K3 surface with a rational cyclic {N}-isogeny of its generic fibre has rho >= 16 (Euler-number classification, k <= 4)",
           all(r[5] >= 16 for r in cl))
-    check(f"level {N}: every such family has dimension <= 2, so T(X) has rank <= 6 and the RM(sqrt({N}d)) loci (dimension 1 in the 4-dimensional period domain) have negative expected intersection dimension",
+    check(f"level {N}: every such family has dimension <= 2, so T(X) has rank <= 6 and a one-dimensional Hodge locus in the 4-dimensional period domain of such a T has negative expected intersection dimension with the family",
           all(r[6] <= 2 for r in cl))
     two = sorted(set(r[:3] for r in cl if r[6] == 2))
     print(f"  level {N}: two-dimensional configurations (k, ramification over e1, e2):", two)
