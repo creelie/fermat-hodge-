@@ -16,24 +16,29 @@ programs that recompute every finite quantity used in the proofs.
   dense and is either the whole family or meagre; (F2) is equivalent to the
   propagation of algebraicity from CM points along polarised abelian schemes.
 * Real multiplication by sqrt 6 on K3 surfaces is algebraic on two
-  two-dimensional families (a chain of symplectic quotients); real
-  multiplication by sqrt 5 and sqrt 7 is algebraic on the one-dimensional
-  Fricke families over X_0(5) and X_0(7) (fibrewise isogenies of elliptic K3
-  surfaces). Hodge similarities act with multiplier d_1 d_2; finite-group
-  correspondences give abelian endomorphism fields; the Hodge conjecture
-  holds for X x X when X lies in a dihedral family. On the higher powers the
-  Hodge conjecture for these surfaces reduces to Varesco's exceptional
-  classes, and it holds, with (F3'), on every power and Hilbert scheme of a
-  K3 surface of Kummer type over Q, a condition read off the Hasse
-  invariants of the transcendental lattice at Picard numbers 17 and 18.
-  The transcendental spaces of the Fricke surfaces are U^2 + <-1> + <-N>,
-  so their Kuga-Satake varieties are fourth powers of abelian fourfolds of
-  Weil type of discriminant one with definite quaternion multiplication, on
-  whose powers the Hodge conjecture holds (Markman, Abdulali); the algebraic
-  locus of the exceptional classes of the Fricke surfaces is dense and
-  either everything or meagre, and the Hodge conjecture on all powers of
-  every Fricke surface reduces to the Kuga-Satake correspondence of one very
-  general member.
+  two-dimensional families (a chain of symplectic quotients). The fibrewise
+  isogenies of the one-dimensional Fricke families over X_0(5) and X_0(7)
+  are complex multiplications by Q(sqrt -5) and Q(sqrt -7), not real ones:
+  the sign of the square of the isogeny is decided by how the twisting
+  function behaves under the Fricke involution, -N for the pair twists that
+  form the families and +N only at the fixed-point twists, which are the two
+  surfaces of van Geemen and Schutt. So every member has complex
+  multiplication, the Hodge conjecture holds on every power and every
+  Hilbert scheme of every member (Ramon Mari, Varesco) and (F3') with it,
+  and the very general member has Picard number 16 by point counts over
+  F_11 and F_7 (an archive computation, stated as such). Hodge similarities
+  act with multiplier d_1 d_2; finite-group correspondences give abelian
+  endomorphism fields; the Hodge conjecture holds for X x X when X lies in
+  a dihedral family. On the higher powers the Hodge conjecture for the
+  surfaces with totally real endomorphism field reduces to Varesco's
+  exceptional classes, and it holds, with (F3'), on every power and Hilbert
+  scheme of a K3 surface of Kummer type over Q, a condition read off the
+  Hasse invariants of the transcendental lattice at Picard numbers 17 and
+  18. The transcendental spaces of the Fricke surfaces are
+  U^2 + <-1> + <-N>, so their Kuga-Satake varieties are fourth powers of an
+  abelian fourfold B of Q(sqrt -N)-Weil type of discriminant one, and B is
+  isogenous to the product of an elliptic curve with complex multiplication
+  by Q(sqrt -N) and a simple threefold with endomorphism field Q(sqrt -N).
 * A complex on a product of two Weil fourfolds has the Chern character the
   polarised semiregularity criterion asks for; direct sums are never
   semiregular, and convolutions with mismatched slopes are obstructed. At the
@@ -73,7 +78,7 @@ Section VII records where the earlier preprint
 paper/                      REVTeX source, figures and the compiled main.pdf;
                             main_journal.tex is the one-column (amsart) build
 preprints/                  the compiled paper only
-lean/HodgeClosure.lean      59 theorems (Lean 4.24.0, no Mathlib)
+lean/HodgeClosure.lean      62 theorems (Lean 4.24.0, no Mathlib)
 code/                       Python, Julia, C, C++ and shell checks; run_all.sh
 ```
 
@@ -88,7 +93,7 @@ compiler; lean (through elan; `lean/lean-toolchain` pins the version). Set
 `JULIA`, `CC`, `CXX` or `LEAN` to override the commands. The run takes about
 thirty minutes and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
 program, what it checks and its expected output. The Lean file prints
-`#print axioms` for every theorem: forty-nine use no axiom, two use
+`#print axioms` for every theorem: fifty-two use no axiom, two use
 `propext` and `Quot.sound`, and the six isolated-block counts and two
 chain-free counts of Section 7 use `propext`; `native_decide` is not used.
 

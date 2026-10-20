@@ -302,25 +302,77 @@ rank 2 of R_N, again 16. -/
 theorem fricke_picard : 2 + (7 - 1) + 0 + 0 + 4 + 4 = 16 ∧ 2 + (5 - 1) + 1 + 1 + 4 + 4 = 16 ∧
     2 + 2 * (7 - 1) + 2 * 0 + 2 = 16 ∧ 2 + 2 * (5 - 1) + 4 * 1 + 2 = 16 := by decide
 
-/-- Transcendental rank 22 - 16 = 6, and 6 >= 3 * 2 so a totally real E of
-degree 2 is allowed while a totally real field of degree 3 is not (dim_E T >= 3
-forces [E : Q] <= 2). -/
-theorem fricke_transcendental : 22 - 16 = 6 ∧ 6 / 3 = 2 ∧ 6 < 3 * 3 := by decide
+/-- Transcendental rank 22 - 16 = 6 at Picard number 16, so the imaginary
+quadratic field K = Q(sqrt(-N)) of the Fricke self-map acts on T with
+dim_K T = 3; a CM field E strictly containing K would have degree 6 with
+dim_E T = 1, and 6 < 3 * 3 rules out a totally real cubic field. -/
+theorem fricke_transcendental : 22 - 16 = 6 ∧ 6 / 2 = 3 ∧ 6 < 3 * 3 := by decide
 
-/-- A dominant rational self-map of degree N gives f_* f^* = N on T, so
-(f^*)^2 = N when f^* is in a quadratic field with f_* its conjugate: the
+/-- A dominant rational self-map of degree N gives f_* f^* = N on T: the
 multiplier of a correspondence is the product d_1 d_2 of the two degrees
-(Proposition V.9 of the paper), here 1 * N. -/
+(Proposition V.11 of the paper), here 1 * N; the sign of (f^*)^2 = -N is the
+Velu identity below. -/
 theorem fricke_multiplier : 1 * 7 = 7 ∧ 1 * 5 = 5 ∧ 2 * 2 = 4 ∧ 2 * 3 = 6 := by decide
 
+/-- The sign of the Fricke self-isogeny (Lemma V.8).  For the Fricke curve
+E_t: y^2 = x^3 + A x + B, A = -27 c_4, B = -54 c_6, the kernel polynomial of
+the rational cyclic subgroup of order N (the factor of degree (N - 1)/2 of
+the N-th division polynomial, computed in code/fricke_sign.py) has
+coefficients k_1, ..., k_m in Z[t].  Newton's identities give the power sums
+S_1, S_2, S_3 of its roots, and Velu's formulas the quotient curve
+E': y^2 = x^3 + A' x + B' with A' = A - 5 (6 S_2 + 2 m A) and
+B' = B - 7 (10 S_3 + 6 A S_1 + 4 m B).  The quotient is E_{w(t)}, w(t) = N^k/t,
+up to the scaling (x, y) -> (u^2 x, u^3 y), and the isogeny multiplies the
+invariant differential by lambda = u^{-1} with lambda^2 = -t^2 / N^(k-1).
+Writing A~(t) = t^4 A(N^k / t) and B~(t) = t^6 B(N^k / t), this is the
+polynomial identity N^(k-1) B' A~ + A' B~ = 0 proved here for both levels;
+hence lambda(t) lambda(w(t)) = -N and the composite isogeny is [-N]. -/
+def newton3 (e1 e2 e3 : List Int) : List Int × List Int × List Int :=
+  let s1 := e1
+  let s2 := psub (pmul e1 s1) (pscale 2 e2)
+  let s3 := padd (psub (pmul e1 s2) (pmul e2 s1)) (pscale 3 e3)
+  (s1, s2, s3)
+def veluA (A B e1 e2 e3 : List Int) (m : Int) : List Int :=
+  let (_, s2, _) := newton3 e1 e2 e3
+  psub A (pscale 5 (padd (pscale 6 s2) (pscale (2 * m) A)))
+def veluB (A B e1 e2 e3 : List Int) (m : Int) : List Int :=
+  let (s1, _, s3) := newton3 e1 e2 e3
+  psub B (pscale 7 (padd (pscale 10 s3) (padd (pscale 6 (pmul A s1)) (pscale (4 * m) B))))
+/-- t^d P(N^k / t) for a polynomial P of degree d: the reversed coefficients scaled by powers of N^k. -/
+def ptilde (nk : Int) (xs : List Int) : List Int :=
+  List.zipWith (· * ·) xs.reverse ((List.range xs.length).map (fun i => nk ^ i)).reverse
+def A_5 : List Int := pscale (-27) c4_5
+def B_5 : List Int := pscale (-54) c6_5
+def A_7 : List Int := pscale (-27) c4_7
+def B_7 : List Int := pscale (-54) c6_7
+/-- Kernel polynomial at level 5: x^2 + k_1 x + k_2, e_1 = -k_1, e_2 = k_2. -/
+def kerE1_5 : List Int := pscale (-1) [750, 132, 6]
+def kerE2_5 : List Int := [100125, 42372, 6282, 396, 9]
+/-- Kernel polynomial at level 7: x^3 + k_1 x^2 + k_2 x + k_3, e_1 = -k_1, e_2 = k_2, e_3 = -k_3. -/
+def kerE1_7 : List Int := pscale (-1) [441, 117, 9]
+def kerE2_7 : List Int := [43659, 28782, 6777, 702, 27]
+def kerE3_7 : List Int := pscale (-1) [1165563, 1338525, 586602, 132273, 16362, 1053, 27]
+theorem fricke_sign_5 :
+    ptrim (padd (pscale 25 (pmul (veluB A_5 B_5 kerE1_5 kerE2_5 [] 2) (ptilde 125 A_5)))
+                (pmul (veluA A_5 B_5 kerE1_5 kerE2_5 [] 2) (ptilde 125 B_5))) = [] := by decide
+theorem fricke_sign_7 :
+    ptrim (padd (pscale 7 (pmul (veluB A_7 B_7 kerE1_7 kerE2_7 kerE3_7 3) (ptilde 49 A_7)))
+                (pmul (veluA A_7 B_7 kerE1_7 kerE2_7 kerE3_7 3) (ptilde 49 B_7))) = [] := by decide
+/-- The twist bookkeeping: for the twist by u(t) = (t - p)(t - N^k/p) the product
+c(t) c(w(t)) of the scaling factors c(t)^2 = u(w(t))/u(t) = N^k/t^2 is +1, and for
+the twist by t^2 - N^k, with u(w(t))/u(t) = -N^k/t^2, it is -1; so Lambda^2 = -N on
+the pair twists and +N at the fixed points: the signed squares (-1) * 5, (-1) * 7
+and 5, 7 of the two cases. -/
+theorem fricke_sign_cases : (-1 : Int) * 5 = -5 ∧ (-1 : Int) * 7 = -7 ∧ (1 : Int) * 5 = 5 ∧ (1 : Int) * 7 = 7 := by decide
+
 /-- The Hecke algebra of (D_n, <tau>) for odd n has dimension (n + 1) / 2, the number of double cosets:
-3, 4, 5, 6 for n = 5, 7, 9, 11 (Proposition V.10). -/
+3, 4, 5, 6 for n = 5, 7, 9, 11 (Proposition V.12). -/
 def heckeDim (n : Nat) : Nat := (n + 1) / 2
 theorem hecke_dims : heckeDim 5 = 3 ∧ heckeDim 7 = 4 ∧ heckeDim 9 = 5 ∧ heckeDim 11 = 6 := by decide
 
 /-! ## Section 5: the Dickson families of the cyclic cubic fields (Section V of the paper) -/
 
-/-- Dickson polynomials (Theorem V.12 for n = 7 and n = 9, and Proposition V.13).
+/-- Dickson polynomials (Theorem V.14 for n = 7 and n = 9, and Proposition V.15).
 v^7 p_{7,a}(v + a/v) = v^14 + a^7 with p_{7,a} = t^7 - 7 a t^5 + 14 a^2 t^3 - 7 a^3 t, checked at
 a = 1 and a = 2 as identities of polynomials in v; the same for
 p_{9,a} = t^9 - 9 a t^7 + 27 a^2 t^5 - 30 a^3 t^3 + 9 a^4 t at a = 1. -/
@@ -340,7 +392,7 @@ theorem dickson9_identity :
     ptrim (dickson9 1) = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] := by decide
 
 /-- The prime 2 has order three in (Z/7)^x/{+-1} and in (Z/9)^x/{+-1}, so it is inert in
-Q(zeta_7)^+ and Q(zeta_9)^+ (Theorem V.12, the place above 2). The cubic polynomials
+Q(zeta_7)^+ and Q(zeta_9)^+ (Theorem V.14, the place above 2). The cubic polynomials
 t^3 + t^2 - 2 t - 1 and t^3 - 3 t + 1 of theta change sign on [-2,-1], [-1,0], [0,2] and on
 [-2,-1], [0,1], [1,2], so each has three real roots, exactly one of them positive for n = 7
 and two for n = 9: the unit epsilon of the proof is positive at exactly one real place. -/
@@ -353,7 +405,7 @@ theorem theta_sign_pattern :
     (f7 (-2) < 0 ∧ f7 (-1) > 0 ∧ f7 0 < 0 ∧ f7 2 > 0) ∧
     (f9 (-2) < 0 ∧ f9 0 > 0 ∧ f9 1 < 0 ∧ f9 2 > 0) := by decide
 
-/-- Proposition V.14: a symplectic automorphism of order five has coinvariant rank 16 and one
+/-- Proposition V.21: a symplectic automorphism of order five has coinvariant rank 16 and one
 of order seven rank 18 (Nikulin), so the transcendental lattice, of signature (2, t - 2), lies
 in a lattice of rank 22 - 16 = 6 and signature (3, 3) (resp. rank 4, signature (3, 1)); hence
 t <= 5 (resp. t <= 3), while a totally real endomorphism field of degree at least two needs
@@ -795,6 +847,9 @@ end HodgeClosure
 #print axioms HodgeClosure.fricke_picard
 #print axioms HodgeClosure.fricke_transcendental
 #print axioms HodgeClosure.fricke_multiplier
+#print axioms HodgeClosure.fricke_sign_5
+#print axioms HodgeClosure.fricke_sign_7
+#print axioms HodgeClosure.fricke_sign_cases
 #print axioms HodgeClosure.hecke_dims
 #print axioms HodgeClosure.dickson7_identity
 #print axioms HodgeClosure.dickson9_identity
