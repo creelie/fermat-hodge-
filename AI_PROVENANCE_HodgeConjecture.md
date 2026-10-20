@@ -95,6 +95,26 @@ follows.
   (release v3.1.0, doi:10.5281/zenodo.23484160) and proved in the text;
   the line relations were found in the same engine run on the mixed
   supports that Corollary VI.31 left open.
+* A ninth round (release v2.4.0) opened the attack on (F3') beyond the
+  square: Proposition V.14 reduces, by Varesco's theorem on the Hodge
+  classes of the powers of a K3 surface with totally real endomorphism
+  field, the Hodge conjecture for all powers of the surfaces of Section V
+  to their exceptional classes (the E-determinant of T); Proposition V.15
+  proves (F3') and the Hodge conjecture on every power and Hilbert scheme
+  of a K3 surface of Kummer type over Q, that is, whose transcendental
+  space embeds in U_Q^3, which is Ma's criterion for dominating a Kummer
+  surface, and gives the condition explicitly on the Hasse invariants at
+  Picard numbers 17 and 18 by Hasse-Minkowski (the local existence
+  conditions for a complement of rank one or two); Remark V.16 records
+  that the Fricke surfaces are neither of Kummer type nor in Varesco's two
+  families (discriminants 5, 7 against 1, 3), so their exceptional classes
+  stay open; and Proposition III.4 records, from Bloch and Srinivas, (F3')
+  for fourfolds whose zero-cycles are supported on a threefold. The
+  criterion is checked against a direct search in `kummer_type.py`
+  (fifteen checks). The literature (Ma 2013, Varesco 2025, Ramon Mari
+  2008, Bloch-Srinivas 1983) was read before writing, and the paper
+  attributes to it what it proves; the new content is the explicit
+  arithmetic condition and the assembly.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal

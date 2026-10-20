@@ -21,7 +21,11 @@ programs that recompute every finite quantity used in the proofs.
   Fricke families over X_0(5) and X_0(7) (fibrewise isogenies of elliptic K3
   surfaces). Hodge similarities act with multiplier d_1 d_2; finite-group
   correspondences give abelian endomorphism fields; the Hodge conjecture
-  holds for X x X when X lies in a dihedral family.
+  holds for X x X when X lies in a dihedral family. On the higher powers the
+  Hodge conjecture for these surfaces reduces to Varesco's exceptional
+  classes, and it holds, with (F3'), on every power and Hilbert scheme of a
+  K3 surface of Kummer type over Q, a condition read off the Hasse
+  invariants of the transcendental lattice at Picard numbers 17 and 18.
 * A complex on a product of two Weil fourfolds has the Chern character the
   polarised semiregularity criterion asks for; direct sums are never
   semiregular, and convolutions with mismatched slopes are obstructed. At the
