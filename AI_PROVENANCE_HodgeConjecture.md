@@ -115,6 +115,32 @@ follows.
   2008, Bloch-Srinivas 1983) was read before writing, and the paper
   attributes to it what it proves; the new content is the explicit
   arithmetic condition and the assembly.
+* A tenth round (release v2.5.0) took the first of those exceptional
+  classes: Proposition V.17 computes the transcendental spaces of the Fricke
+  surfaces as U_Q^2 + <-1> + <-N> by Witt cancellation of the trivial
+  lattice from the K3 lattice, so that by Lombardo and van Geemen the
+  Kuga-Satake variety is B^4 for an abelian fourfold B of Q(sqrt(-N))-Weil
+  type with discriminant one and definite quaternion multiplication, whose
+  Hodge group is maximal; Markman's theorem makes the Weil classes of B
+  algebraic and Abdulali's theorem (with Schlickewei and van Geemen-Verra)
+  the Hodge classes on every power of B, so the Hodge conjecture holds on
+  every power of the Kuga-Satake variety; the algebraic locus of the
+  exceptional classes over the Fricke family is dense (CM points) and
+  either everything or meagre, and the Hodge conjecture on all powers of
+  every member follows from the Kuga-Satake correspondence of one very
+  general member (Remark V.18 says what that needs: a covering of the
+  twisted Fricke surface by a product of curves is not known). Before the
+  round the barrier ledger and atlas of the Anaxia engine (creelie/eBLLM
+  main at 17d0fa9, after release v3.0.5) were consulted for the Hodge
+  walls and routes: no wall stands against the Kuga-Satake route, and the
+  route "markman-frontier" lists the exceptional classes as its frontier;
+  the hypothesis left open is recorded as a gap in the plan of record. The
+  lattice arithmetic is checked in `fricke_lattice.py` (twenty-one
+  checks). The literature (Lombardo 2001, van Geemen 2008, Zarhin 1983,
+  Abdulali 1999 and 2002, Schlickewei 2010, van Geemen-Verra 2003, Markman
+  2023, Varesco 2025) was read before writing and the paper attributes to
+  it what it proves; the new content is the identification of the lattice,
+  the assembly and the dichotomy.
 * The theorem on real multiplication by Q(zeta_9)^+ was found in a second
   round of AI sessions and checked against van Geemen and Schütt (2025,
   Sections 4.8 and 5.6), van Geemen (2008, Remark 7.9), Reiner's Maximal

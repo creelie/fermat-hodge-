@@ -26,6 +26,14 @@ programs that recompute every finite quantity used in the proofs.
   classes, and it holds, with (F3'), on every power and Hilbert scheme of a
   K3 surface of Kummer type over Q, a condition read off the Hasse
   invariants of the transcendental lattice at Picard numbers 17 and 18.
+  The transcendental spaces of the Fricke surfaces are U^2 + <-1> + <-N>,
+  so their Kuga-Satake varieties are fourth powers of abelian fourfolds of
+  Weil type of discriminant one with definite quaternion multiplication, on
+  whose powers the Hodge conjecture holds (Markman, Abdulali); the algebraic
+  locus of the exceptional classes of the Fricke surfaces is dense and
+  either everything or meagre, and the Hodge conjecture on all powers of
+  every Fricke surface reduces to the Kuga-Satake correspondence of one very
+  general member.
 * A complex on a product of two Weil fourfolds has the Chern character the
   polarised semiregularity criterion asks for; direct sums are never
   semiregular, and convolutions with mismatched slopes are obstructed. At the
