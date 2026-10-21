@@ -15,43 +15,7 @@ authors:
     affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
 version: 2.7.0
 date-released: 2026-10-21
-identifiers:
-  - type: doi
-    value: 10.5281/zenodo.23490234
-    description: "Version DOI of release v2.6.0"
-  - type: doi
-    value: 10.5281/zenodo.23488135
-    description: "Version DOI of release v2.5.0"
-  - type: doi
-    value: 10.5281/zenodo.23487369
-    description: "Version DOI of release v2.4.1"
-  - type: doi
-    value: 10.5281/zenodo.23487336
-    description: "Version DOI of release v2.4.0"
-  - type: doi
-    value: 10.5281/zenodo.23486524
-    description: "Version DOI of release v2.3.0"
-  - type: doi
-    value: 10.5281/zenodo.23485778
-    description: "Version DOI of release v2.2.0"
-  - type: doi
-    value: 10.5281/zenodo.23483297
-    description: "Version DOI of release v2.1.1"
-  - type: doi
-    value: 10.5281/zenodo.23483266
-    description: "Version DOI of release v2.1.0"
-  - type: doi
-    value: 10.5281/zenodo.23461820
-    description: "Version DOI of release v2.0.1"
-  - type: doi
-    value: 10.5281/zenodo.23461752
-    description: "Version DOI of release v2.0.0"
-  - type: doi
-    value: 10.5281/zenodo.23439578
-    description: "Version DOI of release v1.0.0"
-  - type: doi
-    value: 10.5281/zenodo.23439577
-    description: "Concept DOI of all versions"
+url: "https://github.com/creelie/fermat-hodge-/releases/tag/v2.7.0"
 repository-code: "https://github.com/creelie/fermat-hodge-"
 license: MIT
 keywords:
