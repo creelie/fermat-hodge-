@@ -53,7 +53,7 @@ follows.
   0, and no closed chain at all exists with four line bundles. The candidate
   configurations (a), (c), (d) and the quotient chains of Proposition V.21
   came from the candidate record of the Anaxia engine of the BLLM project
-  (creelie/eBLLM, release v3.0.5, doi:10.5281/zenodo.23469389), whose
+  (creelie/eBLLM, release v3.0.5, https://github.com/creelie/eBLLM/releases/tag/v3.0.5), whose
   record of configuration (a) carried the same wrong chain; the engine
   proposes, and the proofs and programs decide. The paper now cites the
   engine in a footnote, the bibliography and the data availability section.
@@ -92,7 +92,7 @@ follows.
   zero. The identities of signs and residues used in the section are
   checked by `threefold_supports.py` (sixteen checks). The intersection
   and localisation arguments were proposed in the engine's record C8
-  (release v3.1.0, doi:10.5281/zenodo.23484160) and proved in the text;
+  (release v3.1.0, https://github.com/creelie/eBLLM/releases/tag/v3.1.0) and proved in the text;
   the line relations were found in the same engine run on the mixed
   supports that Corollary VI.31 left open.
 * A ninth round (release v2.4.0) opened the attack on (F3') beyond the
