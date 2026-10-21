@@ -19,13 +19,13 @@ Provenance statement: The constructions on the two statements (F2) and (F3'), th
 
 Tools used: Anthropic - Claude (Claude Code); Lean community - Lean 4 (no Mathlib); Python; Julia; C; C++; shell.
 arXiv identifier: none (not posted on arXiv).
-Formalization: https://github.com/creelie/fermat-hodge-/blob/main/lean/HodgeClosure.lean (archived at Zenodo, release v2.7.0: DOI to be added when assigned; concept DOI of all versions https://doi.org/10.5281/zenodo.23439577)
+Formalization: https://github.com/creelie/fermat-hodge-/blob/main/lean/HodgeClosure.lean (GitHub release v2.7.0: https://github.com/creelie/fermat-hodge-/releases/tag/v2.7.0)
 
 Source files or ZIP: HodgeConjecture_tex.zip (the folder paper/ with main.tex, the section files, bibliography.tex and figures/; compiles with latexmk -pdf main.tex). Do not upload hcfinal.zip or Lean files here.
 AI provenance files: AI_PROVENANCE_HodgeConjecture.md
 License: CC BY 4.0
 
-Data availability (in the paper): LaTeX source, programs and the Lean 4 file archived at Zenodo, release v2.7.0 (version DOI to be added when assigned), cited in the paper by the concept DOI 10.5281/zenodo.23439577; repository https://github.com/creelie/fermat-hodge-; the folder preprints holds the PDF only.
+Data availability (in the paper): LaTeX source, programs and the Lean 4 file published as GitHub release v2.7.0, https://github.com/creelie/fermat-hodge-/releases/tag/v2.7.0, cited in the paper by that release page; repository https://github.com/creelie/fermat-hodge-; the folder preprints holds the PDF only.
 AI disclosure (in the paper, Data and code availability): Deep Bhattacharjee carried out the constructions on (F2) and (F3') and the Lean, Julia, C, C++, Python and shell verifications with the help of AI assistance (Claude, Anthropic); both authors approved the final version. No separate AI declaration.
 Funding: none. Competing interests: none.
 Device folder: D:\Hexagon\strings_seeds_hodge_YM_Bllm-anaxia\hodge.
