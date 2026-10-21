@@ -187,9 +187,10 @@ follows.
   sessions. The convolutions on E_0^8 whose shifts lie in seven consecutive
   integers (Proposition VI.37, Corollary VI.38, Remark VI.39): eighteen of
   the twenty-eight arrangements are proved by hand from the results of the
-  archive release v5.0.1 of the Weil-class paper; the other ten are
-  checked by the linear-programming bounds of `efour_seven.py`, and the
-  paper states them as computed. The étale Prym map of triple covers at
+  archive release v5.0.1 of the Weil-class paper; the linear-programming
+  bounds of `efour_seven.py` decide nine of the other ten, and the paper
+  states them as computed. In the tenth (even shifts s, s-2, s-4, s-6,
+  odd shifts s-1, s-5) the bound vanishes,, so it stays open. The étale Prym map of triple covers at
   genus four (Proposition VI.40) is proved by hand on the curve
   x^3 + y^3 + 1 + lambda x^3 y^3 = 0 and agrees with Faber (1988); it is
   checked by `cover_boundary.py`. The count of the sextic CM fields
@@ -215,6 +216,11 @@ in the text before release: the Hasse invariant at 2 of the form V_2
 (it is -1, not +1); the Picard number of the twist family at level 5 (the
 base change adds four fibres of type III); and the dimension of the dihedral
 Hecke algebra ((n+1)/2, not (n+3)/2).
+
+In release v2.7.0 the first text claimed that the linear-programming bounds
+decide all ten of the remaining seven-shift arrangements on E_0^8, before
+the run for the last one had finished; that run gives a vanishing bound, and
+the text was corrected to nine decided and one open before the release.
 
 ## Approval
 
