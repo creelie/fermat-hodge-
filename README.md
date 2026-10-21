@@ -65,9 +65,10 @@ programs that recompute every finite quantity used in the proofs.
 * At the point E_0^8 of complex multiplication, a convolution of the 128 Weil
   line bundles whose shifts form two adjacent pairs at any distance fails the
   criterion (Proposition VI.37), and so does every convolution whose shifts
-  lie in seven consecutive integers: eighteen of the twenty-eight
-  arrangements by hand (Corollary VI.38), the other ten by an archive
-  computation, stated as such (Remark VI.39, least bound 125.8 > 104).
+  lie in seven consecutive integers in eighteen of the twenty-eight
+  arrangements (Corollary VI.38); an archive computation, stated as such,
+  decides nine others (Remark VI.39, least bound 125.8 > 104) and leaves
+  one open: even shifts s, s-2, s-4, s-6 with odd shifts s-1, s-5.
 * The curve x^3 + y^3 + 1 + lambda x^3 y^3 = 0 of genus four with
   eta = O(1,-1) of order three makes the multiplication map
   H^0(K + eta) x H^0(K - eta) -> H^0(2K) an isomorphism, so the period map
@@ -110,7 +111,7 @@ cd code && ./run_all.sh
 Requirements: python3 with sympy, numpy, scipy and mpmath; julia; a C and a C++
 compiler; lean (through elan; `lean/lean-toolchain` pins the version). Set
 `JULIA`, `CC`, `CXX` or `LEAN` to override the commands. The run takes about
-two and a half hours, two of them for `efour_seven.py`, and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
+about four hours, three and a half of them for `efour_seven.py`, and ends with `ALL CHECKS PASSED`. `code/EXPECTED.md` lists each
 program, what it checks and its expected output. The Lean file prints
 `#print axioms` for every theorem: fifty-two use no axiom, two use
 `propext` and `Quot.sound`, and the six isolated-block counts and two

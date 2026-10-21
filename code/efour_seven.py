@@ -1,4 +1,4 @@
-"""efour_seven.py -- the computation of Remark VI.(ten remaining arrangements): convolutions of the
+"""efour_seven.py -- the computation of Remark VI.39 (the ten remaining arrangements): convolutions of the
 128 Weil line bundles L_zeta on E_0^8 whose shifts lie in seven consecutive integers.
 
 Pieces zeta in {1,i,-1,-i}^4 with prod zeta = +-1; a ratio r = zeta'/zeta is written additively as
@@ -12,7 +12,8 @@ single value or {1,5}) and every distribution of the 64 pieces of each parity ov
 bounds dim Ext^2(E,E) below by the sum of three families of surviving groups (H^4 at spread two,
 H^3 at adjacent shifts less their targets, H^5 at spread three less their sources), each bounded by
 per-piece degrees, cut bounds and the expander mixing lemma, minimised by linear programming
-(scipy, HiGHS, double precision).  It checks that every bound exceeds 104.
+(scipy, HiGHS, double precision).  It checks that every bound exceeds 104 for eleven of the twelve, and for
+{0,1,2,4,5,6} that it fails on exactly 585753 of the 2501793 distributions, so that arrangement is open.
 Usage: python3 efour_seven.py [processes] [arrangement ...], an arrangement written as 0,2,5,6.
 About two hours on four cores for all twelve.  Requirements: numpy, scipy.
 """
@@ -205,6 +206,9 @@ def work(args):
     return (worst, nfail, len(CB))
 
 ARRANGEMENTS = [sorted(set(e) | set(o)) for e in ((0, 2, 6), (0, 4, 6), (0, 2, 4, 6)) for o in ((1,), (3,), (5,), (1, 5))]
+# The bound decides eleven of the twelve; for the even values {0,2,4,6} with the odd values {1,5}
+# it vanishes on some distributions (least 0.0 at (2,5,5,52), (52,12)), and the arrangement is open.
+UNDECIDED = {(0, 1, 2, 4, 5, 6): (585753, 2501793)}
 
 if __name__ == "__main__":
     fails = 0
@@ -220,7 +224,10 @@ if __name__ == "__main__":
             A = [v for v in levels if v % 2 == 0]
             res = pool.map(work, [(levels, ca) for ca in compositions(64, len(A))], chunksize=50)
             least = min(r[0] for r in res); nf = sum(r[1] for r in res); tot = sum(r[2] for r in res)
-            fails += nf > 0
-            print(f"(B) shifts {levels}: {tot} distributions, least bound {least:.1f}, failing {nf}", "PASS" if nf == 0 else "FAIL", flush=True)
+            want = UNDECIDED.get(tuple(levels), (0, tot))
+            ok = (nf, tot) == want if tuple(levels) in UNDECIDED else nf == 0
+            fails += not ok
+            tag = "UNDECIDED (as expected)" if tuple(levels) in UNDECIDED and ok else ("PASS" if ok else "FAIL")
+            print(f"(B) shifts {levels}: {tot} distributions, least bound {least:.1f}, failing {nf}", tag, flush=True)
     print("efour_seven: PASS" if fails == 0 else f"efour_seven: {fails} FAILED")
     sys.exit(1 if fails else 0)
