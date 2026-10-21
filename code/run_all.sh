@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # run_all.sh -- run every machine check of the archive and print one line per
-# program.  Requirements: python3 with sympy, numpy and mpmath; julia; a C and
+# program.  Requirements: python3 with sympy, numpy, scipy and mpmath; julia; a C and
 # a C++ compiler; lean (elan) for the certificate.  Set JULIA, CC, CXX or LEAN
 # to override the commands.  Exit status 0 when every check passed.
 set -u
@@ -32,6 +32,9 @@ run kummer_type.py     python3 -I kummer_type.py
 run fricke_lattice.py  python3 -I fricke_lattice.py
 run fricke_sign.py     python3 -I fricke_sign.py
 run fricke_picard.py   python3 -I fricke_picard.py
+run cover_boundary.py  python3 -I cover_boundary.py
+run sextic_cubic_fields.py python3 -I sextic_cubic_fields.py
+run efour_seven.py     python3 -I efour_seven.py 4
 run closure_graph.jl   "$JULIA" closure_graph.jl
 run eigencharacter.jl  "$JULIA" eigencharacter.jl
 tmp=$(mktemp -d)

@@ -2,6 +2,45 @@
 
 This appendix works out, in coordinates, the objects of Lemma~\ref{lem:cmext} and Proposition~\ref{prop:twostep} on $A_{0}=E_{0}^{6}$: the Hodge ring, the Weil plane, an explicit family of abelian threefolds whose classes combine to the Weil class, their intersection numbers, and the dimensions of every Ext group between the pieces built from them.
 
+\begin{table}[t]
+\centering
+\caption{The Ext groups between two pieces at $A_{0}=E_{0}^{6}$, from Lemma~\ref{lem:cmext}; $m=b-a$, $\chi_{Z}=8$ for the threefolds $Z_{\zeta}$.}
+\label{tab:cmext}
+\begin{ruledtabular}
+\begin{tabular}{llll}
+from & to & degrees $k$ & $\dim\Ext^{k}$ \\
+\colrule
+$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z}L^{a}$ & $0,\dots,6$ & $\binom{6}{k}$: $1,6,15,20,15,6,1$ \\
+$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m>0$ & $0,\dots,3$ & $\binom{3}{k}\,8m^{3}$ \\
+$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m<0$ & $3,\dots,6$ & $\binom{3}{k-3}\,8|m|^{3}$ \\
+$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z'}L^{b}$ & $3$ & $(Z\cdot Z')\in\{8,16,32,64\}$ \\
+$\mathcal{O}_{Z}L^{a}$ & $L^{b}$, $m>0$ & $3$ & $8m^{3}$ \\
+$\mathcal{O}_{Z}L^{a}$ & $L^{b}$, $m<0$ & $6$ & $8|m|^{3}$ \\
+$\mathcal{O}_{Z}L^{a}$ & $L^{a}$ & $3,\dots,6$ & $\binom{3}{k-3}$ \\
+$L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m>0$ & $0$ & $8m^{3}$ \\
+$L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m<0$ & $3$ & $8|m|^{3}$ \\
+$L^{a}$ & $\mathcal{O}_{Z}L^{a}$ & $0,\dots,3$ & $\binom{3}{k}$ \\
+$L^{a}$ & $L^{b}$, $m>0$ & $0$ & $m^{6}$ \\
+$L^{a}$ & $L^{b}$, $m<0$ & $6$ & $|m|^{6}$ \\
+$L^{a}$ & $L^{a}$ & $0,\dots,6$ & $\binom{6}{k}$ \\
+\end{tabular}
+\end{ruledtabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.96\textwidth]{figures/fig_extgrid}
+\caption{The degrees of the Ext groups between the twelve pieces $\mathcal{O}_{Z}L^{k}$, $\mathcal{O}_{Z'}L^{k}$, $L^{k}$, $k=0,\dots,3$, of Table~\ref{tab:cmext}. Left: the degrees in which $\Ext^{k}(\mathcal{F}_{P},\mathcal{F}_{Q})$ is nonzero, coloured by the least one; degree zero occurs only from a lower twist to a higher one and from $L^{a}$ to $\mathcal{O}_{Z}L^{a}$. Right: the number of closed chains of two and of three distinct pieces by total degree, on a logarithmic scale; no two-piece chain has total degree below three, and the three-piece chains of total degree three are those of Proposition~\ref{prop:twostep}.}
+\label{fig:extgrid}
+\end{figure*}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_cmpoint}
+\caption{The point $E_{0}^{6}$ of complex multiplication. Left: the three Weil surfaces $B_{j}=E_{0}^{2}$ and the four elliptic curves $C_{\zeta}$ in each, kernels of $u+\zeta v$; a threefold $Z_{\zeta}$ picks one curve in each surface, and the $32$ threefolds with $\zeta_{1}\zeta_{2}\zeta_{3}=\pm1$, signed by that product, add up to $32(\alpha+\bar\alpha)$. Middle: the dimensions of $\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},\mathcal{O}_{Z}\otimes L^{b})$ by degree for $b-a=0$ (the $\binom{6}{k}$), $b-a=1$ (degrees $0$ to $3$) and $b-a=-1$ (degrees $3$ to $6$). Right: the closed chains of Proposition~\ref{prop:twostep}; every two-step chain has total degree at least three, and the shortest chains reaching degree two run through three twists of one threefold with degrees $0,0,3$.}
+\label{fig:cmpoint}
+\end{figure*}
+
 \subsection{The forms and the Hodge ring}\label{app:forms}
 
 Write $z_{1},\dots,z_{6}$ for the coordinates of $A_{0}=E_{0}^{6}$, $E_{0}=\CC/\ZZ[i]$, group the factors into the three surfaces $B_{j}=E_{0}^{2}$ with coordinates $(z_{j},z_{3+j})$, $j=1,2,3$, and let $K=\QQ(i)$ act by $i$ on $z_{1},z_{2},z_{3}$ and by $-i$ on $z_{4},z_{5},z_{6}$. Put
@@ -73,30 +112,7 @@ Equation \eqref{eq:cm32} is the analogue, with abelian threefolds in place of li
 
 For the threefolds $Z=Z_{\zeta}$ the numbers of Lemma~\ref{lem:cmext} are explicit. Table~\ref{tab:cmext} lists, for every pair of piece types, the degrees $k$ in which $\Ext^{k}$ is nonzero and its dimension; here $m=b-a$ is the difference of the twists, $\chi_{Z}=8$, $Z'=Z_{\zeta'}$ with $\zeta_{j}\ne\zeta'_{j}$ for all $j$, and $(Z\cdot Z')=\prod_{j}|\zeta_{j}-\zeta'_{j}|^{2}$.
 
-\begin{table}[t]
-\centering
-\caption{The Ext groups between two pieces at $A_{0}=E_{0}^{6}$, from Lemma~\ref{lem:cmext}; $m=b-a$, $\chi_{Z}=8$ for the threefolds $Z_{\zeta}$.}
-\label{tab:cmext}
-\begin{ruledtabular}
-\begin{tabular}{llll}
-from & to & degrees $k$ & $\dim\Ext^{k}$ \\
-\colrule
-$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z}L^{a}$ & $0,\dots,6$ & $\binom{6}{k}$: $1,6,15,20,15,6,1$ \\
-$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m>0$ & $0,\dots,3$ & $\binom{3}{k}\,8m^{3}$ \\
-$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m<0$ & $3,\dots,6$ & $\binom{3}{k-3}\,8|m|^{3}$ \\
-$\mathcal{O}_{Z}L^{a}$ & $\mathcal{O}_{Z'}L^{b}$ & $3$ & $(Z\cdot Z')\in\{8,16,32,64\}$ \\
-$\mathcal{O}_{Z}L^{a}$ & $L^{b}$, $m>0$ & $3$ & $8m^{3}$ \\
-$\mathcal{O}_{Z}L^{a}$ & $L^{b}$, $m<0$ & $6$ & $8|m|^{3}$ \\
-$\mathcal{O}_{Z}L^{a}$ & $L^{a}$ & $3,\dots,6$ & $\binom{3}{k-3}$ \\
-$L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m>0$ & $0$ & $8m^{3}$ \\
-$L^{a}$ & $\mathcal{O}_{Z}L^{b}$, $m<0$ & $3$ & $8|m|^{3}$ \\
-$L^{a}$ & $\mathcal{O}_{Z}L^{a}$ & $0,\dots,3$ & $\binom{3}{k}$ \\
-$L^{a}$ & $L^{b}$, $m>0$ & $0$ & $m^{6}$ \\
-$L^{a}$ & $L^{b}$, $m<0$ & $6$ & $|m|^{6}$ \\
-$L^{a}$ & $L^{a}$ & $0,\dots,6$ & $\binom{6}{k}$ \\
-\end{tabular}
-\end{ruledtabular}
-\end{table}
+
 
 Each row of the table restates the corresponding item of Lemma~\ref{lem:cmext}, with $\chi(L^{m}|_{Z})=m^{3}\chi_{Z}=8m^{3}$ from (iii) above and $\chi(L^{m})=m^{6}\theta^{6}/720=m^{6}$ from \eqref{eq:cmtheta}. Two features of the table drive Proposition~\ref{prop:twostep}. Every group between two pieces of different twist is concentrated in degree $0$, in degree $3$ or $6$, or in the range $0$ to $3$ for two twists of one threefold; and a group in degree at most two between distinct pieces occurs only from a lower twist to a higher one, or from $L^{a}$ to $\mathcal{O}_{Z}L^{a}$. The bookkeeping of the proposition is then the following count. A closed chain of $m$ pieces whose edges have Ext degrees $k_{1},\dots,k_{m}$ carries an $m$-fold product into $\Ext^{\sum k_{i}-m+2}$ of the first piece. For $m=2$ the table gives, for each unordered pair of distinct piece types, the two degrees and their sum:
 \begin{equation}\label{eq:cmtwostep}
@@ -111,16 +127,4 @@ Each row of the table restates the corresponding item of Lemma~\ref{lem:cmext}, 
 \end{equation}
 so no two-step product reaches degree two. For $m=3$ the sum must be $3$ with two edges of degree zero, and the table leaves exactly the ascending chains $\mathcal{O}_{Z}L^{k}\to\mathcal{O}_{Z}L^{k'}\to\mathcal{O}_{Z}L^{k''}$, $k<k'<k''$, closed by the degree-three edge $H^{3}(Z,L^{k-k''}|_{Z})$, of dimension $8(k''-k)^{3}$. The program \path{code/cm_point_ext.py} enumerates the chains of two and three pieces over four twists and two threefolds and confirms both statements, together with the identities of Lemma~\ref{lem:cmcurves}. Figure~\ref{fig:extgrid} shows the table as the matrix of the twelve pieces, and the distribution of the total degree over every closed chain of two and of three distinct pieces: the two-piece chains begin at total degree three, and the twenty-four ordered three-piece chains of total degree three are the eight ascending triples of twists of one threefold, each read from its three starting pieces.
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=0.96\textwidth]{figures/fig_extgrid}
-\caption{The degrees of the Ext groups between the twelve pieces $\mathcal{O}_{Z}L^{k}$, $\mathcal{O}_{Z'}L^{k}$, $L^{k}$, $k=0,\dots,3$, of Table~\ref{tab:cmext}. Left: the degrees in which $\Ext^{k}(\mathcal{F}_{P},\mathcal{F}_{Q})$ is nonzero, coloured by the least one; degree zero occurs only from a lower twist to a higher one and from $L^{a}$ to $\mathcal{O}_{Z}L^{a}$. Right: the number of closed chains of two and of three distinct pieces by total degree, on a logarithmic scale; no two-piece chain has total degree below three, and the three-piece chains of total degree three are those of Proposition~\ref{prop:twostep}.}
-\label{fig:extgrid}
-\end{figure*}
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/fig_cmpoint}
-\caption{The point $E_{0}^{6}$ of complex multiplication. Left: the three Weil surfaces $B_{j}=E_{0}^{2}$ and the four elliptic curves $C_{\zeta}$ in each, kernels of $u+\zeta v$; a threefold $Z_{\zeta}$ picks one curve in each surface, and the $32$ threefolds with $\zeta_{1}\zeta_{2}\zeta_{3}=\pm1$, signed by that product, add up to $32(\alpha+\bar\alpha)$. Middle: the dimensions of $\Ext^{k}(\mathcal{O}_{Z}\otimes L^{a},\mathcal{O}_{Z}\otimes L^{b})$ by degree for $b-a=0$ (the $\binom{6}{k}$), $b-a=1$ (degrees $0$ to $3$) and $b-a=-1$ (degrees $3$ to $6$). Right: the closed chains of Proposition~\ref{prop:twostep}; every two-step chain has total degree at least three, and the shortest chains reaching degree two run through three twists of one threefold with degrees $0,0,3$.}
-\label{fig:cmpoint}
-\end{figure*}
