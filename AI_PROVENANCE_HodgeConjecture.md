@@ -183,10 +183,29 @@ follows.
   `zeta7_invariants.py` and the Dickson identities, the inertness of 2 and
   the sign pattern of the conjugates are proved in Lean.
 
+* Release v2.7.0 adds four results found in a further round of AI
+  sessions. The convolutions on E_0^8 whose shifts lie in seven consecutive
+  integers (Proposition VI.37, Corollary VI.38, Remark VI.39): eighteen of
+  the twenty-eight arrangements are proved by hand from the results of the
+  archive release v5.0.1 of the Weil-class paper; the other ten are
+  checked by the linear-programming bounds of `efour_seven.py`, and the
+  paper states them as computed. The étale Prym map of triple covers at
+  genus four (Proposition VI.40) is proved by hand on the curve
+  x^3 + y^3 + 1 + lambda x^3 y^3 = 0 and agrees with Faber (1988); it is
+  checked by `cover_boundary.py`. The count of the sextic CM fields
+  (Remark VI.41) is a computation over twelve cubic fields,
+  `sextic_cubic_fields.py`. The residue and mass statements of Section
+  VIII.C (Propositions VIII.3, VIII.4) assemble published theorems
+  (Villaflor Loyola 2022, Federer-Fleming 1960, Harvey-Lawson 1982, King
+  1971, Kollár 1992, Soulé-Voisin 2005); every reference was checked
+  against its Crossref record before it was cited.
+
 ## What the AI did not do
 
 The AI did not prove (F2), (F3') or the Hodge conjecture; the paper says so
-and states at which step each construction stops. No result of the paper is
+and states at which step each construction stops. The analytic constructions
+of Section VIII.C (residues, mass-minimising currents, flows with surgery)
+do not close either statement, and the paper says why. No result of the paper is
 reported as proved on the strength of a machine computation alone.
 
 ## Where the AI was wrong and corrected
