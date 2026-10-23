@@ -13,8 +13,8 @@ authors:
     orcid: "https://orcid.org/0009-0002-2254-3914"
     email: rai.bhattacharya.in@gmail.com
     affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
-version: 2.7.0
-date-released: 2026-10-21
+version: "annals-research-2026-10-23-p05"
+date-released: 2026-10-23
 url: "https://github.com/creelie/fermat-hodge-/releases/tag/v2.7.0"
 repository-code: "https://github.com/creelie/fermat-hodge-"
 license: MIT
