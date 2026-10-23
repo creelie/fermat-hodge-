@@ -1,0 +1,14 @@
+{
+  "degree_two_invariants": 3,
+  "degree_four_kunneth_invariants": [
+    1,
+    1,
+    4,
+    1,
+    1
+  ],
+  "degree_four_invariants": 8,
+  "divisor_product_rank": 6,
+  "exceptional_quotient_dimension": 2,
+  "scope": "Split representation only; no algebraic representatives constructed"
+}
