@@ -1,0 +1,92 @@
+[
+  {
+    "path": "AI_PROVENANCE.md",
+    "bytes": 1038,
+    "sha256": "30083a52843bc185787615ecbca04d8f0dec02edfd8a3c13857b71539a61c571"
+  },
+  {
+    "path": "AUDIT-STATUS.json",
+    "bytes": 953,
+    "sha256": "fbdc315ae86f38c51e9bbe62478e50bf44e366138157e47541ca754f01ca4fd5"
+  },
+  {
+    "path": "compile.py",
+    "bytes": 1132,
+    "sha256": "4401d265fbfcafa32f498a66ec22ac914a612905868214c6923c3d693f648d8f"
+  },
+  {
+    "path": "DOI-RECEIPT.json",
+    "bytes": 1182,
+    "sha256": "ae4e0e4b3d548ffea301e2585dd978bf598ad2b46dd19520aac55ec02975c53d"
+  },
+  {
+    "path": "F2-REDUCTION-REPAIR.md",
+    "bytes": 4257,
+    "sha256": "3c78d7279156dbffeeafecc28bdf957251c62fff35da34535279c479f492584d"
+  },
+  {
+    "path": "F3PRIME-EXACT-OBLIGATION.md",
+    "bytes": 2381,
+    "sha256": "e049c95dd4e094c0971ade59d0371044e462791ab300649066d62b62e343405f"
+  },
+  {
+    "path": "HODGE-DEPENDENCY-AND-CLOSURE-AUDIT.md",
+    "bytes": 9137,
+    "sha256": "2a98fd861e7d17c0e6fa1846b762053ab98c2f69b7cfa1c803a34492544ca1b8"
+  },
+  {
+    "path": "lean/AffineReduction.lean",
+    "bytes": 1330,
+    "sha256": "8b9d37fef7321eac16a87bb6e57fd77b3e24460eb792495e4be72bae14374c15"
+  },
+  {
+    "path": "lean/lakefile.toml",
+    "bytes": 265,
+    "sha256": "8f0ff8bcadd4161f8c565698f2995558aca6366656b86481050116bd706e25c8"
+  },
+  {
+    "path": "lean/lean-toolchain",
+    "bytes": 25,
+    "sha256": "d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b"
+  },
+  {
+    "path": "lean-build.json",
+    "bytes": 175,
+    "sha256": "985a3dd74d8317f3623d8a67b8b085d5e294752982e099362d9ea8b0c05bb4fe"
+  },
+  {
+    "path": "lean-compile.log",
+    "bytes": 247,
+    "sha256": "cb39ee6559b5de9cc4c6926095919806f52436e373e44f303d1bb75cfbe199e4"
+  },
+  {
+    "path": "MANIFEST.json",
+    "bytes": 2165,
+    "sha256": "2ae40632fb1d26a47d7fed3af329ea5945bdf4a1a0541bc36f2acb9922880ea9"
+  },
+  {
+    "path": "mumford-exact-results.json",
+    "bytes": 7997,
+    "sha256": "d769c34fbdf98bcd146f6fb51917aaec0ede5f9ebdcf2b3aaec6191f40033865"
+  },
+  {
+    "path": "mumford_exact.py",
+    "bytes": 6911,
+    "sha256": "0fc42a2c570848ea76cef607144f3bf8f787eb308a0b7a5cfc8a19f5a8f01dbf"
+  },
+  {
+    "path": "PUBLICATION-SCOPE.md",
+    "bytes": 1355,
+    "sha256": "d6e74932e27a8f408889118afdb6b36b9cc5fbb397a9e52e651cc5c10b3ddd8a"
+  },
+  {
+    "path": "README.md",
+    "bytes": 2213,
+    "sha256": "3f9964858ff5c2c7d862ec96b2e95bbbf1ad90bce463af14f656b63f89105378"
+  },
+  {
+    "path": "RELEASE-DOI.md",
+    "bytes": 1265,
+    "sha256": "654ce5b0de4432ce5cba5482a012ef425f84704bc7a427d4faddde069684311f"
+  }
+]

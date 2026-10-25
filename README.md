@@ -21,6 +21,8 @@ declarations and a new Hexagon version are not asserted.
 
 Release: https://github.com/creelie/fermat-hodge-/releases/tag/v2.8.0
 
+Zenodo version DOI: [10.5281/zenodo.23643856](https://doi.org/10.5281/zenodo.23643856).
+
 
 Deep Bhattacharjee and Ushashi Bhattacharya
 
