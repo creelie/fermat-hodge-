@@ -1,11 +1,33 @@
 # Dense Algebraic Loci of Hodge Classes
 
+## v2.8.0 — dependency audit and reduction repair
+
+The new **[Paper 9 research audit](%5BPaper_9%5D%20package/README.md)** contains
+the dependency audit, a repaired proof of F2 ⇒ AB assuming F2, the exact
+F3′ proof obligation, exact representation checks and three auxiliary
+Lean lemmas. Read its [publication scope](%5BPaper_9%5D%20package/PUBLICATION-SCOPE.md)
+and [correction report](%5BPaper_9%5D%20package/HODGE-DEPENDENCY-AND-CLOSURE-AUDIT.md).
+
+**F2, F3′ and the full Hodge conjecture remain unproved.** The two
+exceptional Mumford directions are reproduced, not represented by newly
+constructed algebraic cycles. The three withdrawn preprints are conditional
+inputs in H8's separate discussion; their withdrawal does not invalidate
+the independent reduction by itself.
+
+The existing v2.7.0 PDF and TeX archive are retained for context. The new
+audit identifies corrections to arguments in that manuscript; v2.8.0
+does not certify every claim in the earlier paper. New human-review
+declarations and a new Hexagon version are not asserted.
+
+Release: https://github.com/creelie/fermat-hodge-/releases/tag/v2.8.0
+
+
 Deep Bhattacharjee and Ushashi Bhattacharya
 
 This repository holds the paper, its figures, the Lean 4 certificate and the
 programs that recompute every finite quantity used in the proofs.
 
-## What the paper proves
+## Results stated in the v2.7.0 manuscript
 
 * The Hodge conjecture is equivalent to the conjunction of two statements
   about abelian varieties, (F2) and (F3'), and (F2) is equivalent to the

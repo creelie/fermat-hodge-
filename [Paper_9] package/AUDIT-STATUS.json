@@ -1,0 +1,23 @@
+{
+  "kind": "research_audit_not_full_closure",
+  "date": "2026-10-25",
+  "posted_preprint": "https://hexagonmath.org/2610.00315v2",
+  "local_source_sha256": "87187ab78d54f98f74e6e98e25a2c34c830a457400ca12b32236fadee0845614",
+  "remote_zip_byte_identity_verified": false,
+  "dependency_objection_supported": true,
+  "written_F2_to_AB_repair": true,
+  "Lean_auxiliary_lemmas": 3,
+  "Lean_version": "4.34.1",
+  "Mathlib_commit": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+  "exceptional_model_directions": 2,
+  "algebraic_representatives_constructed": false,
+  "full_F2_proved": false,
+  "full_F3prime_proved": false,
+  "full_Hodge_conjecture_proved": false,
+  "original_submission_packages_changed": false,
+  "new_release_or_DOI": true,
+  "release_version": "2.8.0",
+  "release_url": "https://github.com/creelie/fermat-hodge-/releases/tag/v2.8.0",
+  "publication_status": "see_versioned_GitHub_release_and_Zenodo_receipt",
+  "zenodo_version_doi": null
+}

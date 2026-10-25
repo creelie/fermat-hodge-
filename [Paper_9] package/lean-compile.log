@@ -1,0 +1,3 @@
+'HodgeReductionAudit.outside_add_inside' depends on axioms: [propext]
+'HodgeReductionAudit.affine_difference' depends on axioms: [propext]
+'HodgeReductionAudit.proper_complement_spans' depends on axioms: [propext, Classical.choice, Quot.sound]

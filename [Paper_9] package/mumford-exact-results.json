@@ -1,0 +1,533 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers and rational fractions",
+  "weight_zero_columns": 132,
+  "raising_lowering_rows": 480,
+  "Mumford_square_invariant_dimension": 8,
+  "divisor_product_dimension": 6,
+  "exceptional_dimension": 2,
+  "independent_character_counts": {
+    "V_square_degree4": 8,
+    "Z_degree2": 3,
+    "X_X_Z_degree4": 26
+  },
+  "maximal_torus_invariant_counts": {
+    "Z_degree2": 6,
+    "X_X_Z_degree4": 291
+  },
+  "split_model_only": true,
+  "algebraic_representatives_constructed": false,
+  "F2_proved": false,
+  "F3prime_proved": false,
+  "Hodge_conjecture_proved": false,
+  "model_exceptional_vectors": [
+    [
+      {
+        "indices": [
+          0,
+          4,
+          11,
+          15
+        ],
+        "coefficient": "1"
+      },
+      {
+        "indices": [
+          0,
+          5,
+          10,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          5,
+          11,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          6,
+          9,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          6,
+          11,
+          13
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          7,
+          9,
+          14
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          0,
+          7,
+          10,
+          13
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          1,
+          4,
+          10,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          4,
+          11,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          5,
+          10,
+          14
+        ],
+        "coefficient": "1"
+      },
+      {
+        "indices": [
+          1,
+          6,
+          8,
+          15
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          1,
+          6,
+          11,
+          12
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          1,
+          7,
+          8,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          7,
+          10,
+          12
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          2,
+          4,
+          9,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          2,
+          4,
+          11,
+          13
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          2,
+          5,
+          8,
+          15
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          2,
+          5,
+          11,
+          12
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          2,
+          6,
+          9,
+          13
+        ],
+        "coefficient": "1"
+      },
+      {
+        "indices": [
+          2,
+          7,
+          8,
+          13
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          2,
+          7,
+          9,
+          12
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          3,
+          4,
+          9,
+          14
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          3,
+          4,
+          10,
+          13
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          3,
+          5,
+          8,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          3,
+          5,
+          10,
+          12
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          3,
+          6,
+          8,
+          13
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          3,
+          7,
+          8,
+          12
+        ],
+        "coefficient": "1"
+      }
+    ],
+    [
+      {
+        "indices": [
+          0,
+          2,
+          13,
+          15
+        ],
+        "coefficient": "1"
+      },
+      {
+        "indices": [
+          0,
+          3,
+          12,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          3,
+          13,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          6,
+          9,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          0,
+          6,
+          11,
+          13
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          0,
+          7,
+          9,
+          14
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          0,
+          7,
+          11,
+          12
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          2,
+          12,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          2,
+          13,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          3,
+          12,
+          14
+        ],
+        "coefficient": "1"
+      },
+      {
+        "indices": [
+          1,
+          6,
+          8,
+          15
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          1,
+          6,
+          10,
+          13
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          7,
+          8,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          1,
+          7,
+          10,
+          12
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          2,
+          4,
+          9,
+          15
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          2,
+          4,
+          11,
+          13
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          2,
+          5,
+          9,
+          14
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          2,
+          5,
+          11,
+          12
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          3,
+          4,
+          8,
+          15
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          3,
+          4,
+          10,
+          13
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          3,
+          5,
+          8,
+          14
+        ],
+        "coefficient": "1/2"
+      },
+      {
+        "indices": [
+          3,
+          5,
+          10,
+          12
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          4,
+          6,
+          9,
+          11
+        ],
+        "coefficient": "1"
+      },
+      {
+        "indices": [
+          4,
+          7,
+          8,
+          11
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          4,
+          7,
+          9,
+          10
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          5,
+          6,
+          8,
+          11
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          5,
+          6,
+          9,
+          10
+        ],
+        "coefficient": "-1/2"
+      },
+      {
+        "indices": [
+          5,
+          7,
+          8,
+          10
+        ],
+        "coefficient": "1"
+      }
+    ]
+  ]
+}

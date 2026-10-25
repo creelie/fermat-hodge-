@@ -1,0 +1,31 @@
+name: Hodge audit controls
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-representation-controls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify committed package hashes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib
+          p = Path('[Paper_9] package')
+          for e in json.loads((p / 'MANIFEST.json').read_text()):
+              assert hashlib.sha256((p / e['path']).read_bytes()).hexdigest() == e['sha256'], e['path']
+          assert json.loads((p / 'lean-build.json').read_text())['status'] == 'PASS'
+          PY
+      - name: Recompute exact representation controls
+        run: python '[Paper_9] package/mumford_exact.py'
+      - name: Check reproducible output
+        run: git diff --exit-code -- '[Paper_9] package/mumford-exact-results.json'
