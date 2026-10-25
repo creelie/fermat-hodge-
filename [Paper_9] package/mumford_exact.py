@@ -173,7 +173,7 @@ def main():
             'model_exceptional_vectors': [
                 [{'indices': list(b), 'coefficient': str(v[k])}
                  for k, b in enumerate(basis) if v[k]] for v in extra]}
-    (ROOT / 'mumford-exact-results.json').write_text(json.dumps(data, indent=2) + '\n', encoding='utf8')
+    (ROOT / 'mumford-exact-results.json').write_text(json.dumps(data, indent=2) + '\n', encoding='utf8', newline='\n')
     print(json.dumps({k: v for k, v in data.items() if k != 'model_exceptional_vectors'}, indent=2))
 
 

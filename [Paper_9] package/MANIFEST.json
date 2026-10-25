@@ -56,13 +56,13 @@
   },
   {
     "path": "mumford-exact-results.json",
-    "bytes": 8530,
-    "sha256": "fa27aeb1cb04f44662354dcef6dbdb6c2824a26df8c376efdb10987b35c860e3"
+    "bytes": 7997,
+    "sha256": "d769c34fbdf98bcd146f6fb51917aaec0ede5f9ebdcf2b3aaec6191f40033865"
   },
   {
     "path": "mumford_exact.py",
-    "bytes": 6897,
-    "sha256": "1420b40dc93356a3596bb5c40fe110f90b5b2617ca997befc38c4cde5dbca0e3"
+    "bytes": 6911,
+    "sha256": "0fc42a2c570848ea76cef607144f3bf8f787eb308a0b7a5cfc8a19f5a8f01dbf"
   },
   {
     "path": "PUBLICATION-SCOPE.md",
