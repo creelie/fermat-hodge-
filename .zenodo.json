@@ -6,7 +6,7 @@
     {
       "name": "Bhattacharjee, Deep",
       "orcid": "0000-0003-0466-750X",
-      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; formerly, University of Calcutta, 87/1 College Street, Kolkata 700073, India"
+      "affiliation": "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India"
     },
     {
       "name": "Bhattacharya, Ushashi",
@@ -14,7 +14,7 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "<p>Version 2.8.0 adds a dependency audit and correction supplement for Dense Algebraic Loci of Hodge Classes. It contains a repaired written proof of F2 implies the Hodge conjecture for abelian varieties, assuming F2; a precise explanation of the F3-prime correspondence obligation; exact rational-matrix and independent character checks reproducing eight Mumford invariants, six divisor-product directions and two exceptional directions; and three checked auxiliary Lean subspace lemmas with their logs and pinned Lean/Mathlib setup.</p><p>The audit distinguishes the independent reduction from deductions conditional on three withdrawn preprints, corrects the direction of a sixfold invariant-dimension bound, and identifies remaining cycle-construction and propagation obligations. The previous v2.7.0 paper and its code are retained for context; this release does not recertify every claim in that manuscript.</p><p><strong>F2, F3-prime and the full rational Hodge conjecture remain unproved. No algebraic representatives for the two exceptional Mumford directions have been constructed. The Lean lemmas do not formalise the geometric conjecture.</strong> Authorship remains Deep Bhattacharjee and Ushashi Bhattacharya. The supplement records AI assistance and requires author review.</p>",
+  "description": "<p>Version 2.9 carries the corrected manuscript of Dense Algebraic Loci of Hodge Classes, the journal version of hexagonmath.org 2610.00315v2, with its LaTeX source, verification programs and Lean certificate. It gives a self-contained proof that (F2) implies the Hodge conjecture for abelian varieties (Borel density for Sp(V, psi) and one push-forward from a product with X x X); proves the lemma on classes reached from abelian varieties through semisimplicity of polarisable Hodge structures; states the sixfold link at a point with the Mumford Hodge group, where 26 invariant classes are a lower bound everywhere and an equality at a very general point; writes out the genus-four Prym argument; and removes every use of an unrefereed preprint from the proofs. Version 2.9.1 corrects this archive metadata only.</p><p><strong>F2, F3-prime and the full Hodge conjecture remain open.</strong> GitHub-related contact: egspl@proton.me.</p>",
   "keywords": [
     "Hodge conjecture",
     "abelian varieties",
@@ -23,9 +23,9 @@
     "semiregularity",
     "Lean 4"
   ],
-  "version": "2.8.0",
+  "version": "2.9.1",
   "access_right": "open",
-  "publication_date": "2026-10-25",
+  "publication_date": "2026-10-30",
   "related_identifiers": [
     {
       "identifier": "https://hexagonmath.org/2610.00315v2",
