@@ -26,7 +26,7 @@ F2, F3′ and the full Hodge conjecture remain open.
 
 Release: https://github.com/creelie/fermat-hodge-/releases/tag/v2.9.0
 
-Zenodo version DOI of v2.9.0: [10.5281/zenodo.23790236](https://doi.org/10.5281/zenodo.23790236). Release v2.9.1 has the same content and corrects the Zenodo metadata, which v2.9.0 carried over from v2.8.0.
+Zenodo version DOI of v2.9.1: [10.5281/zenodo.23790334](https://doi.org/10.5281/zenodo.23790334) (release https://github.com/creelie/fermat-hodge-/releases/tag/v2.9.1). It has the same content as v2.9.0, [10.5281/zenodo.23790236](https://doi.org/10.5281/zenodo.23790236), and corrects the Zenodo metadata, which v2.9.0 carried over from v2.8.0.
 
 ## v2.8.0 — dependency audit and reduction repair
 
