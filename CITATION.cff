@@ -13,9 +13,9 @@ authors:
     orcid: "https://orcid.org/0009-0002-2254-3914"
     email: rai.bhattacharya.in@gmail.com
     affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
-version: 2.9.0
+version: 2.9.1
 date-released: 2026-10-30
-url: "https://github.com/creelie/fermat-hodge-/releases/tag/v2.9.0"
+url: "https://github.com/creelie/fermat-hodge-/releases/tag/v2.9.1"
 repository-code: "https://github.com/creelie/fermat-hodge-"
 license: MIT
 keywords:
@@ -26,4 +26,4 @@ keywords:
   - semiregularity
   - Lean 4
 
-doi: "10.5281/zenodo.23643856"
+doi: "10.5281/zenodo.23790236"
