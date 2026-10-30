@@ -226,3 +226,16 @@ the text was corrected to nine decided and one open before the release.
 
 Both authors approved the final version. Funding: none. Competing
 interests: none.
+
+## Release v2.9.0
+
+The corrections of v2.9.0 (Section 3 proofs of the F2 equivalence and of the
+lemma on classes reached from abelian varieties, the pointwise form of the
+sixfold link, the self-contained genus-four Prym argument, the direct proof
+replacing arXiv:2401.04072, the wording of Section 8, the short abstract and
+the front matter) were written in a Claude Code session and checked line by
+line against the cited literature. An earlier dependency audit, produced
+with another AI system and published in v2.8.0, pointed to the gap in the
+F2 argument; the replacement proof in the paper is a different, shorter one.
+No new computation was added; the Lean file and programs are unchanged.
+
