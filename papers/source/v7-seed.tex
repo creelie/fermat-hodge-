@@ -1,0 +1,49 @@
+\section{The mixed cycle at a matched CM fibre}\label{v7:sec:seed}
+
+\begin{theorem}\label{v7:thm:seed}
+For the choice \(K=Fk\) of Lemma~\ref{v7:lem:field}, there is a CM fibre \(c\) on the Mumford curve and an elliptic curve \(E\) of CM type by \(k\) such that
+\[
+ X_c\sim E\times B,\qquad Z_c\sim E^3\times B,
+\]
+where \(B\) is an abelian threefold and \(\sim\) denotes isogeny. Every Hodge class on \(X_c^a\times Z_c^b\) is algebraic for all \(a,b\ge0\). In particular the flat class \(\xi_c\) has an algebraic representative.
+\end{theorem}
+
+\begin{proof}
+Choose the CM point whose split-place left circle lies in the embedded \(K^1\). Such a circle is conjugate to the chosen split-place circle, with its sign selected to lie in the chosen connected domain. Fix the orientations at the compact places so that the right circle there uses the same embedding of \(k\). This is allowed by the polarization sign choice in Section~\ref{v7:sec:setup}.
+
+Write the character lattice of \(T\) over a splitting field with basis \(e_1,e_2,e_3\). The Hodge circle on \(X_c\) is in the third factor. Its Galois conjugates generate \(T\), since \(F\) has three transitively permuted embeddings and \(k\) is disjoint from its totally real Galois closure. Thus the eight weights of \(H^1(X_c)\) for this Hodge torus are
+\[
+ \pm e_1\pm e_2\pm e_3 ,
+\]
+each with multiplicity one. The pair \(\pm(e_1+e_2+e_3)\) is defined over \(\Q\) as a subrepresentation because Galois acts by permutations and simultaneous sign. This pair is \(H^1(E)\), as a rational Hodge structure. The six remaining weights give \(H^1(B)\). The decomposition gives the first isogeny.
+
+At the same point, the joint left and right torus for \(Z_c\) is the graph of the rational morphism
+\[
+ T\longrightarrow T,\qquad t\longmapsto N_{K/k}(t)t^{-1}.
+\]
+The norm has \(N_{K/k}(t)\overline{N_{K/k}(t)}=1\) because \(t\bar t=1\). Thus the displayed map takes values in \(T\). On coordinates it replaces the \(i\)-th character by the sum of the other two. It sends the left circle in the third factor to the right circle in the first two, so the Hodge circle of the pair lies in this graph. Its Galois conjugates span the graph. On \(D_i=V_i\otimes(W_i^+\oplus W_i^-)\), the resulting weights are
+\[
+ \pm e_i\ \pm(e_j+e_\ell),\qquad \{i,j,\ell\}=\{1,2,3\}.
+\]
+The two signs that agree give the elliptic pair at each \(i\). The signs that disagree give precisely the remaining six weights of \(X_c\), each once. Rational representations of a torus are determined by their characters with the Galois action. Their Hodge structures are determined here by the same circle on that torus. Consequently \(H^1(Z_c)\cong H^1(X_c)\oplus H^1(E)^{\oplus2}\) as rational Hodge structures, giving the second isogeny.
+
+It remains to establish algebraicity on powers of \(X_c\); algebraicity in dimension four by itself does not automatically pass to powers. Represent the eight weights as \(\pm w_i\), with
+\[
+ w_1=(1,1,1),\quad w_2=(1,-1,-1),\quad
+ w_3=(-1,1,-1),\quad w_4=(-1,-1,1).
+\]
+Their only rational relation, up to scalar, is \(w_1+w_2+w_3+w_4=0\). In a zero-weight multiset, first remove all opposite pairs. If \(\alpha_i,\beta_i\) were the multiplicities of \(w_i,-w_i\), then all differences \(\alpha_i-\beta_i\) are equal. The residual multiset is therefore a union of positive tetrahedra \(\{w_1,w_2,w_3,w_4\}\) or negative tetrahedra. In the exterior algebra of \(H^1(X_c^m)\), each invariant monomial factors into invariant pieces of these two types and opposite pairs.
+
+We first realize the two tetrahedra on the fourfold. The four \(w_i\) are stable under permutation of the coordinates and are exchanged with the four \(-w_i\) by simultaneous sign reversal. Define a rational \(k\)-action by \(\alpha\) on the \(w_i\) and by \(\bar\alpha\) on the \(-w_i\), for \(\alpha\in k\). The Galois description shows descent, and the action preserves the Hodge decomposition. Each embedding has two weights in \(H^{1,0}\), since the split coordinate takes the positive sign on exactly two of the four weights in each set. This is a Weil-type action, and its two determinant lines are precisely the two tetrahedra.
+
+The isogeny \(X_c\sim E\times B\) is compatible with this action, with \(E\) of \(k\)-rank one. Choose a \(k\)-compatible rational product polarization. Such a polarization can be obtained on each factor by replacing an alternating polarization form \(\psi\) by
+\(\psi(x,y)+d^{-1}\psi(Ix,Iy)\), where \(I\) is the action of \(\sqrt{-d}\). This is a positive sum of polarizations and satisfies \(\psi'(Ix,Iy)=d\psi'(x,y)\). Let \(\delta\in\Q^\times\) be the determinant of the associated \(k\)-Hermitian form in a \(k\)-basis adapted to the product. Its signature is \((2,2)\), so \(\delta>0\). Multiplying the polarization on \(E\) by \(\delta^{-1}\) preserves positivity and changes the determinant by \(\delta^{-1}\). Clearing denominators of the resulting rational polarization changes the determinant by a rational fourth power, a norm from \(k\). The discriminant is therefore one. Markman's theorem on discriminant-one Weil fourfolds \cite[Theorem 1.5]{Mar23} gives algebraicity of the rational determinant space, and hence of both tetrahedra after extending coefficients. Lefschetz \((1,1)\) gives algebraicity of the opposite pairs.
+
+We explain why the pieces on a power come from the fourfold. Over a splitting field the commuting algebra \(\End_{\mathrm{HS}}(H^1(X_c))\) is the full diagonal algebra on the eight one-dimensional weight spaces, since the weights are distinct. Its rational part is the algebra of rational abelian endomorphisms. For a homomorphism \(X_c^m\to X_c\) up to rational multiples, the pullback on \(H^1\) is given by \(m\) commuting endomorphisms. Over a splitting field their diagonal entries can be chosen independently at each weight. Thus the pullbacks of a pair or tetrahedron on \(X_c\) span every corresponding piece with arbitrary multiplicity slots on \(X_c^m\). These pullbacks are spanned by pullbacks by rational homomorphisms after extending scalars: if a linear functional kills all rational evaluations, it kills the polynomial in the endomorphism parameters identically, because rational points of the parameter vector space are Zariski dense. Hence the pieces and their products are algebraic over the splitting field. Faithfully extending scalars in the rational cycle class map shows algebraicity over \(\Q\).
+
+Finally \(X_c^a\times Z_c^b\) is an isogeny summand of a power of \(X_c\). Indeed \(E\) is an isogeny factor of \(X_c\), and \(Z_c\sim X_c\times E^2\). There are rational homomorphisms to and from a sufficiently large power with composite the identity on the summand. Pull a Hodge class up from the summand to that power, represent it by an algebraic class there, and pull back along the other homomorphism. Clearing denominators gives the required rational algebraic class.
+\end{proof}
+
+\begin{remark}
+The construction uses the discriminant-one theorem at the CM seed and then elementary weight generation. At the matched seed the homomorphisms between \(X_c\) and \(Z_c\) are nonzero. The vanishing of those homomorphisms at full-group fibres does not extend to this CM point.
+\end{remark}

@@ -1,0 +1,148 @@
+{
+  "baseline_file": "C:\\CLAUDE PAPERS\\HodgeDenseLoci-v7\\baseline-v6-latest\\HodgeConjecture_MDPI.tex",
+  "baseline_sha256": "bba2415f47469c622dd5ad1decd1d8cdea0a1249309799247eb6794229636ec4",
+  "baseline_sections_and_subsections": 45,
+  "retained_all_section_headings": true,
+  "baseline_labels": 164,
+  "retained_all_baseline_labels": true,
+  "retained_figures": [
+    "fig_chain.pdf",
+    "fig_cmpoint.pdf",
+    "fig_cubicstop.pdf",
+    "fig_eigen.pdf",
+    "fig_extgrid.pdf",
+    "fig_fricke.pdf",
+    "fig_graph.pdf",
+    "fig_hankel.pdf",
+    "fig_link.pdf",
+    "fig_locus.pdf",
+    "fig_product.pdf",
+    "fig_roadmap.pdf",
+    "fig_surgery.pdf",
+    "fig_zeta9.pdf"
+  ],
+  "baseline_bibliography_entries": 83,
+  "corrections_and_additions": [
+    {
+      "reason": "Allow the full status table to span pages",
+      "matches": 1
+    },
+    {
+      "reason": "Release version",
+      "matches": 1
+    },
+    {
+      "reason": "Version and date",
+      "matches": 1
+    },
+    {
+      "reason": "Fit the expanded contents on the title page without clipping",
+      "matches": 1
+    },
+    {
+      "reason": "Notation for integrated new sections",
+      "matches": 1
+    },
+    {
+      "reason": "Allow a verified archive imprint without changing the mathematics",
+      "matches": 1
+    },
+    {
+      "reason": "Include repository, release and archival DOI in the paper",
+      "matches": 1
+    },
+    {
+      "reason": "Abstract reflects full retained scope and new constructions",
+      "matches": 1
+    },
+    {
+      "reason": "Restrict density claims to the families actually constructed",
+      "matches": 1
+    },
+    {
+      "reason": "Separate the general stratification theorem from special-family density",
+      "matches": 1
+    },
+    {
+      "reason": "Correct the roadmap caption scope",
+      "matches": 1
+    },
+    {
+      "reason": "Use the actual stated axiom scope of the inherited Lean checks",
+      "matches": 1
+    },
+    {
+      "reason": "Make the generic torus-rank hypothesis explicit",
+      "matches": 1
+    },
+    {
+      "reason": "Avoid an unjustified unsigned-orbit assertion for arbitrary CM embeddings",
+      "matches": 1
+    },
+    {
+      "reason": "Scope the generic 26-class equality to the full torus quotient",
+      "matches": 1
+    },
+    {
+      "reason": "Match the invariant-count proof to its explicit torus hypothesis",
+      "matches": 1
+    },
+    {
+      "reason": "Locate the exceptional classes on the square, not on the fourfold",
+      "matches": 1
+    },
+    {
+      "reason": "Correct the dimension of the adjoint carrier",
+      "matches": 1
+    },
+    {
+      "reason": "Correct the tensor location of the exceptional square classes",
+      "matches": 1
+    },
+    {
+      "reason": "Repair the quotient identity in the CM endomorphism argument",
+      "matches": 1
+    },
+    {
+      "reason": "State the totally real hypothesis in the similarity conclusion",
+      "matches": 1
+    },
+    {
+      "reason": "Remove the false rational-multiple assertion for CM similarities",
+      "matches": 1
+    },
+    {
+      "reason": "Replace the invalid symmetric-to-exterior cup-product contraction by explicit tensor operations",
+      "matches": 1
+    },
+    {
+      "reason": "Integrate four full new construction sections and the bypass audit into retained v6",
+      "matches": 1
+    },
+    {
+      "reason": "Prevent a generic rank-nine conclusion from being applied unchanged at CM fibres",
+      "matches": 1
+    },
+    {
+      "reason": "Correct the universal inference in the status discussion",
+      "matches": 1
+    },
+    {
+      "reason": "Keep all inherited status rows and add new results in a multipage table",
+      "matches": 1
+    },
+    {
+      "reason": "Add the new detailed derivation appendix",
+      "matches": 1
+    },
+    {
+      "reason": "Update availability without claiming new Lean verification",
+      "matches": 1
+    },
+    {
+      "reason": "Keep provenance accurate without asserting an unobserved author review",
+      "matches": 1
+    }
+  ],
+  "scope": "F2, F3-prime and the general Hodge conjecture remain open."
+}

@@ -1,0 +1,30 @@
+{
+  "paper_version": 7,
+  "github_version": "v3.0.0",
+  "pdf_pages": 97,
+  "latex_errors": 0,
+  "undefined_references": 0,
+  "overfull_boxes": 0,
+  "exact_checks": [
+    "PASS: Mumford exterior-weight multiplicities",
+    "PASS: matched CM weights and tetrahedron relation",
+    "PASS: partial symplectic transpose and swap recovery",
+    "PASS: Adams projector in all fifteen cohomological degrees",
+    "PASS: rank six at one root and rank twelve for all roots"
+  ],
+  "source_tex_files": 7,
+  "retained_pdf_figures": 14,
+  "new_inline_figures": 3,
+  "theorem_scope": "Matched CM seed and auxiliary sixfold results; generic link, F2, F3-prime and full HC remain open.",
+  "new_geometry_lean_formalised": false,
+  "files": {
+    "hodgefinal.pdf": {
+      "bytes": 1820629,
+      "sha256": "afe477bd2868e723c51b07a415dc752e146850658f95a30f48497c92d88ff1ce"
+    },
+    "texfinal.zip": {
+      "bytes": 1069098,
+      "sha256": "76a101ae76dafed6f6e084972a45b3864035f47c759fd5f61b9558754fa8fd0a"
+    }
+  }
+}

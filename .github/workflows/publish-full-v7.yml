@@ -1,0 +1,43 @@
+name: Publish complete Hodge v7
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v3.*'
+    paths:
+      - 'papers/archive-imprint.json'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release to refresh after a bibliographical DOI imprint
+        required: false
+        default: v3.0.0
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check uploaded assets
+        run: |
+          test -s papers/hodgefinal.pdf
+          test -s papers/texfinal.zip
+          python -m zipfile -t papers/texfinal.zip
+          python papers/checks/check_weights.py
+      - name: Publish or refresh assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          tag="${INPUT_TAG:-v3.0.0}"
+          if gh release view "$tag" > /dev/null 2>&1; then
+            gh release upload "$tag" papers/hodgefinal.pdf papers/texfinal.zip --clobber
+            gh release edit "$tag" --notes-file papers/RELEASE-NOTES.md
+          else
+            gh release create "$tag" --verify-tag --title "v3.0.0: complete v7 research revision" --notes-file papers/RELEASE-NOTES.md papers/hodgefinal.pdf papers/texfinal.zip
+          fi

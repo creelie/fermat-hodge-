@@ -14,7 +14,7 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "<p>Version 2.9 carries the corrected manuscript of Dense Algebraic Loci of Hodge Classes, the journal version of hexagonmath.org 2610.00315v2, with its LaTeX source, verification programs and Lean certificate. It gives a self-contained proof that (F2) implies the Hodge conjecture for abelian varieties (Borel density for Sp(V, psi) and one push-forward from a product with X x X); proves the lemma on classes reached from abelian varieties through semisimplicity of polarisable Hodge structures; states the sixfold link at a point with the Mumford Hodge group, where 26 invariant classes are a lower bound everywhere and an equality at a very general point; writes out the genus-four Prym argument; and removes every use of an unrefereed preprint from the proofs. Version 2.9.1 corrects this archive metadata only.</p><p><strong>F2, F3-prime and the full Hodge conjecture remain open.</strong> GitHub-related contact: egspl@proton.me.</p>",
+  "description": "<p>Complete version 7 research revision of Dense Algebraic Loci of Hodge Classes, with the full supplied v6 retained, explicit corrections, the matched CM Mumford–sixfold seed, algebraic auxiliary-sixfold projectors, conditional tensor transfers, a K3 deformation counterexample and exact finite checks.</p><p><strong>F2, F3-prime, the generic mixed link and the general rational Hodge conjecture remain unproved. New geometric arguments are not Lean-formalised.</strong></p>",
   "keywords": [
     "Hodge conjecture",
     "abelian varieties",
@@ -23,9 +23,9 @@
     "semiregularity",
     "Lean 4"
   ],
-  "version": "2.9.1",
+  "version": "3.0.0",
   "access_right": "open",
-  "publication_date": "2026-10-30",
+  "publication_date": "2026-11-06",
   "related_identifiers": [
     {
       "identifier": "https://hexagonmath.org/2610.00315v2",

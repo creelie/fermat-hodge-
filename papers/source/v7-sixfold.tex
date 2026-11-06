@@ -1,0 +1,64 @@
+\section{The two weight-one representations}\label{v7:sec:setup}
+
+Let \(F/\Q\) be a totally real cubic field and \(D/F\) a quaternion algebra split at one real place and ramified at the other two. Assume the split corestriction condition in Mumford's construction \cite{Mum69,vG00}. Put \(G=\Res_{F/\Q}\SL_1(D)\). After a splitting extension the eight-dimensional rational representation \(V=H^1(X,\Q)\) is \(V_1\otimes V_2\otimes V_3\), with \(V_i\) the two-dimensional standard module at the \(i\)-th embedding of \(F\). Index the split real place by 3. The Hodge circle acts through its standard circle in the third factor. A full-group fibre means that its Hodge group is the image of \(G\) in \(\operatorname{GL}(V)\); this image differs from \(G\) by a finite central kernel.
+
+\begin{lemma}[Choice of a common quadratic field]\label{v7:lem:field}
+There is an imaginary quadratic field \(k\) such that \(K=Fk\) embeds in \(D\) as a maximal commutative subfield.
+\end{lemma}
+\begin{proof}
+For each rational prime \(p\) below a finite ramified place of \(D\), choose a quadratic field over \(\Q_p\) that does not embed in any ramified \(F_v\) above \(p\). A local degree one or three cannot contain a quadratic field. There is at most one local degree two above \(p\), since the sum of the local degrees is three. If present, it forbids only its own quadratic field. Each \(\Q_p\) has more than one quadratic field. Prescribe these finitely many local squareclasses and a negative real sign. Weak approximation gives a rational representative and hence an imaginary quadratic field \(k\) realizing them. The extension \(Fk/F\) is a field at every ramified finite place and is complex at both ramified real places. The local-global embedding criterion for a quadratic field in a quaternion algebra gives \(K\hookrightarrow D\) \cite{Reiner75}.
+\end{proof}
+
+Fix such an embedding and write \(T=\Res_{F/\Q}(\ker N_{K/F})\). The twelve-dimensional rational space \(D\) has an action of \(G\times T\) by left and right multiplication, \((g,t)x=gxt\). Choose the complex embedding of \(k\) whose circle in the embedded split-place torus lies in the chosen component of the Mumford domain. Use this embedding for the right circles at both compact places. At the third place use the varying left circle from the Mumford fourfold, with trivial right circle. The resulting complex structure \(J\) squares to \(-1\) and defines a weight-one rational Hodge structure. Right multiplication by \(K\) commutes with \(J\).
+
+For \(c\in K\) with \(\bar c=-c\), the form
+\[
+ \psi_c(x,y)=\Tr_{F/\Q}\trd(\bar xyc)
+\]
+is alternating and invariant under \(G\times T\). Conjugation and cyclicity of reduced trace give alternation. Left multiplication by \(g\) inserts \(\bar gg=1\), and right multiplication by \(t\) gives a cyclic conjugation of \(c\) by \(t\). The form is nondegenerate for \(c\ne0\). At a compact place the evaluation on \(x,Jx\) is a nonzero scalar times the positive quaternion norm, with the sign selectable by \(c\). At the split place choose bases for the left and right imaginary units. For \(j=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)\) and \(Jx=jx\), the choice \(c=-j\) gives
+\(\trd(\bar x(jx)(-j))=\Tr(x^{\mathsf t}x)>0\) for \(x\ne0\). Changing a local orientation changes the required sign of \(c\). By weak approximation, an element of \(k\) with \(\bar c=-c\) can be multiplied by an element of \(F^\times\) to meet the three sign requirements. Thus this rational Hodge structure is polarizable and is realized by an abelian sixfold \(Z\) up to isogeny. The right \(K\)-action is realized by rational endomorphisms of \(Z\), using the equivalence between polarizable weight-one Hodge structures and complex abelian varieties up to isogeny.
+
+We work on the connected Shimura curve after passing to fine level and, if necessary, a finite cover on which both representations give polarized abelian schemes. In the weight-one Shimura construction the left circle varies over the Mumford domain and the right circle is fixed. One uses lattices in the two rational representations and a common congruence subgroup preserving them. The period maps to the fine moduli spaces of polarized abelian varieties give the two schemes over the curve. All the representations and splittings used below are defined over \(\Q\) before varying the circle.
+
+\subsection{The rank-nine summands}
+
+Over a splitting field \(D=\bigoplus_{i=1}^3 D_i\), where
+\[
+ D_i=V_i\otimes(W_i^+\oplus W_i^-)
+\]
+and \(W_i^\pm\) are inverse characters of the \(i\)-th factor of \(T\). The invariant part of \(\bigwedge^2 D\) for \(T\) is
+\begin{equation}\label{v7:eq:invariants}
+ (\bigwedge^2 D)^T
+ = \bigoplus_i \bigl((\operatorname{Sym}^2 V_i)\oplus\Q(-1)_i\bigr)
+\end{equation}
+after scalar extension, where the notation for each trivial summand records its weight two. Indeed the only \(T\)-neutral wedge pairs in one block have opposite weights and the cross-block characters are nontrivial. Denote the sum of the three adjoint summands by \(T_Z\) and the remaining rank-three Tate subspace by \(L_Z\); both descend to \(\Q\).
+
+In \(V\otimes V\), decompose each \(V_i\otimes V_i\) into its symmetric and alternating parts. The sum with one symmetric and two alternating parts is a copy \(T_X\) of the same three adjoint representations. It lies in the symmetric square of \(V\), and we view it in the mixed \(H^1\otimes H^1\) component of \(H^2(X^2)\). Each adjoint is defined at an embedding of \(F\) and the summands are transitively permuted by Galois. Thus the adjoint sum is irreducible over \(\Q\), has multiplicity one in \(V\otimes V\), and has commuting field \(F\). On \(T_Z\) the right circle acts trivially. The two Hodge structures therefore admit a rational \(G\)-equivariant identification \(\iota:T_X\to T_Z\), flat on the curve. A choice of invariant pairing on \(V\otimes V\) realizes it as a flat Hodge class \(\xi\) in the component
+\[
+ H^1(X,\Q)\otimes H^1(X,\Q)\otimes H^2(Z,\Q)
+ \subset H^4(X^2\times Z,\Q).
+\]
+Every rational \(G\)-equivariant map between these adjoint summands is an element of \(F\iota\). At full-group fibres the same holds for Hodge morphisms, since their Hodge circles project to the full \(G\)-image.
+
+\subsection{Algebraic projection on the sixfold}\label{v7:sec:projector}
+
+\begin{proposition}\label{v7:prop:proj}
+The projector onto \(T_Z\) in \eqref{v7:eq:invariants}, with zero action in other cohomological degrees, is induced by a rational algebraic correspondence. Every multiplication \(m_a\) on \(T_Z\), \(a\in F\), with zero action on its complement, is induced by a rational algebraic correspondence.
+\end{proposition}
+\begin{proof}
+The multiplication-by-two morphism induces multiplication by \(2^j\) on \(H^j(Z)\). Polynomial interpolation in its pullback gives algebraic projectors onto the individual cohomological degrees. On \(H^2(Z)\), choose \(t\in T(\Q)\) at which no nontrivial character appearing in \(\bigwedge^2 D\) takes the value 1. Such points exist because \(T(\Q)\) is Zariski dense: the map \(a\mapsto a/\bar a\) from \(\Res_{K/\Q}\mathbb G_m\) is dominant and the source has dense rational points. The induced pullback by the rational endomorphism is algebraic on \(H^2\). Here and below rational endomorphisms act by normalizing the graphs of their integral multiples in the indicated cohomological degree. The operator is semisimple, so a polynomial with rational coefficients projects onto its eigenvalue 1 space. This gives the projector onto \((\bigwedge^2D)^T\).
+
+The Tate subspace \(L_Z\) consists of divisor classes by Lefschetz \((1,1)\). It contains the polarization class \(\theta\) associated to \(\psi_c\). On \(H^2(Z)\), use the pairing
+\(q_Z(a,b)=\int_Z a b\,\theta^4\). The restriction to \(L_Z\) is nondegenerate: the \(\theta\)-line is positive and its orthogonal complement in \(L_Z\) is negative definite by the Hodge index theorem. A divisor basis and its dual for this pairing give an algebraic projector onto \(L_Z\) via external products and multiplication by \(\theta^4\). By \(G\times T\)-invariance, \(L_Z\) is orthogonal to \(T_Z\) and to the nontrivial \(T\)-weights. Subtracting this projector gives the claimed projector onto \(T_Z\).
+
+Right multiplication by \(u\in F^\times\) acts on \(H^1(Z)\) by \(\sigma_i(u)\) on \(D_i\). Its pullback on \(T_Z\) acts by \(m_{u^2}\). Choose \(u\notin\Q\). Its square is not rational because \(F\) has prime degree three. Consequently \(u^2\) generates \(F\). Compose with the projector and take polynomials with rational coefficients to obtain all \(m_a\).
+\end{proof}
+
+\begin{proposition}[The powers of the sixfold]\label{v7:prop:sixfold}
+At a full-group Mumford fibre, the Hodge ring of each power \(Z^m\) is generated by divisor classes.
+\end{proposition}
+\begin{proof}
+The projection of \(\Hg(Z)\) to the adjoint quotient of \(G\) is surjective, since the image of the Hodge circle there is the one for \(X\). The derived group thus contains the image of \(G\). Its torus quotient is also full. Indeed \(F\) is totally real and \(k\) is imaginary quadratic, so the Galois action on the three coordinates of \(T\) is by permutations of the embeddings and a simultaneous sign. The cocharacter of the fixed right circle is \((1,1,0)\), up to simultaneous sign. Its orbit spans \(\Q^3\), since the three vectors with one zero and two ones are independent. Modulo the finite central intersection, the Hodge group is therefore the full image of \(G\times T\).
+
+After scalar extension, the action on the \(i\)-th block is that of \(\operatorname{GL}(V_i)\) on \(V_i\oplus V_i^\vee\). The inverse characters on \(W_i^\pm\) and the alternating form on \(V_i\) give this identification. On \(Z^m\) one has \(m\) copies of each block. In the full tensor algebra the invariants of each \(\operatorname{GL}(V_i)\) are spanned by products of evaluation pairings between a standard and a dual factor, by the first fundamental theorem of invariant theory \cite{Weyl39}. This holds independently at the three embeddings. Antisymmetrizing gives the same generation statement in exterior cohomology. Rational generation follows because scalar extension commutes with invariants and with the image of the multiplication map. Degree-two invariants are rational \((1,1)\)-classes, hence divisor classes.
+\end{proof}

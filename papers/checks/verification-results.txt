@@ -1,0 +1,5 @@
+PASS: Mumford exterior-weight multiplicities
+PASS: matched CM weights and tetrahedron relation
+PASS: partial symplectic transpose and swap recovery
+PASS: Adams projector in all fifteen cohomological degrees
+PASS: rank six at one root and rank twelve for all roots
