@@ -1,10 +1,6 @@
 {
-  "version": "3.0.0",
-  "paper_version": 7,
-  "doi": "10.5281/zenodo.24020080",
-  "conceptdoi": "10.5281/zenodo.23439577",
-  "zenodo_record": "https://zenodo.org/records/24020080",
-  "release": "https://github.com/creelie/fermat-hodge-/releases/tag/v3.0.0",
-  "archived_source_commit": "01bd986",
-  "change": "Bibliographical DOI imprint only; mathematical content unchanged from the release tag."
+  "version": "3.1.1",
+  "doi": "10.5281/zenodo.24023964",
+  "tag_moved": false,
+  "mathematical_content_changed": false
 }

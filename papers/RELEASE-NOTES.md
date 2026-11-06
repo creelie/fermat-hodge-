@@ -7,3 +7,5 @@ Retains all mathematical content of the previous full v7 and adds bounded-degree
 The uniform geometric degree bound, universal F2 and F3-prime, and the full rational Hodge conjecture remain unproved. The new arguments are not Lean-formalized. The original checks and limited formalization remain credited and scoped.
 
 The PDF and source ZIP are reviewed and the standalone ZIP compiles independently. The immutable source tag is archived with the concept DOI; after verification its new version DOI is imprinted in the attached PDF and TeX ZIP without moving the tag or changing mathematics.
+
+Confirmed version DOI: https://doi.org/10.5281/zenodo.24023964

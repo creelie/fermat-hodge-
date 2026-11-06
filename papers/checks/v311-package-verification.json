@@ -23,12 +23,12 @@
   "scope": "Bounded-degree globalization; exact transfer defects; primitive degree-four projector. Missing uniform degree bound and primitive generation remain open.",
   "files": {
     "hodgefinal.pdf": {
-      "bytes": 1862801,
-      "sha256": "8b2987ac0739c99cc085b0502611cfb412408470a64e58a88b74f46b8eed0896"
+      "bytes": 1862802,
+      "sha256": "83a57d4098e688a6afa61ea1268064c36a5d3c0479fb023642fcff7a5f97ff0c"
     },
     "texfinal.zip": {
       "bytes": 1082939,
-      "sha256": "108b1b7b146240345238020f78d9b8e511d624ede10067e42f58e17bce9ce32b"
+      "sha256": "8382b795e20377c6983d0462b70f4b8747ebe5507b82eb48e9e74dc4c1b79cc4"
     }
   }
 }
