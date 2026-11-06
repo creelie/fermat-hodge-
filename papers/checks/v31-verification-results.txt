@@ -1,0 +1,13 @@
+check_weights.py
+PASS: Mumford exterior-weight multiplicities
+PASS: matched CM weights and tetrahedron relation
+PASS: partial symplectic transpose and swap recovery
+PASS: Adams projector in all fifteen cohomological degrees
+PASS: rank six at one root and rank twelve for all roots
+
+check_transfer.py
+PASS: divisor-projector identities (200 rational matrix cases)
+PASS: projective-bundle triangular inverse (160 rational matrix cases)
+PASS: finite-cover trace splitting (16 rational matrix cases)
+PASS: bounded-coordinate denominator estimate (124 exact systems)
+Scope: exact finite identities only; F2, F3-prime and full HC are not proved by these checks.

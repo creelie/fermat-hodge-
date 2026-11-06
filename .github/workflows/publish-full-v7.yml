@@ -1,43 +1,34 @@
 name: Publish complete Hodge v7
-
 on:
   push:
-    branches:
-      - main
-    tags:
-      - 'v3.*'
-    paths:
-      - 'papers/archive-imprint.json'
+    branches: [main]
+    paths: [papers/release-request.json, papers/archive-imprint.json]
   workflow_dispatch:
-    inputs:
-      tag:
-        description: Existing release to refresh after a bibliographical DOI imprint
-        required: false
-        default: v3.0.0
-
 permissions:
   contents: write
-
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check uploaded assets
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify exact controls and reviewed assets
         run: |
-          test -s papers/hodgefinal.pdf
-          test -s papers/texfinal.zip
-          python -m zipfile -t papers/texfinal.zip
           python papers/checks/check_weights.py
-      - name: Publish or refresh assets
+          python papers/checks/check_transfer.py
+          cd publication-v31
+          sha256sum -c SHA256SUMS-v3.1.0.txt
+          python -m zipfile -t texfinal.zip
+      - name: Publish new research version or refresh DOI imprint
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          INPUT_TAG: ${{ inputs.tag }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          tag="${INPUT_TAG:-v3.0.0}"
-          if gh release view "$tag" > /dev/null 2>&1; then
-            gh release upload "$tag" papers/hodgefinal.pdf papers/texfinal.zip --clobber
-            gh release edit "$tag" --notes-file papers/RELEASE-NOTES.md
+          tag=$(python -c 'import json; print(json.load(open("papers/release-request.json"))["tag"])')
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" publication-v31/* --clobber
+            gh release edit "$tag" --title "Algebraic Transfer and Propagation of Hodge Classes ($tag)" --notes-file papers/RELEASE-NOTES.md
           else
-            gh release create "$tag" --verify-tag --title "v3.0.0: complete v7 research revision" --notes-file papers/RELEASE-NOTES.md papers/hodgefinal.pdf papers/texfinal.zip
+            gh release create "$tag" publication-v31/* --target "$(git rev-parse HEAD)" --title "Algebraic Transfer and Propagation of Hodge Classes ($tag)" --notes-file papers/RELEASE-NOTES.md
           fi

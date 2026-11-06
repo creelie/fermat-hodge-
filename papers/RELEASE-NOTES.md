@@ -1,7 +1,9 @@
-Complete v7 research revision retaining the full supplied v6, with explicit corrections and integrated constructions. Includes a matched CM fibre with an algebraic mixed link, algebraic auxiliary-sixfold projectors, explicit conditional tensor transfer, an obstructed K3 bundle with constant total Chern character, and a rational blow-up reduction.
+# Algebraic Transfer and Propagation of Hodge Classes
 
-F2, F3-prime, the generic mixed cycle and the general Hodge conjecture remain unproved. Five exact Python checks cover their stated finite identities; the new geometric arguments are not Lean-formalised.
+Complete version 7 research revision, v3.1.0, 104 pages. The short abstract states the actual scope.
 
-Assets: hodgefinal.pdf and texfinal.zip. Compile main.tex in the ZIP. The original 45 section/subsection headings, 164 labels and 14 figure files are retained; three new inline figures and an additional appendix are included.
+Retains all mathematical content of the previous full v7 and adds bounded-degree globalization, automatic denominator bounds, a weaker mixed-support detection criterion, exact defect decompositions, trace projectors and an explicit primitive degree-four reduction. Proofs, footnotes, diagrams and an exact-arithmetic appendix are integrated in one manuscript.
 
-Zenodo concept DOI: https://doi.org/10.5281/zenodo.23439577. Confirmed Zenodo version DOI: https://doi.org/10.5281/zenodo.24020080. The immutable source tag initially prints the concept DOI; the release assets now record the exact version DOI in a post-archive bibliographical imprint without changing mathematics.
+The uniform geometric degree bound, universal F2 and F3-prime, and the full rational Hodge conjecture remain unproved. The new arguments are not Lean-formalized. The original checks and limited formalization remain credited and scoped.
+
+The PDF and source ZIP are reviewed and the standalone ZIP compiles independently. The immutable source tag is archived with the concept DOI; after verification its new version DOI is imprinted in the attached PDF and TeX ZIP without moving the tag or changing mathematics.

@@ -1,0 +1,255 @@
+% Proposed insertion. Not a proof of universal (F3').
+% Uses the notation and bibliography of full-paper/main.tex.
+\section{Transfer Defects and Primitive Hodge Classes}
+\label{v7:ssec:exact-transfer-defects}
+
+We make the effect of the proposed geometric operations explicit.
+These are consequences of the classical correspondence formulas,
+not a claim that the remaining defect vanishes. For either
+\(\mathcal U^p(X)=\Alg^p(X)\) or
+\(\mathcal U^p(X)=\Ab^p(X)\), put
+\[
+ D_{\mathcal U}^p(X)=\Hdg^p(X)/\mathcal U^p(X).
+\]
+All three spaces are zero outside \(0\le p\le\dim X\).
+Algebraic correspondences act on these quotients: they preserve
+Hodge classes, send cycle classes to cycle classes, and preserve
+\(\Ab\) by composition with its defining correspondences.
+Moreover \(\Alg^p(X)\subseteq\Ab^p(X)\), since a cycle can be
+used as a correspondence from a point.
+
+\begin{proposition}[Projective bundles and blow-ups]
+\label{v7:prop:exact-defect-decomposition}
+Let \(\mathscr E\) have rank \(r+1\) on a smooth projective
+variety \(X\). Let \(b:W\to X\) be the blow-up of a smooth
+centre \(Z\) of codimension \(c\ge2\). For either choice of
+\(\mathcal U\), there are isomorphisms
+\begin{align*}
+ D_{\mathcal U}^p(\PP_X(\mathscr E))
+   &\cong\bigoplus_{j=0}^{r}D_{\mathcal U}^{p-j}(X),\\
+ D_{\mathcal U}^p(W)
+   &\cong D_{\mathcal U}^p(X)
+          \oplus\bigoplus_{j=1}^{c-1}
+                     D_{\mathcal U}^{p-j}(Z).
+\end{align*}
+The maps and their inverses are induced by algebraic
+correspondences. In particular the formulas hold for the
+\Fiii{} defect, as well as for the algebraicity defect.
+\end{proposition}
+
+\begin{proof}
+The classical projective-bundle and blow-up decompositions are
+realized by algebraic correspondences \cite[\S\S7,9]{Man68}.
+We specify inverses in order to check what happens to \(\Ab\).
+Write \(\pi:P=\PP_X(\mathscr E)\to X\),
+\(\xi=c_1(\mathcal O_P(1))\), and
+\[
+ I_j(\alpha)=\xi^j\pi^*\alpha,
+ \qquad u_\ell=\pi_*\xi^{r+\ell}\quad(\ell\ge0).
+\]
+The classes \(u_\ell\) are algebraic, and \(u_0=1\).
+If \(x=\sum_{j=0}^r I_j(\alpha_j)\), its coefficients are
+recovered downwards by
+\[
+ \alpha_r=\pi_*x,\qquad
+ \alpha_j=\pi_*(\xi^{r-j}x)
+             -\sum_{k=j+1}^r u_{k-j}\alpha_k
+       \quad(j=r-1,\ldots,0).
+\]
+Indeed \(\pi_*(\xi^{r-j}I_k(\alpha_k))\) is zero for
+\(k<j\), is \(\alpha_j\) for \(k=j\), and is
+\(u_{k-j}\alpha_k\) for \(k>j\). Every map in this recursion
+is an algebraic correspondence. Thus the decomposition and its
+inverse preserve \(\Hdg\), \(\Alg\), and \(\Ab\), with the
+indicated codimension shifts. Passing to their quotients gives
+the first formula.
+
+For the blow-up, write \(i:Z\hookrightarrow X\),
+\(j:E\hookrightarrow W\), \(q:E\to Z\), and
+\(h=c_1(\mathcal O_E(1))\). The cohomology decomposition is
+\[
+ x=b^*\alpha+
+       \sum_{k=1}^{c-1}j_*(h^{k-1}q^*\beta_k).
+\]
+Pushforward by \(b\) recovers \(\alpha\):
+\(b_*b^*=\mathrm{id}\), whereas
+\(b_*j_*(h^{k-1}q^*\beta_k)=i_*q_*(h^{k-1}q^*\beta_k)=0\)
+because \(k-1<c-1\). Set \(x_0=x-b^*b_*x\). Since the
+normal bundle of \(E\) in \(W\) is \(\mathcal O_E(-1)\),
+self-intersection gives
+\[
+ j^*x_0=-\sum_{k=1}^{c-1}h^kq^*\beta_k.
+\]
+Apply the already explicit projective-bundle inverse for
+\(q:E\to Z\) to recover every \(-\beta_k\).
+Consequently all coefficient extractions are algebraic
+correspondences. They preserve the two choices of
+\(\mathcal U\), and the second quotient formula follows.
+\end{proof}
+
+\begin{proposition}[A trace splitting and finite quotients]
+\label{v7:prop:trace-defect-splitting}
+Let \(f:Y\to X\) be a surjective generically finite morphism
+of smooth projective varieties, of degree \(d\). The algebraic
+correspondence
+\[
+ e=\frac1d f^*f_*
+\]
+is an idempotent on \(H^*(Y,\QQ)\), and on each defect quotient
+it gives a direct sum
+\[
+ D_{\mathcal U}^p(Y)
+    =f^*D_{\mathcal U}^p(X)
+        \oplus(1-e)D_{\mathcal U}^p(Y).
+\]
+If a finite group \(G\) acts on \(Y\) and \(X=Y/G\) is
+smooth, then
+\[
+ D_{\mathcal U}^p(X)
+      \cong D_{\mathcal U}^p(Y)^G.
+\]
+\end{proposition}
+
+\begin{proof}
+The projection formula and the degree identity give
+\(f_*f^*=d\,\mathrm{id}\). Pullback and pushforward preserve
+the numerator and denominator of the defect quotient. Thus
+\(f^*\) is injective on that quotient, \(e^2=e\), and its image
+is exactly \(f^*D_{\mathcal U}^p(X)\). Every idempotent splits
+a vector space as its image and the image of its complement.
+
+In the quotient case one can replace \(G\) by its effective
+image, without changing its invariants. The generic fibre of
+\(f\) is then a free orbit of cardinality \(|G|\). As cycles
+of dimension \(\dim Y\), the fibre-product correspondence is
+the sum of the graphs of the elements of \(G\); the ramification
+loci have smaller dimension and introduce no additional
+component of that dimension. Hence
+\[
+ f^*f_* = \sum_{g\in G}g^*,\qquad
+ e=\frac1{|G|}\sum_{g\in G}g^*.
+\]
+This is the averaging projector, whose image on every rational
+\(G\)-representation is its invariant subspace. Apply the
+first assertion to the defect quotient.
+\end{proof}
+
+\begin{corollary}[The low-codimension boundary]
+\label{v7:cor:stable-defect}
+For either \(\mathcal U\), the quotient
+\(D_{\mathcal U}^2(X)\) is a stable birational invariant of
+smooth projective varieties. If \(\dim X=d\), the quotient
+\(D_{\mathcal U}^{d-2}(X)\) is likewise invariant under
+birational maps, and under stabilization it satisfies
+\[
+ D_{\mathcal U}^{d+r-2}(X\times\PP^r)
+     \cong D_{\mathcal U}^{d-2}(X).
+\]
+In particular a smooth projective stably rational variety of
+dimension at most five has zero defect in every degree, for
+both choices of \(\mathcal U\).
+\end{corollary}
+
+\begin{proof}
+The defects in codimensions \(0,1,m-1,m\) on a smooth
+projective \(m\)-fold are zero, by Lefschetz \((1,1)\),
+hard Lefschetz, and the unit and point classes. They also vanish
+outside that range. For a blow-up of a \(d\)-fold, the new
+terms in codimension two are \(D_{\mathcal U}^1(Z)\),
+\(D_{\mathcal U}^0(Z)\), and zero terms. In codimension
+\(d-2\), their indices satisfy
+\[
+ d-2-j\ge d-c-1=\dim Z-1
+ \quad(1\le j\le c-1),
+\]
+so these terms vanish as well. Weak factorization
+\cite{AKMW02} gives the birational assertions. The
+projective-bundle formula gives the two stabilization
+assertions: for codimension two all lower-index terms vanish;
+for codimension \(d+r-2\), the only possibly nonzero summand
+has index \(d-2\). In dimensions at most five these and the
+already algebraic boundary degrees exhaust every codimension.
+Stable rationality then compares them to projective space.
+\end{proof}
+
+\begin{proposition}[An explicit primitive projector on Hodge classes]
+\label{v7:prop:primitive-hodge-projector}
+Let \(X\) be a smooth projective \(d\)-fold, \(d\ge4\), and
+let \(h\) be an ample divisor class. Let \(D_1,\ldots,D_\rho\)
+be divisor classes forming a rational basis of \(\Hdg^1(X)\).
+The matrix
+\[
+ Q_{ij}=\int_X D_iD_jh^{d-2}
+\]
+is invertible. The algebraic correspondence
+\[
+ \Pi_{\mathrm{np}}=
+  \sum_{i,j=1}^{\rho}(Q^{-1})_{ij}
+          (D_jh^{d-3})\times(hD_i)
+       \in\operatorname{CH}^{d}(X\times X)_{\QQ}
+\]
+is an idempotent on cohomology. On \(\Hdg^2(X)\) its image is
+\(h\Hdg^1(X)\), and its complement is the primitive part
+\[
+ P_h\Hdg^2(X)=
+  \ker\bigl(h^{d-3}:\Hdg^2(X)\to\Hdg^{d-1}(X)\bigr).
+\]
+For either choice of \(\mathcal U\), it induces an isomorphism
+\[
+ D_{\mathcal U}^2(X)
+    \cong
+ \frac{P_h\Hdg^2(X)}
+      {P_h\Hdg^2(X)\cap\mathcal U^2(X)}.
+\]
+Thus \Fiii{} in degree four is equivalent to the same
+generation statement for primitive classes, with every
+correspondence postcomposed by
+\(\Delta_X-\Pi_{\mathrm{np}}\).
+\end{proposition}
+
+\begin{proof}
+The Hodge index theorem makes \(Q\) nondegenerate: the line
+spanned by \(h\) is positive, and its orthogonal complement
+in \(\Hdg^1(X)_{\RR}\) is negative definite for this form.
+In particular its inverse has rational coefficients. The
+displayed correspondence acts on \(H^4(X,\QQ)\) by
+\[
+ \alpha\longmapsto
+   h\sum_{i,j}D_i(Q^{-1})_{ij}
+           \int_X\alpha D_jh^{d-3}.
+\]
+It is zero on other cohomological degrees, by degree. On each
+\(hD_k\) this formula is the identity; its entire image is
+in their span. It is therefore an idempotent on cohomology.
+
+For \(\alpha\in\Hdg^2(X)\), hard Lefschetz gives a unique
+\(\beta\in\Hdg^1(X)\) such that
+\[
+ h^{d-2}\beta=h^{d-3}\alpha.
+\]
+Write \(\beta=\sum_i b_iD_i\). Pairing this equality with
+each \(D_j\) gives \(\sum_iQ_{ji}b_i
+=\int_X\alpha D_jh^{d-3}\). Hence the formula above is
+exactly \(h\beta\), and \(\alpha-\Pi_{\mathrm{np}*}\alpha\)
+is primitive. Conversely a primitive Hodge class has every
+one of these pairings zero and is annihilated by
+\(\Pi_{\mathrm{np}*}\). This proves the decomposition on
+Hodge classes.
+
+Its nonprimitive summand is algebraic, since every \(D_i\)
+is a divisor class. It is therefore contained in either
+\(\mathcal U^2(X)\). Subtracting this summand from a
+representative proves the quotient isomorphism. The
+complementary projector is algebraic and preserves \(\Ab\),
+so applying it to every term of a transfer expression yields
+the last assertion.
+\end{proof}
+
+The last projector concerns rational Hodge classes in degree
+four. It is not asserted to be the full primitive projector on
+\(H^4(X,\QQ)\); the non-Hodge part of \(hH^2(X,\QQ)\) is
+not removed by its divisor formula. No algebraicity of a
+general inverse Lefschetz operator is being assumed. The
+construction removes only the already algebraic summand.
+It provides no representative, or correspondence from an
+abelian variety, for the remaining primitive quotient.
