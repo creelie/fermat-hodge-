@@ -1,12 +1,12 @@
-# Algebraic Transfer and Propagation of Hodge Classes
+# Hodge Classes on Abelian Varieties and Beyond
 
-Deep Bhattacharjee and Ushashi Bhattacharya · Complete manuscript version 7 · Release v3.1.0
+Deep Bhattacharjee and Ushashi Bhattacharya · Complete manuscript version 7 · Release v3.1.1
 
 The 104-page revision retains the full earlier v7, its 205 labels and all 14 original figure files. It adds fully derived transfer and propagation results, diagrams, footnotes and a new appendix. **Universal F2 and F3-prime and the general rational Hodge conjecture remain unproved.**
 
 - [Paper PDF](papers/hodgefinal.pdf)
 - [Standalone TeX ZIP](papers/texfinal.zip) — compile main.tex with pdfLaTeX, three passes.
-- [Release v3.1.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.1.0)
+- [Release v3.1.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.1.1)
 - [Zenodo all-versions DOI](https://doi.org/10.5281/zenodo.23439577)
 - [Original posted v6](https://doi.org/10.20944/preprints202602.0462.v6)
 

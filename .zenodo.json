@@ -1,5 +1,5 @@
 {
-  "title": "Algebraic Transfer and Propagation of Hodge Classes",
+  "title": "Hodge Classes on Abelian Varieties and Beyond",
   "upload_type": "publication",
   "license": "cc-by-4.0",
   "creators": [
@@ -23,7 +23,7 @@
     "semiregularity",
     "Lean 4"
   ],
-  "version": "3.1.0",
+  "version": "3.1.1",
   "access_right": "open",
   "publication_date": "2026-11-07",
   "related_identifiers": [

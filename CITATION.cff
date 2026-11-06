@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: "Please cite the archived source and verification package when using this work."
 type: article
-title: "Algebraic Transfer and Propagation of Hodge Classes"
-version: 3.1.0
+title: "Hodge Classes on Abelian Varieties and Beyond"
+version: 3.1.1
 date-released: 2026-11-07
 doi: 10.5281/zenodo.23439577
 url: "https://github.com/creelie/fermat-hodge-"

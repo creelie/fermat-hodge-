@@ -77,7 +77,7 @@
 \newcommand{\AB}{\mathbf{AB}}
 \newcommand{\Fii}{\texorpdfstring{\textup{(F2)}}{(F2)}}
 \newcommand{\Fiii}{\texorpdfstring{\textup{(F3$'$)}}{(F3')}}
-\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.1.0}
+\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.1.1}
 \newcommand{\leancount}{four hundred and nine}
 \providecommand{\Q}{\QQ}
 \providecommand{\C}{\CC}
@@ -92,7 +92,7 @@
 \InputIfFileExists{archive-imprint.tex}{}{}
 \begin{document}
 
-\title[Algebraic Transfer of Hodge Classes]{Algebraic Transfer and Propagation of Hodge Classes}
+\title[Hodge Classes on Abelian Varieties and Beyond]{Hodge Classes on Abelian Varieties and Beyond}
 
 \author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
@@ -101,13 +101,13 @@
 \email{egspl@proton.me}
 \thanks{Corresponding author: Deep Bhattacharjee (\nolinkurl{d.bhattacharjee@erl-forschung.de}).}
 \thanks{An earlier version of this paper is the Hexagon preprint 2610.00315v2, \url{https://hexagonmath.org/2610.00315v2}. This version revises it substantially.}
-\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release v3.1.0: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
+\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.1.1: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 \email{rai.bhattacharya.in@gmail.com}
 
-\date{Version 7, revised 7 November 2026. Research release 3.1.0.}
+\date{Version 7, revised 7 November 2026. Research revision 3.1.1.}
 
 \subjclass[2020]{14C30, 14K20, 14J28, 11E12}
 \keywords{Hodge conjecture; abelian varieties; Weil classes; K3 surfaces}
@@ -2087,7 +2087,7 @@ The Lean certificate of \cite{BMB26}, \texttt{HodgeObstruction.lean} (Lean~4.34.
 The paper builds on the theorems of Eyal Markman on secant sheaves and Weil classes, on the work of Bert van Geemen, Matthias Sch\"utt and Mauro Varesco on real multiplication of K3 surfaces, on Nikolay Buskin's theorem on Hodge isometries, on the semiregularity theory of Spencer Bloch, Ragnar-Olaf Buchweitz and Hubert Flenner, and on the descriptions of Hodge classes on abelian varieties by Ben Moonen, Yuri Zarhin, Yves Andr\'e and James Milne. We thank Priyabrata Mandal for the collaboration on the earlier paper \cite{BMB26} whose results are used here.
 
 \section*{Data and code availability}
-The source and verification archive of the previous version remains available in release v2.9.1 \cite{BB26code}. This complete v7 is deposited in \path{papers/hodgefinal.pdf} with its compilable source ZIP \path{papers/texfinal.zip} at \url{https://github.com/creelie/fermat-hodge-}; its release is \url{\codeRelease}. The new exact checks are described in Appendix~\ref{v7:app:derivations}. Those checks are not a Lean formalisation of the new geometric arguments. The candidate configurations of Section~\ref{ssec:e06count} and the first enumerations of their chains, among them that of Remark~\ref{rem:sevenbundles}, were produced with Anaxia, the construction engine of the BLLM project \cite{Bha26bllm}, release v3.0.5, \url{https://github.com/creelie/eBLLM/releases/tag/v3.0.5}, and the support results of Section~\ref{ssec:supports} with release v3.1.0 \cite{Bha26bllmb}, \url{https://github.com/creelie/eBLLM/releases/tag/v3.1.0}; the point counts of Remark~\ref{rem:frickepicard} follow the Frobenius test of its module \texttt{k3frob} (commit \texttt{8782bd3}), which first showed that a Fricke self-map is a complex and not a real multiplication, at level $13$; every statement of the paper is decided by the proofs in the text and by the programs of the release, not by the engine. Deep Bhattacharjee carried out the constructions on \Fii{} and \Fiii{} and the Lean, Julia, C, C\texttt{++}, Python and shell verifications with the help of AI assistance (Claude, Anthropic). The new v7 calculations and exposition were developed with additional AI assistance (OpenAI ChatGPT). These tools are not authors, and the new geometric arguments are not claimed to be Lean-formalised.
+The source and verification archive of the previous version remains available in release v2.9.1 \cite{BB26code}. This complete v7 is deposited in \path{papers/hodgefinal.pdf} with its compilable source ZIP \path{papers/texfinal.zip} at \url{https://github.com/creelie/fermat-hodge-}; its release is \url{\codeRelease}. The new exact checks are described in Appendix~\ref{v7:app:derivations}. Those checks are not a Lean formalisation of the new geometric arguments. The candidate configurations of Section~\ref{ssec:e06count} and the first enumerations of their chains, among them that of Remark~\ref{rem:sevenbundles}, were produced with Anaxia, the construction engine of the BLLM project \cite{Bha26bllm}, release v3.0.5, \url{https://github.com/creelie/eBLLM/releases/tag/v3.0.5}, and the support results of Section~\ref{ssec:supports} with release v3.1.1 \cite{Bha26bllmb}, \url{https://github.com/creelie/eBLLM/releases/tag/v3.1.1}; the point counts of Remark~\ref{rem:frickepicard} follow the Frobenius test of its module \texttt{k3frob} (commit \texttt{8782bd3}), which first showed that a Fricke self-map is a complex and not a real multiplication, at level $13$; every statement of the paper is decided by the proofs in the text and by the programs of the release, not by the engine. Deep Bhattacharjee carried out the constructions on \Fii{} and \Fiii{} and the Lean, Julia, C, C\texttt{++}, Python and shell verifications with the help of AI assistance (Claude, Anthropic). The new v7 calculations and exposition were developed with additional AI assistance (OpenAI ChatGPT). These tools are not authors, and the new geometric arguments are not claimed to be Lean-formalised.
 
 \section*{Ethical declarations}
 Funding: none. Competing interests: none.
@@ -2189,8 +2189,8 @@ GitHub release v3.0.5, 19 October 2026.
 \bibitem{Bha26bllmb}
 D. Bhattacharjee,
 \emph{BLLM: Beyond the LLM with Deep Human-Mind-AI}, with the construction engine Anaxia,
-GitHub release v3.1.0, 19 October 2026.
-\url{https://github.com/creelie/eBLLM/releases/tag/v3.1.0}.
+GitHub release v3.1.1, 19 October 2026.
+\url{https://github.com/creelie/eBLLM/releases/tag/v3.1.1}.
 
 \bibitem{BN26}
 D. Bhattacharjee and P. Nandi,

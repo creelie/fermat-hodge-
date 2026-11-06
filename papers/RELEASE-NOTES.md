@@ -1,6 +1,6 @@
-# Algebraic Transfer and Propagation of Hodge Classes
+# Hodge Classes on Abelian Varieties and Beyond
 
-Complete version 7 research revision, v3.1.0, 104 pages. The short abstract states the actual scope.
+Complete version 7 research revision, v3.1.1, 104 pages. The short abstract states the actual scope.
 
 Retains all mathematical content of the previous full v7 and adds bounded-degree globalization, automatic denominator bounds, a weaker mixed-support detection criterion, exact defect decompositions, trace projectors and an explicit primitive degree-four reduction. Proofs, footnotes, diagrams and an exact-arithmetic appendix are integrated in one manuscript.
 

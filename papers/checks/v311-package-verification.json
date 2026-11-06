@@ -1,0 +1,34 @@
+{
+  "paper_version": 7,
+  "github_version": "v3.1.1",
+  "pdf_pages": 104,
+  "title": "Hodge Classes on Abelian Varieties and Beyond",
+  "date": "2026-11-07",
+  "abstract_words": 65,
+  "latex_errors": 0,
+  "undefined_references": 0,
+  "overfull_boxes": 0,
+  "old_v7_labels_retained": 205,
+  "current_labels": 215,
+  "retained_pdf_figures": 14,
+  "new_exact_checks": {
+    "check_weights.py": "PASS: Mumford exterior-weight multiplicities\nPASS: matched CM weights and tetrahedron relation\nPASS: partial symplectic transpose and swap recovery\nPASS: Adams projector in all fifteen cohomological degrees\nPASS: rank six at one root and rank twelve for all roots\n",
+    "check_transfer.py": "PASS: divisor-projector identities (200 rational matrix cases)\nPASS: projective-bundle triangular inverse (160 rational matrix cases)\nPASS: finite-cover trace splitting (16 rational matrix cases)\nPASS: bounded-coordinate denominator estimate (124 exact systems)\nScope: exact finite identities only; F2, F3-prime and full HC are not proved by these checks.\n"
+  },
+  "F2_proved": false,
+  "F3_prime_proved": false,
+  "full_Hodge_conjecture_proved": false,
+  "new_geometry_lean_formalised": false,
+  "novelty_priority_not_established": true,
+  "scope": "Bounded-degree globalization; exact transfer defects; primitive degree-four projector. Missing uniform degree bound and primitive generation remain open.",
+  "files": {
+    "hodgefinal.pdf": {
+      "bytes": 1862801,
+      "sha256": "8b2987ac0739c99cc085b0502611cfb412408470a64e58a88b74f46b8eed0896"
+    },
+    "texfinal.zip": {
+      "bytes": 1082939,
+      "sha256": "108b1b7b146240345238020f78d9b8e511d624ede10067e42f58e17bce9ce32b"
+    }
+  }
+}
