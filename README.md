@@ -26,11 +26,12 @@ Five exact Python checks verify finite representation identities. These are not 
 ## Archives and preprints
 
 - [Release v3.0.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.0.0)
+- [Zenodo version DOI](https://doi.org/10.5281/zenodo.24020080)
 - [Zenodo concept DOI](https://doi.org/10.5281/zenodo.23439577)
 - [Supplied posted v6](https://doi.org/10.20944/preprints202602.0462.v6)
 - [Earlier Hexagon record](https://hexagonmath.org/2610.00315v2)
 - [Previous archive v2.9.1](https://doi.org/10.5281/zenodo.23790334)
 
-The source tag records the concept DOI. Once Zenodo supplies the new version DOI, the release PDF and source ZIP receive a bibliographical imprint with that DOI; the mathematical content does not change.
+The source tag records the concept DOI. The release PDF and source ZIP now include the verified version DOI **10.5281/zenodo.24020080**. This bibliographical imprint was added after the immutable source tag was archived; the mathematical content is unchanged.
 
 Authors: Deep Bhattacharjee and Ushashi Bhattacharya. Computational and language-model assistance is described in the provenance file; the tools are not authors. No novelty priority, full formalisation, journal acceptance or general-conjecture resolution is asserted.

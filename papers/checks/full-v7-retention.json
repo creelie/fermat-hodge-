@@ -128,6 +128,10 @@
       "matches": 1
     },
     {
+      "reason": "Align the inherited proof-scope cross-reference with the integrated sections",
+      "matches": 1
+    },
+    {
       "reason": "Keep all inherited status rows and add new results in a multipage table",
       "matches": 1
     },

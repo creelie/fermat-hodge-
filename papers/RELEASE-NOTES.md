@@ -4,4 +4,4 @@ F2, F3-prime, the generic mixed cycle and the general Hodge conjecture remain un
 
 Assets: hodgefinal.pdf and texfinal.zip. Compile main.tex in the ZIP. The original 45 section/subsection headings, 164 labels and 14 figure files are retained; three new inline figures and an additional appendix are included.
 
-Zenodo concept DOI: https://doi.org/10.5281/zenodo.23439577. The new version DOI will be recorded after archival confirmation. The immutable source tag initially prints the concept DOI; a later bibliographical imprint on release assets records the exact version DOI without changing mathematics.
+Zenodo concept DOI: https://doi.org/10.5281/zenodo.23439577. Confirmed Zenodo version DOI: https://doi.org/10.5281/zenodo.24020080. The immutable source tag initially prints the concept DOI; the release assets now record the exact version DOI in a post-archive bibliographical imprint without changing mathematics.

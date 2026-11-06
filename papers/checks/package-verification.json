@@ -12,7 +12,7 @@
     "PASS: Adams projector in all fifteen cohomological degrees",
     "PASS: rank six at one root and rank twelve for all roots"
   ],
-  "source_tex_files": 7,
+  "source_tex_files": 8,
   "retained_pdf_figures": 14,
   "new_inline_figures": 3,
   "theorem_scope": "Matched CM seed and auxiliary sixfold results; generic link, F2, F3-prime and full HC remain open.",
@@ -20,11 +20,11 @@
   "files": {
     "hodgefinal.pdf": {
       "bytes": 1820629,
-      "sha256": "afe477bd2868e723c51b07a415dc752e146850658f95a30f48497c92d88ff1ce"
+      "sha256": "ef4d8a69241272ccc4d2f0ed92b4796cce8483b1033fee3d8d678d46696fde56"
     },
     "texfinal.zip": {
-      "bytes": 1069098,
-      "sha256": "76a101ae76dafed6f6e084972a45b3864035f47c759fd5f61b9558754fa8fd0a"
+      "bytes": 1069323,
+      "sha256": "315d1bfed5b61691d28ecfdb40f03df30a4c2aa9d6381c8d203d3cb3a230e430"
     }
   }
 }

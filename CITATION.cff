@@ -1,29 +1,18 @@
 cff-version: 1.2.0
-message: "If you use this archive, cite the paper and the archive."
-title: "Source and verification code for the paper Dense Algebraic Loci of Hodge Classes"
+message: "Please cite the archived source and verification package when using this work."
 type: software
+title: "Source and verification code for Dense Algebraic Loci of Hodge Classes"
+version: 3.0.0
+date-released: 2026-11-06
+doi: 10.5281/zenodo.24020080
+url: "https://github.com/creelie/fermat-hodge-"
+repository-code: "https://github.com/creelie/fermat-hodge-"
 authors:
   - family-names: Bhattacharjee
     given-names: Deep
     orcid: "https://orcid.org/0000-0003-0466-750X"
-    email: itsdeep@live.com
-    affiliation: "Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India"
   - family-names: Bhattacharya
     given-names: Ushashi
     orcid: "https://orcid.org/0009-0002-2254-3914"
-    email: rai.bhattacharya.in@gmail.com
-    affiliation: "Formerly, National Taiwan University, Taipei 106319, Taiwan"
-version: 2.9.1
-date-released: 2026-10-30
-url: "https://github.com/creelie/fermat-hodge-/releases/tag/v2.9.1"
-repository-code: "https://github.com/creelie/fermat-hodge-"
 license: MIT
-keywords:
-  - Hodge conjecture
-  - abelian varieties
-  - Weil classes
-  - K3 surfaces
-  - semiregularity
-  - Lean 4
-
-doi: "10.5281/zenodo.23790334"
+abstract: "Complete v7 research revision with matched CM constructions, conditional tensor transfer, deformation obstructions and exact checks. F2, F3-prime and the full Hodge conjecture remain unproved."
