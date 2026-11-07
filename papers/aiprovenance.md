@@ -2,7 +2,7 @@
 
 Work: Algebraic Hodge Loci and Exceptional Correspondences
 
-Current release: https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1. The version DOI is pending archival verification.
+Research release: v3.4.1, 2026-11-08. Version DOI: [10.5281/zenodo.24045620](https://doi.org/10.5281/zenodo.24045620).
 
 Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya.
 
