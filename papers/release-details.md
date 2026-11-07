@@ -1,17 +1,9 @@
-# Current release
+# Algebraic Hodge Loci and Exceptional Correspondences
 
-Title: Algebraic Hodge Loci and Exceptional Correspondences
+[GitHub release v3.4.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1)
 
-Repository: https://github.com/creelie/fermat-hodge-
+Corrects the Galluzzi attribution and publication details, clarifies the Trento Examples attribution and source-release citations, and removes an unresolved preprint reference, unused entries, and duplicates.
 
-Release: [v3.4.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0)
+The PDF has **112 pages**, compared with 112 in v3.4.0. The revised bibliography contains 89 cited entries and 69 checked DOI links. See `papers/bibliography-audit.md` for individual sources. The `papers/` folder contains the current PDF, TeX ZIP and submission notes.
 
-Version DOI: [10.5281/zenodo.24044461](https://doi.org/10.5281/zenodo.24044461)
-
-Date: 2026-11-08
-
-Adds the explicit primitive middle-degree reduction, including rational blow-up targets.
-
-The generic mixed Mumford cycle and universal F2 and F3-prime remain unproved. Moving a class by an algebraic graph or a blow-up does not construct an abelian source for it.
-
-Only current compiled submission files are kept in `papers/`. Earlier releases remain available through their historical tags. DOI imprint updates preserve the mathematical content of the archived tag. The current files and their hashes are attached to the release; `package-manifest.json` records each current payload file.
+Version DOI pending archival verification.

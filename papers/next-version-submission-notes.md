@@ -8,7 +8,7 @@ Submission route: Preprints.org, v6 to v7. The platform version is independent o
 
 Existing record: [v6](https://doi.org/10.20944/preprints202602.0462.v6). The v7 identifier is not claimed to exist before submission is accepted by the platform.
 
-Research release: [v3.4.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0). Version DOI: [10.5281/zenodo.24044461](https://doi.org/10.5281/zenodo.24044461).
+Current release: https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1. The version DOI is pending archival verification.
 
 ## Abstract to paste
 
@@ -34,3 +34,8 @@ Compile with pdfLaTeX at least three times. Upload the TeX ZIP when the platform
 ## Checks and declarations
 
 The current source compiles locally. Finite ancillary checks do not prove the remaining existence or uniform estimates. This revision has not supplied a new Lean formalization of its analytic or geometric arguments. The submitting authors must confirm the human-understanding, authorship, licence and platform declarations for the current additions.
+
+
+## Bibliography and layout in v3.4.1
+
+Corrects the Galluzzi attribution and publication details, clarifies the Trento Examples attribution and source-release citations, and removes an unresolved preprint reference, unused entries, and duplicates. The compiled manuscript has 112 pages. See `bibliography-audit.md` for the source of every retained reference.
