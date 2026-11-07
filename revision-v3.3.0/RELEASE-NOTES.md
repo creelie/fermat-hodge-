@@ -10,4 +10,6 @@ Repository https://github.com/creelie/fermat-hodge-
 
 Release https://github.com/creelie/fermat-hodge-/releases/tag/v3.3.0
 
-Zenodo concept DOI https://doi.org/10.5281/zenodo.23439577
+Version DOI https://doi.org/10.5281/zenodo.24028405
+
+The immutable release snapshot was archived before the version DOI was available. The reviewed PDF and TeX assets carry the subsequently verified version DOI.

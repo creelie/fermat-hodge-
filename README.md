@@ -2,7 +2,7 @@
 
 The complete Hodge version 7 incorporates the Picard construction obstruction and the minimal dimension of a single abelian carrier of the Mumford adjoint structure, with proofs and exact representation checks. The generic mixed link and universal F2 and F3-prime remain open.
 
-[Complete PDF](revision-v3.3.0/hodge.pdf) · [TeX ZIP](revision-v3.3.0/hodgetex.zip) · [Submission package](revision-v3.3.0/hodge.zip) · [Release](https://github.com/creelie/fermat-hodge-/releases/tag/v3.3.0) · [Zenodo DOI](https://doi.org/10.5281/zenodo.23439577)
+[Complete PDF](revision-v3.3.0/hodge.pdf) · [TeX ZIP](revision-v3.3.0/hodgetex.zip) · [Submission package](revision-v3.3.0/hodge.zip) · [Release](https://github.com/creelie/fermat-hodge-/releases/tag/v3.3.0) · [Zenodo DOI](https://doi.org/10.5281/zenodo.24028405)
 
 <!-- integrated-round26 -->
 
