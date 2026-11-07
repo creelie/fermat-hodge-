@@ -1,32 +1,21 @@
-name: release
-
+name: Publish current manuscript files
 on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "Tag of the release, for example v2.0.0"
+        description: 'Reviewed current manuscript tag'
         required: true
-      title:
-        description: "Title of the release"
-        required: true
-      notes:
-        description: "Release notes"
-        required: true
-
 permissions:
   contents: write
-
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Create the release
+      - run: python scripts/verify_current_package.py
+      - name: Create a reviewed release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
-          TITLE: ${{ inputs.title }}
-          NOTES: ${{ inputs.notes }}
         run: |
-          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TITLE" --notes "$NOTES" \
-            preprints/HodgeConjecture.pdf HodgeConjecture_tex.zip hcfinal.zip
+          gh release create "$TAG" papers/* --target "$GITHUB_SHA" --title "$TAG" --notes-file RELEASE-NOTES.md

@@ -1,5 +1,15 @@
-# Provenance
+# AI provenance statement
 
-Human authors: Deep Bhattacharjee and Ushashi Bhattacharya. Computational and AI-assisted tools were used in proof development, checking, literature review, writing and layout. The tools are not authors. The new finite checks verify rational matrix and denominator identities; they do not prove geometric existence. The new geometric arguments are not Lean-formalized. No new human-understanding declaration has been inferred for the additions.
+Work: Algebraic Hodge Loci and Exceptional Correspondences
 
-The complete earlier v7 is retained. The revision explicitly distinguishes proved correspondence identities and conditional propagation criteria from the missing degree bound and the universal F2/F3-prime statements.
+Research release: v3.4.0, 2026-11-08. Version DOI: [release page](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0) (DOI awaiting archive verification).
+
+Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya.
+
+The manuscript combines human-written and AI-generated text. The authors supplied the research manuscripts and direction. OpenAI Codex assisted with the present proof development, checking, explanatory text, TeX editing, compilation and packaging. Python was used for the included finite checks, and pdfLaTeX and PDF rendering tools for document checks. This statement identifies the tools actually used in this revision; it does not assign an unsupported model name.
+
+Adds the explicit primitive middle-degree reduction, including rational blow-up targets. These additions have written mathematical arguments. Existing finite certificates are separate from proof of the full conjecture. No new complete Lean verification is asserted. The generic mixed Mumford cycle and universal F2 and F3-prime remain unproved. Moving a class by an algebraic graph or a blow-up does not construct an abelian source for it.
+
+Human-understanding declaration: no new declaration is inferred for additions made after the authors' earlier review. The submitting authors must choose the platform option that accurately describes their understanding of this complete current revision. This is not a certification that a human has already checked every new line.
+
+This file is a concise provenance summary. It contains no fabricated conversations, private reasoning traces, or benchmark claims.

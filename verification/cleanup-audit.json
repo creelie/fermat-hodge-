@@ -1,0 +1,545 @@
+{
+  "scope": "Only superseded compiled manuscript/archive copies and generated build artifacts are discarded from active main. Every removed mathematical source or release-evidence file is preserved byte-for-byte at the recorded historical path. Git history and all existing release tags are retained.",
+  "previous_main": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+  "entries": [
+    {
+      "previous_path": ".github/workflows/publish-full-v7.yml",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/.github/workflows/publish-full-v7.yml",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "eeab01d030433b5c3b9f2a5f9f48ed532c5fef2cfebc9ecc3137b784671838be"
+    },
+    {
+      "previous_path": ".github/workflows/publish-integrated-hodge.yml",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/.github/workflows/publish-integrated-hodge.yml",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "2c2e99b494758321086be760f17afa0d9957c389a865d795538bd26e760cb01b"
+    },
+    {
+      "previous_path": ".github/workflows/publish-v3.2.0.yml",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/.github/workflows/publish-v3.2.0.yml",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "d7ae3904d6aaf0135b106bcb37c05b6b40e6f1d8f7c5a17df18d94fbd2f041f1"
+    },
+    {
+      "previous_path": "AI_PROVENANCE_HodgeConjecture.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/AI_PROVENANCE_HodgeConjecture.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "75e71b7f38ccb59845ac8f268d49068e5179293d09fcd9080cdcae3467b29463"
+    },
+    {
+      "previous_path": "HodgeConjecture_tex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "3b4fceee33dbe8ee8536042c22ea2043fb3c671c5441524bf23e9a56742a127c"
+    },
+    {
+      "previous_path": "RELEASE-DOI.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/RELEASE-DOI.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "654ce5b0de4432ce5cba5482a012ef425f84704bc7a427d4faddde069684311f"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_aoki.aux",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_aoki.log",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "6da2152773bd2536851b6aca4d39220bc1b205b4c50b36728ddeec9092561068"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_degrees.aux",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_degrees.log",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "ebaa86981f33f4eb68898c9336678155833e09837f2df1d3fde946b34e060d85"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_move.aux",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_move.log",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "0dafc4aa9de29d9dc0d04f49b1e07d3a7a05c752ae9d0db2f6a3e39d5df25528"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_split.aux",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_split.log",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "2c8eeb7d5534563429e07633061fb8538cc4cc78da4ae256da99483fca3a5e04"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_standard.aux",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbabe80c887f95a1ede6847f22dd91b380bda9d17ae8bfaa72e1741b16aa41e9"
+    },
+    {
+      "previous_path": "fourfolds/paper/figures/src/fig_standard.log",
+      "category": "generated build artifact",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "88f6666f374f099cdad617d071d5f10cbb844d9f9266ccb4ca44675b68fc4db9"
+    },
+    {
+      "previous_path": "hcfinal.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "5ad31392bdb8afea34a82fb854caf9922fa274c4a57a4026db1447bc54d59115"
+    },
+    {
+      "previous_path": "paper/appA_checks.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/appA_checks.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "135741d99bfd1f9379ef531cd341f5af69af52329add9fcf21d5c5f17fc50ee7"
+    },
+    {
+      "previous_path": "paper/appB_derivations.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/appB_derivations.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "da28388466442265b78e271643cd36154b00334053e38ed5bf6fc5a40d950f90"
+    },
+    {
+      "previous_path": "paper/bibliography.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/bibliography.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "c8dbc50498205230d85b50c5315d3a5bac212293c632580aaafc2ecaf328d63b"
+    },
+    {
+      "previous_path": "paper/declarations.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/declarations.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "ce215c32dc8698ef1f5bf6de062db7a6f6a5fbe5336c2eed39ea6b1f90407e98"
+    },
+    {
+      "previous_path": "paper/main.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "8cba9c2cc006ce7ec38d49d52d224d3f72d41b74d92c235c8dc26a70cdb18405"
+    },
+    {
+      "previous_path": "paper/main_journal.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbe24a1dcf51c0374f6a408d9bb92c54a5c2a42e61a5c62028e0ec6a3e25a641"
+    },
+    {
+      "previous_path": "paper/main_journal.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/main_journal.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "64e45de4756edb0968956ca9ae1c1070aaa3cb216badf46665260e9422ad91c8"
+    },
+    {
+      "previous_path": "paper/paper1/HodgeConjecture.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "8cba9c2cc006ce7ec38d49d52d224d3f72d41b74d92c235c8dc26a70cdb18405"
+    },
+    {
+      "previous_path": "paper/paper2/HodgeConjecture_tex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "87187ab78d54f98f74e6e98e25a2c34c830a457400ca12b32236fadee0845614"
+    },
+    {
+      "previous_path": "paper/sec1_intro.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec1_intro.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "7af9085a6e2390eda7601f21ac0a0691d5f8cafdf186de81ac33a5b1d26ed149"
+    },
+    {
+      "previous_path": "paper/sec2_conventions.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec2_conventions.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "8f32b457cf81e69529b67f5dc6d01d0c893fe1ee64e573093dc78f4f7133c495"
+    },
+    {
+      "previous_path": "paper/sec3_reduction.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec3_reduction.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "3935253e61efea711711c06912d23270a5ed67e8143979bba0e5ab958431f007"
+    },
+    {
+      "previous_path": "paper/sec4_loci.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec4_loci.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "76b25a60e34f3a7b17b092bfcb6b62f3f141e2cb1bab9bc140b83db78c07fc09"
+    },
+    {
+      "previous_path": "paper/sec5_f3prime.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec5_f3prime.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "0fc6a1198215d60ca8499645d8e8ae373dcd639cf854619bb7d44541234b27c3"
+    },
+    {
+      "previous_path": "paper/sec6_f2.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec6_f2.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "ee4c392a09b3541321d35eb20a145bda69adcab583393bb85cb01b9d9a71683c"
+    },
+    {
+      "previous_path": "paper/sec7_earlier.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec7_earlier.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "db2a9de4b9c662a936fac8b4901cc0da27721d5a82477734190467716ebc44d5"
+    },
+    {
+      "previous_path": "paper/sec8_status.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/paper/sec8_status.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "38e43170101f196895694f83ff6d7ca0ba06bf778862b5273a293e23ed7d3a5d"
+    },
+    {
+      "previous_path": "papers/RELEASE-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/papers/RELEASE-NOTES.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "4c2921e44953e6a244fce3e9cf9ebf27cbeb276b6a31a4caf08451d778b0777b"
+    },
+    {
+      "previous_path": "papers/REPOSITORY-EVIDENCE.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/papers/REPOSITORY-EVIDENCE.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "b5408c80a86036b2c80d84f2ac8b6f8d8717695711f70f7f75143973cc95e8e0"
+    },
+    {
+      "previous_path": "papers/RESEARCH-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/papers/RESEARCH-NOTES.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "6f8839a859b511017d21e8c9527583f1f62cdf0e8577b04256520f02a4244183"
+    },
+    {
+      "previous_path": "papers/archive-imprint.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/papers/archive-imprint.json",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "10a87c8377e91a22cd29ef8ab91a44083e8d30f98892d1e11a0c53007d49c368"
+    },
+    {
+      "previous_path": "papers/hodgefinal.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "e2ea1598a7871e46c86d4d0221e39614f0fc7268865c11dceb740da8ad8ce15d"
+    },
+    {
+      "previous_path": "papers/release-request.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/papers/release-request.json",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "b15ab2015f635b0eb70102194dc767e9d76a3e219380403e31b0f1e2d8e72b68"
+    },
+    {
+      "previous_path": "papers/source/archive-imprint.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/papers/source/archive-imprint.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fca42be22d8f6c12366ed0414e4143ec283dc46b6eddee5d8e936b07b4b22f40"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_chain.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "7e76a2a6d358f4e09043eb508530290efca7af45ce792cadb917c0f8e0a45598"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_cmpoint.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "e1d194609c209afbcab0d8e570c0bbcf4c0e55b8897d631bf4f5bc2e80e96da2"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_cubicstop.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "755d29969a695e7984e8e5fb5456779002a25a4d55f96a760fddc6d2a325a410"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_eigen.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "9c35a31b2952d0710fc6c4cb41bba0f5da7de11efceacec89c70dd0ab615c53e"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_extgrid.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "992b1df92966e0d50fe14dc681d20eb948e266df1eb3debc0648b2af1712c789"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_fricke.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "222f732b3900438ca565c91f2b77287f5aa9ed93e237c7001d408d854dec3795"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_graph.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "7b5144f5ad592bae8f1708573cb0e9723a8cef02c18a1055f5c51d0604522800"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_hankel.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "f8e7518d8b9ad6e6b93ec9becf3050702d8709c05dac61fed9c73e3cdd035013"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_link.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "f335dc55d0372d37db6531557e75607664576aac5f05fc3a86019521cc2a844a"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_locus.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "8619a4b100aedc123065328f92d89a1b315034ae3354fb25ed9036c04f0871f9"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_product.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "79fef479f98b7521a10f74b6a24b083f43d75210cbd598cd3a8a9632b1492def"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_roadmap.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "c6738772523804bbe71545427e5191f58b9249e8d26fd9f9a1c5775b772cf0cc"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_surgery.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "e6ad984bda98d43e1fd1f85ad63b0bdb93563ac4c13e656d9b42f3d5b61c5caa"
+    },
+    {
+      "previous_path": "papers/source/figures/fig_zeta9.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "2f2739e64f841ab20f662b6c2c796043e144025fad6070e086e9c7cbb15b88fe"
+    },
+    {
+      "previous_path": "papers/source/main.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/papers/source/main.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "becf7a25c1bc1ed1e8bc57e09100813d9ad615927abd9ed33d9fef3b33fca9f4"
+    },
+    {
+      "previous_path": "papers/source/round26-imprint.tex",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "source-history/superseded-layouts/papers/source/round26-imprint.tex",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "96e6dd8e5af76ca020918c5e803b6743c1014eb52ad40523916c8df71ce25ed2"
+    },
+    {
+      "previous_path": "papers/tex.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "dcb3b1230de9a5f7a40fa95b2f2c0abd2ee8b2a611136e140442c4eafccd024a"
+    },
+    {
+      "previous_path": "papers/texfinal.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "dcb3b1230de9a5f7a40fa95b2f2c0abd2ee8b2a611136e140442c4eafccd024a"
+    },
+    {
+      "previous_path": "preprints/HodgeConjecture.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "fbe24a1dcf51c0374f6a408d9bb92c54a5c2a42e61a5c62028e0ec6a3e25a641"
+    },
+    {
+      "previous_path": "publication-v31/SHA256SUMS-v3.1.0.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/publication-v31/SHA256SUMS-v3.1.0.txt",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "8c1637a552b96a718619b91d997f501ccab75efc3de1de1a07f96c2364b54a95"
+    },
+    {
+      "previous_path": "publication-v31/hodge-v7-v3.1.0-research-package.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "9b337b32022678d2e03e1383c5d6d707e4d057398bf83ebe3ae2811eb2802004"
+    },
+    {
+      "previous_path": "publication-v31/hodgefinal.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "3112f0c9bbb9d4a38b5c4acda4166d19845b67e17b779d9cbfcea55e5a69b43a"
+    },
+    {
+      "previous_path": "publication-v31/texfinal.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "2f26233cec36651d14a2d3c0fff90be837d4356914a7d92dc6d6f789c4835bc3"
+    },
+    {
+      "previous_path": "publication-v311/SHA256SUMS-v3.1.1.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/publication-v311/SHA256SUMS-v3.1.1.txt",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "f5ef357cf12c5bdd60a349eeb2a135312099d8830fe24fded4644911786b7ba8"
+    },
+    {
+      "previous_path": "publication-v311/hodge-v7-v3.1.1-research-package.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "95ef0e3fad6d64f86ac3fcbde751a3cefb65d3b1663fba6a4368d8b01c04b513"
+    },
+    {
+      "previous_path": "publication-v311/hodgefinal.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "83a57d4098e688a6afa61ea1268064c36a5d3c0479fb023642fcff7a5f97ff0c"
+    },
+    {
+      "previous_path": "publication-v311/texfinal.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "8382b795e20377c6983d0462b70f4b8747ebe5507b82eb48e9e74dc4c1b79cc4"
+    },
+    {
+      "previous_path": "revision-v3.2.0/RELEASE-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v3.2.0/RELEASE-NOTES.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "96f4721f3dc2d3a1c02d48e66446ccb297b9610af018d6b7c59627d4b44aefff"
+    },
+    {
+      "previous_path": "revision-v3.2.0/SHA256SUMS.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v3.2.0/SHA256SUMS.txt",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "377b9c249cfa8839e9a07405de9f534ec9ac68fff41eedcffaee3085e5011596"
+    },
+    {
+      "previous_path": "revision-v3.2.0/hodgefinal.pdf",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "4198a0ef5db21c1cf19db5cd60c5187f34d2ba7bff26f73e31d5d2b789c0e6d7"
+    },
+    {
+      "previous_path": "revision-v3.2.0/release.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v3.2.0/release.json",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "b926e88702e2644c724a78381f08fa9060c23205c86b1cd0cd9d12df96547faa"
+    },
+    {
+      "previous_path": "revision-v3.2.0/texfinal.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "e5936e5dddfccfe86eb6e7efc07e74ab80220b0a978ff7efdc3fc1e6da3ffe2b"
+    },
+    {
+      "previous_path": "revision-v3.3.0/RELEASE-NOTES.md",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v3.3.0/RELEASE-NOTES.md",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "7883690891664e931fc90774d9267b5a8f959ca9aa9ca101c5a8c3d471e2d8c5"
+    },
+    {
+      "previous_path": "revision-v3.3.0/SHA256SUMS.txt",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v3.3.0/SHA256SUMS.txt",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "bc091f0472da5d01d9e15058311b5289b3bae7a252260a538325fa4bc78ae151"
+    },
+    {
+      "previous_path": "revision-v3.3.0/hodge.zip",
+      "category": "superseded compiled manuscript or source archive",
+      "preserved_path": null,
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "12e250c13cf8e7027135c3f2993e4d2cb48f335c7fea8bd20d69fbbe2d1d0ca3"
+    },
+    {
+      "previous_path": "revision-v3.3.0/release.json",
+      "category": "historical source or release evidence retained byte-for-byte",
+      "preserved_path": "verification/historical-release-metadata/revision-v3.3.0/release.json",
+      "previous_commit": "0a80dc5f11044e28dfb67f5e6444b7135f63ec9f",
+      "sha256": "598370f6a84c289b63de3d7059d5366a7db1659a1eac458c309ea24da717f818"
+    }
+  ]
+}

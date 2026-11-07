@@ -2,9 +2,8 @@ cff-version: 1.2.0
 message: "Please cite the archived source and verification package when using this work."
 type: article
 title: "Algebraic Hodge Loci and Exceptional Correspondences"
-version: "3.3.0"
-date-released: "2026-11-07"
-doi: "10.5281/zenodo.24028405"
+version: "3.4.0"
+date-released: "2026-11-08"
 url: "https://github.com/creelie/fermat-hodge-"
 repository-code: "https://github.com/creelie/fermat-hodge-"
 authors:
