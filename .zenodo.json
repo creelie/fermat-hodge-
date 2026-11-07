@@ -14,7 +14,7 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "The complete Hodge version 7 incorporates the Picard construction obstruction and the minimal dimension of a single abelian carrier of the Mumford adjoint structure, with proofs and exact representation checks. The generic mixed link and universal F2 and F3-prime remain open.",
+  "description": "We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.",
   "keywords": [
     "Hodge conjecture",
     "abelian varieties",
@@ -23,9 +23,9 @@
     "semiregularity",
     "Lean 4"
   ],
-  "version": "3.3.0",
+  "version": "3.4.0",
   "access_right": "open",
-  "publication_date": "2026-11-07",
+  "publication_date": "2026-11-08",
   "related_identifiers": [
     {
       "identifier": "https://hexagonmath.org/2610.00315v2",

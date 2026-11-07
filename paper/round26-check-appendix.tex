@@ -1,0 +1,12 @@
+\section{The finite representation controls}\label{round26:app:carrier}
+The small-representation argument uses the cyclic Galois orbit of each highest-weight triple. For total orbit dimension at most ten, the complete list before the real-form restriction is
+\[
+\begin{array}{c|c}
+\text{highest-weight orbit}&\text{dimension}\\\hline
+(0,0,0)&1\\
+(1,0,0),(0,1,0),(0,0,1)&6\\
+(1,1,1)&8\\
+(2,0,0),(0,2,0),(0,0,2)&9.
+\end{array}
+\]
+The six-dimensional candidate has quaternionic type at a compact factor and requires multiplicity at least two. The nine-dimensional adjoint candidate cannot itself be a weight-one Hodge substructure. The remaining eight-dimensional representation has no adjoint constituent in any single exterior degree, as the full proof shows. The source archive includes \texttt{anc/check\_exact.py}, which enumerates this finite list; \texttt{anc/check\_weights.py} checks the exterior weights.

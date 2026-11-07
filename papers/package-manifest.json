@@ -1,0 +1,11 @@
+{
+  "release": "v3.4.0",
+  "version_doi": null,
+  "files": {
+    "aiprovenance.md": "f2de5f9a06c595ffe12b5683183696ad9065da361023d8b3d9029a9b47d6776e",
+    "hodge.pdf": "db0ef26394671328a394b315a28ba02ebf02e28b3fc457d08fce430556e76651",
+    "hodgetex.zip": "d41a2f8f99db1e4dea80ac6c8ad23d365d6b29146faa066da814ca803ea0276d",
+    "next-version-submission-notes.md": "cc3110a52b57a1d3c28cfec117072cd0871195aa130f159e12f833b2b1eb8bd4",
+    "release-details.md": "d92f5f3891a918367febd263e52a140a1616ccd3fae17acaa682f96987252629"
+  }
+}
