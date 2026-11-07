@@ -8,7 +8,7 @@ Submission route: Preprints.org, v6 to v7. The platform version is independent o
 
 Existing record: [v6](https://doi.org/10.20944/preprints202602.0462.v6). The v7 identifier is not claimed to exist before submission is accepted by the platform.
 
-Current release: https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1. The version DOI is pending archival verification.
+Research release: [v3.4.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1). Version DOI: [10.5281/zenodo.24045620](https://doi.org/10.5281/zenodo.24045620).
 
 ## Abstract to paste
 

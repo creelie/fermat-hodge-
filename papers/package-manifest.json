@@ -1,13 +1,13 @@
 {
   "release": "v3.4.1",
-  "version_doi": null,
+  "version_doi": "10.5281/zenodo.24045620",
   "pages": 112,
   "files": {
-    "aiprovenance.md": "396e28b726f6b679a3a41e3bc6b4242f7922b9f83b7a8c13bc81778cd7048bc5",
+    "aiprovenance.md": "8de2bb910d8d9bdd7540be30e49c4ff511a7140448d3f37cd5943641340333dc",
     "bibliography-audit.md": "9436775c90a1287ebd7ff19465bc1f2f49d165651d3f7d395c85ed3eebb009f6",
-    "hodge.pdf": "33ccba3cd0ff9cb0f57cc4a4736aef8be5d2b30be1950385fa992b06fac55c4c",
-    "hodgetex.zip": "2c17f2b2225786c3f596e2adba6e81a847cd85551c92bd26bd61b28f94f34597",
-    "next-version-submission-notes.md": "96237c09eacf3ecb27d90e3c511b60d45b2b85a80dc3e634ac81e024dd8679ab",
-    "release-details.md": "0845dd705d17caefbdf7949632e8a4b2ed09318c0846de3a42961771756ac524"
+    "hodge.pdf": "53820a8ddac469221927486dd2399c5c9c4bb9a7e8e38a560d934ad38ceea1e5",
+    "hodgetex.zip": "0b55fc1b0ab58aabe8b27f33fda9bd1d131b8c45e2817fb50a4cce92c856ccbb",
+    "next-version-submission-notes.md": "5d3885678d4fe09b9fe3a6f07757e4304781b693931e2ce1222eb1260dbbd18e",
+    "release-details.md": "94b35e3ad11d8dac44d0303e9f0d577b5d73ad383860c53508398b79b7696854"
   }
 }

@@ -6,4 +6,6 @@ Corrects the Galluzzi attribution and publication details, clarifies the Trento 
 
 The PDF has **112 pages**, compared with 112 in v3.4.0. The revised bibliography contains 89 cited entries and 69 checked DOI links. See `papers/bibliography-audit.md` for individual sources. The `papers/` folder contains the current PDF, TeX ZIP and submission notes.
 
-Version DOI pending archival verification.
+[Version DOI](https://doi.org/10.5281/zenodo.24045620)
+
+The Zenodo archive contains the tagged manuscript. The current downloads add the verified DOI to that same revision.
