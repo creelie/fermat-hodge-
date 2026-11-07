@@ -77,7 +77,7 @@
 \newcommand{\AB}{\mathbf{AB}}
 \newcommand{\Fii}{\texorpdfstring{\textup{(F2)}}{(F2)}}
 \newcommand{\Fiii}{\texorpdfstring{\textup{(F3$'$)}}{(F3')}}
-\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.1.1}
+\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.2.0}
 \newcommand{\leancount}{four hundred and nine}
 \providecommand{\Q}{\QQ}
 \providecommand{\C}{\CC}
@@ -89,10 +89,11 @@
 
 \newcommand{\archiveDOI}{10.5281/zenodo.23439577}
 \newcommand{\archiveLabel}{Zenodo concept DOI}
-\InputIfFileExists{archive-imprint.tex}{}{}
-\begin{document}
 
-\title[Hodge Classes on Abelian Varieties and Beyond]{Hodge Classes on Abelian Varieties and Beyond}
+\begin{document}
+\hypersetup{pdftitle={Algebraic Correspondences and Hodge Classes on Abelian Varieties}}
+
+\title[Hodge classes and algebraic correspondences]{Algebraic Correspondences and Hodge Classes on Abelian Varieties}
 
 \author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
@@ -101,19 +102,19 @@
 \email{egspl@proton.me}
 \thanks{Corresponding author: Deep Bhattacharjee (\nolinkurl{d.bhattacharjee@erl-forschung.de}).}
 \thanks{An earlier version of this paper is the Hexagon preprint 2610.00315v2, \url{https://hexagonmath.org/2610.00315v2}. This version revises it substantially.}
-\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.1.1: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
+\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.2.0: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 \email{rai.bhattacharya.in@gmail.com}
 
-\date{Version 7, revised 7 November 2026. Research revision 3.1.1.}
+\date{Version 7, revised 7 November 2026. Research revision 3.2.0.}
 
 \subjclass[2020]{14C30, 14K20, 14J28, 11E12}
 \keywords{Hodge conjecture; abelian varieties; Weil classes; K3 surfaces}
 
 \begin{abstract}
-We construct algebraic correspondences at matched complex-multiplication fibres and explicit projectors for primitive codimension-two Hodge classes. We derive exact transfer formulas under blow-ups and finite covers, and a bounded-degree criterion that promotes special-fibre cycles to a relative algebraic cycle. The real-multiplication and Weil-class constructions of earlier versions are retained. The universal statements F2 and F3\( {}'\), and hence the general rational Hodge conjecture, remain unproved.
+For a full-group Mumford fourfold and its auxiliary abelian sixfold, all codimension-two Hodge classes on the fourfold times any power of the sixfold are products of divisors. In codimension three the quotient has dimension $3m^4$. Algebraicity of one nonzero quotient class is equivalent to that of the mixed Mumford link. We also give criteria for bounded-degree propagation and exact decompositions of the abelian-transfer defect.
 \end{abstract}
 
 \maketitle
@@ -1726,6 +1727,8 @@ and the mixed class is algebraic. Thus a blanket assertion that $\Hom(X_c,Z_{K,c
 \input{v7-bypass-audit}
 
 \input{v7-f2-propagation}
+\input{v7-mixed-single}
+
 \input{v7-transfer-defects}
 
 \section{Where the earlier attempt fails}\label{sec:earlier}

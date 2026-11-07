@@ -1,0 +1,30 @@
+name: Publish manuscript v3.2.0
+on:
+  push:
+    branches: [main]
+    paths: [revision-v3.2.0/release.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify reviewed assets
+        working-directory: revision-v3.2.0
+        run: |
+          sha256sum -c SHA256SUMS.txt
+          python -m zipfile -t texfinal.zip
+      - name: Publish or refresh assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          folder=revision-v3.2.0
+          title='Algebraic Correspondences and Hodge Classes on Abelian Varieties'
+          if gh release view v3.2.0 >/dev/null 2>&1; then
+            gh release upload v3.2.0 "$folder/hodgefinal.pdf" "$folder/texfinal.zip" "$folder/SHA256SUMS.txt" --clobber
+            gh release edit v3.2.0 --title "$title" --notes-file "$folder/RELEASE-NOTES.md"
+          else
+            gh release create v3.2.0 "$folder/hodgefinal.pdf" "$folder/texfinal.zip" "$folder/SHA256SUMS.txt" --target "$(git rev-parse HEAD)" --title "$title" --notes-file "$folder/RELEASE-NOTES.md"
+          fi
