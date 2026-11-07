@@ -6,7 +6,7 @@ Repository: https://github.com/creelie/fermat-hodge-
 
 Release: [v3.4.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0)
 
-Version DOI: [release page](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0) (DOI awaiting archive verification)
+Version DOI: [10.5281/zenodo.24044461](https://doi.org/10.5281/zenodo.24044461)
 
 Date: 2026-11-08
 
