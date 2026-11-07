@@ -77,7 +77,7 @@
 \newcommand{\AB}{\mathbf{AB}}
 \newcommand{\Fii}{\texorpdfstring{\textup{(F2)}}{(F2)}}
 \newcommand{\Fiii}{\texorpdfstring{\textup{(F3$'$)}}{(F3')}}
-\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.2.0}
+\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.3.0}
 \newcommand{\leancount}{four hundred and nine}
 \providecommand{\Q}{\QQ}
 \providecommand{\C}{\CC}
@@ -87,13 +87,14 @@
 \providecommand{\Ftwo}{\Fii}
 \providecommand{\Fthree}{\Fiii}
 
-\newcommand{\archiveDOI}{10.5281/zenodo.24025098}
-\newcommand{\archiveLabel}{Version DOI}
+\newcommand{\archiveDOI}{10.5281/zenodo.23439577}
+\newcommand{\archiveLabel}{Zenodo concept DOI}
+\input{round26-imprint}
 
 \begin{document}
-\hypersetup{pdftitle={Algebraic Correspondences and Hodge Classes on Abelian Varieties}}
+\hypersetup{pdftitle={Algebraic Hodge Loci and Exceptional Correspondences}}
 
-\title[Hodge classes and algebraic correspondences]{Algebraic Correspondences and Hodge Classes on Abelian Varieties}
+\title[Algebraic Hodge loci]{Algebraic Hodge Loci and Exceptional Correspondences}
 
 \author{Deep Bhattacharjee\,\orcidlink{0000-0003-0466-750X}}
 \address{Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India}
@@ -102,19 +103,19 @@
 \email{egspl@proton.me}
 \thanks{Corresponding author: Deep Bhattacharjee (\nolinkurl{d.bhattacharjee@erl-forschung.de}).}
 \thanks{An earlier version of this paper is the Hexagon preprint 2610.00315v2, \url{https://hexagonmath.org/2610.00315v2}. This version revises it substantially.}
-\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.2.0: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
+\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.3.0: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 \email{rai.bhattacharya.in@gmail.com}
 
-\date{Version 7, revised 7 November 2026. Research revision 3.2.0.}
+\date{Version 7, revised 7 November 2026. Research revision 3.3.0.}
 
 \subjclass[2020]{14C30, 14K20, 14J28, 11E12}
 \keywords{Hodge conjecture; abelian varieties; Weil classes; K3 surfaces}
 
 \begin{abstract}
-For a full-group Mumford fourfold and its auxiliary abelian sixfold, all codimension-two Hodge classes on the fourfold times any power of the sixfold are products of divisors. In codimension three the quotient has dimension $3m^4$. Algebraicity of one nonzero quotient class is equivalent to that of the mixed Mumford link. We also give criteria for bounded-degree propagation and exact decompositions of the abelian-transfer defect.
+We construct algebraic Hodge classes on explicit abelian and K3 families and derive exact criteria for the generic mixed Mumford correspondence. Codimension-two classes on one Mumford fourfold times powers of an auxiliary sixfold are divisor-generated. We prove a fixed-curve Picard obstruction and a six-dimensional lower bound for a single abelian carrier of the adjoint structure. Bounded-degree propagation and correspondence identities isolate the remaining algebraic-cycle problem. The general Hodge conjecture remains open.
 \end{abstract}
 
 \maketitle
@@ -1724,6 +1725,7 @@ and the mixed class is algebraic. Thus a blanket assertion that $\Hom(X_c,Z_{K,c
 \input{v7-seed}
 \input{v7-transfer}
 \input{v7-mixed-single}
+\input{round26-constructions}
 
 \input{v7-locus}
 \input{v7-bypass-audit}
@@ -2085,6 +2087,8 @@ The Lean certificate of \cite{BMB26}, \texttt{HodgeObstruction.lean} (Lean~4.34.
 \input{v7-derivations}
 
 \input{v7-exact-appendix}
+
+\input{round26-check-appendix}
 
 \section*{Acknowledgements}
 The paper builds on the theorems of Eyal Markman on secant sheaves and Weil classes, on the work of Bert van Geemen, Matthias Sch\"utt and Mauro Varesco on real multiplication of K3 surfaces, on Nikolay Buskin's theorem on Hodge isometries, on the semiregularity theory of Spencer Bloch, Ragnar-Olaf Buchweitz and Hubert Flenner, and on the descriptions of Hodge classes on abelian varieties by Ben Moonen, Yuri Zarhin, Yves Andr\'e and James Milne. We thank Priyabrata Mandal for the collaboration on the earlier paper \cite{BMB26} whose results are used here.
@@ -2614,6 +2618,39 @@ J. Reine Angew. Math. \textbf{341} (1983), 193--220.
 \bibitem{Milne20} J. S. Milne, \emph{Hodge classes on abelian varieties}, arXiv:2010.08857v2 (2020), \S5, Proposition~1; author's revised version 1.1, July 12, 2022, \url{https://www.jmilne.org/math/articles/HAV.pdf}.
 \bibitem{Abd94} S. Abdulali, Algebraic cycles in families of abelian varieties, \emph{Canad. J. Math.} \textbf{46} (1994), no. 6, 1121--1134, \url{https://doi.org/10.4153/CJM-1994-063-0}.
 \bibitem{LP80} E. Looijenga and C. Peters, Torelli theorems for K\"ahler K3 surfaces, \emph{Compositio Math.} \textbf{42} (1980), no. 2, 145--186, \url{https://www.numdam.org/item/CM_1980__42_2_145_0/}.
+
+\bibitem{Round26Del82}
+P. Deligne (notes by J. S. Milne),
+\emph{Hodge cycles on abelian varieties},
+in \emph{Hodge Cycles, Motives, and Shimura Varieties},
+Lecture Notes in Math. \textbf{900}, Springer, 1982,
+pp. 9--100, especially Proposition~3.6.
+\url{https://www.jmilne.org/math/Documents/Deligne82.pdf}.
+
+\bibitem{Round26Fulton98}
+W. Fulton, \emph{Intersection Theory}, second edition,
+Ergebnisse der Mathematik und ihrer Grenzgebiete (3)
+\textbf{2}, Springer, 1998, Chapter~18.
+\href{https://doi.org/10.1007/978-1-4612-1700-8}{doi:10.1007/978-1-4612-1700-8}.
+
+\bibitem{Round26Milne17}
+J. S. Milne, \emph{Algebraic Groups. The Theory of Group
+Schemes of Finite Type over a Field}, Cambridge Studies in
+Advanced Mathematics \textbf{170}, Cambridge University
+Press, 2017, Proposition~21.60 and Theorems~21.51, 24.3.
+\url{https://www.jmilne.org/math/Books/iAG2017.pdf}.
+
+\bibitem{Round26Mukai81}
+S. Mukai, \emph{Duality between $D(X)$ and $D(\widehat X)$
+with its application to Picard sheaves}, Nagoya Math. J.
+\textbf{81} (1981), 153--175, \S\S2,4.
+\href{https://doi.org/10.1017/S002776300001922X}{doi:10.1017/S002776300001922X}.
+
+\bibitem{Round26vGeemen01}
+B. van Geemen, \emph{Abelian fourfold of Mumford-type and
+Kuga--Satake varieties}, Indag. Math. \textbf{12} (2001),
+177--186.
+\href{https://doi.org/10.1016/S0019-3577(00)80024-5}{doi:10.1016/S0019-3577(00)80024-5}.
 
 \end{thebibliography}
 

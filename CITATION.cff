@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "Please cite the archived source and verification package when using this work."
 type: article
-title: "Algebraic Correspondences and Hodge Classes on Abelian Varieties"
-version: "3.2.0"
+title: "Algebraic Hodge Loci and Exceptional Correspondences"
+version: "3.3.0"
 date-released: "2026-11-07"
-doi: "10.5281/zenodo.24025098"
+doi: "10.5281/zenodo.23439577"
 url: "https://github.com/creelie/fermat-hodge-"
 repository-code: "https://github.com/creelie/fermat-hodge-"
 authors:
