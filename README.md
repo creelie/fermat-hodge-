@@ -1,6 +1,6 @@
 # Algebraic Hodge Loci and Exceptional Correspondences
 
-Current research release [v3.4.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0). Version DOI: [release page](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0) (DOI awaiting archive verification).
+Current research release [v3.4.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0). Version DOI: [10.5281/zenodo.24044461](https://doi.org/10.5281/zenodo.24044461).
 
 We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.
 
