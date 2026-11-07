@@ -77,7 +77,7 @@
 \newcommand{\AB}{\mathbf{AB}}
 \newcommand{\Fii}{\texorpdfstring{\textup{(F2)}}{(F2)}}
 \newcommand{\Fiii}{\texorpdfstring{\textup{(F3$'$)}}{(F3')}}
-\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.0}
+\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1}
 \newcommand{\leancount}{four hundred and nine}
 \providecommand{\Q}{\QQ}
 \providecommand{\C}{\CC}
@@ -103,13 +103,13 @@
 \email{egspl@proton.me}
 \thanks{Corresponding author: Deep Bhattacharjee (\nolinkurl{d.bhattacharjee@erl-forschung.de}).}
 \thanks{An earlier version of this paper is the Hexagon preprint 2610.00315v2, \url{https://hexagonmath.org/2610.00315v2}. This version revises it substantially.}
-\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.4.0: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
+\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.4.1: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 \email{rai.bhattacharya.in@gmail.com}
 
-\date{Version 7, revised 8 November 2026. Research revision 3.4.0.}
+\date{Version 7, revised 8 November 2026. Research revision 3.4.1.}
 
 \subjclass[2020]{14C30, 14K20, 14J28, 11E12}
 \keywords{Hodge conjecture; abelian varieties; Weil classes; K3 surfaces}
@@ -2096,25 +2096,14 @@ The Lean certificate of \cite{BMB26}, \texttt{HodgeObstruction.lean} (Lean~4.34.
 The paper builds on the theorems of Eyal Markman on secant sheaves and Weil classes, on the work of Bert van Geemen, Matthias Sch\"utt and Mauro Varesco on real multiplication of K3 surfaces, on Nikolay Buskin's theorem on Hodge isometries, on the semiregularity theory of Spencer Bloch, Ragnar-Olaf Buchweitz and Hubert Flenner, and on the descriptions of Hodge classes on abelian varieties by Ben Moonen, Yuri Zarhin, Yves Andr\'e and James Milne. We thank Priyabrata Mandal for the collaboration on the earlier paper \cite{BMB26} whose results are used here.
 
 \section*{Data and code availability}
-The source and verification archive of the previous version remains available in release v2.9.1 \cite{BB26code}. This complete v7 is deposited in \path{papers/hodgefinal.pdf} with its compilable source ZIP \path{papers/texfinal.zip} at \url{https://github.com/creelie/fermat-hodge-}; its release is \url{\codeRelease}. The new exact checks are described in Appendix~\ref{v7:app:derivations}. Those checks are not a Lean formalisation of the new geometric arguments. The candidate configurations of Section~\ref{ssec:e06count} and the first enumerations of their chains, among them that of Remark~\ref{rem:sevenbundles}, were produced with Anaxia, the construction engine of the BLLM project \cite{Bha26bllm}, release v3.0.5, \url{https://github.com/creelie/eBLLM/releases/tag/v3.0.5}, and the support results of Section~\ref{ssec:supports} with release v3.1.1 \cite{Bha26bllmb}, \url{https://github.com/creelie/eBLLM/releases/tag/v3.1.1}; the point counts of Remark~\ref{rem:frickepicard} follow the Frobenius test of its module \texttt{k3frob} (commit \texttt{8782bd3}), which first showed that a Fricke self-map is a complex and not a real multiplication, at level $13$; every statement of the paper is decided by the proofs in the text and by the programs of the release, not by the engine. Deep Bhattacharjee carried out the constructions on \Fii{} and \Fiii{} and the Lean, Julia, C, C\texttt{++}, Python and shell verifications with the help of AI assistance (Claude, Anthropic). The new v7 calculations and exposition were developed with additional AI assistance (OpenAI ChatGPT). These tools are not authors, and the new geometric arguments are not claimed to be Lean-formalised.
+The current source and verification archive is identified in \cite{BB26code}. This complete v7 is deposited in \path{papers/hodge.pdf} with its compilable source ZIP \path{papers/hodgetex.zip} at \url{https://github.com/creelie/fermat-hodge-}; its release is \url{\codeRelease}. The new exact checks are described in Appendix~\ref{v7:app:derivations}. Those checks are not a Lean formalisation of the new geometric arguments. The candidate configurations of Section~\ref{ssec:e06count} and the first enumerations of their chains, among them that of Remark~\ref{rem:sevenbundles}, were produced with Anaxia, the construction engine of the BLLM project \cite{Bha26bllm}, release v3.0.5, \url{https://github.com/creelie/eBLLM/releases/tag/v3.0.5}, and the support results of Section~\ref{ssec:supports} with release v3.1.1 \cite{Bha26bllmb}, \url{https://github.com/creelie/eBLLM/releases/tag/v3.1.1}; the point counts of Remark~\ref{rem:frickepicard} follow the Frobenius test of its module \texttt{k3frob} (commit \texttt{8782bd3}), which first showed that a Fricke self-map is a complex and not a real multiplication, at level $13$; every statement of the paper is decided by the proofs in the text and by the programs of the release, not by the engine. Deep Bhattacharjee carried out the constructions on \Fii{} and \Fiii{} and the Lean, Julia, C, C\texttt{++}, Python and shell verifications with the help of AI assistance (Claude, Anthropic). The new v7 calculations and exposition were developed with additional AI assistance (OpenAI ChatGPT). These tools are not authors, and the new geometric arguments are not claimed to be Lean-formalised.
 
 \section*{Ethical declarations}
 Funding: none. Competing interests: none.
 
 
 \begin{thebibliography}{99}\raggedright
-
-\bibitem{Abd99}
-S. Abdulali,
-\emph{Abelian varieties of type III and the Hodge conjecture},
-Int. J. Math. \textbf{10} (1999), no.~6, 667--675.
-\href{https://doi.org/10.1142/S0129167X99000264}{\nolinkurl{doi:10.1142/S0129167X99000264}}.
-
-\bibitem{Abd02}
-S. Abdulali,
-\emph{Hodge structures on abelian varieties of type III},
-Ann. of Math. (2) \textbf{155} (2002), no.~3, 915--928.
-\href{https://doi.org/10.2307/3062136}{\nolinkurl{doi:10.2307/3062136}}.
+\setlength{\itemsep}{0.4pt plus 0.2pt}
 
 \bibitem{AKMW02}
 D. Abramovich, K. Karu, K. Matsuki and J. W\l{}odarczyk,
@@ -2185,9 +2174,9 @@ Int. J. Professional Studies \textbf{21} (2026), 945--982.
 
 \bibitem{BB26code}
 D. Bhattacharjee and U. Bhattacharya,
-\emph{Source and verification code for the paper ``Dense Algebraic Loci of Hodge Classes''},
-GitHub release v2.9.0, 30 October 2026.
-\url{\codeRelease}.
+\emph{Source and verification code for Algebraic Hodge Loci and Exceptional Correspondences},
+\href{https://github.com/creelie/fermat-hodge-}{GitHub repository},
+current research release at \url{\codeRelease} (accessed 8 November 2026).
 
 \bibitem{Bha26bllm}
 D. Bhattacharjee,
@@ -2198,7 +2187,8 @@ GitHub release v3.0.5, 19 October 2026.
 \bibitem{Bha26bllmb}
 D. Bhattacharjee,
 \emph{BLLM: Beyond the LLM with Deep Human-Mind-AI}, with the construction engine Anaxia,
-GitHub release v3.1.1, 19 October 2026.
+GitHub software releases v3.1.0 and v3.1.1, 19 October 2026.
+\url{https://github.com/creelie/eBLLM/releases/tag/v3.1.0}.
 \url{https://github.com/creelie/eBLLM/releases/tag/v3.1.1}.
 
 \bibitem{BN26}
@@ -2351,11 +2341,13 @@ in: Dix expos\'es sur la cohomologie des sch\'emas,
 Advanced Studies in Pure Mathematics \textbf{3}, North-Holland, Amsterdam, 1968, pp.~359--386. Zbl~0198.25902.
 
 \bibitem{Kol92}
-J. Koll\'ar,
-\emph{Trento examples},
-in: \emph{Classification of Irregular Varieties} (Trento, 1990),
-Lecture Notes in Mathematics \textbf{1515}, Springer, Berlin, 1992, 134--139.
-\href{https://doi.org/10.1007/BFb0098342}{\nolinkurl{doi:10.1007/BFb0098342}}.
+J. Koll\'ar, \emph{Curves on generic hypersurfaces}, contribution to
+\emph{Trento examples}, \S1, pp.~134--135, in:
+E. Ballico, F. Catanese and C. Ciliberto (eds.),
+\emph{Classification of Irregular Varieties} (Trento, 1990),
+Lecture Notes in Mathematics \textbf{1515}, Springer, Berlin, 1992.
+Complete note, pp.~134--139:
+\href{https://doi.org/10.1007/BFb0098342}{doi:10.1007/BFb0098342}.
 
 \bibitem{KS67}
 M. Kuga and I. Satake,
@@ -2457,7 +2449,7 @@ Math. USSR Izv. \textbf{14} (1980), no.~1, 103--167.
 \bibitem{Nik80b}
 V. V. Nikulin,
 \emph{Finite automorphism groups of K\"ahler K3 surfaces},
-Trans. Moscow Math. Soc. \textbf{38} (1980), 71--135.
+Trans. Moscow Math. Soc. (1980), no.~2, 71--135.
 
 \bibitem{OMe00}
 O. T. O'Meara,
@@ -2497,12 +2489,6 @@ J. J. Ram\'on Mar\'{\i},
 \emph{On the Hodge conjecture for products of certain surfaces},
 Collect. Math. \textbf{59} (2008), no.~1, 1--26.
 \href{https://doi.org/10.1007/BF03191179}{\nolinkurl{doi:10.1007/BF03191179}}.
-
-\bibitem{Sch10}
-U. Schlickewei,
-\emph{The Hodge conjecture for self-products of certain K3 surfaces},
-J. Algebra \textbf{324} (2010), no.~3, 507--529.
-\href{https://doi.org/10.1016/j.jalgebra.2010.04.010}{\nolinkurl{doi:10.1016/j.jalgebra.2010.04.010}}.
 
 \bibitem{Ser56}
 J.-P. Serre,
@@ -2566,12 +2552,6 @@ B. van Geemen,
 Michigan Math. J. \textbf{56} (2008), no.~2, 375--399.
 \href{https://doi.org/10.1307/mmj/1224783519}{\nolinkurl{doi:10.1307/mmj/1224783519}}.
 
-\bibitem{vGV03}
-B. van Geemen and A. Verra,
-\emph{Quaternionic Pryms and Hodge classes},
-Topology \textbf{42} (2003), no.~1, 35--53.
-\href{https://doi.org/10.1016/S0040-9383(02)00004-6}{\nolinkurl{doi:10.1016/S0040-9383(02)00004-6}}.
-
 \bibitem{vGS07}
 B. van Geemen and A. Sarti,
 \emph{Nikulin involutions on K3 surfaces},
@@ -2611,8 +2591,6 @@ J. Reine Angew. Math. \textbf{341} (1983), 193--220.
 \href{https://doi.org/10.1515/crll.1983.341.193}{\nolinkurl{doi:10.1515/crll.1983.341.193}}.
 
 
-\bibitem{V6base} D. Bhattacharjee and U. Bhattacharya, \emph{Dense Algebraic Loci of Hodge Classes}, Preprints.org, version 6 (2026), \url{https://doi.org/10.20944/preprints202602.0462.v6}.
-\bibitem{BBsecant26} D. Bhattacharjee and U. Bhattacharya, \emph{Secant Objects for Weil Classes on Abelian Varieties}, Preprints.org (2026), \url{https://doi.org/10.20944/preprints202611.0672.v1}. The general conjecture is not used as an input.
 \bibitem{Reiner75} I. Reiner, \emph{Maximal Orders}, London Mathematical Society Monographs 5, Academic Press, 1975.
 \bibitem{Weyl39} H. Weyl, \emph{The Classical Groups: Their Invariants and Representations}, Princeton University Press, 1939.
 \bibitem{HT10} D. Huybrechts and R. Thomas, Deformation-obstruction theory for complexes via Atiyah and Kodaira--Spencer classes, \emph{Math. Ann.} \textbf{346} (2010), 545--569, \url{https://doi.org/10.1007/s00208-009-0397-6}.
@@ -2620,20 +2598,6 @@ J. Reine Angew. Math. \textbf{341} (1983), 193--220.
 \bibitem{Milne20} J. S. Milne, \emph{Hodge classes on abelian varieties}, arXiv:2010.08857v2 (2020), \S5, Proposition~1; author's revised version 1.1, July 12, 2022, \url{https://www.jmilne.org/math/articles/HAV.pdf}.
 \bibitem{Abd94} S. Abdulali, Algebraic cycles in families of abelian varieties, \emph{Canad. J. Math.} \textbf{46} (1994), no. 6, 1121--1134, \url{https://doi.org/10.4153/CJM-1994-063-0}.
 \bibitem{LP80} E. Looijenga and C. Peters, Torelli theorems for K\"ahler K3 surfaces, \emph{Compositio Math.} \textbf{42} (1980), no. 2, 145--186, \url{https://www.numdam.org/item/CM_1980__42_2_145_0/}.
-
-\bibitem{Round26Del82}
-P. Deligne (notes by J. S. Milne),
-\emph{Hodge cycles on abelian varieties},
-in \emph{Hodge Cycles, Motives, and Shimura Varieties},
-Lecture Notes in Math. \textbf{900}, Springer, 1982,
-pp. 9--100, especially Proposition~3.6.
-\url{https://www.jmilne.org/math/Documents/Deligne82.pdf}.
-
-\bibitem{Round26Fulton98}
-W. Fulton, \emph{Intersection Theory}, second edition,
-Ergebnisse der Mathematik und ihrer Grenzgebiete (3)
-\textbf{2}, Springer, 1998, Chapter~18.
-\href{https://doi.org/10.1007/978-1-4612-1700-8}{doi:10.1007/978-1-4612-1700-8}.
 
 \bibitem{Round26Milne17}
 J. S. Milne, \emph{Algebraic Groups. The Theory of Group
@@ -2648,10 +2612,9 @@ with its application to Picard sheaves}, Nagoya Math. J.
 \textbf{81} (1981), 153--175, \S\S2,4.
 \href{https://doi.org/10.1017/S002776300001922X}{doi:10.1017/S002776300001922X}.
 
-\bibitem{Round26vGeemen01}
-B. van Geemen, \emph{Abelian fourfold of Mumford-type and
-Kuga--Satake varieties}, Indag. Math. \textbf{12} (2001),
-177--186.
+\bibitem{Galluzzi00}
+F. Galluzzi, \emph{Abelian fourfold of Mumford-type and Kuga--Satake varieties},
+Indag. Math. (N.S.) \textbf{11} (2000), no.~4, 547--560.
 \href{https://doi.org/10.1016/S0019-3577(00)80024-5}{doi:10.1016/S0019-3577(00)80024-5}.
 
 \end{thebibliography}

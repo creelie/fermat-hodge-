@@ -2,7 +2,7 @@
 
 Work: Algebraic Hodge Loci and Exceptional Correspondences
 
-Research release: v3.4.0, 2026-11-08. Version DOI: [10.5281/zenodo.24044461](https://doi.org/10.5281/zenodo.24044461).
+Current release: https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1. The version DOI is pending archival verification.
 
 Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya.
 
@@ -13,3 +13,6 @@ Adds the explicit primitive middle-degree reduction, including rational blow-up 
 Human-understanding declaration: no new declaration is inferred for additions made after the authors' earlier review. The submitting authors must choose the platform option that accurately describes their understanding of this complete current revision. This is not a certification that a human has already checked every new line.
 
 This file is a concise provenance summary. It contains no fabricated conversations, private reasoning traces, or benchmark claims.
+
+
+For this revision, OpenAI Codex checked bibliographic records, edited citation metadata, reviewed PDF layout, and rebuilt the submission files.
