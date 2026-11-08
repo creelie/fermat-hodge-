@@ -1,16 +1,16 @@
 {
   "version": "3.5.0",
-  "version_doi": null,
+  "version_doi": "10.5281/zenodo.24055885",
   "pages": 113,
   "baseline_pages": 112,
   "files": {
-    "aiprovenance.md": "3dde109f2535a98003a84cf39453611104808adafdaeabae5c1e4638872b5624",
-    "baseline-retention.json": "515faab5f5308b02413acecbd3851beafbac462a2ab9a50488015765b8fd5ac3",
+    "aiprovenance.md": "90f839d07e1ebf7536211974d3b2a6a93df7d92c201b2f69d895d4cd7bdc88cf",
+    "baseline-retention.json": "6b404756f590673636e8ab08b83367554f8bbce2161914e3d2fee3a41179dd14",
     "fermat-reference-audit.md": "17ab0e388a300dee2729b12e440d9f0e75a986edea054ff58db31bebb0212908",
     "hodge.pdf": "8166aa1822b21caf3fcbd6d2adcd3168971c07ebef915ecd01279a11b7c7efd7",
     "hodgetex.zip": "7cdbb02a06e281a79fec4c49d779d9e9e7c238111ea906362ab484736623c850",
-    "next-version-submission-notes.md": "4a8f30366d5421aec2be0a10786034513099b84d39a1f1cc2cd7f29ef02e09e5",
-    "release-details.md": "81c2a76255e6d0fc680af6a5b5e3ecf4ed716837bf903038993949525d9b6518",
+    "next-version-submission-notes.md": "25ef563f331e47ea394ab4ba4f252bf76b902533dc0fe88514433ac7fef66254",
+    "release-details.md": "25b9f7dd7f2a99913488ba7d318ed412e91997be173f559ec54a5a0b35af62ec",
     "source-zip-validation.json": "5fc5bb6f151f9a2c5555a969371d506aaf36ba73d19d825ad1cb71a3ddedf859",
     "validation.json": "6575d3970583ab02a134949377b3096b589632664c61252c66ced3fec92c3e39"
   }

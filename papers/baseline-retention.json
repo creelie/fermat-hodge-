@@ -10,5 +10,14 @@
     "Deep Bhattacharjee",
     "Ushashi Bhattacharya"
   ],
-  "unrelated_fermat_paper": "e84hc, 86 pages, separately versioned"
+  "unrelated_fermat_paper": "e84hc, 86 pages, separately versioned",
+  "all_original_source_zip_files_retained": true,
+  "baseline_source_zip_files": 33,
+  "new_source_zip_files": 34,
+  "original_files_changed": [
+    "README.txt",
+    "main.tex",
+    "round26-imprint.tex"
+  ],
+  "original_files_removed": []
 }

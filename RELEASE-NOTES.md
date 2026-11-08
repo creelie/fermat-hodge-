@@ -4,6 +4,6 @@ Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d57
 
 Page count: 113 (latest baseline: 112).
 
-Version DOI: awaiting archive confirmation.
+Version DOI: https://doi.org/10.5281/zenodo.24055885
 
 Permanent work DOI: https://doi.org/10.5281/zenodo.23439577

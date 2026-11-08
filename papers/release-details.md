@@ -2,7 +2,7 @@
 
 https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0
 
-Version DOI: awaiting archive confirmation.
+Version DOI: https://doi.org/10.5281/zenodo.24055885
 
 Permanent work DOI printed in the paper: https://doi.org/10.5281/zenodo.23439577
 
