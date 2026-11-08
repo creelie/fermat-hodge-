@@ -4,7 +4,7 @@ Title: Toward the Algebraicity of Every Rational Hodge Class
 
 https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1
 
-Version DOI: awaiting confirmation of this new archive.
+Version DOI: https://doi.org/10.5281/zenodo.24056100
 
 Pages: 113; baseline v3.5.0: 113. Permanent work DOI printed in the paper: https://doi.org/10.5281/zenodo.23439577
 

@@ -1,18 +1,18 @@
 {
   "version": "3.5.1",
   "title": "Toward the Algebraicity of Every Rational Hodge Class",
-  "version_doi": null,
+  "version_doi": "10.5281/zenodo.24056100",
   "pages": 113,
   "baseline_pages": 113,
   "files": {
-    "aiprovenance.md": "59fb86340899ed9817f972324af5b7147a22f28e4cdfe87a3b021528b4dac625",
+    "aiprovenance.md": "e1e884405afe7515de6c96d474ffa52037815fdaaa61120c2b94c8728f403422",
     "baseline-retention.json": "bbf3af8772c99636135f0c90a08c070e732a5dba7acbbd925d3896ac5f4cbf73",
     "bibliography-audit.md": "a60d592a516eddde8f12baf8a13ec9b1bcb3b7b5c3c010eaedccd9fb131073e2",
     "fermat-reference-audit.md": "48d65dfef9cba9667f4d7eafc0260d3cefd1bf6a5a579924b86ca3b16daba1cb",
     "hodge.pdf": "dadf0c493e2ef7e14f833ce4bfed0146586d0715a291e580d19aca8b99749bdf",
     "hodgetex.zip": "503f999a496793f6884b622d0edf6f90aec03cbb4123f7ba085002b017c51072",
-    "next-version-submission-notes.md": "cb4aa68f130ea10200601ecec28a20bf94747b24433ee3c24086d41f89d6e4b7",
-    "release-details.md": "a1e8e1d614b9ee8c46eb3613cea93d5c8124cec93f8dbbf84f17d1914b3a3b3b",
+    "next-version-submission-notes.md": "3e2fdc8508c8f7e5a0cda2ff67bab122faa5dcf4ba44c94476268046dd794376",
+    "release-details.md": "10402a1e32db9659b7576c9378d678c93f07d0ba4fab81eba8ba54fc7cbc4b47",
     "source-zip-validation.json": "4d013b1b09f496bbbe6a870c24eda5579cec3510b75d86d0f58651466a9fbdf4",
     "validation.json": "a9f114edce5349fe6629a0cc12917463579a7d600fe49c72cbb7d331c3a1d6a5"
   }

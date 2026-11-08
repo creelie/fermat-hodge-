@@ -2,7 +2,7 @@
 
 Work: Toward the Algebraicity of Every Rational Hodge Class
 
-Research release: v3.5.1, 2026-11-08. Version DOI: [10.5281/zenodo.23439577](https://doi.org/10.5281/zenodo.23439577).
+Research release: v3.5.1, 2026-11-08. Version DOI: [10.5281/zenodo.24056100](https://doi.org/10.5281/zenodo.24056100).
 
 Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya.
 
@@ -20,9 +20,9 @@ For this revision, OpenAI Codex checked bibliographic records, edited citation m
 
 ## Full v7 related-work revision 3.5.0
 
-This revision uses the complete latest 112-page v3.4.1 source, retains all earlier main-text paragraphs, and adds the Fermat comparison appendix and verified bibliographic entries. OpenAI Codex assisted with checking public sources, the tensor and cycle-class derivations, TeX editing, compilation and packaging. The authors remain Deep Bhattacharjee and Ushashi Bhattacharya. AI is not an author or contributor. No new complete Lean audit or human-understanding declaration is inferred. Version DOI: https://doi.org/10.5281/zenodo.23439577
+This revision uses the complete latest 112-page v3.4.1 source, retains all earlier main-text paragraphs, and adds the Fermat comparison appendix and verified bibliographic entries. OpenAI Codex assisted with checking public sources, the tensor and cycle-class derivations, TeX editing, compilation and packaging. The authors remain Deep Bhattacharjee and Ushashi Bhattacharya. AI is not an author or contributor. No new complete Lean audit or human-understanding declaration is inferred. Version DOI: https://doi.org/10.5281/zenodo.24056100
 
 
 ## Title revision 3.5.1
 
-The author selected the title Toward the Algebraicity of Every Rational Hodge Class. OpenAI Codex assisted with the title and metadata replacement, source-retention checks, compilation and packaging. No mathematical claim or proof was added. Both human authors and the abstract are unchanged. Version DOI: awaiting confirmation of this new archive.
+The author selected the title Toward the Algebraicity of Every Rational Hodge Class. OpenAI Codex assisted with the title and metadata replacement, source-retention checks, compilation and packaging. No mathematical claim or proof was added. Both human authors and the abstract are unchanged. Version DOI: https://doi.org/10.5281/zenodo.24056100

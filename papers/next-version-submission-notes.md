@@ -8,7 +8,7 @@ Submission route: Preprints.org, published v6 to complete v7. Existing v6: https
 
 Research release: https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1
 
-Version DOI: awaiting confirmation of this new archive.
+Version DOI: https://doi.org/10.5281/zenodo.24056100
 
 Permanent work DOI in the paper: https://doi.org/10.5281/zenodo.23439577
 

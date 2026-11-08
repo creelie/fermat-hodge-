@@ -2,7 +2,7 @@
 
 **Deep Bhattacharjee; Ushashi Bhattacharya**
 
-Current full v7 research revision: [v3.5.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1). Version DOI: awaiting confirmation of this new archive.
+Current full v7 research revision: [v3.5.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1). Version DOI: https://doi.org/10.5281/zenodo.24056100
 
 Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23439577
 
