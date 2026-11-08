@@ -1,3 +1,7 @@
+# Retained reference audit
+
+The following audit is carried forward from the preceding revision. The bibliography is unchanged in this title revision, apart from the title of the current source-and-code record.
+
 # Verified additions and manuscript distinction
 
 The editing baseline is the current 112-page PDF and exact matching source ZIP from creelie/fermat-hodge-, main commit e44529e5597b1145d7008750968d577e1e1df4c9, research release v3.4.1. The user-cited v3.0.0 DOI 10.5281/zenodo.24020080 is an older archive dated 6 November 2026.

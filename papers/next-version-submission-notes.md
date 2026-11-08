@@ -1,24 +1,32 @@
 # Next-version submission notes
 
-Title: Algebraic Hodge Loci and Exceptional Correspondences
+Title: Toward the Algebraicity of Every Rational Hodge Class
 
-Authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya
+Authors: Deep Bhattacharjee; Ushashi Bhattacharya.
 
-Submission route: Preprints.org, v6 to v7. The platform version is independent of GitHub release numbering.
+Submission route: Preprints.org, published v6 to complete v7. Existing v6: https://doi.org/10.20944/preprints202602.0462.v6. No new platform identifier has been invented.
 
-Existing record: [v6](https://doi.org/10.20944/preprints202602.0462.v6). The v7 identifier is not claimed to exist before submission is accepted by the platform.
+Research release: https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1
 
-Research release: [v3.5.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0). Version DOI: [10.5281/zenodo.24055885](https://doi.org/10.5281/zenodo.24055885).
+Version DOI: awaiting confirmation of this new archive.
 
-## Abstract to paste
+Permanent work DOI in the paper: https://doi.org/10.5281/zenodo.23439577
+
+## Abstract
 
 We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.
 
-## Changes in this revision
+## Keywords
 
-Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.
+Hodge conjecture; abelian varieties; Weil classes; K3 surfaces.
 
-The complete current manuscript has 113 pages. The earlier v3.0.0 archive is not used as the editing baseline.
+## Resubmission paragraph
+
+This version is retitled “Toward the Algebraicity of Every Rational Hodge Class” and extends the published v6 through the constructions and derivations developed in this complete v7. The revision develops explicit classes at matched CM fibres, clarifies the remaining propagation problem for the generic mixed Mumford class, and gives further correspondence formulas and reductions to primitive middle-degree targets, including rational blow-up targets. It expands the appendices and supporting derivations, corrects bibliographic details, and adds a comparison with Hongmin Li’s Fermat-fourfold preprints, acknowledging the earlier odd-degree theorem statement and crediting Jumagulov for the seed constructions. The scope of the proved results and conditional implications is stated explicitly. The generic mixed Mumford cycle, F2 and F3′ remain unproved, and no proof of the general Hodge conjecture is claimed. The author list, affiliations, funding and competing-interest declarations are unchanged.
+
+## Latest title revision
+
+Retitles the complete 113-page v7 manuscript from Algebraic Hodge Loci and Exceptional Correspondences to Toward the Algebraicity of Every Rational Hodge Class. The mathematical text, short abstract, author list, affiliations, figures, appendices and bibliography are retained; only the work title, running title, PDF title metadata, current source-citation title and release identifiers change. F2, F3-prime, the generic mixed Mumford class and the general Hodge conjecture remain unproved.
 
 ## Author details, retained
 
@@ -26,6 +34,4 @@ Deep Bhattacharjee, corresponding author. Formerly, Electro-Gravitational Space 
 
 Ushashi Bhattacharya. Formerly, National Taiwan University, Taipei 106319, Taiwan. rai.bhattacharya.in@gmail.com. ORCID 0009-0002-2254-3914.
 
-## Scope and declarations
-
-The generic mixed Mumford cycle and universal F2 and F3-prime remain unproved. Funding and competing interests remain none, as in the baseline manuscript. No fresh full Lean formalization is claimed. Compile main.tex with pdfLaTeX three times; no existing mathematical section is replaced by a shorter focused paper.
+Funding: none. Competing interests: none. No new full Lean verification or human-understanding declaration is inferred.

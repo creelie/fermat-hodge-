@@ -1,6 +1,6 @@
 {
   "pages": 113,
-  "baseline_pages": 112,
+  "baseline_pages": 113,
   "issues": [],
   "labels": {
     "app:fermat-related": {
@@ -9,5 +9,5 @@
     }
   },
   "all_original_text_retained": true,
-  "elapsed_seconds": 12.02
+  "elapsed_seconds": 12.88
 }

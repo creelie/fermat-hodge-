@@ -1,22 +1,21 @@
-# Algebraic Hodge Loci and Exceptional Correspondences
+# Toward the Algebraicity of Every Rational Hodge Class
 
 **Deep Bhattacharjee; Ushashi Bhattacharya**
 
-Current full v7 research revision: [v3.5.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0). Version DOI: https://doi.org/10.5281/zenodo.24055885
+Current full v7 research revision: [v3.5.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1). Version DOI: awaiting confirmation of this new archive.
 
 Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23439577
 
-## Current manuscript
+We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.
 
-- [PDF](papers/hodge.pdf): 113 pages; baseline v3.4.1 had 112 pages.
+## Current submission files
+
+- [PDF](papers/hodge.pdf): 113 pages.
 - [Complete TeX ZIP](papers/hodgetex.zip).
 - [Next-version submission notes](papers/next-version-submission-notes.md).
 - [Retention check](papers/baseline-retention.json).
-- [Fermat related-work audit](papers/fermat-reference-audit.md).
 - [AI provenance](papers/aiprovenance.md).
 
-Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.
+Retitles the complete 113-page v7 manuscript from Algebraic Hodge Loci and Exceptional Correspondences to Toward the Algebraicity of Every Rational Hodge Class. The mathematical text, short abstract, author list, affiliations, figures, appendices and bibliography are retained; only the work title, running title, PDF title metadata, current source-citation title and release identifiers change. F2, F3-prime, the generic mixed Mumford class and the general Hodge conjecture remain unproved.
 
-The 86-page paper On the Hodge conjecture for Fermat varieties in creelie/e84hc is a separate publication. It does not replace or shorten this manuscript. The active papers folder contains one current full-manuscript PDF and one current source ZIP. Historical proof records and independent companion material retain their distinct purposes.
-
-Compile paper/main.tex with pdfLaTeX at least three times. The existing finite and formal verification records retain their stated scope; no new full Lean verification is claimed for this related-work revision.
+The active papers folder contains one current PDF and one current source ZIP. Earlier releases and independent companion material retain their historical purposes. Compile paper/main.tex with pdfLaTeX at least three times.

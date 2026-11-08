@@ -1,9 +1,7 @@
-# Full v7 research revision 3.5.0
+# Title revision v3.5.1
 
-Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.
+Retitles the complete 113-page v7 manuscript from Algebraic Hodge Loci and Exceptional Correspondences to Toward the Algebraicity of Every Rational Hodge Class. The mathematical text, short abstract, author list, affiliations, figures, appendices and bibliography are retained; only the work title, running title, PDF title metadata, current source-citation title and release identifiers change. F2, F3-prime, the generic mixed Mumford class and the general Hodge conjecture remain unproved.
 
-Page count: 113 (latest baseline: 112).
-
-Version DOI: https://doi.org/10.5281/zenodo.24055885
+Version DOI: awaiting confirmation of this new archive.
 
 Permanent work DOI: https://doi.org/10.5281/zenodo.23439577

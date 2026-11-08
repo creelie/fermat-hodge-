@@ -1,21 +1,5 @@
 {
-  "repository": "https://github.com/creelie/fermat-hodge-",
-  "release": "https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0",
-  "version": "3.5.0",
-  "version_doi": "10.5281/zenodo.24055885",
-  "permanent_work_doi": "10.5281/zenodo.23439577",
-  "record_url": "https://zenodo.org/records/24055885",
-  "record_id": 24055885,
-  "archive_filename": "creelie/fermat-hodge--v3.5.0.zip",
-  "archive_checksum": "md5:90f5bf426851d0e643792b2c88787038",
-  "pages": 113,
-  "archive_contains_exact_pdf_and_texzip": true,
-  "sha256": {
-    "papers/hodge.pdf": "8166aa1822b21caf3fcbd6d2adcd3168971c07ebef915ecd01279a11b7c7efd7",
-    "papers/hodgetex.zip": "7cdbb02a06e281a79fec4c49d779d9e9e7c238111ea906362ab484736623c850",
-    "paper/main.tex": "533ecdb9558a4395254246dd8be2a5295fc55dadf4da9e31fc07286d7ccb097a",
-    "paper/fermat-related-work.tex": "fd622d7c267ab6f44e1055c3574271a97e8f546ab4cc6e82d61a757daf6c66e4",
-    "paper/round26-imprint.tex": "2a966410b1bc2e3c9e9d9f0fd129ebd7f2f63bb99edf31a0c2b218f373e92c19"
-  },
-  "scope": "Complete v7 related-work revision. Generic Mumford algebraicity and universal F2/F3-prime remain unproved."
+  "version": "3.5.1",
+  "status": "awaiting archive confirmation",
+  "version_doi": null
 }

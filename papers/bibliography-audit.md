@@ -1,3 +1,7 @@
+# Retained reference audit
+
+The following audit is carried forward from the preceding revision. The bibliography is unchanged in this title revision, apart from the title of the current source-and-code record.
+
 # Bibliography audit — v3.4.1
 
 Algebraic Hodge Loci and Exceptional Correspondences
