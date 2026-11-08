@@ -1,0 +1,14 @@
+{
+  "baseline_repository": "creelie/fermat-hodge-",
+  "baseline_release": "v3.4.1",
+  "baseline_pages": 112,
+  "baseline_main_paragraphs_preserved_exactly": true,
+  "all_original_main_labels_retained": true,
+  "original_main_label_count": 164,
+  "title_unchanged": true,
+  "authors_unchanged": [
+    "Deep Bhattacharjee",
+    "Ushashi Bhattacharya"
+  ],
+  "unrelated_fermat_paper": "e84hc, 86 pages, separately versioned"
+}

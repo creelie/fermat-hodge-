@@ -1,26 +1,22 @@
 # Algebraic Hodge Loci and Exceptional Correspondences
 
-Current research release [v3.4.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1). Version DOI: [10.5281/zenodo.24045620](https://doi.org/10.5281/zenodo.24045620).
+**Deep Bhattacharjee; Ushashi Bhattacharya**
 
-We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.
+Current full v7 research revision: [v3.5.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0). Version DOI: awaiting archive confirmation.
+
+Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23439577
 
 ## Current manuscript
 
-- [PDF](papers/hodge.pdf)
-- [Compilable TeX ZIP](papers/hodgetex.zip)
-- [Next-version submission notes](papers/next-version-submission-notes.md)
-- [AI provenance](papers/aiprovenance.md)
-- [Release details](papers/release-details.md)
+- [PDF](papers/hodge.pdf): 113 pages; baseline v3.4.1 had 112 pages.
+- [Complete TeX ZIP](papers/hodgetex.zip).
+- [Next-version submission notes](papers/next-version-submission-notes.md).
+- [Retention check](papers/baseline-retention.json).
+- [Fermat related-work audit](papers/fermat-reference-audit.md).
+- [AI provenance](papers/aiprovenance.md).
 
-## Scope
+Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.
 
-The generic mixed Mumford cycle and universal F2 and F3-prime remain unproved. Moving a class by an algebraic graph or a blow-up does not construct an abelian source for it.
+The 86-page paper On the Hodge conjecture for Fermat varieties in creelie/e84hc is a separate publication. It does not replace or shorten this manuscript. The active papers folder contains one current full-manuscript PDF and one current source ZIP. Historical proof records and independent companion material retain their distinct purposes.
 
-## Source and checking
-
-Current source is in `paper/`. Compile `main.tex` with pdfLaTeX at least three times. Ancillary scripts in `paper/anc/` document their own finite scope. Historical verification records and independent research material are retained outside `papers/`. Earlier manuscript versions are available through release tags, rather than duplicate active PDFs and ZIPs.
-
-Adds the explicit primitive middle-degree reduction, including rational blow-up targets.
-
-
-[Reference audit](papers/bibliography-audit.md) · Current PDF: 112 pages.
+Compile paper/main.tex with pdfLaTeX at least three times. The existing finite and formal verification records retain their stated scope; no new full Lean verification is claimed for this related-work revision.

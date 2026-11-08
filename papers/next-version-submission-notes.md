@@ -8,7 +8,7 @@ Submission route: Preprints.org, v6 to v7. The platform version is independent o
 
 Existing record: [v6](https://doi.org/10.20944/preprints202602.0462.v6). The v7 identifier is not claimed to exist before submission is accepted by the platform.
 
-Research release: [v3.4.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1). Version DOI: [10.5281/zenodo.24045620](https://doi.org/10.5281/zenodo.24045620).
+Research release: [v3.5.0](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0). Version DOI: pending archive confirmation.
 
 ## Abstract to paste
 
@@ -16,26 +16,16 @@ We construct algebraic Hodge classes in explicit abelian and K3 families and red
 
 ## Changes in this revision
 
-Adds the explicit primitive middle-degree reduction, including rational blow-up targets. Earlier manuscript material is retained. The title is unchanged. The abstract is shortened. Current submission files replace superseded compiled copies on the main branch.
+Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.
 
-## Scope that must remain visible
+The complete current manuscript has 113 pages. The earlier v3.0.0 archive is not used as the editing baseline.
 
-The generic mixed Mumford cycle and universal F2 and F3-prime remain unproved. Moving a class by an algebraic graph or a blow-up does not construct an abelian source for it.
+## Author details, retained
 
-## Files
+Deep Bhattacharjee, corresponding author. Formerly, Electro-Gravitational Space Propulsion Laboratory (EGSPL), Bhubaneswar, Odisha 751030, India; Formerly, University of Calcutta (Heramba Chandra College), 23/49 Gariahat Road, Golpark, Kolkata 700029, West Bengal, India. d.bhattacharjee@erl-forschung.de; itsdeep@live.com; egspl@proton.me. ORCID 0000-0003-0466-750X.
 
-- `hodge.pdf` is the current compiled manuscript.
-- `hodgetex.zip` has `main.tex` at its root, with required figures and ancillary checks.
-- `aiprovenance.md` records the origin and checking scope of this revision.
-- `release-details.md` identifies the current release and DOI.
+Ushashi Bhattacharya. Formerly, National Taiwan University, Taipei 106319, Taiwan. rai.bhattacharya.in@gmail.com. ORCID 0009-0002-2254-3914.
 
-Compile with pdfLaTeX at least three times. Upload the TeX ZIP when the platform compiles sources. Do not upload superseded PDFs or use a new-version suffix as an already assigned identifier.
+## Scope and declarations
 
-## Checks and declarations
-
-The current source compiles locally. Finite ancillary checks do not prove the remaining existence or uniform estimates. This revision has not supplied a new Lean formalization of its analytic or geometric arguments. The submitting authors must confirm the human-understanding, authorship, licence and platform declarations for the current additions.
-
-
-## Bibliography and layout in v3.4.1
-
-Corrects the Galluzzi attribution and publication details, clarifies the Trento Examples attribution and source-release citations, and removes an unresolved preprint reference, unused entries, and duplicates. The compiled manuscript has 112 pages. See `bibliography-audit.md` for the source of every retained reference.
+The generic mixed Mumford cycle and universal F2 and F3-prime remain unproved. Funding and competing interests remain none, as in the baseline manuscript. No fresh full Lean formalization is claimed. Compile main.tex with pdfLaTeX three times; no existing mathematical section is replaced by a shorter focused paper.

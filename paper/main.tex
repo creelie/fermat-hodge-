@@ -77,7 +77,7 @@
 \newcommand{\AB}{\mathbf{AB}}
 \newcommand{\Fii}{\texorpdfstring{\textup{(F2)}}{(F2)}}
 \newcommand{\Fiii}{\texorpdfstring{\textup{(F3$'$)}}{(F3')}}
-\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1}
+\newcommand{\codeRelease}{https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0}
 \newcommand{\leancount}{four hundred and nine}
 \providecommand{\Q}{\QQ}
 \providecommand{\C}{\CC}
@@ -103,13 +103,13 @@
 \email{egspl@proton.me}
 \thanks{Corresponding author: Deep Bhattacharjee (\nolinkurl{d.bhattacharjee@erl-forschung.de}).}
 \thanks{An earlier version of this paper is the Hexagon preprint 2610.00315v2, \url{https://hexagonmath.org/2610.00315v2}. This version revises it substantially.}
-\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.4.1: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
+\thanks{Repository: \url{https://github.com/creelie/fermat-hodge-}. Release reference v3.5.0: \url{\codeRelease}. \archiveLabel: \href{https://doi.org/\archiveDOI}{\archiveDOI}.}
 
 \author{Ushashi Bhattacharya\,\orcidlink{0009-0002-2254-3914}}
 \address{Formerly, National Taiwan University, Taipei 106319, Taiwan}
 \email{rai.bhattacharya.in@gmail.com}
 
-\date{Version 7, revised 8 November 2026. Research revision 3.4.1.}
+\date{Version 7, revised 8 November 2026. Research revision 3.5.0.}
 
 \subjclass[2020]{14C30, 14K20, 14J28, 11E12}
 \keywords{Hodge conjecture; abelian varieties; Weil classes; K3 surfaces}
@@ -2092,8 +2092,11 @@ The Lean certificate of \cite{BMB26}, \texttt{HodgeObstruction.lean} (Lean~4.34.
 
 \input{round26-check-appendix}
 
+\input{fermat-related-work}
+
 \section*{Acknowledgements}
-The paper builds on the theorems of Eyal Markman on secant sheaves and Weil classes, on the work of Bert van Geemen, Matthias Sch\"utt and Mauro Varesco on real multiplication of K3 surfaces, on Nikolay Buskin's theorem on Hodge isometries, on the semiregularity theory of Spencer Bloch, Ragnar-Olaf Buchweitz and Hubert Flenner, and on the descriptions of Hodge classes on abelian varieties by Ben Moonen, Yuri Zarhin, Yves Andr\'e and James Milne. We thank Priyabrata Mandal for the collaboration on the earlier paper \cite{BMB26} whose results are used here.
+The paper builds on the theorems of Eyal Markman on secant sheaves and Weil classes, on the work of Bert van Geemen, Matthias Sch\"utt and Mauro Varesco on real multiplication of K3 surfaces, on Nikolay Buskin's theorem on Hodge isometries, on the semiregularity theory of Spencer Bloch, Ragnar-Olaf Buchweitz and Hubert Flenner, and on the descriptions of Hodge classes on abelian varieties by Ben Moonen, Yuri Zarhin, Yves Andr\'e and James Milne. We thank Priyabrata Mandal for the collaboration on the earlier paper \cite{BMB26} whose results are used here. We thank Hongmin Li for drawing attention to the related Fermat-fourfold
+preprints compared in Appendix~\ref{app:fermat-related}.
 
 \section*{Data and code availability}
 The current source and verification archive is identified in \cite{BB26code}. This complete v7 is deposited in \path{papers/hodge.pdf} with its compilable source ZIP \path{papers/hodgetex.zip} at \url{https://github.com/creelie/fermat-hodge-}; its release is \url{\codeRelease}. The new exact checks are described in Appendix~\ref{v7:app:derivations}. Those checks are not a Lean formalisation of the new geometric arguments. The candidate configurations of Section~\ref{ssec:e06count} and the first enumerations of their chains, among them that of Remark~\ref{rem:sevenbundles}, were produced with Anaxia, the construction engine of the BLLM project \cite{Bha26bllm}, release v3.0.5, \url{https://github.com/creelie/eBLLM/releases/tag/v3.0.5}, and the support results of Section~\ref{ssec:supports} with release v3.1.1 \cite{Bha26bllmb}, \url{https://github.com/creelie/eBLLM/releases/tag/v3.1.1}; the point counts of Remark~\ref{rem:frickepicard} follow the Frobenius test of its module \texttt{k3frob} (commit \texttt{8782bd3}), which first showed that a Fricke self-map is a complex and not a real multiplication, at level $13$; every statement of the paper is decided by the proofs in the text and by the programs of the release, not by the engine. Deep Bhattacharjee carried out the constructions on \Fii{} and \Fiii{} and the Lean, Julia, C, C\texttt{++}, Python and shell verifications with the help of AI assistance (Claude, Anthropic). The new v7 calculations and exposition were developed with additional AI assistance (OpenAI ChatGPT). These tools are not authors, and the new geometric arguments are not claimed to be Lean-formalised.
@@ -2616,6 +2619,28 @@ with its application to Picard sheaves}, Nagoya Math. J.
 F. Galluzzi, \emph{Abelian fourfold of Mumford-type and Kuga--Satake varieties},
 Indag. Math. (N.S.) \textbf{11} (2000), no.~4, 547--560.
 \href{https://doi.org/10.1016/S0019-3577(00)80024-5}{doi:10.1016/S0019-3577(00)80024-5}.
+
+
+\bibitem{Li26odd}
+H. Li, \emph{The Hodge Conjecture for Odd-Degree Fermat Fourfolds},
+preprint, deposited 8 September 2026.
+\url{https://doi.org/10.13140/RG.2.2.26853.77288}.
+
+\bibitem{Li26residual}
+H. Li, \emph{Residual Characters of Odd-Degree Fermat Fourfolds},
+preprint, rStation version 4, posted 5 November 2026; archived on
+Zenodo 8 November 2026.
+\url{https://doi.org/10.5281/zenodo.24054303}.
+
+\bibitem{Jum26odd}
+R. Jumagulov, \emph{The Hodge conjecture for Fermat fourfolds of odd
+degree at most 199}, preprint, 2026.
+\url{https://doi.org/10.48550/arXiv.2608.18134}.
+
+\bibitem{Bha26fermat}
+D. Bhattacharjee, \emph{On the Hodge conjecture for Fermat varieties},
+research revision 1.9.0, 2026, Theorem B and Appendix C.
+\url{https://doi.org/10.5281/zenodo.24055725}.
 
 \end{thebibliography}
 

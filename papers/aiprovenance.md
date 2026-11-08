@@ -2,7 +2,7 @@
 
 Work: Algebraic Hodge Loci and Exceptional Correspondences
 
-Research release: v3.4.1, 2026-11-08. Version DOI: [10.5281/zenodo.24045620](https://doi.org/10.5281/zenodo.24045620).
+Research release: v3.5.0, 2026-11-08. Version DOI: [10.5281/zenodo.23439577](https://doi.org/10.5281/zenodo.23439577).
 
 Human authors in manuscript order: Deep Bhattacharjee; Ushashi Bhattacharya.
 
@@ -16,3 +16,8 @@ This file is a concise provenance summary. It contains no fabricated conversatio
 
 
 For this revision, OpenAI Codex checked bibliographic records, edited citation metadata, reviewed PDF layout, and rebuilt the submission files.
+
+
+## Full v7 related-work revision 3.5.0
+
+This revision uses the complete latest 112-page v3.4.1 source, retains all earlier main-text paragraphs, and adds the Fermat comparison appendix and verified bibliographic entries. OpenAI Codex assisted with checking public sources, the tensor and cycle-class derivations, TeX editing, compilation and packaging. The authors remain Deep Bhattacharjee and Ushashi Bhattacharya. AI is not an author or contributor. No new complete Lean audit or human-understanding declaration is inferred. Version DOI: awaiting archive confirmation.

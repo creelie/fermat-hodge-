@@ -14,7 +14,7 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.",
+  "description": "We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open. Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.",
   "keywords": [
     "Hodge conjecture",
     "abelian varieties",
@@ -23,14 +23,29 @@
     "semiregularity",
     "Lean 4"
   ],
-  "version": "3.4.1",
+  "version": "3.5.0",
   "access_right": "open",
   "publication_date": "2026-11-08",
   "related_identifiers": [
     {
-      "identifier": "https://hexagonmath.org/2610.00315v2",
+      "identifier": "https://github.com/creelie/fermat-hodge-",
       "relation": "isSupplementTo",
       "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.24045620",
+      "relation": "isNewVersionOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.13140/RG.2.2.26853.77288",
+      "relation": "references",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.24054303",
+      "relation": "references",
+      "scheme": "doi"
     }
   ],
   "publication_type": "preprint"

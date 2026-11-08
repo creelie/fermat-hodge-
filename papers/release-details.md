@@ -1,11 +1,11 @@
-# Algebraic Hodge Loci and Exceptional Correspondences
+# Current full manuscript
 
-[GitHub release v3.4.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.4.1)
+https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.0
 
-Corrects the Galluzzi attribution and publication details, clarifies the Trento Examples attribution and source-release citations, and removes an unresolved preprint reference, unused entries, and duplicates.
+Version DOI: awaiting archive confirmation.
 
-The PDF has **112 pages**, compared with 112 in v3.4.0. The revised bibliography contains 89 cited entries and 69 checked DOI links. See `papers/bibliography-audit.md` for individual sources. The `papers/` folder contains the current PDF, TeX ZIP and submission notes.
+Permanent work DOI printed in the paper: https://doi.org/10.5281/zenodo.23439577
 
-[Version DOI](https://doi.org/10.5281/zenodo.24045620)
+Pages: 113. Latest baseline: v3.4.1, 112 pages. Title and two authors unchanged.
 
-The Zenodo archive contains the tagged manuscript. The current downloads add the verified DOI to that same revision.
+Based on the full 112-page v3.4.1 draft at commit e44529e5597b1145d7008750968d577e1e1df4c9. Retains every original main-text paragraph, all earlier sections, appendices and figures, the short abstract, title and both authors. Adds Appendix F on the separate Fermat-fourfold results, credits Hongmin Li's September theorem-level precedent and later positive classification, and preserves credit to Jumagulov for the seed constructions. The appendix explains the tensor-filtration failure and the correspondence actually required to transfer algebraicity. The generic mixed Mumford class, F2, F3-prime and the general Hodge conjecture remain unproved.

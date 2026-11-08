@@ -1,13 +1,17 @@
 {
-  "release": "v3.4.1",
-  "version_doi": "10.5281/zenodo.24045620",
-  "pages": 112,
+  "version": "3.5.0",
+  "version_doi": null,
+  "pages": 113,
+  "baseline_pages": 112,
   "files": {
-    "aiprovenance.md": "8de2bb910d8d9bdd7540be30e49c4ff511a7140448d3f37cd5943641340333dc",
-    "bibliography-audit.md": "e9e2de40eb680f05c500814ec8ac4b28d242edadc2ecfc90bb13bcf2ae479b97",
-    "hodge.pdf": "53820a8ddac469221927486dd2399c5c9c4bb9a7e8e38a560d934ad38ceea1e5",
-    "hodgetex.zip": "0b55fc1b0ab58aabe8b27f33fda9bd1d131b8c45e2817fb50a4cce92c856ccbb",
-    "next-version-submission-notes.md": "5d3885678d4fe09b9fe3a6f07757e4304781b693931e2ce1222eb1260dbbd18e",
-    "release-details.md": "94b35e3ad11d8dac44d0303e9f0d577b5d73ad383860c53508398b79b7696854"
+    "aiprovenance.md": "3dde109f2535a98003a84cf39453611104808adafdaeabae5c1e4638872b5624",
+    "baseline-retention.json": "515faab5f5308b02413acecbd3851beafbac462a2ab9a50488015765b8fd5ac3",
+    "fermat-reference-audit.md": "17ab0e388a300dee2729b12e440d9f0e75a986edea054ff58db31bebb0212908",
+    "hodge.pdf": "8166aa1822b21caf3fcbd6d2adcd3168971c07ebef915ecd01279a11b7c7efd7",
+    "hodgetex.zip": "7cdbb02a06e281a79fec4c49d779d9e9e7c238111ea906362ab484736623c850",
+    "next-version-submission-notes.md": "4a8f30366d5421aec2be0a10786034513099b84d39a1f1cc2cd7f29ef02e09e5",
+    "release-details.md": "81c2a76255e6d0fc680af6a5b5e3ecf4ed716837bf903038993949525d9b6518",
+    "source-zip-validation.json": "5fc5bb6f151f9a2c5555a969371d506aaf36ba73d19d825ad1cb71a3ddedf859",
+    "validation.json": "6575d3970583ab02a134949377b3096b589632664c61252c66ced3fec92c3e39"
   }
 }
