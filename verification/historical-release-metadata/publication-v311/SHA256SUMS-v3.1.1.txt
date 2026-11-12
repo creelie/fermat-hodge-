@@ -1,3 +1,0 @@
-83a57d4098e688a6afa61ea1268064c36a5d3c0479fb023642fcff7a5f97ff0c  hodgefinal.pdf
-8382b795e20377c6983d0462b70f4b8747ebe5507b82eb48e9e74dc4c1b79cc4  texfinal.zip
-95ef0e3fad6d64f86ac3fcbde751a3cefb65d3b1663fba6a4368d8b01c04b513  hodge-v7-v3.1.1-research-package.zip

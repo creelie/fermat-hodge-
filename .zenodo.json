@@ -1,5 +1,5 @@
 {
-  "title": "Toward the Algebraicity of Every Rational Hodge Class",
+  "title": "Two Abelian Statements Equivalent to the Hodge Conjecture",
   "upload_type": "publication",
   "license": "cc-by-4.0",
   "creators": [
@@ -14,18 +14,18 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open. Retitles the complete 113-page v7 manuscript from Algebraic Hodge Loci and Exceptional Correspondences to Toward the Algebraicity of Every Rational Hodge Class. The mathematical text, short abstract, author list, affiliations, figures, appendices and bibliography are retained; only the work title, running title, PDF title metadata, current source-citation title and release identifiers change. F2, F3-prime, the generic mixed Mumford class and the general Hodge conjecture remain unproved.",
+  "description": "The Hodge conjecture is equivalent to two statements on abelian varieties, and the algebraic locus of a flat Hodge class is the whole base or a meagre set. For every real quadratic field we construct K3 surfaces with that real multiplication on all of whose powers the conjecture holds, and we prove the link classes of Mumford fourfolds algebraic on a dense set of special points. The two abelian statements, and with them the Hodge conjecture, remain open. Paper, Lean 4 file (63 theorems) and Julia checks (665).",
   "keywords": [
     "Hodge conjecture",
-    "abelian varieties",
     "Weil classes",
     "K3 surfaces",
-    "semiregularity",
-    "Lean 4"
+    "abelian varieties",
+    "Lean 4",
+    "Julia"
   ],
-  "version": "3.5.1",
+  "version": "4.0.0",
   "access_right": "open",
-  "publication_date": "2026-11-08",
+  "publication_date": "2026-11-12",
   "related_identifiers": [
     {
       "identifier": "https://github.com/creelie/fermat-hodge-",
@@ -33,18 +33,8 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.24055885",
+      "identifier": "10.5281/zenodo.24056100",
       "relation": "isNewVersionOf",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.13140/RG.2.2.26853.77288",
-      "relation": "references",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.24054303",
-      "relation": "references",
       "scheme": "doi"
     }
   ],
