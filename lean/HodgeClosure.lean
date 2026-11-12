@@ -2,39 +2,41 @@
 HodgeClosure.lean
 
 Kernel-checked finite arithmetic and propositional logic behind the paper
-"Constructions at the Two Open Steps of the Hodge Conjecture".
+"Two Abelian Statements Equivalent to the Hodge Conjecture"
+(D. Bhattacharjee, U. Bhattacharya).
 
-Nothing here formalises algebraic geometry.  What is checked is
+Nothing here formalises algebraic geometry.  Results of the paper are named
+by their labels in the LaTeX source.  What is checked is
 
   Section 1  the closure graph of statements: with the implications proved
              in the paper and in the literature taken as rules, the Hodge
              conjecture follows from exactly the minimal sets
              {F3}, {L, M}, {L, F3'}, {V, F3'}, {F2, F3'}, and from no proper
-             subset of any of them;
-  Section 2  the eigencharacter of the polarisation class of an abelian
-             variety of Weil type: in the standard model over Z[sqrt(-d)] the
-             form eta(x, y) = Tr(sqrt(-d) H(x, y)) satisfies
-             eta(tau x, tau y) = N(tau) eta(x, y), and N(tau) is not 1 at
-             tau = 2 + sqrt(-d); so eta^k lies in the eigenspace of N^k, the
-             eigenspace that the Weil classes occupy for k = n;
-  Section 3  the dimension counts of the loci on which the Weil classes are
-             known to be algebraic against the dimension n^2 of the period
-             domain;
-  Section 4  the polynomial identities of the Fricke families;
-  Section 5  the Dickson identities of the cyclic cubic fields;
-  Section 6  the point of complex multiplication E_0^6: the intersection
+             subset of any of them (Proposition minimal);
+  Section 2  dimension counts of the loci on which the Weil classes are
+             known to be algebraic, the count 26 of Theorem link(i) and the
+             values of the lower bound r = (4 + rho) n^2 - 2n;
+  Section 3  the polynomial identities of the Fricke families;
+  Section 4  the Dickson identities of the cyclic cubic fields;
+  Section 5  the point of complex multiplication E_0^6: the intersection
              numbers of the curves C_zeta, the signed sum of thirty-two
              threefolds equal to 32 (alpha + alphabar), and the degrees of
              the closed chains of two and three pieces;
-  Section 7  the isolated-block bound at E_0^6: from the Ext table of
-             Section 6 and Lemma VI.9, the exact blocks of total degree two
+  Section 6  the isolated-block bound at E_0^6: from the Ext table of
+             Lemmas cmext and cmmeet, the exact blocks of total degree two
              that no degree-one block reaches and that reach no degree-three
              block sum to 7213, 2605, 2605, 0, 0 and 5325 at the six
-             configurations of Table III (reachability by a rechecked
-             bitmask certificate).
+             configurations of Table e06count (reachability by a rechecked
+             bitmask certificate);
+  Section 7  the arithmetic of the newer sections: the four values
+             r = 57, 48, 39, 30 at n = 3 (Remark twistfollows), the trace
+             forms of the space T_d (Lemma td), Nikulin's numerical
+             conditions, the discriminants of the cyclic cubic fields and of
+             the cubic field of discriminant 148, and the coefficients used
+             in the parity lemma.
 
 No Mathlib.  Every theorem is checked by `decide` (by `decide +kernel` in
-Section 7) or by the core lemmas on natural numbers; `native_decide` is not
+Section 6) or by the core lemmas on natural numbers; `native_decide` is not
 used.  The block at the end prints the axioms of each one.
 -/
 
@@ -128,70 +130,7 @@ theorem minimal_sets_count : minimalSets.length = 6 := by rfl
 theorem minimal_sets_are :
     (minimalSets == [[L, M], [F3p, AB], [F3p, V], [F3p, L], [F2, F3p], [F3]]) = true := by rfl
 
-/-! ## Section 2: the eigencharacter of the polarisation -/
-
-/-- An element a + b sqrt(-d) of Z[sqrt(-d)], with d carried along. -/
-structure Q where
-  a : Int
-  b : Int
-  deriving DecidableEq, Repr
-
-def qadd (x y : Q) : Q := ⟨x.a + y.a, x.b + y.b⟩
-def qmul (d : Int) (x y : Q) : Q := ⟨x.a * y.a - d * x.b * y.b, x.a * y.b + x.b * y.a⟩
-def qconj (x : Q) : Q := ⟨x.a, -x.b⟩
-def qnorm (d : Int) (x : Q) : Int := x.a * x.a + d * x.b * x.b
-def qscale (c : Int) (x : Q) : Q := ⟨c * x.a, c * x.b⟩
-
-/-- Tr(sqrt(-d) z) for z = a + b sqrt(-d): sqrt(-d) z = -d b + a sqrt(-d), of trace -2 d b. -/
-def trRoot (d : Int) (z : Q) : Int := -2 * d * z.b
-
-/-- The hermitian form of signature given by the list of signs eps. -/
-def herm (d : Int) (eps : List Int) (x y : List Q) : Q :=
-  (List.zip eps (List.zip x y)).foldl
-    (fun acc ⟨e, xi, yi⟩ => qadd acc (qscale e (qmul d xi (qconj yi)))) ⟨0, 0⟩
-
-/-- eta(x, y) = Tr(sqrt(-d) H(x, y)), the alternating form of the polarisation. -/
-def eta (d : Int) (eps : List Int) (x y : List Q) : Int := trRoot d (herm d eps x y)
-
-def vscale (d : Int) (t : Q) (x : List Q) : List Q := x.map (qmul d t)
-
-/-- The sample: d in {1, 2, 3, 5, 7, 11, 15, 19}, signature (1, 1, -1, -1), and
-the vectors and multipliers below. -/
-def ds : List Int := [1, 2, 3, 5, 7, 11, 15, 19]
-def eps4 : List Int := [1, 1, -1, -1]
-def taus : List Q := [⟨2, 1⟩, ⟨1, 1⟩, ⟨3, -2⟩, ⟨0, 1⟩, ⟨5, 3⟩]
-def vecs : List (List Q) :=
-  [ [⟨1, 0⟩, ⟨0, 1⟩, ⟨2, -1⟩, ⟨1, 1⟩],
-    [⟨0, 2⟩, ⟨1, -1⟩, ⟨3, 0⟩, ⟨-1, 2⟩],
-    [⟨1, 1⟩, ⟨1, 1⟩, ⟨1, 1⟩, ⟨1, 1⟩],
-    [⟨-2, 3⟩, ⟨0, 0⟩, ⟨1, -4⟩, ⟨2, 2⟩] ]
-
-/-- eta(tau x, tau y) = N(tau) eta(x, y) on the whole sample. -/
-theorem eta_eigencharacter :
-    ds.all (fun d => taus.all (fun t => vecs.all (fun x => vecs.all (fun y =>
-      eta d eps4 (vscale d t x) (vscale d t y) == qnorm d t * eta d eps4 x y)))) = true := by
-  decide
-
-/-- The multiplicativity N(tau sigma) = N(tau) N(sigma) on the sample. -/
-theorem norm_multiplicative :
-    ds.all (fun d => taus.all (fun t => taus.all (fun s =>
-      qnorm d (qmul d t s) == qnorm d t * qnorm d s))) = true := by decide
-
-/-- N(2 + sqrt(-d)) = 4 + d is never 1, so eta is not invariant under K^x and
-eta^k carries the character N^k, not the trivial character. -/
-theorem eta_not_invariant : ds.all (fun d => qnorm d ⟨2, 1⟩ != 1) = true := by decide
-
-/-- The two characters tau^(2n) and N(tau)^n differ at tau = 2 + sqrt(-d) for
-d in the sample and 1 <= n <= 6 (they agree on eta^n only for the second). -/
-def qpow (d : Int) (t : Q) : Nat → Q
-  | 0 => ⟨1, 0⟩
-  | k+1 => qmul d t (qpow d t k)
-
-theorem characters_differ :
-    ds.all (fun d => (List.range 6).all (fun n =>
-      qpow d ⟨2, 1⟩ (2 * (n + 1)) != ⟨(qnorm d ⟨2, 1⟩) ^ (n + 1), 0⟩)) = true := by decide
-
-/-! ## Section 3: dimension counts -/
+/-! ## Section 2: dimension counts -/
 
 /-- The Prym locus of etale triple covers of genus-(n+1) curves has dimension
 3n inside the n^2-dimensional domain; it fills the domain only for n <= 3. -/
@@ -235,7 +174,7 @@ theorem mixed_directions : (2 + 1) * (2 + 1) - (2 * 2 + 1 * 1) = 4 ∧
     (2 + 2) * (2 + 2) - (2 * 2 + 2 * 2) = 8 := by decide
 
 /-- The Hodge classes of degree four on X x X x Z_K invariant under the generic
-Hodge group, by Kuenneth type (Theorem VI.17(i) of the paper): (1,1,2) gives 3 + 3,
+Hodge group, by Kuenneth type (Theorem link(i) of the paper): (1,1,2) gives 3 + 3,
 (2,2,0) gives 4, (0,0,4) gives 6, (2,0,2) and (0,2,2) give 3 each, and the four
 types (4,0,0), (0,4,0), (3,1,0), (1,3,0) one each.  The sum is 26. -/
 theorem kunneth_count : [3, 3, 4, 6, 3, 3, 1, 1, 1, 1].foldl (· + ·) 0 = 26 := by decide
@@ -245,7 +184,7 @@ Hankel rank 3: 57 at n = 3 and 104 at n = 4; and 18 at n = 2, rho = 0. -/
 def rBound (rho n : Nat) : Nat := (4 + rho) * n * n - 2 * n
 theorem r_values : rBound 3 3 = 57 ∧ rBound 3 4 = 104 ∧ rBound 0 2 = 12 ∧ rBound 3 2 = 24 := by decide
 
-/-! ## Section 4: the Fricke families (Section V of the paper) -/
+/-! ## Section 3: the Fricke families (Section ssec:fricke) -/
 
 /-- Polynomials in t as coefficient lists, lowest degree first. -/
 def padd : List Int → List Int → List Int
@@ -310,14 +249,14 @@ theorem fricke_transcendental : 22 - 16 = 6 ∧ 6 / 2 = 3 ∧ 6 < 3 * 3 := by de
 
 /-- A dominant rational self-map of degree N gives f_* f^* = N on T: the
 multiplier of a correspondence is the product d_1 d_2 of the two degrees
-(Proposition V.11 of the paper), here 1 * N; the sign of (f^*)^2 = -N is the
+(Section ssec:fricke of the paper), here 1 * N; the sign of (f^*)^2 = -N is the
 Velu identity below. -/
 theorem fricke_multiplier : 1 * 7 = 7 ∧ 1 * 5 = 5 ∧ 2 * 2 = 4 ∧ 2 * 3 = 6 := by decide
 
-/-- The sign of the Fricke self-isogeny (Lemma V.8).  For the Fricke curve
+/-- The sign of the Fricke self-isogeny (Lemma frickesign).  For the Fricke curve
 E_t: y^2 = x^3 + A x + B, A = -27 c_4, B = -54 c_6, the kernel polynomial of
 the rational cyclic subgroup of order N (the factor of degree (N - 1)/2 of
-the N-th division polynomial, computed in code/fricke_sign.py) has
+the N-th division polynomial, computed in julia/fricke_sign.jl) has
 coefficients k_1, ..., k_m in Z[t].  Newton's identities give the power sums
 S_1, S_2, S_3 of its roots, and Velu's formulas the quotient curve
 E': y^2 = x^3 + A' x + B' with A' = A - 5 (6 S_2 + 2 m A) and
@@ -366,13 +305,13 @@ and 5, 7 of the two cases. -/
 theorem fricke_sign_cases : (-1 : Int) * 5 = -5 ∧ (-1 : Int) * 7 = -7 ∧ (1 : Int) * 5 = 5 ∧ (1 : Int) * 7 = 7 := by decide
 
 /-- The Hecke algebra of (D_n, <tau>) for odd n has dimension (n + 1) / 2, the number of double cosets:
-3, 4, 5, 6 for n = 5, 7, 9, 11 (Proposition V.12). -/
+3, 4, 5, 6 for n = 5, 7, 9, 11 (Proposition hecke). -/
 def heckeDim (n : Nat) : Nat := (n + 1) / 2
 theorem hecke_dims : heckeDim 5 = 3 ∧ heckeDim 7 = 4 ∧ heckeDim 9 = 5 ∧ heckeDim 11 = 6 := by decide
 
-/-! ## Section 5: the Dickson families of the cyclic cubic fields (Section V of the paper) -/
+/-! ## Section 4: the Dickson families of the cyclic cubic fields (Theorem zeta9) -/
 
-/-- Dickson polynomials (Theorem V.14 for n = 7 and n = 9, and Proposition V.15).
+/-- Dickson polynomials (Theorem zeta9 for n = 7 and n = 9).
 v^7 p_{7,a}(v + a/v) = v^14 + a^7 with p_{7,a} = t^7 - 7 a t^5 + 14 a^2 t^3 - 7 a^3 t, checked at
 a = 1 and a = 2 as identities of polynomials in v; the same for
 p_{9,a} = t^9 - 9 a t^7 + 27 a^2 t^5 - 30 a^3 t^3 + 9 a^4 t at a = 1. -/
@@ -392,7 +331,7 @@ theorem dickson9_identity :
     ptrim (dickson9 1) = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1] := by decide
 
 /-- The prime 2 has order three in (Z/7)^x/{+-1} and in (Z/9)^x/{+-1}, so it is inert in
-Q(zeta_7)^+ and Q(zeta_9)^+ (Theorem V.14, the place above 2). The cubic polynomials
+Q(zeta_7)^+ and Q(zeta_9)^+ (Theorem zeta9, the place above 2). The cubic polynomials
 t^3 + t^2 - 2 t - 1 and t^3 - 3 t + 1 of theta change sign on [-2,-1], [-1,0], [0,2] and on
 [-2,-1], [0,1], [1,2], so each has three real roots, exactly one of them positive for n = 7
 and two for n = 9: the unit epsilon of the proof is positive at exactly one real place. -/
@@ -405,7 +344,7 @@ theorem theta_sign_pattern :
     (f7 (-2) < 0 ∧ f7 (-1) > 0 ∧ f7 0 < 0 ∧ f7 2 > 0) ∧
     (f9 (-2) < 0 ∧ f9 0 > 0 ∧ f9 1 < 0 ∧ f9 2 > 0) := by decide
 
-/-- Proposition V.21: a symplectic automorphism of order five has coinvariant rank 16 and one
+/-- Proposition sqrt10: a symplectic automorphism of order five has coinvariant rank 16 and one
 of order seven rank 18 (Nikulin), so the transcendental lattice, of signature (2, t - 2), lies
 in a lattice of rank 22 - 16 = 6 and signature (3, 3) (resp. rank 4, signature (3, 1)); hence
 t <= 5 (resp. t <= 3), while a totally real endomorphism field of degree at least two needs
@@ -417,7 +356,7 @@ theorem symplectic_chain_bound :
     ((List.range 9).filter (fun n => n ≥ 2 ∧ n % 5 ≠ 0 ∧ n % 7 ≠ 0) = [2, 3, 4, 6, 8]) ∧
     ((List.range 9).filter (fun n => n ≥ 2 ∧ (n % 5 = 0 ∨ n % 7 = 0)) = [5, 7]) := by decide
 
-/-! ## Section 6: the point of complex multiplication E_0^6 (Lemma VI.8, Proposition VI.10, Appendix A) -/
+/-! ## Section 5: the point of complex multiplication E_0^6 (Lemma cmext, Proposition twostep, Appendix app:cmpoint) -/
 
 /-- Binomial coefficients, by Pascal's rule. -/
 def choose : Nat → Nat → Nat
@@ -426,7 +365,7 @@ def choose : Nat → Nat → Nat
   | n + 1, k + 1 => choose n k + choose n (k + 1)
 
 /-- dim Ext^k(O_Z, O_Z) = sum_{p+q=k} C(3,q) C(3,p) = C(6,k) for an abelian threefold Z with trivial
-normal bundle in an abelian sixfold (Lemma VI.8(iii) at a = b). -/
+normal bundle in an abelian sixfold (Lemma cmext(iii) at a = b). -/
 theorem binomial_six :
     (List.range 7).all (fun k =>
       (List.range (k + 1)).foldl (fun s q => s + choose 3 q * choose 3 (k - q)) 0 == choose 6 k) = true := by
@@ -509,7 +448,7 @@ theorem weil_sum_32 :
 
 /-- (theta|_Z)^3 = 3! 2^3 = 48 and chi_Z = 48/6 = 8; the Ext groups between two twists of one
 threefold have total dimension sum_k C(3,k) 8 m^3 = 8 m^3 chi_Z and vanishing Euler characteristic
-(Lemma VI.8(iii), Lemma A.1(iii)); and the count 5 * 15 = 75, 75 - 57 = 18 at the stopping point. -/
+(Lemma cmext(iii), Lemma cmcurves(iii)); and the count 5 * 15 = 75, 75 - 57 = 18 at the stopping point. -/
 theorem cm_counts :
     3 * 2 * 1 * (2 * 2 * 2) = 48 ∧ 48 / 6 = 8 ∧ 5 * 15 = 75 ∧ 75 - 57 = 18 ∧
     [1, 2, 3].all (fun m =>
@@ -528,7 +467,7 @@ structure Piece where
 def pieces : List Piece :=
   [PieceT.Z, PieceT.W, PieceT.L].foldr (fun t acc => (List.range 4).map (fun k => ⟨t, k⟩) ++ acc) []
 
-/-- The degrees k with Ext^k(F_P, F_Q) != 0 for distinct pieces, from Lemma VI.8. -/
+/-- The degrees k with Ext^k(F_P, F_Q) != 0 for distinct pieces, from Lemma cmext. -/
 def degs (P Q : Piece) : List Nat :=
   match P.t, Q.t with
   | PieceT.L, PieceT.L => if Q.tw > P.tw then [0] else [6]
@@ -536,7 +475,7 @@ def degs (P Q : Piece) : List Nat :=
   | _, PieceT.L => if Q.tw > P.tw then [3] else if Q.tw < P.tw then [6] else [3, 4, 5, 6]
   | _, _ => if P.t != Q.t then [3] else if Q.tw > P.tw then [0, 1, 2, 3] else [3, 4, 5, 6]
 
-/-- Every closed chain of two distinct pieces has total Ext degree at least 3 (Proposition VI.10). -/
+/-- Every closed chain of two distinct pieces has total Ext degree at least 3 (Proposition twostep). -/
 theorem two_step_degree :
     pieces.all (fun P => pieces.all (fun Q =>
       P == Q || (degs P Q).all (fun k1 => (degs Q P).all (fun k2 => k1 + k2 ≥ 3)))) = true := by
@@ -544,7 +483,7 @@ theorem two_step_degree :
 
 /-- A closed chain of three pieces with degrees k1, k2, k3 and total degree 3 exists exactly for three
 twists of one threefold in cyclic ascending order, with degree 3 on the descending edge and degree 0
-on the two ascending ones (Proposition VI.10). -/
+on the two ascending ones (Proposition twostep). -/
 def isChain (P Q R : Piece) (k1 k2 k3 : Nat) : Bool :=
   P.t != PieceT.L && P.t == Q.t && Q.t == R.t &&
   ((P.tw < Q.tw && Q.tw < R.tw && k1 == 0 && k2 == 0 && k3 == 3) ||
@@ -557,7 +496,7 @@ theorem three_step_chains :
         (k1 + k2 + k3 == 3) == isChain P Q R k1 k2 k3)))))) = true := by
   decide
 
-/-! ## Section 7: isolated blocks at E_0^6 (Lemma VI.12, Proposition VI.13) -/
+/-! ## Section 6: isolated blocks at E_0^6 (Lemma isolated, Proposition e06count) -/
 
 namespace Isolated
 
@@ -579,13 +518,13 @@ def shared (p q : Piece) : Nat :=
 /-- |i^a - i^b|^2: 1 when a = b (so that it drops out of the product), 4 for opposite roots, 2 otherwise. -/
 def sqdist (a b : Nat) : Nat := if a = b then 1 else if (a + 4 - b) % 4 = 2 then 4 else 2
 
-/-- The number of components of Z_zeta cap Z_zeta' (Lemmas VI.8, VI.9). -/
+/-- The number of components of Z_zeta cap Z_zeta' (Lemmas cmext, cmmeet). -/
 def comps (p q : Piece) : Nat := sqdist p.z1 q.z1 * sqdist p.z2 q.z2 * sqdist p.z3 q.z3
 
 def cube (m : Nat) : Nat := m * m * m
 
-/-- The dimensions of Ext^k(p, q) as (k, dim, exact): Table V for the exact entries, the E_2 page
-of Lemma VI.9 for two threefolds meeting along a curve or a surface (upper bounds, flagged `false`).
+/-- The dimensions of Ext^k(p, q) as (k, dim, exact): the table of Appendix app:extdims for the exact entries, the E_2 page
+of Lemma cmmeet for two threefolds meeting along a curve or a surface (upper bounds, flagged `false`).
 chi(O_Z) = 8, and L is the principal polarisation. -/
 def extDims (p q : Piece) : List (Nat × Nat × Bool) :=
   if p.isZ = false ∧ q.isZ = false then
@@ -707,7 +646,7 @@ def base : List Piece :=
 def L (l t : Nat) : Piece := ⟨false, 0, 0, 0, l, t⟩
 def Z (a b c k t : Nat) : Piece := ⟨true, a, b, c, k, t⟩
 
-/-- The configurations of Table III at which the least bound is attained: the thirty-five pieces at
+/-- The configurations of Table e06count at which the least bound is attained: the thirty-five pieces at
 shifts (0,0,0), (2,3,4), (-3,-2,-1); family (a) with L^1[-2], L^2[-1], L^3[0], L^4[1]; family (c) with
 Z_(1,1,1) (x) L^1 at [-1], [0] and (x) L^2 at [1], [2]; family (d) with Z_(1,1,-1) at [0], [1]. -/
 def base35 : List Piece := base ++ [L 1 8, L 2 8, L 3 8]
@@ -752,7 +691,7 @@ def familyD_R : List Nat := [15049296491,15049296491,15116671599,8,15654345339,1
 def familyD_RT : List Nat := [14401906103,14401906103,4,14401906111,16,14401906103,14401906167,128,256,14401906615,1024,14401908151,274773268,8192,1078060432,32768,65536,14401906103,409797892,524288,1350116368,2097152,4194304,1122607232,14418683319,33554432,1577649172,134217728,268435456,2049450128,1073741824,16549389751,14401906103,14401906103,17179869184,34359738368,68719476736]
 theorem iso_familyD : isolatedCert familyD familyD_E1 familyD_E3 familyD_R familyD_RT 5325 = true := by decide +kernel
 
-/-! ### Pieces outside every closed chain (Proposition VI.14, Corollary VI.15) -/
+/-! ### Pieces outside every closed chain (Proposition chainfree, Corollary chainfree) -/
 
 /-- The threefold pieces certified to lie on no cycle of the graph of blocks of total degree one: a is
 chain-free when no piece b != a carries such a block from a and reaches a in the certificate R.  Since R
@@ -787,7 +726,7 @@ def belowTop : List Piece :=
     Z (i / 16) ((i / 4) % 4) (i % 4) (k + 1) (s + 5)) ++
   ((List.range 4).flatMap fun l => (List.range 6).map fun t => L (l + 1) (t + 5))
 
-/-- Corollary VI.15 (ii) in the window: no base piece and no piece of positive twist at a shift at most one
+/-- Corollary chainfree (ii) in the window: no base piece and no piece of positive twist at a shift at most one
 above the top enters a top piece (self-loops are not edges of the graph). -/
 theorem no_entry_top :
     ((base ++ belowTop).all fun u => topBase.all fun v => (u.shift == 9 && u.isZ && u.twist == 0) || !(edge u v)) = true := by
@@ -797,7 +736,7 @@ theorem no_entry_top :
 theorem entry_at_shift_three :
     (topBase.all fun v => edge (L 1 11) v && edge (L 4 11) v && edge (Z 0 0 0 1 11) v) = true := by decide +kernel
 
-/-- Corollary VI.15 (iii), the limit: with L^1[-2], .., L^6[3] every one of the thirty-two lies on a closed chain of
+/-- Corollary chainfree (iii), the limit: with L^1[-2], .., L^6[3] every one of the thirty-two lies on a closed chain of
 length six, through L^6[3], L^2[-1], L^3[0], L^4[1], L^5[2] at shift 1 and through L^5[2], L^1[-2], L^2[-1], L^3[0],
 L^4[1] at shift 0. -/
 def cycleThrough (p : Piece) : Bool :=
@@ -809,6 +748,58 @@ def cycleThrough (p : Piece) : Bool :=
 theorem six_bundles_cycles : (base.all cycleThrough) = true := by decide +kernel
 
 end Isolated
+
+
+/-! ## Section 7: arithmetic of the newer sections -/
+
+/-- The lower bound r = (4 + rho) n^2 - 2n at n = 3 for Hankel rank rho = 3, 2, 1, 0:
+57, 48, 39, 30 (Remark twistfollows: with powers of L and h non-constant the polarised
+shape forces c_1 = ... = c_5 = 0, so r lies in {48, 39, 30}). -/
+theorem r_values_n3 : rBound 3 3 = 57 ∧ rBound 2 3 = 48 ∧ rBound 1 3 = 39 ∧ rBound 0 3 = 30 := by
+  decide
+
+/-- Lemma td: for alpha = sqrt d the trace form Tr(alpha x y) on the Q-basis (1, sqrt d)
+has Gram matrix [[Tr sqrt d, Tr d], [Tr d, Tr d sqrt d]] = [[0, 2d], [2d, 0]], a hyperbolic
+plane; for alpha = -1/2 it is [[-1, 0], [0, -d]].  The determinant of T_d is
+(-4 d^2)^2 * d = 16 d^5, of square class d.  Checked for the squarefree d <= 30. -/
+def sqfree : List Int := [2, 3, 5, 6, 7, 10, 11, 13, 14, 15, 17, 19, 21, 22, 23, 26, 29, 30]
+def trSqrtBlock (d : Int) : List (List Int) := [[0, 2 * d], [2 * d, 0]]
+def trHalfBlock (d : Int) : List (List Int) := [[-1, 0], [0, -d]]
+def det2 (m : List (List Int)) : Int :=
+  match m with
+  | [[a, b], [c, e]] => a * e - b * c
+  | _ => 0
+theorem td_trace_forms :
+    sqfree.all (fun d =>
+      det2 (trSqrtBlock d) == -4 * d * d && det2 (trHalfBlock d) == d &&
+      det2 (trSqrtBlock d) * det2 (trSqrtBlock d) * det2 (trHalfBlock d) == 16 * d ^ 5 &&
+      -- the hyperbolic block: e = (1, 0), f = (0, 1/(2d)) gives q(e) = q(f) = 0, b(e, f) = 1
+      (trSqrtBlock d).head! == [0, 2 * d]) = true := by decide
+
+/-- Nikulin's conditions for the primitive embedding of L_d (rank 6, signature (2, 4),
+discriminant group generated by 2 elements) in the K3 lattice (rank 22, signature (3, 19)):
+3 - 19 = -16 is divisible by 8, 2 <= 3, 4 <= 19 and 22 - 6 = 16 > 2.  The discriminant
+group Z/4 + Z/4d has order 16 d = |det L_d| for L_d = U^2 + <-4> + <-4d>. -/
+theorem nikulin_conditions :
+    ((3 : Int) - 19) % 8 = 0 ∧ 2 ≤ 3 ∧ 4 ≤ 19 ∧ 22 - 6 > 2 ∧
+    sqfree.all (fun d => (-1) * (-1) * (-4) * (-4 * d) == 16 * d) = true := by decide
+
+/-- The discriminant b^2 c^2 - 4 c^3 - 4 b^3 e - 27 e^2 + 18 b c e of x^3 + b x^2 + c x + e:
+49 for x^3 + x^2 - 2x - 1 (Q(zeta_7)^+), 81 for x^3 - 3x + 1 (Q(zeta_9)^+) and 148 for
+x^3 + x^2 - 3x - 1 (Remark sexticfields, Theorem linkcm). -/
+def cubicDisc (b c e : Int) : Int :=
+  b * b * c * c - 4 * c * c * c - 4 * b * b * b * e - 27 * e * e + 18 * b * c * e
+theorem cubic_discriminants :
+    cubicDisc 1 (-2) (-1) = 49 ∧ cubicDisc 0 (-3) 1 = 81 ∧ cubicDisc 1 (-3) (-1) = 148 := by
+  decide
+
+/-- The parity lemma and Remark twistfollows: the coefficient of a monomial in k distinct
+coordinate two-forms in theta_h^k is k! times the product of the h's, so 6 h_1 h_4 h_2 for
+a_1 b_1 a_2 (k = 3) and 24 h_1 h_4 h_2 h_5 for a_1 b_1 a_2 b_2 (k = 4); the k! are 6 and 24. -/
+def fact : Nat → Nat
+  | 0 => 1
+  | k + 1 => (k + 1) * fact k
+theorem theta_h_coefficients : fact 3 = 6 ∧ fact 4 = 24 ∧ fact 6 = 720 := by decide
 
 end HodgeClosure
 
@@ -827,10 +818,6 @@ end HodgeClosure
 #print axioms HodgeClosure.not_hc_from_m_f3p
 #print axioms HodgeClosure.minimal_sets_count
 #print axioms HodgeClosure.minimal_sets_are
-#print axioms HodgeClosure.eta_eigencharacter
-#print axioms HodgeClosure.norm_multiplicative
-#print axioms HodgeClosure.eta_not_invariant
-#print axioms HodgeClosure.characters_differ
 #print axioms HodgeClosure.prym_locus_small
 #print axioms HodgeClosure.prym_fills_three
 #print axioms HodgeClosure.prym_dims
@@ -874,3 +861,8 @@ end HodgeClosure
 #print axioms HodgeClosure.Isolated.no_entry_top
 #print axioms HodgeClosure.Isolated.entry_at_shift_three
 #print axioms HodgeClosure.Isolated.six_bundles_cycles
+#print axioms HodgeClosure.r_values_n3
+#print axioms HodgeClosure.td_trace_forms
+#print axioms HodgeClosure.nikulin_conditions
+#print axioms HodgeClosure.cubic_discriminants
+#print axioms HodgeClosure.theta_h_coefficients

@@ -1,21 +1,24 @@
-# Toward the Algebraicity of Every Rational Hodge Class
+<p align="center"><img src="assets/banner.svg" alt="Two Abelian Statements Equivalent to the Hodge Conjecture" width="100%"></p>
 
-**Deep Bhattacharjee; Ushashi Bhattacharya**
+<p align="center">
+  <a href="https://doi.org/10.5281/zenodo.23439577"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.23439577-22d3ee?style=for-the-badge" alt="DOI"></a>
+  <a href="papers/HodgePaper.pdf"><img src="https://img.shields.io/badge/paper-PDF-f472b6?style=for-the-badge" alt="paper"></a>
+  <img src="https://img.shields.io/badge/Lean_4-63_theorems-7c5cff?style=for-the-badge" alt="Lean 4">
+  <img src="https://img.shields.io/badge/Julia-665_checks-34d399?style=for-the-badge" alt="Julia">
+  <img src="https://img.shields.io/badge/license-MIT-f59e0b?style=for-the-badge" alt="MIT">
+</p>
 
-Current full v7 research revision: [v3.5.1](https://github.com/creelie/fermat-hodge-/releases/tag/v3.5.1). Version DOI: https://doi.org/10.5281/zenodo.24056100
+**Deep Bhattacharjee** (corresponding author, head of the project), Ushashi Bhattacharya.
 
-Permanent work DOI, printed in the manuscript: https://doi.org/10.5281/zenodo.23439577
+| Proved | Open |
+| :--- | :--- |
+| The Hodge conjecture is equivalent to two statements on abelian varieties, (F2) and (F3′) | (F2) and (F3′), hence the Hodge conjecture |
+| The algebraic locus of a flat Hodge class is the whole base or a meagre set | Which alternative holds for the Mumford link class |
+| For every real quadratic field, K3 surfaces with that real multiplication satisfying the conjecture on all powers | The K3 surfaces of Picard number 13 with real multiplication by a cubic field of Galois group S₃ |
+| The link classes of Mumford fourfolds are algebraic on a dense set of special points | The very general point |
 
-We construct algebraic Hodge classes in explicit abelian and K3 families and reduce abelian transfer to primitive middle-degree classes on rational varieties. Exact correspondence formulas and bounded-support criteria isolate the generic mixed Mumford class. Its algebraicity and the universal Hodge conjecture remain open.
-
-## Current submission files
-
-- [PDF](papers/hodge.pdf): 113 pages.
-- [Complete TeX ZIP](papers/hodgetex.zip).
-- [Next-version submission notes](papers/next-version-submission-notes.md).
-- [Retention check](papers/baseline-retention.json).
-- [AI provenance](papers/aiprovenance.md).
-
-Retitles the complete 113-page v7 manuscript from Algebraic Hodge Loci and Exceptional Correspondences to Toward the Algebraicity of Every Rational Hodge Class. The mathematical text, short abstract, author list, affiliations, figures, appendices and bibliography are retained; only the work title, running title, PDF title metadata, current source-citation title and release identifiers change. F2, F3-prime, the generic mixed Mumford class and the general Hodge conjecture remain unproved.
-
-The active papers folder contains one current PDF and one current source ZIP. Earlier releases and independent companion material retain their historical purposes. Compile paper/main.tex with pdfLaTeX at least three times.
+| Folder | Contents | Run |
+| :--- | :--- | :--- |
+| [`papers/`](papers) | the paper | |
+| [`lean/`](lean) | Lean 4 file, no Mathlib | `lean lean/HodgeClosure.lean` |
+| [`julia/`](julia) | 27 check programs | `julia julia/run_all.jl` |
