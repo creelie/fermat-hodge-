@@ -1,6 +1,6 @@
 {
-  "title": "Two Abelian Statements Equivalent to the Hodge Conjecture",
-  "upload_type": "publication",
+  "title": "Hodge Classes on K3 Powers and Sixfolds",
+  "upload_type": "software",
   "license": "cc-by-4.0",
   "creators": [
     {
@@ -14,18 +14,17 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "The Hodge conjecture is equivalent to two statements on abelian varieties, and the algebraic locus of a flat Hodge class is the whole base or a meagre set. For every real quadratic field we construct K3 surfaces with that real multiplication on all of whose powers the conjecture holds, and we prove the link classes of Mumford fourfolds algebraic on a dense set of special points. The two abelian statements, and with them the Hodge conjecture, remain open. Paper, Lean 4 file (63 theorems) and Julia checks (665).",
+  "description": "The Hodge conjecture holds on all powers of every K3 surface of Picard number at least seventeen and on a dense union of curves in every family of K3 surfaces of transcendental rank at least eight with real quadratic multiplication. Weil classes are algebraic on every abelian sixfold of Weil type with complex multiplication and on a dense union of special subvarieties of every family of non-split Weil sixfolds. The Hodge conjecture and its two abelian reductions (F2) and (F3') remain open. Paper, Lean 4 file (90 theorems) and Julia checks (842).",
   "keywords": [
     "Hodge conjecture",
     "Weil classes",
     "K3 surfaces",
-    "abelian varieties",
     "Lean 4",
     "Julia"
   ],
-  "version": "4.0.0",
+  "version": "5.0.0",
   "access_right": "open",
-  "publication_date": "2026-11-12",
+  "publication_date": "2026-11-13",
   "related_identifiers": [
     {
       "identifier": "https://github.com/creelie/fermat-hodge-",
@@ -33,10 +32,9 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.24056100",
+      "identifier": "10.5281/zenodo.24149144",
       "relation": "isNewVersionOf",
       "scheme": "doi"
     }
-  ],
-  "publication_type": "preprint"
+  ]
 }

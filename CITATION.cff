@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "Please cite the archived source and verification package when using this work."
-type: article
-title: "Two Abelian Statements Equivalent to the Hodge Conjecture"
-version: "4.0.0"
-date-released: "2026-11-12"
+type: software
+title: "Hodge Classes on K3 Powers and Sixfolds"
+version: "5.0.0"
+date-released: "2026-11-13"
 url: "https://github.com/creelie/fermat-hodge-"
 repository-code: "https://github.com/creelie/fermat-hodge-"
 authors:
@@ -14,5 +14,5 @@ authors:
     given-names: Ushashi
     orcid: "https://orcid.org/0009-0002-2254-3914"
 license: CC-BY-4.0
-abstract: "The Hodge conjecture is equivalent to two statements on abelian varieties; the algebraic locus of a flat Hodge class is the whole base or a meagre set. Both statements, and the Hodge conjecture, remain open."
+abstract: "The Hodge conjecture holds on all powers of every K3 surface of Picard number at least seventeen, and Weil classes are algebraic on every abelian sixfold of Weil type with complex multiplication. The Hodge conjecture, (F2) and (F3') remain open."
 doi: "10.5281/zenodo.23439577"

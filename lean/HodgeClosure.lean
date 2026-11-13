@@ -2,7 +2,7 @@
 HodgeClosure.lean
 
 Kernel-checked finite arithmetic and propositional logic behind the paper
-"Two Abelian Statements Equivalent to the Hodge Conjecture"
+"Hodge Classes on K3 Powers and Sixfolds"
 (D. Bhattacharjee, U. Bhattacharya).
 
 Nothing here formalises algebraic geometry.  Results of the paper are named
@@ -33,10 +33,25 @@ by their labels in the LaTeX source.  What is checked is
              forms of the space T_d (Lemma td), Nikulin's numerical
              conditions, the discriminants of the cyclic cubic fields and of
              the cubic field of discriminant 148, and the coefficients used
-             in the parity lemma.
+             in the parity lemma;
+  Section 8  K3 surfaces through Floccari's theorem, Weil sixfolds and the
+             link: the Gram matrices, signatures, discriminants and Hasse
+             invariants of Table rmopen; the witnesses of Lemma witt and
+             the count 1484 of the 1980 forms of Witt index two; the Hodge
+             numbers of Z_K and Z_K^2 (Proposition zkpowers) and the counts
+             after Theorem linkall; the counts of Theorems tenfold and cmkl;
+             the linear algebra behind Pohlmann's criterion; the sextic
+             discriminants of the split polarisations;
+  Section 9  Weil classes on E_0^8, the K3 x K3 criterion and the gamma
+             link: the identity Omega^m = m! (generator) for m <= 4, the
+             divisibility, slice-graph degrees and kernel counts 484, 3668,
+             1876 of the equivariant convolutions, the step excess >= 1 of
+             Theorem nothingentersall and the bounds 58, 105, the targets
+             46 - 2m, the table m (e + 1) <= 23, the self-intersection of
+             the Kummer graph, and the invariant counts of Theorem gamma.
 
 No Mathlib.  Every theorem is checked by `decide` (by `decide +kernel` in
-Section 6) or by the core lemmas on natural numbers; `native_decide` is not
+Sections 6 and 9 and for witt_count) or by the core lemmas on natural numbers; `native_decide` is not
 used.  The block at the end prints the axioms of each one.
 -/
 
@@ -801,6 +816,376 @@ def fact : Nat → Nat
   | k + 1 => (k + 1) * fact k
 theorem theta_h_coefficients : fact 3 = 6 ∧ fact 4 = 24 ∧ fact 6 = 720 := by decide
 
+
+/-! ## Section 8: K3 surfaces through Floccari's theorem, Weil sixfolds and the link -/
+
+/-- Integer valuation and unit part at a prime p, with fuel (structural recursion). -/
+def valF (p : Nat) : Nat → Nat → Nat
+  | 0, _ => 0
+  | fuel + 1, n => if n != 0 && n % p == 0 then 1 + valF p fuel (n / p) else 0
+def unitF (p : Nat) : Nat → Nat → Nat
+  | 0, n => n
+  | fuel + 1, n => if n != 0 && n % p == 0 then unitF p fuel (n / p) else n
+def vp (p : Nat) (a : Int) : Nat := valF p 64 a.natAbs
+/-- The unit part with its sign, as an integer prime to p. -/
+def up (p : Nat) (a : Int) : Int := (if a < 0 then -1 else 1) * (unitF p 64 a.natAbs : Int)
+/-- The Legendre symbol of a unit u at an odd prime p, by Euler's criterion, as +-1. -/
+def legendre (p : Nat) (u : Int) : Int :=
+  let r := (u % (p : Int)).toNat
+  if (r ^ ((p - 1) / 2)) % p == 1 then 1 else -1
+def epsil (u : Int) : Nat := ((u % 8).toNat - 1) / 2 % 2
+def omeg (u : Int) : Nat := (((u % 8).toNat) * ((u % 8).toNat) - 1) / 8 % 2
+def sgnPow (k : Nat) : Int := if k % 2 == 0 then 1 else -1
+/-- The Hilbert symbol (a, b)_p for nonzero integers a, b and a prime p (Serre, Chap. III, Thm. 1). -/
+def hilbert (p : Nat) (a b : Int) : Int :=
+  let al := vp p a; let be := vp p b; let u := up p a; let v := up p b
+  if p == 2 then sgnPow (epsil u * epsil v + al * omeg v + be * omeg u)
+  else sgnPow (al * be * ((p - 1) / 2)) * (legendre p u) ^ be * (legendre p v) ^ al
+/-- The Hasse invariant prod_{i<j} (a_i, a_j)_p of a diagonal form. -/
+def hasseInv (p : Nat) : List Int → Int
+  | [] => 1
+  | a :: rest => (rest.foldl (fun acc b => acc * hilbert p a b) 1) * hasseInv p rest
+def U3 : List Int := [1, -1, 1, -1, 1, -1]
+/-- An integer is a nonzero square in Q_p (p odd, p not dividing it): Euler's criterion; for p = 2
+an odd integer is a square in Q_2 iff it is 1 mod 8. -/
+def unitSquare (p : Nat) (x : Int) : Bool :=
+  if p == 2 then x % 8 == 1 else legendre p x == 1 && x % (p : Int) != 0
+
+/-- Table rmopen: rows (e, [(a_i, b_i)], p, d mod squares, d = e N(delta), its square factor). -/
+def rmRows : List (Int × List (Int × Int) × Nat × Int × Int × Int) :=
+  [(2, [(3, 3), (2, 4), (-3, 2)], 3, 14, 504, 6),
+   (3, [(2, 4), (0, 3), (-1, 0)], 3, 11, 3564, 18),
+   (5, [(-1, 1), (2, 1), (-4, 1)], 2, 55, 220, 2),
+   (6, [(-3, 2), (0, 3), (-4, 0)], 2, 15, 77760, 72),
+   (7, [(0, 2), (3, 3), (-1, 0)], 7, 6, 10584, 42)]
+def normE (e : Int) (ab : Int × Int) : Int := ab.1 * ab.1 - e * ab.2 * ab.2
+/-- The sign of a + b sqrt e at s_1 (sqrt e > 0), by integer comparison. -/
+def posS1 (e : Int) (ab : Int × Int) : Bool :=
+  let a := ab.1; let b := ab.2
+  if a ≥ 0 && b ≥ 0 then (a > 0 || b > 0)
+  else if a ≤ 0 && b ≤ 0 then false
+  else if a > 0 then a * a > e * b * b else e * b * b > a * a
+def posS2 (e : Int) (ab : Int × Int) : Bool := posS1 e (ab.1, -ab.2)
+/-- The Gram matrix of Tr<alpha> in the basis 1, sqrt e, and the change of basis
+v_2 = (-b e, a), which diagonalises it to <2a, 2 a e N(alpha)> when a != 0. -/
+def gramTr (e : Int) (ab : Int × Int) : Int × Int × Int := (2 * ab.1, 2 * ab.2 * e, 2 * ab.1 * e)
+def diagTr (e : Int) (ab : Int × Int) : List Int :=
+  if ab.1 == 0 then [1, -1] else [2 * ab.1, 2 * ab.1 * e * normE e ab]
+def diagT (e : Int) (al : List (Int × Int)) : List Int := (al.map (diagTr e)).foldr (· ++ ·) []
+
+theorem rmopen_gram :
+    rmRows.all (fun r => r.2.1.all (fun ab =>
+      let g := gramTr r.1 ab
+      -- determinant 4 e N(alpha)
+      g.1 * g.2.2 - g.2.1 * g.2.1 == 4 * r.1 * normE r.1 ab &&
+      -- q(v_2) = 2 a e N(alpha) and b(v_1, v_2) = 0 for v_1 = (1,0), v_2 = (-b e, a)
+      g.1 * (ab.2 * r.1) * (ab.2 * r.1) - 2 * g.2.1 * (ab.2 * r.1) * ab.1 + g.2.2 * ab.1 * ab.1
+        == 2 * ab.1 * r.1 * normE r.1 ab &&
+      g.1 * (-(ab.2 * r.1)) + g.2.1 * ab.1 == 0)) = true := by decide
+
+theorem rmopen_signatures :
+    rmRows.all (fun r => match r.2.1 with
+      | [x, y, z] => posS1 r.1 x && !posS2 r.1 x && posS1 r.1 y && !posS2 r.1 y &&
+          !posS1 r.1 z && !posS2 r.1 z && normE r.1 x < 0 && normE r.1 y < 0 && normE r.1 z > 0
+      | _ => false) = true := by decide
+
+/-- d = e N(alpha_1 alpha_2 alpha_3) = (d mod squares) * f^2, and -d is a square in Q_p. -/
+theorem rmopen_discriminants :
+    rmRows.all (fun r =>
+      r.1 * (r.2.1.map (normE r.1)).foldl (· * ·) 1 == r.2.2.2.2.1 &&
+      r.2.2.2.2.1 == r.2.2.2.1 * r.2.2.2.2.2 * r.2.2.2.2.2 &&
+      unitSquare r.2.2.1 (-r.2.2.2.1)) = true := by decide
+
+/-- At the prime p of each row the Hasse invariants of T and of U^3 differ, so T_p is not
+hyperbolic and T has Witt index one (Corollary rmopen, Appendix app:calc). -/
+theorem rmopen_hasse :
+    rmRows.all (fun r => hasseInv r.2.2.1 (diagT r.1 r.2.1) != hasseInv r.2.2.1 U3) = true := by
+  decide
+
+/-- Lemma witt(ii): the witnesses T = U^2 + <-x, -y> of Witt index two and their (lambda, m):
+<-x, -y> = <-lambda, -lambda d> up to squares with d = x y, and m = lambda d up to squares. -/
+def wittWitnesses : List (Int × Int × Int × Int × Int) :=
+  -- (x, y, lambda, s, m) with lambda x y = y s^2 = m s^2
+  [(7, 7, 7, 7, 7), (5, 23, 5, 5, 23), (7, 23, 7, 7, 23)]
+theorem witt_witnesses :
+    wittWitnesses.all (fun w =>
+      let x := w.1; let y := w.2.1; let l := w.2.2.1; let s := w.2.2.2.1; let m := w.2.2.2.2
+      -- x = lambda and lambda * (x y) = y * s^2, so <-x,-y> = <-lambda, -lambda d>
+      x == l && l * (x * y) == y * s * s &&
+      -- lambda d = m times a square
+      (l * x * y) % m == 0 && (l * x * y / m) == s * s) = true := by decide
+
+/-- Witt index one witnesses <1,1,-1,-2,-3,-3> (d = 18, -d a square at 3) and
+<1,1,-1,-2,-5,-10> (d = 100, -d a square at 5): there the Hasse invariant differs from that
+of U^3, so condition (d) of Lemma witt(ii) fails. -/
+theorem witt_index_one_examples :
+    let t1 : List Int := [1, 1, -1, -2, -3, -3]
+    let t2 : List Int := [1, 1, -1, -2, -5, -10]
+    t1.foldl (· * ·) 1 = 18 ∧ t2.foldl (· * ·) 1 = 100 ∧
+      unitSquare 3 (-2) = true ∧ hasseInv 3 t1 ≠ hasseInv 3 U3 ∧
+      unitSquare 5 (-1) = true ∧ hasseInv 5 t2 ≠ hasseInv 5 U3 := by decide
+
+/-- A nonzero integer is a square in Q_p: even valuation and square unit part. -/
+def isSqQp (p : Nat) (x : Int) : Bool :=
+  vp p x % 2 == 0 && (let u := up p x; if p == 2 then u % 8 == 1 else legendre p u == 1)
+/-- The 1980 diagonal forms <a, b, -x_1, -x_2, -x_3, -x_4> of Lemma witt(ii), 1 <= a <= b <= 3,
+x_1 <= ... <= x_4 in {1, 2, 3, 5, 6, 7, 10, 23}. -/
+def wittVals : List Int := [1, 2, 3, 5, 6, 7, 10, 23]
+def nondecr4 : List (List Int) :=
+  (List.range 8).foldr (fun i acc => acc ++ ((List.range 8).filter (· ≥ i)).foldr (fun j acc2 =>
+    acc2 ++ ((List.range 8).filter (· ≥ j)).foldr (fun k acc3 =>
+      acc3 ++ ((List.range 8).filter (· ≥ k)).map (fun l =>
+        [wittVals.getD i 0, wittVals.getD j 0, wittVals.getD k 0, wittVals.getD l 0])) []) []) []
+def wittForms : List (List Int) :=
+  ([(1, 1), (1, 2), (1, 3), (2, 2), (2, 3), (3, 3)] : List (Int × Int)).foldr (fun ab acc =>
+    acc ++ nondecr4.map (fun xs => ab.1 :: ab.2 :: xs.map (fun x => -x))) []
+/-- Condition (d) of Lemma witt(ii): T_p and U^3_p are isometric at every prime p at which -d is a
+square; at a prime not dividing 2 and the entries both Hasse invariants are 1, so only
+p in {2, 3, 5, 7, 23} need checking, and there equal rank and discriminant reduce isometry to
+equal Hasse invariants. -/
+def wittTwo (t : List Int) : Bool :=
+  let d := t.foldl (· * ·) 1
+  ([2, 3, 5, 7, 23] : List Nat).all (fun p => !(isSqQp p (-d)) || hasseInv p t == hasseInv p U3)
+theorem witt_count :
+    wittForms.length = 1980 ∧ (wittForms.filter wittTwo).length = 1484 := by decide +kernel
+
+/-- The rank-five example: <1,1,-1,-23,-23> has discriminant -1 up to squares and
+Hasse invariant at 23 different from (-1,-1)_23 = 1, so it does not embed in V_1. -/
+theorem rank_five_example :
+    hasseInv 23 [1, 1, -1, -23, -23] = -1 ∧ hilbert 23 (-1) (-1) = 1 ∧
+      ([1, 1, -1, -23, -23] : List Int).foldl (· * ·) 1 = -(23 * 23) := by decide
+
+/-- Polynomials in t^2 as coefficient lists: product. -/
+def pmulNat (p q : List Nat) : List Nat :=
+  (List.range (p.length + q.length - 1)).map (fun k =>
+    (List.range (k + 1)).foldl (fun acc i => acc + (p.getD i 0) * (q.getD (k - i) 0)) 0)
+/-- Hodge numbers of Z_K and Z_K^2 at a very general point (Proposition zkpowers):
+(1 + t^2 + t^4)^3 and (1 + 4t^2 + 10t^4 + 4t^6 + t^8)^3, the second from the partitions in a
+2 x 2 box with weights (dim S_lambda' Q^2)^2 = 1, 4, 1 + 9, 4, 1. -/
+theorem zk_hodge_numbers :
+    pmulNat (pmulNat [1, 1, 1] [1, 1, 1]) [1, 1, 1] = [1, 3, 6, 7, 6, 3, 1] ∧
+    1 + 3 = 4 ∧ 1 + 9 = 10 ∧
+    ((pmulNat (pmulNat [1, 4, 10, 4, 1] [1, 4, 10, 4, 1]) [1, 4, 10, 4, 1]).take 5) = [1, 12, 78, 316, 879] := by
+  decide
+
+/-- Dimensions of B^*(X^a) tensor B^*(Z_K^b) in degrees 4, 6, 8, 10 (Theorem linkall and the
+counts after it): convolution of the Hodge numbers of the factors. -/
+def conv (p q : List Nat) (k : Nat) : Nat :=
+  (List.range (k + 1)).foldl (fun acc i => acc + p.getD i 0 * q.getD (k - i) 0) 0
+theorem product_algebra_counts :
+    let hx := [1, 1, 1, 1, 1]
+    let hx2 := [1, 3, 8, 16, 28]
+    let hz := [1, 3, 6, 7, 6, 3, 1]
+    let hz2 := [1, 12, 78, 316, 879]
+    [conv hx hz 2, conv hx hz 3, conv hx hz 4, conv hx hz 5] = [10, 17, 23, 25] ∧
+    [conv hx2 hz 2, conv hx2 hz 3, conv hx2 hz 4] = [23, 65, 151] ∧
+    [conv hx2 hz2 2, conv hx2 hz2 3] = [122, 662] ∧
+    -- the mixed classes: 20 - 17, 29 - 23, 35 - 25; 26 - 23, 98 - 65, 293 - 151; 134 - 122, 995 - 662
+    [20 - 17, 29 - 23, 35 - 25, 26 - 23, 98 - 65, 293 - 151, 134 - 122, 995 - 662] =
+      [3, 6, 10, 3, 33, 142, 12, 333] := by decide
+
+/-- Theorem tenfold(i): in degree six on X x Z_K the Kunneth component H^2(X) (x) H^4(Z_K)
+carries 9 = 6 + 3 Hodge classes, B^2(X) (x) B^4(Z_K) of dimension 1 * 6 and the F-line F iota'
+of dimension 3; the total in degree six is 9 + 7 + 3 + 1 = 20. -/
+theorem tenfold_count : 1 * 6 + 3 = 9 ∧ 9 + 7 + 3 + 1 = 20 := by decide
+
+/-- Theorem link(iii) and tenfold(ii): b acts on T_{Z,i} by sigma_i(b)^2 and on U_{Z,k} by
+sigma_i(b)^2 sigma_j(b)^2 = N(b)^2 / sigma_k(b)^2; and 2b = (b + 1)^2 - b^2 - 1, so squares
+span F.  Checked as integer identities on the grid [-3, 3]^3. -/
+theorem squares_span :
+    (List.range 7).all (fun i => (List.range 7).all (fun j => (List.range 7).all (fun k =>
+      let b1 : Int := i - 3; let b2 : Int := j - 3; let b3 : Int := k - 3
+      2 * b1 == (b1 + 1) ^ 2 - b1 ^ 2 - 1 &&
+      (b1 * b1) * (b2 * b2) * (b3 * b3) == (b1 * b2 * b3) ^ 2))) = true := by decide
+
+/-- Theorem cmkl: 279 transitive subgroups of S_6 and seven values of |I| give 1953 pairs; the
+CM types of a degree-twelve CM field number 2^6 = 64 = 40 + 24, the types of Weil type for K
+number C(6,3) = 20; the Hodge numbers for Gamma = S_6, A_6 at |I| = 3 exceed those at
+|I| not in {0, 3, 6} by the two Weil classes in degree six; 36, 225, 400 are the Hodge numbers
+of E^6, the squares of 6, 15, 20. -/
+theorem cm_sixfold_counts :
+    279 * 7 = 1953 ∧ 2 ^ 6 = 64 ∧ 40 + 24 = 64 ∧ 2 * 12 = 24 ∧ choose 6 3 = 20 ∧
+    22 - 20 = 2 ∧ [6 * 6, 15 * 15, 20 * 20] = [36, 225, 400] ∧
+    [choose 6 1, choose 6 2, choose 6 3] = [6, 15, 20] := by decide
+
+/-- Theorem eaab(ii) and Theorem cmkl: the type conditions of a conjugate CM type and its
+complement give d_l - d_i - d_j + d_E = 0 for l = 1, 2, 3, whose only solutions have
+d_1 = d_2 = d_3 = d_E; checked on all integer vectors with entries in [-3, 3]. -/
+theorem pohlmann_linear :
+    (List.range 7).all (fun a => (List.range 7).all (fun b => (List.range 7).all (fun c =>
+      (List.range 7).all (fun e =>
+        let d1 : Int := a - 3; let d2 : Int := b - 3; let d3 : Int := c - 3; let dE : Int := e - 3
+        let ok := d1 - d2 - d3 + dE == 0 && d2 - d1 - d3 + dE == 0 && d3 - d1 - d2 + dE == 0
+        !ok || (d1 == dE && d2 == dE && d3 == dE))))) = true := by decide
+
+/-- Split polarisations (Appendix app:calc): the polynomial discriminants of the defining
+sextics of Q(zeta_21)^+, Q(zeta_28)^+, Q(zeta_36)^+ factor as 3^3 7^5, 2^6 7^5, 2^6 3^9, and
+the forms with three negative places number C(6,3) = 20. -/
+theorem sextic_discriminants :
+    (3 : Nat) ^ 3 * 7 ^ 5 = 453789 ∧ (2 : Nat) ^ 6 * 7 ^ 5 = 1075648 ∧
+    (2 : Nat) ^ 6 * 3 ^ 9 = 1259712 ∧ choose 6 3 = 20 := by decide
+
+/-- Proposition noweil(i): the X-degree of a pull-back of a Weil class is r_X = 8 m / [E' : Q]
+with [E' : Q] dividing m, a multiple of 8; and (iii): b_2 = 7, 8 of the Kummer and OG6 types
+leave transcendental rank at most 6, 7 < 9. -/
+theorem noweil_degrees :
+    (List.range 12).all (fun m' => (List.range 12).all (fun f =>
+      (8 * (m' * (f + 1))) / (f + 1) % 8 == 0)) = true ∧ 7 - 1 < 9 ∧ 8 - 1 < 9 := by decide
+
+/-! ## Section 9: Weil classes on E_0^8, the K3 x K3 criterion and the gamma link -/
+
+/-! ### Exterior algebra on bitmask monomials -/
+/-- Number of pairs (i, j) with i in a, j in b, i > j: e_a ∧ e_b = (-1)^this e_(a ∪ b). -/
+def crossings (a b : Nat) (n : Nat) : Nat :=
+  (List.range n).foldl (fun acc j =>
+    if b.testBit j then acc + ((List.range n).filter (fun i => i > j && a.testBit i)).length else acc) 0
+def ewedge (n : Nat) (x y : List (Nat × Int)) : List (Nat × Int) :=
+  x.foldl (fun acc (a, c) => y.foldl (fun acc' (b, d) =>
+    if a &&& b == 0 then
+      (a ||| b, (if crossings a b n % 2 == 0 then 1 else -1) * c * d) :: acc'
+    else acc') acc) []
+def ecoeff (x : List (Nat × Int)) (m : Nat) : Int :=
+  x.foldl (fun acc (a, c) => if a == m then acc + c else acc) 0
+/-- Omega = sum_k a_k ∧ b_k with a_k, b_k the generators 2k, 2k+1. -/
+def omega (m : Nat) : List (Nat × Int) := (List.range m).map (fun k => (3 * 4 ^ k, 1))
+def epow (n : Nat) (x : List (Nat × Int)) : Nat → List (Nat × Int)
+  | 0 => [(0, 1)]
+  | k + 1 => ewedge n (epow n x k) x
+/-- Theorem qmloci(iii): Omega^m = m! a_1 ∧ b_1 ∧ ... ∧ a_m ∧ b_m for m = 1, ..., 4; every other
+monomial has coefficient zero. -/
+theorem omega_power :
+    (List.range 4).all (fun m' =>
+      let m := m' + 1
+      let p := epow (2 * m) (omega m) m
+      ecoeff p (4 ^ m - 1) == (fact m : Int) &&
+        (List.range (4 ^ m - 1)).all (fun s => ecoeff p s == 0)) = true := by decide +kernel
+
+/-! ### Pieces of the convolutions on E_0^8 -/
+/-- A piece zeta = (i^a_1, ..., i^a_4) with a_j in [0, 4) and sum a_j even (prod zeta = +-1). -/
+def pieces8 : List (List Nat) :=
+  (List.range 256).filterMap (fun s =>
+    let a := [s % 4, s / 4 % 4, s / 16 % 4, s / 64 % 4]
+    if a.foldl (· + ·) 0 % 2 == 0 then some a else none)
+/-- prod zeta = 1 (parity 0) or -1 (parity 1). -/
+def par (a : List Nat) : Nat := a.foldl (· + ·) 0 / 2 % 2
+/-- |i^x - i^y|^2 = 0, 2, 4, 2 for x - y = 0, 1, 2, 3 mod 4. -/
+def dsq (x y : Nat) : Nat := [0, 2, 4, 2].getD ((x + 4 - y) % 4) 0
+def diffs (a b : List Nat) : List Nat := (List.range 4).filter (fun j => a.getD j 0 != b.getD j 0)
+def dval (a b : List Nat) : Nat := (diffs a b).foldl (fun acc j => acc * dsq (a.getD j 0) (b.getD j 0)) 1
+/-- Proposition w:prop-equivgroup(ii): for pieces differing in k coordinates, 2^k divides D. -/
+theorem d_divisible :
+    pieces8.length = 128 ∧
+    pieces8.all (fun a => pieces8.all (fun b => dval a b % 2 ^ (diffs a b).length == 0)) = true := by
+  decide +kernel
+/-- Theorem w:thm-equivtwoshift: in the slice graph G_(j, z) every vertex has exactly seven neighbours and
+weighted degree 20 (weights D / 8). -/
+theorem slice_degrees :
+    pieces8.all (fun a => (List.range 4).all (fun j =>
+      let nb := pieces8.filter (fun b => b.getD j 0 == a.getD j 0 && par b != par a &&
+        (diffs a b).length == 3)
+      nb.length == 7 && nb.foldl (fun acc b => acc + dval a b / 8) 0 == 20)) = true := by
+  decide +kernel
+/-- The types tau in {0,1,2}^4 with |tau| = 2: ten of them, of total dimension
+sum 2^#{j : tau_j = 1} = 28; D^2 has dimension 131 * 28 = 3668 and the kernel bound is
+84 + 4 * 4 * 1 + 6 * 16 * 4 = 484 (Proposition w:prop-efourdiagonal(ii)). -/
+def types : List (List Nat) :=
+  (List.range 81).filterMap (fun s =>
+    let t := [s % 3, s / 3 % 3, s / 9 % 3, s / 27 % 3]
+    if t.foldl (· + ·) 0 == 2 then some t else none)
+theorem cupkernel_counts :
+    types.length = 10 ∧
+    types.foldl (fun acc t => acc + 2 ^ (t.filter (· == 1)).length) 0 = 28 ∧
+    131 * 28 = 3668 ∧ 84 + 4 * 4 * 1 + 6 * 16 * 4 = 484 := by decide
+/-- Theorem w:thm-equivtwoshift: the diagonal threshold 84 + 28 * 64 = 1876, the totals
+20 N + (bound_N - 1876) for N = 0, ..., 5, the number 6885 of slice sets with N <= 5, and
+20 * 6 = 120. -/
+theorem twolevel_totals :
+    84 + 28 * 64 = 1876 ∧
+    ((List.range 6).map (fun N => 20 * N + ([3668, 3668, 3632, 3545, 3428, 3311].getD N 0 - 1876))) =
+      [1792, 1812, 1796, 1729, 1632, 1535] ∧
+    (List.range 6).foldl (fun acc k => acc + choose 16 k) 0 = 6885 ∧ 20 * 6 = 120 := by decide
+
+/-! ### The gamma link -/
+def wV : List (List Int) :=
+  [1, -1].flatMap (fun s1 => [1, -1].flatMap (fun s2 => [1, -1].map (fun s3 => [s1, s2, s3, 0, 0, 0, 0])))
+def wD : List (List Int) :=
+  [0, 1, 2].flatMap (fun i => [1, -1].flatMap (fun u => [1, -1].map (fun v =>
+    (List.range 7).map (fun k => if k == i then u else if k == i + 3 then v else 0))))
+def wE : List (List Int) := [[0, 0, 0, 0, 0, 0, 1], [0, 0, 0, 0, 0, 0, -1]]
+def vadd (x y : List Int) : List Int := List.zipWith (· + ·) x y
+def subsets3 : List (List Int) → List (List Int)
+  | [] => []
+  | x :: xs => (subsets2 xs).map (fun p => vadd x p) ++ subsets3 xs
+where
+  subsets2 : List (List Int) → List (List Int)
+    | [] => []
+    | y :: ys => ys.map (fun z => vadd y z) ++ subsets2 ys
+/-- Weights of H^1(X) (x) H^3(Z_K). -/
+def w13 : List (List Int) := wV.flatMap (fun x => (subsets3 wD).map (fun t => vadd x t))
+/-- dim of G-invariants: inclusion-exclusion over weights 0 and 2 on the three SL_2 factors. -/
+def ginv (ws : List (List Int)) (pred : List Int → Bool) : Int :=
+  [0, 1].foldl (fun acc1 u1 => [0, 1].foldl (fun acc2 u2 => [0, 1].foldl (fun acc3 u3 =>
+    acc3 + (if (u1 + u2 + u3) % 2 == 0 then 1 else -1) *
+      ((ws.filter (fun w => w.take 3 == [2 * u1, 2 * u2, 2 * u3] && pred w)).length : Int)) acc2) acc1) 0
+def hodgePred (w : List Int) : Bool :=
+  w.getD 3 0 == w.getD 4 0 && w.getD 4 0 == w.getD 5 0 && w.getD 6 0 == -2 * w.getD 3 0
+/-- Theorem tensordecomp and Theorem gammalink: Hom_G(V, H^3(Z_K)) has dimension 8; there is no Hodge
+class in H^1(X) (x) H^3(Z_K); with two factors H^1(E) the Hodge classes form a plane (the k-line
+of gamma). -/
+theorem gamma_counts :
+    (subsets3 wD).length = 220 ∧ ginv w13 (fun _ => true) = 8 ∧ ginv w13 hodgePred = 0 ∧
+    ginv (w13.flatMap (fun w => wE.flatMap (fun e => wE.map (fun e' => vadd w (vadd e e'))))) hodgePred = 2 := by
+  decide +kernel
+
+/-! ### Exclusion of line-bundle convolutions (Theorem w:thm-uniformexclusion) -/
+/-- Theorem w:thm-nothingentersall, steps between two L's: two pieces L_zeta, L_zeta' of E_0^(2n), n = 3, 4, differ by
+the ratio r = zeta' / zeta, written as exponents r_j in [0, 4) with even sum; they differ in the
+m coordinates where r_j != 0, and prod zeta' = prod zeta exactly when the exponent sum of r is
+divisible by 4. For every nonzero ratio, every Ext degree q in [m, 2n - m] of the parity
+1 + [prod zeta != prod zeta'] is at least 2, so every step between two L's has excess >= 1. -/
+def stepOK (n : Nat) (r : List Nat) : Bool :=
+  let m := (r.filter (· != 0)).length
+  let parity := (1 + r.foldl (· + ·) 0 / 2 % 2) % 2
+  (List.range (2 * n + 1)).all (fun q => !(m ≤ q && q + m ≤ 2 * n && q % 2 == parity) || q ≥ 2)
+def piecesN (n : Nat) : List (List Nat) :=
+  (List.range (4 ^ n)).filterMap (fun s =>
+    let a := (List.range n).map (fun j => s / 4 ^ j % 4)
+    if a.foldl (· + ·) 0 % 2 == 0 then some a else none)
+theorem ll_excess :
+    (piecesN 3).length = 32 ∧ (piecesN 4).length = 128 ∧
+    (piecesN 3).all (fun r => r.all (· == 0) || stepOK 3 r) = true ∧
+    (piecesN 4).all (fun r => r.all (· == 0) || stepOK 4 r) = true := by
+  decide +kernel
+/-- Theorem w:thm-uniformexclusion: the bound r_0 + 1 with r_0 = 7 n^2 - 2 n, i.e. 58 at n = 3 and
+105 at n = 4, against the targets 57 and 104 of Theorem criterion. -/
+theorem uniform_bounds :
+    7 * 3 ^ 2 - 2 * 3 + 1 = 58 ∧ 7 * 4 ^ 2 - 2 * 4 + 1 = 105 ∧ 58 > 57 ∧ 105 > 104 := by decide
+
+/-! ### The K3 x K3 criterion for the Hecke family -/
+/-- Proposition kplus: the generic target R = 46 - 2m for m = 3, ..., 10 and the lower bound 22;
+Corollary fmkernels: a sum of two kernels has Ext^2 >= 44 > 46 - 2m. -/
+theorem kplus_targets :
+    (List.range 8).map (fun i => 46 - 2 * (i + 3)) = [40, 38, 36, 34, 32, 30, 28, 26] ∧
+    (List.range 8).all (fun i => 22 ≤ 46 - 2 * (i + 3) && 44 > 46 - 2 * (i + 3)) = true := by decide
+def isSqfree (e : Nat) : Bool := (List.range (e + 1)).all (fun p => p < 2 || e % (p * p) != 0)
+/-- Proposition euler(iii): for squarefree e in [2, 60] and 3 <= m <= 10, the inequality
+2 m e + 2 <= 46 - 2 m + 2, i.e. m (e + 1) <= 23, holds exactly for e = 2, m <= 7; e = 3, m <= 5;
+e = 5, 6, m = 3. Proposition euler(ii): 12 e - 11 >= 13 for e >= 2. -/
+theorem euler_table :
+    (List.range 59).all (fun e' => let e := e' + 2
+      (List.range 8).all (fun i => let m := i + 3
+        !isSqfree e ||
+          ((m * (e + 1) ≤ 23) ==
+            ((e == 2 && m ≤ 7) || (e == 3 && m ≤ 5) || ((e == 5 || e == 6) && m == 3))))) = true ∧
+    (List.range 59).all (fun e' => 12 * (e' + 2) - 11 ≥ 13) = true := by decide
+/-- Proposition kummergraph: with k = 8 (e - 1) blown-up points, Z.Z = 24 + 24 e - (24 + k) - k
+= 8 e + 16, so dim Ext^2(O_Z, O_Z) = 8 e + 14 + 2 ext^1; for m = 3 the target 40 exceeds 8 e + 14
+at e = 2, 3. -/
+theorem kummer_graph :
+    (List.range 59).all (fun e' => let e := e' + 2; let k := 8 * (e - 1)
+      24 + 24 * e - (24 + k) - k == 8 * e + 16) = true ∧ 8 * 2 + 14 < 40 ∧ 8 * 3 + 14 < 40 := by
+  decide
+
 end HodgeClosure
 
 #print axioms HodgeClosure.hc_from_f2_f3p
@@ -866,3 +1251,30 @@ end HodgeClosure
 #print axioms HodgeClosure.nikulin_conditions
 #print axioms HodgeClosure.cubic_discriminants
 #print axioms HodgeClosure.theta_h_coefficients
+#print axioms HodgeClosure.rmopen_gram
+#print axioms HodgeClosure.rmopen_signatures
+#print axioms HodgeClosure.rmopen_discriminants
+#print axioms HodgeClosure.rmopen_hasse
+#print axioms HodgeClosure.witt_witnesses
+#print axioms HodgeClosure.witt_index_one_examples
+#print axioms HodgeClosure.witt_count
+#print axioms HodgeClosure.rank_five_example
+#print axioms HodgeClosure.zk_hodge_numbers
+#print axioms HodgeClosure.product_algebra_counts
+#print axioms HodgeClosure.tenfold_count
+#print axioms HodgeClosure.squares_span
+#print axioms HodgeClosure.cm_sixfold_counts
+#print axioms HodgeClosure.pohlmann_linear
+#print axioms HodgeClosure.sextic_discriminants
+#print axioms HodgeClosure.noweil_degrees
+#print axioms HodgeClosure.omega_power
+#print axioms HodgeClosure.d_divisible
+#print axioms HodgeClosure.slice_degrees
+#print axioms HodgeClosure.cupkernel_counts
+#print axioms HodgeClosure.twolevel_totals
+#print axioms HodgeClosure.gamma_counts
+#print axioms HodgeClosure.ll_excess
+#print axioms HodgeClosure.uniform_bounds
+#print axioms HodgeClosure.kplus_targets
+#print axioms HodgeClosure.euler_table
+#print axioms HodgeClosure.kummer_graph
