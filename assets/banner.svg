@@ -322,8 +322,8 @@ text{font-family:Georgia,'Times New Roman',serif}
 <circle class="n" cx="971.0" cy="136.7" r="2.1" fill="#e5e7eb" style="animation-delay:3.97s"/>
 <circle class="m" cx="985.0" cy="123.4" r="4" fill="#f59e0b" style="animation-delay:0.86s"/>
 <rect x="250" y="62" width="700" height="176" rx="14" fill="#070b1c" opacity=".8"/>
-<text x="600" y="114" text-anchor="middle" font-size="36" font-weight="700" fill="url(#tt)">Two Abelian Statements</text>
-<text x="600" y="152" text-anchor="middle" font-size="25" fill="#e5e7eb">Equivalent to the Hodge Conjecture</text>
-<text x="600" y="192" text-anchor="middle" font-size="17" fill="#cbd5e1" font-style="italic">HC ⟺ (F2) ∧ (F3′)   ·   the algebraic locus of a flat Hodge class: all of the base, or meagre</text>
+<text x="600" y="114" text-anchor="middle" font-size="36" font-weight="700" fill="url(#tt)">Hodge Classes on</text>
+<text x="600" y="152" text-anchor="middle" font-size="25" fill="#e5e7eb">K3 Powers and Sixfolds</text>
+<text x="600" y="192" text-anchor="middle" font-size="17" fill="#cbd5e1" font-style="italic">K3 surfaces of Picard number ≥ 17   ·   Weil classes on CM sixfolds   ·   HC ⟺ (F2) ∧ (F3′)</text>
 <g><line x1="330" y1="218" x2="870" y2="218" stroke="#475569" stroke-width="1"/><circle cx="330" cy="218" r="4" fill="#34d399"/><circle cx="870" cy="218" r="4" fill="#f472b6"/><rect x="330" y="215" width="540" height="6" rx="3" fill="#7c5cff"><animate attributeName="width" values="0;540" dur="3s" fill="freeze"/></rect></g>
 </svg>
