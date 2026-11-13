@@ -22,4 +22,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ inputs.tag }}
         run: |
-          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TAG: Hodge Classes on K3 Powers and Sixfolds" --notes "Hodge Classes on K3 Powers and Sixfolds. Lean 4 file (90 theorems) and Julia checks (842) for the paper."
+          gh release create "$TAG" --target "$GITHUB_SHA" --title "$TAG: Hodge Classes on K3 Powers and Sixfolds" --notes "Hodge Classes on K3 Powers and Sixfolds. Lean 4 file (99 theorems) and Julia checks (904) for the paper."

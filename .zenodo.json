@@ -14,7 +14,7 @@
       "affiliation": "Formerly, National Taiwan University, Taipei 106319, Taiwan"
     }
   ],
-  "description": "The Hodge conjecture holds on all powers of every K3 surface of Picard number at least seventeen and on a dense union of curves in every family of K3 surfaces of transcendental rank at least eight with real quadratic multiplication. Weil classes are algebraic on every abelian sixfold of Weil type with complex multiplication and on a dense union of special subvarieties of every family of non-split Weil sixfolds. The Hodge conjecture and its two abelian reductions (F2) and (F3') remain open. Lean 4 file (90 theorems) and Julia checks (842).",
+  "description": "The Hodge conjecture holds on all powers of every K3 surface of Picard number at least seventeen and on a dense union of curves in every family of K3 surfaces of transcendental rank at least eight with real quadratic multiplication. Weil classes are algebraic on every abelian sixfold of Weil type with complex multiplication and on a dense union of special subvarieties of every family of non-split Weil sixfolds. The Hodge conjecture and its two abelian reductions (F2) and (F3') remain open. Lean 4 file (99 theorems) and Julia checks (904).",
   "keywords": [
     "Hodge conjecture",
     "Weil classes",

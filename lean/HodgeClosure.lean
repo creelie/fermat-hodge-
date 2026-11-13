@@ -48,10 +48,18 @@ by their labels in the LaTeX source.  What is checked is
              1876 of the equivariant convolutions, the step excess >= 1 of
              Theorem nothingentersall and the bounds 58, 105, the targets
              46 - 2m, the table m (e + 1) <= 23, the self-intersection of
-             the Kummer graph, and the invariant counts of Theorem gamma.
+             the Kummer graph, and the invariant counts of Theorem gamma;
+  Section 10 Markman's route on eightfolds and pieces of any kind: the
+             contraction ranks 1, 6, 6, 1 and 1, 8, 12, 8, 1 on a secant
+             plane, the forced Euler characteristic -2 and the fact that the
+             forced dimensions are Serre-consistent only at n = 3, the values
+             of chi on the integral lattice 16Z alpha + 4Z beta, the case
+             bounds of Theorem w:thm-lagrangian, the 46 edges inside a Koszul
+             cube and the acyclic order of the collapsed configuration.
 
 No Mathlib.  Every theorem is checked by `decide` (by `decide +kernel` in
-Sections 6 and 9 and for witt_count) or by the core lemmas on natural numbers; `native_decide` is not
+Sections 6 and 9 and for witt_count and chi_lattice_min) or by the core lemmas on natural numbers
+and integers and the omega tactic; `native_decide` is not
 used.  The block at the end prints the axioms of each one.
 -/
 
@@ -1186,6 +1194,85 @@ theorem kummer_graph :
       24 + 24 * e - (24 + k) - k == 8 * e + 16) = true ∧ 8 * 2 + 14 < 40 ∧ 8 * 3 + 14 < 40 := by
   decide
 
+/-! ## Section 10: Markman's route on eightfolds and pieces of any kind -/
+
+/-- Binomial coefficients by Pascal's rule. -/
+def binom : Nat → Nat → Nat
+  | _, 0 => 1
+  | 0, _ + 1 => 0
+  | n + 1, k + 1 => binom n k + binom n (k + 1)
+/-- Lemma lem:secantranks: the rank of the contraction of HT^k(X) into a secant class on an abelian n-fold. -/
+def secantRank (n k : Nat) : Nat :=
+  if k == 0 then 1 else if k < n then 2 * binom n k else if k == n then 2 * binom n k - 1 else 0
+/-- Lemma lem:secantranks at n = 3, 4: the ranks 1, 6, 6, 1 and 1, 8, 12, 8, 1; the annihilator in degree two
+has dimension binom(2n, 2) - n(n - 1) = n^2 (9 and 16), and the annihilator in degree one is zero. -/
+theorem secant_ranks :
+    (List.range 4).map (secantRank 3) = [1, 6, 6, 1] ∧
+    (List.range 5).map (secantRank 4) = [1, 8, 12, 8, 1] ∧
+    binom 6 2 - secantRank 3 2 = 3 ^ 2 ∧ binom 8 2 - secantRank 4 2 = 4 ^ 2 ∧
+    binom 6 1 - secantRank 3 1 = 0 ∧ binom 8 1 - secantRank 4 1 = 0 := by decide
+/-- Theorem thm:kunnethfour: the forced dimensions 1, 2n, n(n - 1) of Ext^0, Ext^1, Ext^2 together with Serre
+duality give chi = 1 - 8 + 12 - 8 + 1 = -2 at n = 4 and chi = 1 - 4 + 1 = -2 at n = 2; the contraction rank
+on HH^2 of the product is sum_(a+b=2) rk_a rk_b = 48 at n = 3 and 88 at n = 4. -/
+theorem forced_dims :
+    ((1 : Int) - 8 + 12 - 8 + 1 = -2) ∧ ((1 : Int) - 4 + 1 = -2) ∧
+    1 * 6 + 6 * 6 + 6 * 1 = 48 ∧ 1 * 12 + 8 * 8 + 12 * 1 = 88 := by decide
+/-- Theorem thm:kunnethfour: the forced dimensions are consistent with Serre duality on an n-fold
+(Ext^2 dual to Ext^1 when n = 3) exactly when 2n = n(n - 1), that is n = 3. -/
+theorem serre_only_three (n : Nat) (h : 1 ≤ n) : 2 * n = n * (n - 1) ↔ n = 3 := by
+  constructor
+  · intro e
+    have e' : n * 2 = n * (n - 1) := by rw [Nat.mul_comm]; exact e
+    have := Nat.eq_of_mul_eq_mul_left (by omega) e'
+    omega
+  · intro e; subst e; decide
+/-- Theorem thm:secantintegral: on the lattice 16Z alpha + 4Z beta of E^4, h = e_1 + e_2 + e_3 - e_4, q = 1/4,
+chi(16a alpha + 4b beta) = -(128 a^2 + 32 b^2) lies in 8Z and is never -2. -/
+theorem chi_lattice (a b : Int) :
+    8 ∣ 128 * a ^ 2 + 32 * b ^ 2 ∧ -(128 * a ^ 2 + 32 * b ^ 2) ≠ -2 := by
+  have h : 128 * a ^ 2 + 32 * b ^ 2 = 8 * (16 * a ^ 2 + 4 * b ^ 2) := by omega
+  refine ⟨⟨16 * a ^ 2 + 4 * b ^ 2, h⟩, ?_⟩
+  omega
+/-- Theorem thm:secantintegral, on a box: the least nonzero |chi| on 16Z alpha + 4Z beta with |a|, |b| <= 20 is 32. -/
+theorem chi_lattice_min :
+    (List.range 41).all (fun i => (List.range 41).all (fun j =>
+      let a : Int := i - 20; let b : Int := j - 20
+      (a == 0 && b == 0) || 128 * a * a + 32 * b * b ≥ 32)) = true ∧ 128 * 0 * 0 + 32 * 1 * 1 = 32 := by
+  decide +kernel
+/-- Theorem w:thm-lagrangian: the lower bounds of the cost T in the cases (b)-(e) of the proof, 3n - 1 - l, 2(n - 1) - l,
+3n - 2 - l, 2n - 1 - l and n - 2, are positive for 3 <= n <= 30 and l <= 2n - 3; without P -> P' edges the
+bounds of the cases (b), (d), (e) are positive for l <= 2n - 2. -/
+theorem lagrangian_costs :
+    (List.range 28).all (fun i => let n := i + 3
+      (List.range (2 * n - 2)).all (fun l =>
+        3 * n - 1 > l && 2 * (n - 1) > l && 3 * n - 2 > l && 2 * n - 1 > l && n - 2 > 0) &&
+      (List.range (2 * n - 1)).all (fun l => 3 * n - 1 > l && 3 * n - 2 > l && 2 * n - 1 > l)) = true := by
+  decide
+/-- Number of elements of a subset of {1,2,3} given as a bitmask. -/
+def popc (s : Nat) : Nat := (List.range 3).filter (fun j => s.testBit j) |>.length
+def cubeEdge (s t : Nat) : Bool :=
+  s != t && (let a := popc (s &&& (7 - t)); let b := popc (t &&& (7 - s))
+    a ≤ 1 + a - b && 1 + a ≥ b && 1 + a - b + b ≤ 6)
+/-- Lemma w:lem-cubewindows(a): inside a cube the ordered pairs S != S' of subsets of {1,2,3} whose Ext degree
+q = 1 + |S \ S'| - |S' \ S| lies in the window [|S \ S'|, 6 - |S' \ S|] number 46, and the only edges
+into {1,2,3} come from the three sets of size two, the only edges out of the empty set go to the singletons. -/
+theorem cube_windows :
+    ((List.range 8).map (fun s => ((List.range 8).filter (fun t => cubeEdge s t)).length)).foldl (· + ·) 0 = 46 ∧
+    (List.range 8).filter (fun s => cubeEdge s 7) = [3, 5, 6] ∧
+    (List.range 8).filter (fun t => cubeEdge 0 t) = [1, 2, 4] := by decide
+/-- Lemma w:lem-cubewindows: the 32 cubes zeta = (i^k_1, i^k_2, i^k_3) with k_1 + k_2 + k_3 even, sixteen with
+c = 0 (sum divisible by 4) and sixteen with c = 1. -/
+theorem cube_parities :
+    (piecesN 3).length = 32 ∧
+    ((piecesN 3).filter (fun r => r.foldl (· + ·) 0 % 4 == 0)).length = 16 := by decide
+/-- Theorem w:thm-koszulcubes: in the collapsed configuration the edges C -> A, C -> D, A -> B, D -> B,
+D -> F@3, F@4 -> A and F@4 -> F@3 all increase in the order C, F@4, D, A, F@3, B, so the graph is acyclic. -/
+def collapsedPos : String → Nat
+  | "C" => 0 | "F4" => 1 | "D" => 2 | "A" => 3 | "F3" => 4 | "B" => 5 | _ => 6
+theorem collapsed_acyclic :
+    [("C", "A"), ("C", "D"), ("A", "B"), ("D", "B"), ("D", "F3"), ("F4", "A"), ("F4", "F3")].all
+      (fun (x, y) => collapsedPos x < collapsedPos y) = true := by decide
+
 end HodgeClosure
 
 #print axioms HodgeClosure.hc_from_f2_f3p
@@ -1278,3 +1365,12 @@ end HodgeClosure
 #print axioms HodgeClosure.kplus_targets
 #print axioms HodgeClosure.euler_table
 #print axioms HodgeClosure.kummer_graph
+#print axioms HodgeClosure.secant_ranks
+#print axioms HodgeClosure.forced_dims
+#print axioms HodgeClosure.serre_only_three
+#print axioms HodgeClosure.chi_lattice
+#print axioms HodgeClosure.chi_lattice_min
+#print axioms HodgeClosure.lagrangian_costs
+#print axioms HodgeClosure.cube_windows
+#print axioms HodgeClosure.cube_parities
+#print axioms HodgeClosure.collapsed_acyclic
